@@ -16,8 +16,8 @@ export default function Intro({color}:InterProps ) {
         ${color == "black" ? "bg-neon_black" : ""}
         `
         }>
-            <div className=" w-full h-full flex justify-center items-center">
-                <Image width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
+            <div className=" w-full h-full flex justify-center items-center max-lg:w-[85%]">
+                <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
             </div>
         </div>
     )

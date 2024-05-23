@@ -29,7 +29,7 @@ export default function HeaderComponent() {
     return (
         <header className="fixed top-5 left-0 h-14 text-white z-40 w-full flex justify-center">
             <nav ref={navRef} className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] z-50 items-center max-lg:w-[90%]">
-                <div className="p-4 min-w-19">
+                <div className="p-4 min-w-">
                     <Image width={120} height={120} alt="" src={`/video/anim_default.gif`} />
                 </div>
                 <HeaderItem
