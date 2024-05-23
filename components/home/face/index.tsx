@@ -27,13 +27,13 @@ export default function FaceComponent() {
     };
 
     const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-        if (info.offset.x > 100 && selectedItem > 1) {
+        if (info.offset.x > 30 && selectedItem > 1) {
             setSelectedItem(selectedItem - 1);
-        } else if (info.offset.x < -100 && selectedItem < 3) {
+        } else if (info.offset.x < -30 && selectedItem < 3) {
             setSelectedItem(selectedItem + 1);
-        } else if (info.offset.x > 100 && selectedItem === 1) {
+        } else if (info.offset.x > 30 && selectedItem === 1) {
             setSelectedItem(3); // Se estivermos na primeira página e arrastarmos para a direita, vá para a última página.
-        } else if (info.offset.x < -100 && selectedItem === 3) {
+        } else if (info.offset.x < -30 && selectedItem === 3) {
             setSelectedItem(1); // Se estivermos na última página e arrastarmos para a esquerda, vá para a primeira página.
         }
     };
@@ -61,6 +61,13 @@ export default function FaceComponent() {
                             drag="x"
                             onDragEnd={handleDragEnd}
                             variants={variants}
+                            dragElastic={0.1}
+                            dragConstraints={{
+                                top: 0,
+                                left: -30,
+                                right: 30,
+                                bottom: 0,
+                              }}
                             initial="hidden"
                             animate="visible"
                             exit="exit"
@@ -80,6 +87,13 @@ export default function FaceComponent() {
                             drag="x"
                             onDragEnd={handleDragEnd}
                             variants={variants}
+                            dragElastic={0.1}
+                            dragConstraints={{
+                                top: 0,
+                                left: -30,
+                                right: 30,
+                                bottom: 0,
+                              }}
                             initial="hidden"
                             animate="visible"
                             exit="exit"
@@ -101,7 +115,13 @@ export default function FaceComponent() {
                             variants={variants}
                             initial="hidden"
                             animate="visible"
-                            exit="exit"
+                            dragElastic={0.1}
+                            dragConstraints={{
+                                top: 0,
+                                left: -30,
+                                right: 30,
+                                bottom: 0,
+                              }}
                             transition={{
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
