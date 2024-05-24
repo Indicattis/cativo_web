@@ -15,16 +15,11 @@ export default function PortifolioShowcase({url, theme, wide}: ItemProps) {
     return (
         <AnimatePresence>
             <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className={`relative p-5 flex items-center justify-center
-            ${wide == "sm" ? "h-[100px] w-[200px] pointer-events-none" : ""}
-            ${wide == "md" ? "h-[300px] w-[450px] pointer-events-none" : ""}
-            ${wide == "lg" ? "h-[450px] w-[800px]" : ""}
+            className={`relative p-5 flex items-center justify-center h-[450px] w-[800px] max-lg:w-full
             ${wide == "mobile" ? "h-[600px] w-[412px]" : ""}
             `}>
-                    <div className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black">
+                    <motion.div 
+                    className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black">
                         <div className="bg-dark h-10 p-2 flex justify-between">
                             <div className=" flex">
                                 <IconPointFilled color="#ff0066"></IconPointFilled>
@@ -38,24 +33,17 @@ export default function PortifolioShowcase({url, theme, wide}: ItemProps) {
                             </div>
                         </div>
 
-                            <div className="h-full">
-                            <iframe 
-                                src={url} 
-                                title="Website" 
-                                style={{ 
-                                    width: '100%', 
-                                    height: '100%', 
-                                    border: 'none'
-                                }}
-                            />
+                        <div className="h-full">
+                            <Image src={url} alt="" width={1000} height={1000}/>
                         </div>
-                    </div>
+                    </motion.div>
                     
                     <div className={`absolute top-0   w-full h-[85%] z-[-1] rounded-3xl shadow-2xl shadow-black
-                    ${theme == "neon_green" ? "bg-gradient-to-tr from-neon_green to-neon_green2" : ""}
+                    ${theme == "neon_green2" ? "bg-neon_green2" : ""}
                     ${theme == "neon_red" ? "bg-gradient-to-tr from-neon_red to-neon_pink" : ""}
                     ${theme == "neon_purple" ? "bg-gradient-to-tr from-neon_purple to-neon_blue" : ""}
                     ${theme == "neon_blue" ? "bg-neon_blue" : ""}
+                    ${theme == "neon_green" ? "bg-neon_green" : ""}
                     ${theme == "" ? "bg-dark" : ""}
                     
                     `}></div>

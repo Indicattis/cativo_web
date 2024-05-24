@@ -33,23 +33,44 @@ export default function PortifolioComponent({data}: PortifolioProps) {
                     {data.map((item, index) => (
                         <motion.div
                             key={index}
+                            initial={{opacity: 0, scale: 0}}
+                            animate={{opacity: 1, scale: 1}}
+                            exit={{opacity: 0, scale: 0}}
+                            transition={{
+                                delay: index/5
+                            }}
                             onClick={() => handleClick(item)}
                             className={`relative cursor-pointer p-2 flex items-center justify-center w-[200px] h-[120px]`}
                         >
-                            <div className={`absolute bg-dark w-[90%] h-[90%] rounded-3xl overflow-hidden transition-all shadow-lg shadow-gray 
-                                ${selectedItem == item ? "top-6" : "top-0"}`}>
-                                    <Image width={200} height={120} src={item.logo} alt={`teste`} />
+                            <div className={`absolute bg-dark w-[90%] h-[90%] rounded-3xl overflow-hidden transition-all 
+                                ${selectedItem == item ? "top-0" : "top-3"}`}>
+                                    <Image draggable={false} width={200} height={120} src={item.logo} alt={`teste`} />
                                 </div>
-                            <div className={`absolute w-full h-[93%] rounded-3xl top-2 z-[-1]  bg-${item.theme}`}></div>
+                                {selectedItem == item ? (
+                                    <motion.div 
+                                    initial={{scale: 0}}
+                                    animate={{scale: 1}}
+                                    exit={{scale: 0}}
+                                    className={`absolute w-full h-[93%] rounded-3xl top-2 z-[-1]  shadow-lg shadow-gray bg-${item.theme}`}></motion.div>
+                                ) : ""}
                         </motion.div>
                     ))}
                 </motion.div>
                 
-                <div className="flex items-center justify-center">
-                    {selectedItem && (
-                        <PortifolioShowcase wide="lg" theme={selectedItem.theme} url={selectedItem.url} />
-                    )}
-                    
+                <div className="flex items-center justify-center h-[500px]">
+                    <AnimatePresence>
+                        {selectedItem && (
+                            <motion.div 
+                            key={selectedItem.id}
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0 }}
+                            className="absolute">
+                                <PortifolioShowcase wide="lg" theme={selectedItem.theme} url={selectedItem.url} />
+                            </motion.div>
+
+                        )}
+                    </AnimatePresence>
                 </div>
             </div>
         </section>
