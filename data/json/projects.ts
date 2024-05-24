@@ -5,7 +5,7 @@ const projects_array: ProjectDTO[] = [
     {
         id: 1,
         theme: "neon_green2",
-        url: "",
+        url: `${UNSPLASH_LINK}/`,
         logo: `${UNSPLASH_LINK}/200x120?beauty`
     },
     {
@@ -16,7 +16,7 @@ const projects_array: ProjectDTO[] = [
     },
     {
         id: 3,
-        theme: "neon_blue",
+        theme: "neon_green",
         url: "/img/project/homepage-incbook.png",
         logo: `${UNSPLASH_LINK}/200x120?inc`
     },
@@ -25,6 +25,12 @@ const projects_array: ProjectDTO[] = [
         theme: "neon_purple",
         url: "/img/project/homepage-william.jpg",
         logo: `${UNSPLASH_LINK}/200x120?book`
+    },
+    {
+        id: 4,
+        theme: "neon_pink",
+        url: `${UNSPLASH_LINK}/`,
+        logo: `${UNSPLASH_LINK}/200x120?tree`
     }
 ]
 

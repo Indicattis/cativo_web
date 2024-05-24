@@ -3,10 +3,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { IconMenuDeep } from "@tabler/icons-react";
 import Image from "next/image";
+import { motion } from 'framer-motion';
 
 export default function HeaderComponent() {
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
     const [barPosition, setBarPosition] = useState<{ left: number, width: number }>({ left: 0, width: 0 });
+    const [isScrolled, setIsScrolled] = useState(false);
     const navRef = useRef<HTMLDivElement>(null);
 
     const handleItemClick = (itemName: string, itemRef: HTMLDivElement) => {
@@ -26,8 +28,26 @@ export default function HeaderComponent() {
         }
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <header className="fixed top-5 left-0 h-14 text-white z-40 w-full flex justify-center">
+        <motion.header 
+            className={`fixed left-0 h-14 text-white z-40 w-full flex justify-center transition-all duration-300 ${isScrolled ? 'bg-black shadow-lg top-0' : 'top-5 '}`}
+        >
             <nav ref={navRef} className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] z-50 items-center max-lg:w-[90%]">
                 <div className="p-4 min-w-">
                     <Image width={120} height={120} alt="" src={`/video/anim_default.gif`} />
@@ -60,13 +80,14 @@ export default function HeaderComponent() {
                 <div className="absolute p-5 right-0">
                     <IconMenuDeep />
                 </div>
-                <div
+                <motion.div
                     className="absolute bottom-0 h-1 bg-white transition-all duration-300"
                     style={{ left: barPosition.left, width: barPosition.width }}
                 />
             </nav>
-            <div className="absolute rounded-full border border-gray bg-dark w-full max-w-[1080px] opacity-25 h-full max-lg:w-[90%]"> </div>
-        </header>
+            <motion.div className={`absolute rounded-full border border-gray bg-dark w-full max-w-[1080px]  h-full max-lg:w-[90%]
+            ${isScrolled ? 'opacity-0' : 'opacity-25 '}`} />
+        </motion.header>
     );
 }
 

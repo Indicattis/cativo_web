@@ -45,6 +45,7 @@ export default function PortifolioShowcase({url, theme, wide}: ItemProps) {
                     ${theme == "neon_blue" ? "bg-neon_blue" : ""}
                     ${theme == "neon_green" ? "bg-neon_green" : ""}
                     ${theme == "" ? "bg-dark" : ""}
+                    ${theme == "neon_pink" ? "bg-neon_pink" : ""}
                     
                     `}></div>
                 </motion.div>
