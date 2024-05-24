@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^3.5.0",
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12",
     "framer-motion": "^11.2.6",
     "next": "14.1.0",
     "popmotion": "^11.0.5",

@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-black font-newake tracking-widest uppercase text-white`}>
+      <body className={`bg-gray font-newake tracking-widest uppercase text-white`}>
         {children}</body>
     </html>
   );
