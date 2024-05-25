@@ -20,6 +20,7 @@ export default function PortifolioComponent({data}: PortifolioProps) {
     return (
         <section className="_section relative overflow-hidden mt-10">
             <div className="flex flex-col gap-10 items-center">
+                <h1 className="text-3xl">Explore!</h1>
                 <motion.div
                     drag="x"
                     dragConstraints={{
@@ -41,7 +42,7 @@ export default function PortifolioComponent({data}: PortifolioProps) {
                                 delay: index/5
                             }}
                             onClick={() => handleClick(item)}
-                            className={`relative cursor-pointer p-2 flex items-center justify-center w-[200px] h-[120px]`}
+                            className={`relative cursor-pointer p-2 flex items-center justify-center w-[200px] h-[120px] max-md:w-[120px] max-md:h-[60px]`}
                         >
                             <div className={`absolute bg-dark w-[90%] h-[90%] rounded-3xl overflow-hidden transition-all 
                                 ${selectedItem == item ? "top-0" : "top-3"}`}>
