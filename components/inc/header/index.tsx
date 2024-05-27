@@ -57,6 +57,7 @@ export default function HeaderComponent() {
                 {menu_array.map((item, index) => {
                     return (
                         <HeaderItem
+                        key={index}
                             itemName={item.exhibition}
                             isSelected={selectedItem === item.exhibition}
                             onClick={handleItemClick}
@@ -124,7 +125,9 @@ export default function HeaderComponent() {
                 <div className='w-full flex flex-col gap-3  z-50'>
                     {menu_array.map((item, index) => {
                         return (
-                            <motion.div className={`p-3 
+                            <motion.div 
+                            key={index}
+                            className={`p-3 
                             ${isScrolled ? "" : ""}
                             ${item.color == 'neon_red' && "border border-neon_red"}
                             ${item.color == 'neon_green' && "border border-neon_green"}
