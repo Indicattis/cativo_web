@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import Intro from "./intro";
+import { IconBrandTinder, IconHearts, IconQuestionMark } from "@tabler/icons-react";
 
 export default function FaceComponent() {
     const [selectedItem, setSelectedItem] = useState<number>(1);
@@ -78,7 +79,7 @@ export default function FaceComponent() {
                             }}
                             className={`absolute top-0 left-0 bg-neon_red w-full h-full flex items-center justify-center`}
                         >
-                            <Intro />
+                            Quer namorar comigo Natalia <IconQuestionMark></IconQuestionMark><IconBrandTinder></IconBrandTinder> <IconHearts></IconHearts>
                         </motion.div>
                     )}
                 </AnimatePresence>
