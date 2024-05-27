@@ -36,7 +36,7 @@ export default function PortifolioComponent({ data }: PortifolioProps) {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0 }}
-                transition={{ delay: Math.abs(selectedItemIndex - index) / 5 }}
+                transition={{ delay: 0.1 }} //Math.abs(selectedItemIndex - index) / 5
                 onClick={() => handleItemClick(startIndex + index)}
                 className={`relative cursor-pointer p-2 flex items-center justify-center w-[200px] h-[120px] max-md:w-[120px] max-md:h-[60px]`}
             >
@@ -122,10 +122,10 @@ export default function PortifolioComponent({ data }: PortifolioProps) {
                         {data[selectedItemIndex]?.subimages.map((subimage, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0 }}
-                                transition={{ delay: index / 5 }}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1}}
+                                exit={{ opacity: 0 }}
+                                transition={{ delay: index / 10 }}
                             >
                                 <MobileShowcase key={index} wide="mobile" theme={``} url={subimage} />
                             </motion.div>

@@ -43,7 +43,11 @@ const projects_array: ProjectDTO[] = [
         subimages: [
             `${UNSPLASH_LINK}/350x800?book`,
             `${UNSPLASH_LINK}/350x800?book`,
-            `${UNSPLASH_LINK}/350x800?book`
+            `${UNSPLASH_LINK}/350x800?book`,
+            `${UNSPLASH_LINK}/350x800?book`,
+            `${UNSPLASH_LINK}/350x800?book`,
+            `${UNSPLASH_LINK}/350x800?book`,
+            `${UNSPLASH_LINK}/350x800?book`,
         ]
     },
     {
