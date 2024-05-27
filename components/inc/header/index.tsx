@@ -50,14 +50,14 @@ export default function HeaderComponent() {
         <motion.header 
             className={`fixed left-0 h-14 text-white z-40 w-full flex justify-center transition-all duration-300 ${isScrolled ? 'bg-black shadow-lg top-0' : 'top-5 '}`}
         >
-            <nav ref={navRef} className="relative flex gap-5 px-5 overflow-hidden w-full max-w-[1080px] z-50 items-center max-lg:w-[90%]">
+            <nav ref={navRef} className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] z-50 items-center max-lg:w-[90%]">
                 <div className=" w-full">
                     <Image width={120} height={120} alt="" src={`/video/anim_default.gif`} />
                 </div>
                 {menu_array.map((item, index) => {
                     return (
                         <HeaderItem
-                        key={index}
+                            key={index}
                             itemName={item.exhibition}
                             isSelected={selectedItem === item.exhibition}
                             onClick={handleItemClick}
@@ -100,7 +100,7 @@ export default function HeaderComponent() {
                     style={{ left: barPosition.left, width: barPosition.width }}
                 />
             </nav>
-            <motion.div className={`absolute rounded-full transition-all  w-full max-w-[1080px]  h-full max-lg:w-[90%] ${dropdown ? "opacity-100 bg-black" : "bg-dark"} ${isScrolled ? 'opacity-0' : 'opacity-25 '}`} />
+            <motion.div className={`absolute rounded-full transition-all  w-full max-w-[1080px]  h-full max-lg:w-[90%] ${dropdown ? (isScrolled ? 'opacity-0 bg-black' : "opacity-100 bg-dark") : "bg-transparent"}`} />
             
             <AnimatePresence>
             {dropdown && (
@@ -132,11 +132,11 @@ export default function HeaderComponent() {
                             ${item.color == 'neon_red' && "border border-neon_red"}
                             ${item.color == 'neon_green' && "border border-neon_green"}
                             ${item.color == 'neon_blue' && "border border-neon_blue"}
-                            `}>{item.exhibition}!</motion.div>
+                            `}>{item.exhibition}</motion.div>
                         )
                     })}
                 </div>
-                <div className={`absolute top-0 left-0  w-full transition-all z-0 h-full ${dropdown ? "bg-black" : "bg-transparent"} ${isScrolled ? 'rounded-md' : 'rounded-[30px]'}`}></div>
+                <div className={`absolute top-0 left-0  w-full transition-all z-0 h-full ${dropdown ? (isScrolled ? ' bg-black rounded-md' : " bg-dark rounded-3xl") : "bg-dark opacity-25"}`}></div>
             </motion.div>
                 
             )}
@@ -165,7 +165,7 @@ function HeaderItem({ itemName, isSelected, onClick }: ItemProps) {
         <div
             ref={itemRef}
             onClick={handleClick}
-            className={`cursor-pointer mt-1 max-lg:hidden ${isSelected ? 'text-white' : 'text-zinc-400 hover:text-white'}`}
+            className={`cursor-pointer mr-10 mt-1 max-lg:hidden ${isSelected ? 'text-white' : 'text-zinc-400 hover:text-white'}`}
         >
             <h3>{itemName}</h3>
         </div>

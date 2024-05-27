@@ -28,7 +28,7 @@ export default function FaceComponent() {
 
     const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
         const dragThreshold = 30; // Ajuste o limiar de arrasto conforme necessário
-        const numItems = 4; // Número total de itens
+        const numItems = 3; // Número total de itens
         if (info.offset.x > dragThreshold && selectedItem > 1) {
             setSelectedItem(selectedItem - 1);
         } else if (info.offset.x < -dragThreshold && selectedItem < numItems) {
@@ -59,32 +59,6 @@ export default function FaceComponent() {
                 <AnimatePresence>
                     {selectedItem === 1 && (
                         <motion.div
-                            key="box1"
-                            drag="x"
-                            onDragEnd={handleDragEnd}
-                            variants={variants}
-                            dragElastic={0.1}
-                            dragConstraints={{
-                                top: 0,
-                                left: -30,
-                                right: 30,
-                                bottom: 0,
-                              }}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                            transition={{
-                                x: { type: "spring", stiffness: 600, damping: 50 },
-                            }}
-                            className={`absolute top-0 left-0 bg-black w-full h-full flex items-center justify-center ${selectedItem === 1 ? "z-50" : "z-0"}`}
-                        >
-                            <Intro />
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {selectedItem === 2 && (
-                        <motion.div
                             key="box2"
                             drag="x"
                             onDragEnd={handleDragEnd}
@@ -102,7 +76,33 @@ export default function FaceComponent() {
                             transition={{
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
-                            className={`absolute top-0 left-0 bg-neon_red w-full h-full flex items-center justify-center ${selectedItem === 2 ? "z-50" : "z-0"}`}
+                            className={`absolute top-0 left-0 bg-neon_red w-full h-full flex items-center justify-center`}
+                        >
+                            <Intro />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+                <AnimatePresence>
+                    {selectedItem === 2 && (
+                        <motion.div
+                            key="box3"
+                            drag="x"
+                            onDragEnd={handleDragEnd}
+                            variants={variants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            dragElastic={0.1}
+                            dragConstraints={{
+                                top: 0,
+                                left: -30,
+                                right: 30,
+                                bottom: 0,
+                              }}
+                            transition={{
+                                x: { type: "spring", stiffness: 600, damping: 50 },
+                            }}
+                            className={`absolute top-0 left-0 bg-neon_purple w-full h-full flex items-center justify-center`}
                         >
                             <Intro />
                         </motion.div>
@@ -128,33 +128,7 @@ export default function FaceComponent() {
                             transition={{
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
-                            className={`absolute top-0 left-0 bg-neon_purple w-full h-full flex items-center justify-center ${selectedItem === 3 ? "z-50" : "z-0"}`}
-                        >
-                            <Intro />
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {selectedItem === 4 && (
-                        <motion.div
-                            key="box3"
-                            drag="x"
-                            onDragEnd={handleDragEnd}
-                            variants={variants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                            dragElastic={0.1}
-                            dragConstraints={{
-                                top: 0,
-                                left: -30,
-                                right: 30,
-                                bottom: 0,
-                              }}
-                            transition={{
-                                x: { type: "spring", stiffness: 600, damping: 50 },
-                            }}
-                            className={`absolute top-0 left-0 bg-neon_pink2 w-full h-full flex items-center justify-center ${selectedItem === 4 ? "z-50" : "z-0"}`}
+                            className={`absolute top-0 left-0 bg-neon_pink2 w-full h-full flex items-center justify-center`}
                         >
                             <Intro />
                         </motion.div>
@@ -176,11 +150,6 @@ export default function FaceComponent() {
                         <FaceControllers
                             itemName={3}
                             isSelected={selectedItem === 3}
-                            onClick={handleItemClick}
-                        />
-                        <FaceControllers
-                            itemName={4}
-                            isSelected={selectedItem === 4}
                             onClick={handleItemClick}
                         />
                     </div>

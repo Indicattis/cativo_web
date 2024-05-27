@@ -4,7 +4,8 @@ import { UNSPLASH_LINK } from "../config";
 const projects_array: ProjectDTO[] = [
     {
         id: 1,
-        theme: "neon_green2",
+        name: "Portifólio",
+        theme: "neon_purple",
         url: `${UNSPLASH_LINK}/1200x1200?beauty`,
         logo: `${UNSPLASH_LINK}/200x120?beauty`,
         subimages: [
@@ -15,18 +16,8 @@ const projects_array: ProjectDTO[] = [
     },
     {
         id: 2,
+        name: "Blog",
         theme: "neon_red",
-        url: `${UNSPLASH_LINK}/1200x1200?barber`,
-        logo: `${UNSPLASH_LINK}/200x120?barber`,
-        subimages: [
-            `${UNSPLASH_LINK}/350x800?barber`,
-            `${UNSPLASH_LINK}/350x800?barber`,
-            `${UNSPLASH_LINK}/350x800?barber`
-        ]
-    },
-    {
-        id: 3,
-        theme: "neon_green",
         url: `${UNSPLASH_LINK}/1200x1200?inc`,
         logo: `${UNSPLASH_LINK}/200x120?inc`,
         subimages: [
@@ -36,22 +27,24 @@ const projects_array: ProjectDTO[] = [
         ]
     },
     {
-        id: 4,
-        theme: "neon_purple",
-        url: `${UNSPLASH_LINK}/1200x1200?book`,
+        id: 3,
+        name: "Landing Page",
+        theme: "neon_blue",
+        url: `/img/project/landing_page_template.png`,
         logo: `${UNSPLASH_LINK}/200x120?book`,
         subimages: [
-            `${UNSPLASH_LINK}/350x800?book`,
-            `${UNSPLASH_LINK}/350x800?book`,
-            `${UNSPLASH_LINK}/350x800?book`,
-            `${UNSPLASH_LINK}/350x800?book`,
-            `${UNSPLASH_LINK}/350x800?book`,
-            `${UNSPLASH_LINK}/350x800?book`,
-            `${UNSPLASH_LINK}/350x800?book`,
+            `/img/project/landing_page_template.png`,
+            `/img/project/landing_page_template.png`,
+            `/img/project/landing_page_template.png`,
+            `/img/project/landing_page_template.png`,
+            `/img/project/landing_page_template.png`,
+            `/img/project/landing_page_template.png`,
+            `/img/project/landing_page_template.png`,
         ]
     },
     {
-        id: 5, // Note: corrected the duplicate id
+        id: 4, // Note: corrected the duplicate id
+        name: "Negócios",
         theme: "neon_pink",
         url: `${UNSPLASH_LINK}/1200x1200?tree`,
         logo: `${UNSPLASH_LINK}/200x120?tree`,
