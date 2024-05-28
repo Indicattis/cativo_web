@@ -79,8 +79,7 @@ export default function FaceComponent() {
                             }}
                             className={`absolute top-0 left-0 bg-neon_red w-full h-full flex items-center justify-center`}
                         >
-                            Quer namorar comigo Natalia <IconQuestionMark></IconQuestionMark><IconBrandTinder></IconBrandTinder> <IconHearts></IconHearts> <br />
-                            
+                            <Intro />
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -106,11 +105,7 @@ export default function FaceComponent() {
                             }}
                             className={`absolute top-0 left-0 bg-neon_purple w-full h-full flex items-center justify-center`}
                         >
-                            <iframe className='video h-full w-full'
-                                title='Youtube player'
-                                sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
-                                src={`https://www.youtube.com/watch?v=abR--H5EzZg`}>
-                        </iframe>
+                            <Intro />
                         </motion.div>
                     )}
                 </AnimatePresence>
