@@ -108,9 +108,9 @@ export default function HeaderComponent() {
             initial={{ height: 0, opacity: 0}} 
             animate={{ height: 500, opacity: 1}} 
             exit={{ height: 0, opacity: 0}}
-            className={`absolute text-white top-[120%] w-full max-w-[1080px] hidden flex-col gap-5 max-lg:w-[90%] overflow-hidden max-lg:flex`}>
+            className={`absolute text-white top-[120%] w-full max-w-[1080px] hidden flex-col gap-5 max-lg:w-[90%] max-lg:flex`}>
                 <motion.div
-                    className={`cursor-pointer z-50 flex justify-between bg-dark p-5 ${dropdown ? (isScrolled ? 'rounded-t-md' : "rounded-t-3xl") : ""}`}
+                    className={`cursor-pointer z-50 flex justify-between  p-5 ${dropdown ? (isScrolled ? 'opacity-100 bg-dark rounded-t-md' : "opacity-100 bg-dark rounded-t-3xl") : "bg-transparent"}`}
                     onClick={() => setDropdown(false)}
                     key="icon-x"
                     initial={{y:-100}}
@@ -140,17 +140,17 @@ export default function HeaderComponent() {
 
                                 <motion.div 
                                 key={index}
-                                className={`absolute  w-full h-full bg-dark p-3  rounded text-white f text-sm  capitalize font-bold  z-[9999] flex gap-3 items-center
+                                className={`absolute left-1 w-[99%] h-full bg-gray p-3  rounded text-white f text-sm  capitalize   z-[9999] flex gap-3 items-center
                                 ${isScrolled ? "" : ""}
                                 `}>
-                                    <IconHome/>
+                                    
                                     <span className='mt-1'>
                                         {item.exhibition}
                                     </span>
                                 </motion.div>
                                 <motion.div
                                 key={index}
-                                className={`absolute hidden bottom-0 left-0 h-1 w-full z-10 rounded 
+                                className={`absolute bottom-0 left-0 h-full w-1 z-10 rounded 
                                 ${isScrolled ? "shadow-md" : ""}
                                 ${item.color == 'neon_red' && "bg-neon_red shadow-neon_red"}
                                 ${item.color == 'neon_green' && "bg-neon_green shadow-neon_green"}
@@ -165,21 +165,21 @@ export default function HeaderComponent() {
                         )
                     })}
                 </div>
-                <div className={`absolute top-0 left-0  w-full transition-all z-10 h-full ${dropdown ? (isScrolled ? ' bg-dark rounded-md' : " bg-gray rounded-3xl") : "bg-dark opacity-25"}`}></div>
+                <div className={`absolute top-0 left-0  w-full transition-all z-[5] h-full ${dropdown ? (isScrolled ? 'opacity-100 bg-dark rounded-lg shadow-xl shadow-black' : "opacity-100 bg-dark rounded-3xl") : "bg-gray"}`}></div>
             </motion.div>
                 
             )}
             </AnimatePresence>
-            <motion.div
+            {/* <motion.div
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             transition={{
                 x: { type: "spring", stiffness: 600, damping: 50 },
             }}
-            className={`${!dropdown ? "hidden" : "flex"} fixed top-0 z-0 left-0 bg-[#00000079] h-full w-full`} onClick={() => setDropdown(false)}>
+            className={`${!dropdown ? "hidden" : "flex"} fixed top-0 z-0 left-0 bg-[#25252598] h-full w-full`} onClick={() => setDropdown(false)}>
 
-            </motion.div>
+            </motion.div> */}
         </motion.header>
     );
 }

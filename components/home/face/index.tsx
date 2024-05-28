@@ -12,19 +12,6 @@ export default function FaceComponent() {
 
     const handleItemClick = (itemName: number, itemRef: HTMLDivElement) => {
         setSelectedItem(itemName);
-        updateBarPosition(itemRef);
-    };
-
-    const updateBarPosition = (itemRef: HTMLDivElement) => {
-        const navElement = navRef.current;
-        if (navElement && itemRef) {
-            const navRect = navElement.getBoundingClientRect();
-            const itemRect = itemRef.getBoundingClientRect();
-            setBarPosition({
-                left: itemRect.left - navRect.left,
-                width: itemRect.width,
-            });
-        }
     };
 
     const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
