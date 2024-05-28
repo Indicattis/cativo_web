@@ -128,7 +128,7 @@ export default function DesignComponent ({ data }: DesignProps) {
                                 {selectedItemIndex >= 0
                                 ? data[selectedItemIndex]?.subimages.map((subimage, index) => (
                                     <motion.div 
-                                    
+                                    key={index}
                                     className="relative transition-all  overflow-hidden max-w-[400px]  flex justify-center shadow-lg shadow-dark hover:shadow-none hover:scale-95 cursor-pointer"
                                     >
                                         <div>
