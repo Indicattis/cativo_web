@@ -127,6 +127,7 @@ export default function HeaderComponent() {
                     {menu_array.map((item, index) => {
                         return (
                             <motion.div 
+                            key={index}
                             initial={{y:-100, opacity: 0}}
                             animate={{ y:0, opacity:1}}
                             exit={{y:-100, opacity:0}}
