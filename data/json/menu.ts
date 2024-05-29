@@ -5,22 +5,22 @@ const menu_array: MenuDTO[] = [
         {
             id: 1,
             exhibition: "Início",
-            color: "neon_red"
+            theme: "neon_red"
         },
         {
             id: 2,
             exhibition: "Portifólio",
-            color: "neon_blue"
+            theme: "neon_blue"
         },
         {
             id: 3,
             exhibition: "Sobre",
-            color: "neon_green2"
+            theme: "neon_green2"
         },
         {
             id: 4,
             exhibition: "Ajuda",
-            color: "neon_purple"
+            theme: "neon_purple"
         },
 ]
 

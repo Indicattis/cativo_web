@@ -4,7 +4,7 @@ import { UNSPLASH_LINK } from "../config";
 const designs_array: DesignDTO[] = [
     {
         id: 1,
-        name: "Rebranding",
+        exhibition: "Rebranding",
         theme: "neon_purple",
         url: `/img/design/banner.jpg`,
         logo: `${UNSPLASH_LINK}/200x120?rebranding`,
@@ -19,7 +19,7 @@ const designs_array: DesignDTO[] = [
     },
     {
         id: 2,
-        name: "Cartão de visita",
+        exhibition: "Cartão de visita",
         theme: "neon_red",
         url: `/img/design/banner.jpg`,
         logo: `${UNSPLASH_LINK}/200x120?card`,
@@ -31,7 +31,7 @@ const designs_array: DesignDTO[] = [
     },
     {
         id: 3,
-        name: "Logomarca",
+        exhibition: "Logomarca",
         theme: "neon_blue",
         url: `/img/design/banner.jpg`,
         logo: `${UNSPLASH_LINK}/200x120?landing_page`,
@@ -46,7 +46,7 @@ const designs_array: DesignDTO[] = [
     },
     {
         id: 4, // Note: corrected the duplicate id
-        name: "Banner",
+        exhibition: "Banner",
         theme: "neon_pink",
         url: `/img/design/banner_2.jpg`,
         logo: `${UNSPLASH_LINK}/200x120?banner`,
@@ -62,7 +62,7 @@ const designs_array: DesignDTO[] = [
     },
     {
         id: 5, // Note: corrected the duplicate id
-        name: "Post",
+        exhibition: "Post",
         theme: "neon_green2",
         url: `/img/design/banner.jpg`,
         logo: `${UNSPLASH_LINK}/200x120?smartphone`,
@@ -77,7 +77,7 @@ const designs_array: DesignDTO[] = [
     },
     {
         id: 6, // Note: corrected the duplicate id
-        name: "Outfit",
+        exhibition: "Outfit",
         theme: "neon_green",
         url: `/img/design/banner.jpg`,
         logo: `${UNSPLASH_LINK}/200x120?smartphone`,

@@ -1,6 +1,6 @@
 type DesignDTO = {
     id?: number,
-    name?: string,
+    exhibition?: string,
     url: string
     theme: string
     logo: string
