@@ -24,9 +24,9 @@ const designs_array: DesignDTO[] = [
         url: `/img/design/banner.jpg`,
         logo: `${UNSPLASH_LINK}/200x120?card`,
         subimages: [
-            `/img/design/card_example_01.jpg`,
-            `/img/design/card_example_02.jpg`,
-            `/img/design/card_example_03.jpg`,
+            `/img/design/card_example_04.jpg`,
+            `/img/design/card_example_04.jpg`,
+            `/img/design/card_example_04.jpg`,
         ]
     },
     {
@@ -48,7 +48,7 @@ const designs_array: DesignDTO[] = [
         id: 4, // Note: corrected the duplicate id
         name: "Banner",
         theme: "neon_pink",
-        url: `/img/design/banner.jpg`,
+        url: `/img/design/banner_2.jpg`,
         logo: `${UNSPLASH_LINK}/200x120?banner`,
         subimages: [
             `/img/design/banner_example_04.jpg`,

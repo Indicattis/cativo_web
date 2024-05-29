@@ -80,7 +80,7 @@ export default function PortifolioComponent({ data }: PortifolioProps) {
     <section className="_section relative overflow-hidden mt-10">
       <div className="flex flex-col gap-10 items-center w-full">
         <div className="flex flex-col items-center">
-          <h1 className="text-3xl">Explore!</h1>
+          <h1 className="text-3xl">Explore</h1>
           <span className="text-base text-zinc-400 normal-case tracking-normal font-poppins">
             Escolha o melhor pra você aqui
           </span>

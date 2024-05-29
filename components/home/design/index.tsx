@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import { useState } from "react";
-import { IconBrandAdobe } from "@tabler/icons-react";
+import { IconBrandAdobe, IconNotebook } from "@tabler/icons-react";
 import PortifolioShowcase from "../portifolio/showcase";
 import Intro from "../face/intro";
 
@@ -64,7 +64,7 @@ export default function DesignComponent({ data }: DesignProps) {
           }`}
         >
           {/* <Image draggable={false} width={30} color="#ffffff" height={120} src={item.logo} alt={`teste`} /> */}
-          <IconBrandAdobe />
+          <IconNotebook />
           <div
             className={`transition-all mt-1 max-md:text-xs  max-md:hidden ${
               selectedItemIndex === index ? "text-white" : "text-zinc-400"
@@ -75,7 +75,7 @@ export default function DesignComponent({ data }: DesignProps) {
         </div>
         {selectedItemIndex === index && (
           <AnimatePresence>
-            <motion.div
+            {/* <motion.div
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -95,7 +95,7 @@ export default function DesignComponent({ data }: DesignProps) {
                   ? "bg-neon_pink"
                   : ""
               }`}
-            />
+            /> */}
             <motion.div
               key={index}
               initial={{ width: 0 }}
@@ -126,13 +126,13 @@ export default function DesignComponent({ data }: DesignProps) {
     <section className="_section relative overflow-hidden mt-10 w-full">
       <div className="flex flex-col items-center w-full  ">
         <div className="flex flex-col items-center z-30">
-          <h1 className="text-3xl">Studio!</h1>
+          <h1 className="text-3xl">Studio</h1>
           <span className="text-base text-zinc-400 normal-case tracking-normal font-poppins">
             O melhor para sua identidade visual
           </span>
         </div>
         <div className="relative flex mt-10 w-full">
-          <div className=" w-full h-[100px] relative  overflow-hidden">
+          <div className=" w-full h-[80px] relative">
             <AnimatePresence>
               {selectedItemIndex === 0 && (
                 <motion.div
@@ -153,11 +153,12 @@ export default function DesignComponent({ data }: DesignProps) {
                   transition={{
                     x: { type: "spring", stiffness: 600, damping: 50 },
                   }}
-                  className={`absolute top-0 left-0  w-full h-full flex items-center justify-center bg-dark`}
+                  className={`absolute top-0 left-0  w-full h-full flex items-center justify-center `}
                 >
-                <div className="relative overflow-hidden flex items-end justify-center w-full">
-                  {data[selectedItemIndex].name}
-                </div>
+                  <div className="relative overflow-hidden flex items-end justify-center w-full z-30 text-3xl">
+                    {data[selectedItemIndex].name}
+                  </div>
+                  <div className={`absolute top-0 h-full w-full bg-${data[selectedItemIndex].theme}`}></div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -181,11 +182,12 @@ export default function DesignComponent({ data }: DesignProps) {
                   transition={{
                     x: { type: "spring", stiffness: 600, damping: 50 },
                   }}
-                  className={`absolute top-0 left-0  w-full h-full flex items-center justify-center bg-dark`}
+                  className={`absolute top-0 left-0  w-full h-full flex items-center justify-center `}
                 >
-                <div className="relative overflow-hidden flex items-end justify-center w-full">
-                  {data[selectedItemIndex].name}
-                </div>
+                  <div className="relative overflow-hidden flex items-end justify-center w-full z-30 text-3xl">
+                    {data[selectedItemIndex].name}
+                  </div>
+                  <div className={`absolute top-0 h-full w-full bg-${data[selectedItemIndex].theme}`}></div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -209,11 +211,12 @@ export default function DesignComponent({ data }: DesignProps) {
                   transition={{
                     x: { type: "spring", stiffness: 600, damping: 50 },
                   }}
-                  className={`absolute top-0 left-0  w-full h-full flex items-center justify-center bg-dark`}
+                  className={`absolute top-0 left-0  w-full h-full flex items-center justify-center `}
                 >
-                  <div className="relative overflow-hidden flex items-end justify-center w-full">
-                  {data[selectedItemIndex].name}
+                  <div className="relative overflow-hidden flex items-end justify-center w-full z-30 text-3xl">
+                    {data[selectedItemIndex].name}
                   </div>
+                  <div className={`absolute top-0 h-full w-full bg-${data[selectedItemIndex].theme}`}></div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -237,11 +240,12 @@ export default function DesignComponent({ data }: DesignProps) {
                   transition={{
                     x: { type: "spring", stiffness: 600, damping: 50 },
                   }}
-                  className={`absolute top-0 left-0 w-full h-full flex items-center justify-center bg-dark`}
+                  className={`absolute top-0 left-0 w-full h-full flex items-center justify-center `}
                 >
-                <div className="relative overflow-hidden flex items-end justify-center w-full">
-                  {data[selectedItemIndex].name}
-                </div>
+                  <div className="relative flex items-end justify-center w-full z-30 text-3xl">
+                    {data[selectedItemIndex].name}
+                  </div>
+                  <div className={`absolute top-0 h-full w-full bg-${data[selectedItemIndex].theme}`}></div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -265,11 +269,12 @@ export default function DesignComponent({ data }: DesignProps) {
                   transition={{
                     x: { type: "spring", stiffness: 600, damping: 50 },
                   }}
-                  className={`absolute top-0 left-0  w-full h-full flex items-center justify-center bg-dark`}
+                  className={`absolute top-0 left-0  w-full h-full flex items-center justify-center `}
                 >
-                <div className="relative overflow-hidden flex items-end justify-center w-full">
-                  {data[selectedItemIndex].name}
-                </div>
+                  <div className="relative overflow-hidden flex items-end justify-center w-full z-30 text-3xl">
+                    {data[selectedItemIndex].name}
+                  </div>
+                  <div className={`absolute top-0 h-full w-full bg-${data[selectedItemIndex].theme}`}></div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -293,18 +298,21 @@ export default function DesignComponent({ data }: DesignProps) {
                   transition={{
                     x: { type: "spring", stiffness: 600, damping: 50 },
                   }}
-                  className={`absolute top-0 left-0 w-full h-full flex items-center justify-center bg-dark`}
+                  className={`absolute top-0 left-0 w-full h-full flex items-center justify-center `}
                 >
-                <div className="relative overflow-hidden flex items-end justify-center w-full">
-                  {data[selectedItemIndex].name}
-                </div>
+                  <div className="relative overflow-hidden flex items-end justify-center w-full z-30 text-3xl">
+                    {data[selectedItemIndex].name}
+                  </div>
+                  <div className={`absolute top-0 h-full w-full bg-${data[selectedItemIndex].theme}`}></div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
         </div>
         <div className={`relative bg-dark w-full text-center h-1`}>
-            <div className={`absolute top-0 left-0 w-full h-full bg-${data[selectedItemIndex].theme}`}></div>
+          <div
+            className={`absolute top-0 left-0 w-full h-full bg-${data[selectedItemIndex].theme}`}
+          ></div>
         </div>
 
         <div className={` w-full  h-[630px] bg-gray`}>
@@ -313,7 +321,7 @@ export default function DesignComponent({ data }: DesignProps) {
               {renderItems()}
             </div>
             <motion.div
-              className={`flex flex-wrap flex-row gap-3 px-2 items-center justify-start  w-full overflow-y-auto`}
+              className={`flex flex-wrap flex-row gap-3 p-2 items-center justify-start  w-full overflow-y-auto`}
             >
               <AnimatePresence>
                 {selectedItemIndex >= 0
