@@ -54,7 +54,7 @@ export default function SliderComponent( {selectedItem, setSelectedItem, numOfSl
         <>
             {data.map((item, index) => {
                 return (
-                    <AnimatePresence>
+                    <AnimatePresence key={index + 1}>
                     {selectedItem === item.id && (
                         <motion.div
                             key={index + 1}

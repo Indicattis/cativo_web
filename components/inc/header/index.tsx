@@ -152,11 +152,11 @@ export default function HeaderComponent() {
                                 key={index}
                                 className={`absolute bottom-0 left-0 h-full w-1 z-10 rounded 
                                 ${isScrolled ? "shadow-md" : ""}
-                                ${item.color == 'neon_red' && "bg-neon_red shadow-neon_red"}
-                                ${item.color == 'neon_green' && "bg-neon_green shadow-neon_green"}
-                                ${item.color == 'neon_green2' && "bg-neon_green2 shadow-neon_green2"}
-                                ${item.color == 'neon_blue' && "bg-neon_blue shadow-neon_blue"}
-                                ${item.color == 'neon_purple' && "bg-neon_purple shadow-neon_purple"}
+                                ${item.theme == 'neon_red' && "bg-neon_red shadow-neon_red"}
+                                ${item.theme == 'neon_green' && "bg-neon_green shadow-neon_green"}
+                                ${item.theme == 'neon_green2' && "bg-neon_green2 shadow-neon_green2"}
+                                ${item.theme == 'neon_blue' && "bg-neon_blue shadow-neon_blue"}
+                                ${item.theme == 'neon_purple' && "bg-neon_purple shadow-neon_purple"}
                                 `}>
 
                                 </motion.div>
@@ -170,7 +170,7 @@ export default function HeaderComponent() {
                 
             )}
             </AnimatePresence>
-            {/* <motion.div
+            <motion.div
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
@@ -179,7 +179,7 @@ export default function HeaderComponent() {
             }}
             className={`${!dropdown ? "hidden" : "flex"} fixed top-0 z-0 left-0 bg-[#25252598] h-full w-full`} onClick={() => setDropdown(false)}>
 
-            </motion.div> */}
+            </motion.div>
         </motion.header>
     );
 }
