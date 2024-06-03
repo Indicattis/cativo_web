@@ -131,7 +131,7 @@ export default function VisualComponent({ visual_data, visual_services }: Visual
             >
               <AnimatePresence>
                 {paginatedData.map((item, index) => (
-                  <VisualItem select={setShowVisualizer} visual_data={item}/>
+                  <VisualItem key={index} select={setShowVisualizer} visual_data={item}/>
                 ))}
               </AnimatePresence>
             </motion.div>
