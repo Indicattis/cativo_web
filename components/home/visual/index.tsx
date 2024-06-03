@@ -5,7 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { IconNotebook, IconPlus } from "@tabler/icons-react";
 import SliderComponent from "@/components/inc/slider";
-import VisualizerComponent from "@/components/inc/visualizer";
+import SliderImagesComponent from "@/components/inc/slider/slider_images";
+import ModalComponent from "@/components/inc/modal";
+import SliderStepsComponent from "@/components/inc/slider/slider_steps";
+import SliderStepsComponentMobile from "@/components/inc/slider/slider_steps/_mobile";
 
 interface VisualProps {
   visual_data: VisualDataDTO[];
@@ -17,6 +20,7 @@ export default function VisualComponent({ visual_data, visual_services }: Visual
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 18;
   const [showVisualizer, setShowVisualizer] = useState<VisualDataDTO>()
+  const [controller, setController] = useState<number>(1);
 
   const renderItems = () => {
     return visual_services.map((item, index) => (
@@ -108,22 +112,28 @@ export default function VisualComponent({ visual_data, visual_services }: Visual
 
   return (
     <section className="_section relative overflow-hidden mt-10 w-full">
-      <div className="flex flex-col items-center w-full h-full">
+      <div className="flex flex-col items-center w-full h-full gap-3">
         <div className="flex flex-col items-center z-30">
           <h1 className="text-3xl">sua marca</h1>
           <span className="text-base text-zinc-400 normal-case tracking-normal font-poppins">
             Crie sua identidade visual
           </span>
         </div>
-        <div className="relative flex mt-10 w-full">
-          <div className=" w-full h-[80px] relative">
-            <SliderComponent showControllers={false} selectedItem={selectedItemIndex} setSelectedItem={setSelectedItemIndex} numOfSliders={6} data={visual_services} />
+        {/* <div className="relative p-5 bg-dark border border-zinc-400 w-20 h-8 rounded-full overflow-hidden flex items-center">
+          <div className={`absolute w-[48%] rounded-full h-[96%] left-0 bg-zinc-400`}></div>
+          <div></div>
+          <div></div>
+        </div> */}
+        <div className="relative flex w-full">
+          <div className=" w-full relative ">
+            <SliderStepsComponent showControllers={false} selectedItem={selectedItemIndex} setSelectedItem={setSelectedItemIndex} numOfSliders={visual_services.length} data={visual_services} />
           </div>
+          
         </div>
 
-        <div className={` w-full bg-dark  max-w-[1080px]`}>
+        <div className={` w-full bg-gray  max-w-[1080px] min-h-screen`}>
           <div className="flex w-full h-full">
-            <div className="flex flex-col h-full bg-dark max-md:w-[60px] max-sm:hidden">
+            <div className="flex flex-col h-full bg-dark max-md:hidden">
               {renderItems()}
             </div>
             <motion.div
@@ -157,7 +167,15 @@ export default function VisualComponent({ visual_data, visual_services }: Visual
         )}
       </div>
       {showVisualizer !== undefined ? (
-        <VisualizerComponent data={showVisualizer} onClose={() => setShowVisualizer(undefined)}/>
+        <ModalComponent onClose={() => setShowVisualizer(undefined)}>
+          <SliderImagesComponent
+                showControllers
+                selectedItem={controller}
+                setSelectedItem={setController}
+                numOfSliders={showVisualizer.subimages.length - 1}
+                data={showVisualizer.subimages}
+              />
+        </ModalComponent>
       ) : null}
     </section>
   );
@@ -176,32 +194,40 @@ function VisualItem({visual_data, select}: VisualItemProps) {
             className="relative h-full transition-all max-w-[400px] justify-center shadow-lg shadow-black cursor-pointer grid grid-cols-2 bg-dark"
             onClick={() => select(visual_data)}>
               <Image
-                className="z-30 w-full object-cover h-full border-2 border-white"
+              draggable={false}
+                className="z-30 w-full object-cover h-full"
                 width={1000}
                 height={1000}
                 alt=""
                 src={visual_data.subimages[0]}
               />
               <Image
-                className="z-30 w-full object-cover h-full border-2 border-white"
+              draggable={false}
+                className="z-30 w-full object-cover h-full"
                 width={1000}
                 height={1000}
                 alt=""
                 src={visual_data.subimages[1]}
               />
               <Image
-                className="z-30 w-full object-cover h-full border-2 border-white"
+              draggable={false}
+                className="z-30 w-full object-cover h-full"
                 width={1000}
                 height={1000}
                 alt=""
                 src={visual_data.subimages[2]}
               />
-              <div className="relative w-full h-full font-poppins flex justify-center visual_datas-center border-2 border-white">
-                <div className="z-30 flex justify-center visual_datas-center ">
-                  <IconPlus/> 
-                  {visual_data.subimages.length >= 4 ? visual_data.subimages.length - 3 : ""}
+              <div className="relative w-full h-full font-poppins flex justify-center">
+                <div className="z-30  flex justify-center items-center">
+                  {visual_data.subimages.length >= 4 ? (
+                    <div className=" flex justify-center items-center">
+                      <IconPlus/> 
+                      {visual_data.subimages.length - 3}
+                    </div>
+                ) : ""}
                 </div>
                   <Image
+              draggable={false}
                   className=" w-full object-cover h-full absolute top-0 opacity-25"
                   width={1000}
                   height={1000}

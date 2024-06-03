@@ -1,3 +1,4 @@
+import { IconPlayerPause } from "@tabler/icons-react";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
@@ -18,9 +19,6 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
 
     const navRef = useRef<HTMLDivElement>(null);
 
-    const handleItemClick = (itemId: number) => {
-        setSelectedItem(itemId);
-    };
 
     const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
         const dragThreshold = 1; // Ajuste o limiar de arrasto conforme necessário
@@ -52,13 +50,14 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
 
 
     return (
-        <div className="h-full">
+        <div className="h-full w-full">
             {data.map((item, index) => {
                 return (
-                    <AnimatePresence key={index + 1}>
+                    <AnimatePresence 
+                    key={item.id}>
                     {selectedItem === index && (
                         <motion.div
-                            key={index + 1}
+                            key={item.id}
                             drag="x"
                             onDragEnd={handleDragEnd}
                             variants={variants}
@@ -75,7 +74,7 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
                             transition={{
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
-                            className={`absolute top-0 left-0 bg-${item.theme} w-full h-full flex items-center justify-center`}
+                            className={`absolute top-0 left-0 w-full h-full flex items-center justify-center`}
                         >
                                 <Image draggable={false} alt="" src={item} width={1000} height={1000}/>
                         </motion.div>
@@ -85,18 +84,29 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
             })}
             {showControllers ? (
             <div className="absolute bottom-0 p-5 flex gap-5 overflow-hidden w-full z-50 items-center justify-center">
-                <div ref={navRef} className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] z-50 items-center justify-center">
-                    {data.map((item, index) => {
-                        return (
-                            <FaceControllers
-                                key={index}
-                                image={item.image}
-                                isSelected={selectedItem === item.id}
-                                onClick={() => handleItemClick(item.id)}
-                            />
-                        )
-                    })}
-                </div>
+                
+            <div ref={navRef} className="flex gap-1 justify-center items-center w-full z-50">
+              {data.map((image: any, index: number) => {
+                return (
+                  <div
+                    key={image}
+                    className={` h-full flex justify-center items-center bg-gray p-1  cursor-pointer ${
+                      index == selectedItem ? "opacity-100" : "opacity-65"
+                    }`}
+                    onClick={() => setSelectedItem(index)}
+                  >
+                    <Image
+                      draggable={false}
+                      alt=""
+                      src={image}
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                );
+              })}
+              
+            </div>
             </div>
             ) : ""}
         </div>
@@ -104,38 +114,3 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
 }
 
 
-
-
-interface ControllerProps {
-    image: string;
-    isSelected: boolean;
-    onClick: (image: string, itemRef: HTMLDivElement) => void;
-}
-
-function FaceControllers({ image, isSelected, onClick }: ControllerProps) {
-    const itemRef = useRef<HTMLDivElement>(null);
-
-    const handleClick = () => {
-        if (itemRef.current) {
-            onClick(image, itemRef.current);
-        }
-    };
-
-    return (
-        <div
-        ref={itemRef}
-        className={`w-full h-full flex justify-center items-center cursor-pointer ${
-            isSelected ? "opacity-100" : "opacity-50"
-        }`}
-        onClick={handleClick}
-      >
-        <Image
-          draggable={false}
-          alt=""
-          src={image}
-          width={100}
-          height={100}
-        />
-      </div>
-    );
-}
