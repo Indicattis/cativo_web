@@ -8,7 +8,6 @@ import SliderComponent from "@/components/inc/slider";
 import SliderImagesComponent from "@/components/inc/slider/slider_images";
 import ModalComponent from "@/components/inc/modal";
 import SliderStepsComponent from "@/components/inc/slider/slider_steps";
-import SliderStepsComponentMobile from "@/components/inc/slider/slider_steps/_mobile";
 
 interface VisualProps {
   visual_data: VisualDataDTO[];
