@@ -140,7 +140,7 @@ export default function HeaderComponent() {
 
                                 <motion.div 
                                 key={index}
-                                className={`absolute left-1 w-[99%] h-full bg-gray p-3  rounded text-white f text-sm  capitalize   z-[9999] flex gap-3 items-center
+                                className={`absolute left-1 w-[99%] h-full  p-3  rounded text-white f text-sm  capitalize   z-[9999] flex gap-3 items-center
                                 ${isScrolled ? "" : ""}
                                 `}>
                                     
