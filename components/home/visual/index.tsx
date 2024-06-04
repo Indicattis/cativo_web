@@ -34,6 +34,7 @@ export default function VisualComponent({
         <div className="relative flex w-full">
           <div className=" w-full relative ">
             <SliderStepsComponent
+              isAutoPlay
               showControllers
               selectedItem={selectedItemIndex}
               setSelectedItem={setSelectedItemIndex}
