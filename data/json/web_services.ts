@@ -7,14 +7,14 @@ const web_serv_array: WebServiceDTO[] = [
         exhibition: "Portifólio",
         theme: "neon_purple",
         url: `/img/project/web_portifolio_template_desktop.png`,
-        logo: `/img/project/web_portifolio_template_desktop.png`,
+        logo: `/img/project/web_portifolio_template_desktop.png`, // AQUI É EXIBIDO WEB MARKET
     },
     {
         id: 2,
         exhibition: "Blog",
         theme: "neon_red",
-        url: `/img/project/web_portifolio_template_desktop.png`,
-        logo: `/img/project/web_portifolio_template_desktop.png`,
+        url: `/img/project/web_blog_template_desktop.jpg`,
+        logo: `/img/project/web_blog_template_desktop.jpg`,
     },
     {
         id: 3,
@@ -27,8 +27,8 @@ const web_serv_array: WebServiceDTO[] = [
         id: 4, // Note: corrected the duplicate id
         exhibition: "Negócios",
         theme: "neon_pink",
-        url: `/img/project/landing_page_template.png`,
-        logo: `/img/project/landing_page_template.png`,
+        url: `/img/project/web_business_template_desktop.jpg`,
+        logo: `/img/project/web_business_template_desktop.jpg`,
     }
 ]
 

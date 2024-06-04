@@ -19,12 +19,12 @@ const web_data_array: WebDataDTO[] = [
     {
         id: 2,
         exhibition: "Blog - 1",
-        url: `${UNSPLASH_LINK}/1200x1200?inc`,
+        url: `/img/project/web_blog_template_desktop.jpg`,
         theme: "neon_red",
         subimages: [
-            `${UNSPLASH_LINK}/350x800?inc`,
-            `${UNSPLASH_LINK}/350x800?inc`,
-            `${UNSPLASH_LINK}/350x800?inc`
+            `/img/project/web_blog_template_desktop.jpg`,
+            `/img/project/web_blog_template_desktop.jpg`,
+            `/img/project/web_blog_template_desktop.jpg`
         ],
         service_id: 2
     },

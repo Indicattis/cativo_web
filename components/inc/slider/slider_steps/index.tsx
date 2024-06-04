@@ -87,6 +87,9 @@ export default function SliderStepsComponent({
         setSelectedItem(selectedItem - 1);
       }
     }
+    
+    setProgress(0);
+    setSeconds(100);
   }
 
 
@@ -117,21 +120,21 @@ export default function SliderStepsComponent({
                   height={2000}
                 />
                 <div
-                  className={`absolute top-2  w-full flex items-center justify-center text-center z-40 pt-1 text-white`}
+                  className={`absolute top-2  w-full flex items-center justify-center text-center z-[1000] pt-1 text-white`}
                 >
                   {item.exhibition}
                 </div>
                 <div className="absolute top-0 opacity-75 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
                 {selectedItem == item.id && (
-                  <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full z-50 overflow-hidden">
+                  <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full z-[1000] overflow-hidden">
                     <div
-                      className={`h-full bg-white z-50 w-full transition-all`}
+                      className={`h-full bg-white z-[1000] w-full transition-all`}
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>
                 )}
                 {selectedItem == item.id && (
-                    <div className="absolute bottom-10 p-3 z-50 w-10 h-10 cursor-pointer"  onClick={() => setAutoPlay(!autoPlay)}>
+                    <div className="absolute bottom-10 p-3 z-[1000] w-10 h-10 cursor-pointer"  onClick={() => setAutoPlay(!autoPlay)}>
                     {autoPlay ? (
                         <IconPlayerPause  />
                     ) : (
@@ -145,7 +148,7 @@ export default function SliderStepsComponent({
         ) : (
           <AnimatePresence>
             <motion.div
-              className={`absolute w-full h-[400px] flex items-center justify-center cursor-pointer transition-all text-2xl`}
+              className={`absolute w-full h-[400px] flex items-center justify-center cursor-pointer transition-all text-xl`}
             >
               <Image
                 className="w-full h-full object-cover"
@@ -156,46 +159,49 @@ export default function SliderStepsComponent({
                 height={2000}
               />
               <div
-                className={`absolute top-2  w-full flex items-center justify-center text-center z-40 pt-1 text-white`}
+                className={`absolute top-0 bg-black  w-full flex items-center justify-center text-center z-[1000] pt-1 text-white`}
               >
                 {data[selectedItem - 1].exhibition}
               </div>
-              <div className="absolute top-0 opacity-75 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
-              <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full z-50 overflow-hidden">
+              <div className="absolute top-0 opacity-100 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
+              <div className="absolute bottom-0 opacity-100 h-16 bg-gradient-to-t from-black to-transparent w-full"></div>
+              <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full z-[1000] overflow-hidden">
                 <div
-                  className={`h-full bg-white z-50 w-full transition-all`}
+                  className={`h-full bg-white z-[1000] w-full transition-all`}
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
             </motion.div>
-                <div className="absolute bottom-10 p-3 z-50 cursor-pointer text-white bg-gradient-to-l to-[#00000059] from-transparent"  onClick={() => setAutoPlay(!autoPlay)}>
+                <div className="absolute bottom-10 p-3 z-[1000] cursor-pointer text-white bg-gradient-to-l to-[#00000059] from-transparent"  onClick={() => setAutoPlay(!autoPlay)}>
                 {autoPlay ? (
                     <IconPlayerPause  />
                 ) : (
                     <IconPlayerPlay />
                 )}
                 </div>
-                <div className="absolute pt-4 bottom-10 right-0 p-3 z-50 cursor-pointer text-white bg-gradient-to-r to-[#00000059] from-transparent"  onClick={() => changeItem("increment")}>
+                <div className="absolute pt-4 bottom-10 right-0 p-3 z-[1000] cursor-pointer text-white bg-gradient-to-r to-[#00000059] from-transparent"  onClick={() => changeItem("increment")}>
                     Próximo
                 </div>
           </AnimatePresence>
         )}
       </div>
       {showControllers && windowWidth < 786 && (
-        <div className="relative grid grid-cols-3 gap-2 p-3 w-full">
+        <div className="relative grid grid-cols-3 w-full bg-dark">
           {data.map((item, index) => {
             return (
               <div
                 key={index}
-                onClick={() => setSelectedItem(item.id)}
-                className={`relative flex text-xs font-poppins capitalize tracking-wide font-bold p-2  h-10 w-18 bg-dark justify-between items-center border-b border-black`}
+                onClick={() => {setSelectedItem(item.id), setProgress(0), setSeconds(100);}}
+                className={`relative flex text-xs p-2  h-10 w-18 bg-dark justify-between items-center ${selectedItem == item.id ? "" : ""}`}
               >
-                {item.exhibition}
+                <span className="z-[1001] ">
+                  {item.exhibition}
+                </span>
                 {selectedItem == item.id && (
-                  <div className="absolute bottom-1 w-[90%] h-1 bg-gray rounded-full z-50 overflow-hidden">
+                  <div className="absolute left-0 w-full h-full bg-gray z-[1000] overflow-hidden">
                     <div
-                      className={`h-full bg-white z-50 w-full transition-all`}
-                      style={{ width: `${progress}%` }}
+                      className={`h-full bg-${item.theme} z-[1000] w-full transition-all opacity-100`}
+                      style={{ width: `${autoPlay ? progress : "100"}%` }}
                     ></div>
                   </div>
                 )}

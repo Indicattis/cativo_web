@@ -11,27 +11,25 @@ interface PortifolioProps {
   web_services: WebServiceDTO[];
 }
 
-export default function WebComponent({ web_services,  web_data}: PortifolioProps) {
+export default function WebComponent({ web_services, web_data }: PortifolioProps) {
   const [selectedItemIndex, setSelectedItemIndex] = useState<number>(1);
-  const [selectedSubItemIndex, setSelectedSubItemIndex] = useState<number>(1);
-  const [filteredWebData, setFilteredData] = useState<WebDataDTO[]>()
-
+  const [selectedSubItemIndex, setSelectedSubItemIndex] = useState<number>(0);
+  const [filteredWebData, setFilteredData] = useState<WebDataDTO[]>([]);
 
   useEffect(() => {
-    const NewData = web_data.filter(
-      (data) => data.service_id === selectedItemIndex
-    );
-    setFilteredData(NewData)
-  }, [selectedItemIndex])
+    const newData = web_data.filter((data) => data.service_id === selectedItemIndex);
+    setFilteredData(newData);
+  }, [selectedItemIndex, web_data]);
 
   return (
     <section className="_section relative overflow-hidden">
       <div className="flex flex-col items-center w-full">
         <div className="relative flex w-full">
-          <div className=" w-full relative ">
+          <div className="w-full relative">
+            {/* Aqui - são exibidos os itens principais do array web_services */}
             <SliderStepsComponent
-              isAutoPlay
-              showControllers={false}
+              isAutoPlay={false}
+              showControllers
               selectedItem={selectedItemIndex}
               setSelectedItem={setSelectedItemIndex}
               numOfSliders={web_services.length}
@@ -40,19 +38,19 @@ export default function WebComponent({ web_services,  web_data}: PortifolioProps
           </div>
         </div>
 
-
         <div className="flex p-5 items-center justify-center min-h-[500px] w-full gap-3 max-md:grid-cols-1">
-            <motion.div
-              className=""
-            >
+          <motion.div className="">
+            {/* Aqui - exibir url do primeiro subitem do item selecionado acima */}
+            {filteredWebData.length > 0 && (
               <PortifolioShowcase
-                url={web_data[selectedItemIndex-1].url}
-                theme={web_services[selectedItemIndex-1].theme}
+                url={filteredWebData[selectedSubItemIndex]?.url}
+                theme={filteredWebData[selectedSubItemIndex]?.theme}
               />
-            </motion.div>
+            )}
+          </motion.div>
         </div>
         <motion.div
-          className={`flex gap-5 p-3 w-full items-center  h-full overflow-x-auto ${
+          className={`flex gap-5 p-3 w-full items-center h-full overflow-x-auto ${
             web_services[selectedItemIndex - 1]?.theme === "neon_green2"
               ? "bg-neon_green2"
               : web_services[selectedItemIndex - 1]?.theme === "neon_red"
@@ -68,22 +66,22 @@ export default function WebComponent({ web_services,  web_data}: PortifolioProps
               : "bg-gray"
           }`}
         >
-          <motion.div
-          className="flex gap-3 w-full px-10" >
-            <AnimatePresence>
-              {filteredWebData && filteredWebData.map((subimage, index) => (
-                    <motion.div
-                      key={index}
-                    >
-                      <MobileShowcase
-                        key={index}
-                        wide="mobile"
-                        theme={``}
-                        url={subimage.subimages[index + 1]}
-                      />
-                    </motion.div>
-                  ))}
-            </AnimatePresence>
+          <motion.div className="flex gap-3 w-full px-10">
+            {/* Aqui - listar as subimagens do subitem selecionado acima*/}
+            {filteredWebData.length > 0 &&
+              filteredWebData[selectedSubItemIndex]?.subimages.map((subimage, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}>
+                  <MobileShowcase
+                    wide="mobile"
+                    theme={filteredWebData[selectedSubItemIndex]?.theme}
+                    url={subimage}
+                  />
+                </motion.div>
+              ))}
           </motion.div>
         </motion.div>
       </div>
