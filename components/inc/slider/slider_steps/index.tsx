@@ -95,13 +95,13 @@ export default function SliderStepsComponent({
 
   return (
     <div className="h-full w-full relative flex flex-col">
-      <div className="h-full w-full relative flex min-h-[250px]">
+      <div className="h-full w-full relative flex min-h-[400px]">
         {windowWidth > 748 ? (
           data.map((item, index) => (
             <AnimatePresence key={item.id}>
               <motion.div
                 key={index + 1}
-                className={`relative w-full h-[450px] flex items-center justify-center cursor-pointer transition-all text-2xl max-lg:text-sm  ${
+                className={`relative w-full h-[400px] flex items-center justify-center cursor-pointer transition-all text-2xl max-lg:text-sm  ${
                   selectedItem == item.id ? "opacity-100" : " opacity-65"
                 }`}
                 onClick={() => {
@@ -121,7 +121,7 @@ export default function SliderStepsComponent({
                 >
                   {item.exhibition}
                 </div>
-                <div className="absolute top-0 opacity-50 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
+                <div className="absolute top-0 opacity-75 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
                 {selectedItem == item.id && (
                   <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full z-50 overflow-hidden">
                     <div
@@ -145,7 +145,7 @@ export default function SliderStepsComponent({
         ) : (
           <AnimatePresence>
             <motion.div
-              className={`absolute w-full h-[250px] flex items-center justify-center cursor-pointer transition-all text-2xl`}
+              className={`absolute w-full h-[400px] flex items-center justify-center cursor-pointer transition-all text-2xl`}
             >
               <Image
                 className="w-full h-full object-cover"
@@ -160,7 +160,7 @@ export default function SliderStepsComponent({
               >
                 {data[selectedItem - 1].exhibition}
               </div>
-              <div className="absolute top-0 opacity-50 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
+              <div className="absolute top-0 opacity-75 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
               <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full z-50 overflow-hidden">
                 <div
                   className={`h-full bg-white z-50 w-full transition-all`}
