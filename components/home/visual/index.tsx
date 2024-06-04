@@ -29,14 +29,8 @@ export default function VisualComponent({
 
   const paginatedData = filteredData
   return (
-    <section className="_section relative overflow-hidden mt-10 w-full">
+    <section className="_section relative overflow-hidden w-full">
       <div className="flex flex-col items-center w-full h-full">
-        <div className="flex flex-col items-center z-30">
-          <h1 className="text-3xl">sua marca</h1>
-          <span className="text-base text-zinc-400 normal-case tracking-normal font-poppins">
-            Crie sua identidade visual
-          </span>
-        </div>
         <div className="relative flex w-full">
           <div className=" w-full relative ">
             <SliderStepsComponent

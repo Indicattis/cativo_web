@@ -9,6 +9,7 @@ interface SliderProps {
   numOfSliders: number;
   data: any[];
   showControllers: boolean;
+  isAutoPlay: boolean;
 }
 
 export default function SliderStepsComponent({
@@ -17,13 +18,15 @@ export default function SliderStepsComponent({
   numOfSliders,
   data,
   showControllers,
+  isAutoPlay
+
 }: SliderProps) {
   const [progress, setProgress] = useState(0);
   const [seconds, setSeconds] = useState(100);
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
-  const [autoPlay, setAutoPlay] = useState<boolean>(true);
+  const [autoPlay, setAutoPlay] = useState<boolean>(isAutoPlay);
 
   useEffect(() => {
     const handleResize = () => {

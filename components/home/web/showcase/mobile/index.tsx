@@ -34,7 +34,7 @@ export default function MobileShowcase({url, theme, wide}: ItemProps) {
                         </div>
 
                         <div className="h-full z-20">
-                            <Image src={url} alt="" width={1000} height={1000}/>
+                            <Image  draggable={false} src={url} alt="" width={1000} height={1000}/>
                         </div>
                     </motion.div>
                     

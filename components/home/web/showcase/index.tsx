@@ -5,18 +5,16 @@ import Image from "next/image";
 
 
 interface ItemProps {
-    url: string
-    theme: string
-    wide: string
+    url: string | undefined
+    theme?: string
 }
 
-export default function PortifolioShowcase({url, theme, wide}: ItemProps) {
+export default function PortifolioShowcase({url, theme}: ItemProps) {
 
     return (
         <AnimatePresence>
             <motion.div 
-            className={`relative p-5 flex items-center justify-center h-[450px] w-[800px] max-lg:w-full
-            ${wide == "mobile" ? "h-[600px] w-[412px]" : ""}
+            className={`relative p-5 flex items-center justify-center h-full w-full
             `}>
                     <motion.div 
                     className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black">
@@ -33,8 +31,8 @@ export default function PortifolioShowcase({url, theme, wide}: ItemProps) {
                             </div>
                         </div>
 
-                        <div className="h-full">
-                            <Image src={url} alt="" width={1000} height={1000}/>
+                        <div className="h-full max-h-[400px]">
+                            <Image draggable={false} src={url ? url : ""} alt="" width={1000} height={1000}/>
                         </div>
                     </motion.div>
                     
