@@ -30,7 +30,7 @@ export default function ModalComponent({
         <div className="_modal w-full">
           <span className="absolute top-0 right-0 p-5 z-50 cursor-pointer" onClick={() => onClose()}><IconX/></span>
           <div className=" flex flex-col gap-96 w-full justify-around h-screen ">
-            <div className="w-full flex gap-3 items-center">
+            <div className="w-full flex gap-3 items-stretch">
               
               {children}
             </div>

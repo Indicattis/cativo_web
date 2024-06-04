@@ -1,5 +1,5 @@
 import { IconCaretLeft, IconCaretRight, IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -23,7 +23,7 @@ export default function SliderStepsComponent({
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
-  const [autoPlay, setAutoPlay] = useState<boolean>(false);
+  const [autoPlay, setAutoPlay] = useState<boolean>(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -86,22 +86,19 @@ export default function SliderStepsComponent({
     }
   }
 
+
+
+
+
   return (
     <div className="h-full w-full relative flex flex-col">
-      <div className="h-full w-full relative flex">
-        <div className="absolute top-0 right-1 p-3 z-50 w-10 h-10 cursor-pointer"  onClick={() => setAutoPlay(!autoPlay)}>
-          {autoPlay ? (
-              <IconPlayerPause />
-          ) : (
-              <IconPlayerPlay />
-          )}
-        </div>
+      <div className="h-full w-full relative flex min-h-[250px]">
         {windowWidth > 748 ? (
           data.map((item, index) => (
             <AnimatePresence key={item.id}>
               <motion.div
                 key={index + 1}
-                className={`relative w-full h-[250px] flex items-center justify-center cursor-pointer transition-all text-2xl max-lg:h-28 max-lg:text-sm  ${
+                className={`relative w-full h-[450px] flex items-center justify-center cursor-pointer transition-all text-2xl max-lg:text-sm  ${
                   selectedItem == item.id ? "opacity-100" : " opacity-65"
                 }`}
                 onClick={() => {
@@ -130,14 +127,22 @@ export default function SliderStepsComponent({
                     ></div>
                   </div>
                 )}
-              </motion.div>
+                {selectedItem == item.id && (
+                    <div className="absolute bottom-10 p-3 z-50 w-10 h-10 cursor-pointer"  onClick={() => setAutoPlay(!autoPlay)}>
+                    {autoPlay ? (
+                        <IconPlayerPause  />
+                    ) : (
+                        <IconPlayerPlay />
+                    )}
+                    </div>
+                )}
+                </motion.div>
             </AnimatePresence>
           ))
         ) : (
           <AnimatePresence>
             <motion.div
-              key={1}
-              className={`relative w-full h-[250px] flex items-center justify-center cursor-pointer transition-all text-2xl`}
+              className={`absolute w-full h-[250px] flex items-center justify-center cursor-pointer transition-all text-2xl`}
             >
               <Image
                 className="w-full h-full object-cover"
@@ -160,18 +165,20 @@ export default function SliderStepsComponent({
                 ></div>
               </div>
             </motion.div>
-                <div className={`absolute right-0 z-40 h-full flex p-1 items-center text-white bg-gradient-to-r to-[#00000059] from-transparent`}
-                onClick={() => changeItem("increment")}>
-                  <IconCaretRight width={34} height={34}/>
+                <div className="absolute bottom-10 p-3 z-50 cursor-pointer text-white bg-gradient-to-l to-[#00000059] from-transparent"  onClick={() => setAutoPlay(!autoPlay)}>
+                {autoPlay ? (
+                    <IconPlayerPause  />
+                ) : (
+                    <IconPlayerPlay />
+                )}
                 </div>
-                <div className={`absolute left-0 z-40 h-full flex p-1 items-center text-white bg-gradient-to-l to-[#00000059] from-transparent`}
-                onClick={() => changeItem("decrement")}>
-                  <IconCaretLeft width={34} height={34}/>
+                <div className="absolute pt-4 bottom-10 right-0 p-3 z-50 cursor-pointer text-white bg-gradient-to-r to-[#00000059] from-transparent"  onClick={() => changeItem("increment")}>
+                    Próximo
                 </div>
           </AnimatePresence>
         )}
       </div>
-      {showControllers && (
+      {showControllers && windowWidth < 786 && (
         <div className="relative grid grid-cols-3 gap-2 p-3 w-full">
           {data.map((item, index) => {
             return (

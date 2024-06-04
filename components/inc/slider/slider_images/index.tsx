@@ -50,7 +50,7 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
 
 
     return (
-        <div className="h-full w-full">
+        <div className="h-full w-full flex flex-col justify-around">
             {data.map((item, index) => {
                 return (
                     <AnimatePresence 
