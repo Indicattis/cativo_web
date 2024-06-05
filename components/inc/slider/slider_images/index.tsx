@@ -50,7 +50,8 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
 
 
     return (
-        <div className="h-full w-full flex flex-col justify-around">
+        <motion.div 
+        className="h-screen w-screen flex flex-col justify-center relative">
             {data.map((item, index) => {
                 return (
                     <AnimatePresence 
@@ -64,8 +65,8 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
                             dragElastic={0.1}
                             dragConstraints={{
                                 top: 0,
-                                left: -30,
-                                right: 30,
+                                left: 0,
+                                right: 0,
                                 bottom: 0,
                               }}
                             initial="hidden"
@@ -74,7 +75,7 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
                             transition={{
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
-                            className={`absolute top-0 left-0 w-full h-full flex items-center justify-center`}
+                            className={`absolute top-0 left-0 w-full h-full flex items-center justify-center z-[9999]`}
                         >
                                 <Image draggable={false} alt="" src={item} width={1000} height={1000}/>
                         </motion.div>
@@ -83,9 +84,9 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
                 )
             })}
             {showControllers ? (
-            <div className="absolute bottom-0 p-5 flex gap-5 overflow-hidden w-full z-50 items-center justify-center">
+            <div className="absolute bottom-20 p-5 flex gap-5 overflow-hidden w-full z-[9999] items-center justify-center">
                 
-            <div ref={navRef} className="flex gap-1 justify-center items-center w-full z-50">
+            <div ref={navRef} className="flex gap-1 justify-center items-center w-full z-[9999]">
               {data.map((image: any, index: number) => {
                 return (
                   <div
@@ -109,7 +110,7 @@ export default function SliderImagesComponent( {selectedItem, setSelectedItem, n
             </div>
             </div>
             ) : ""}
-        </div>
+        </motion.div>
     )
 }
 

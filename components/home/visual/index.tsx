@@ -34,7 +34,7 @@ export default function VisualComponent({
         <div className="relative flex w-full">
           <div className=" w-full relative ">
             <SliderStepsComponent
-              isAutoPlay={false}
+              isAutoPlay
               showControllers
               selectedItem={selectedItemIndex}
               setSelectedItem={setSelectedItemIndex}
@@ -43,7 +43,6 @@ export default function VisualComponent({
             />
           </div>
         </div>
-
         <div className={`relative w-[1080px] bg-dark  min-h-screen max-lg:w-full`}>
           <motion.div className={`  w-full grid grid-cols-3 justify-center items-center`}>
             {/* AQUI */}

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import MobileShowcase from "./showcase/mobile";
 import SliderStepsComponent from "@/components/inc/slider/slider_steps";
 import PortifolioShowcase from "./showcase";
+import WebsiteShowcase from "./showcase";
 
 interface PortifolioProps {
   web_data: WebDataDTO[];
@@ -28,7 +29,7 @@ export default function WebComponent({ web_services, web_data }: PortifolioProps
           <div className="w-full relative">
             {/* Aqui - são exibidos os itens principais do array web_services */}
             <SliderStepsComponent
-              isAutoPlay={false}
+              isAutoPlay
               showControllers
               selectedItem={selectedItemIndex}
               setSelectedItem={setSelectedItemIndex}
@@ -37,17 +38,36 @@ export default function WebComponent({ web_services, web_data }: PortifolioProps
             />
           </div>
         </div>
-
-        <div className="flex p-5 items-center justify-center min-h-[500px] w-full gap-3 max-md:grid-cols-1">
+        <div className="mt-5 flex flex-col items-center">
+          <span className="mt-1 text-2xl">Explore</span>
+          <p className="text-sm font-poppins normal-case tracking-wide text-zinc-400">Escolha o melhor para o seu perfil!</p>
+        </div>
+        <div className="flex flex-col p-5 items-center justify-center min-h-[500px] w-full gap-3">
           <motion.div className="">
             {/* Aqui - exibir url do primeiro subitem do item selecionado acima */}
             {filteredWebData.length > 0 && (
-              <PortifolioShowcase
+              <WebsiteShowcase
+                key={filteredWebData[selectedSubItemIndex]?.id}
                 url={filteredWebData[selectedSubItemIndex]?.url}
-                theme={filteredWebData[selectedSubItemIndex]?.theme}
+                theme={web_services[selectedItemIndex - 1]?.theme}
               />
             )}
           </motion.div>
+
+          <div className="flex gap-3">
+          {filteredWebData.length > 0 &&
+              filteredWebData.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSelectedSubItemIndex(index)}>
+                    <div className={`w-10 h-1 cursor-pointer rounded-full ${selectedSubItemIndex == index ? "bg-white" : "bg-zinc-400"}`}>
+                    </div>
+                </motion.div>
+              ))}
+          </div>
         </div>
         <motion.div
           className={`flex gap-5 p-3 w-full items-center h-full overflow-x-auto ${
@@ -77,7 +97,6 @@ export default function WebComponent({ web_services, web_data }: PortifolioProps
                   exit={{ opacity: 0 }}>
                   <MobileShowcase
                     wide="mobile"
-                    theme={filteredWebData[selectedSubItemIndex]?.theme}
                     url={subimage}
                   />
                 </motion.div>

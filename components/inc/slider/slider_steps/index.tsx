@@ -120,21 +120,21 @@ export default function SliderStepsComponent({
                   height={2000}
                 />
                 <div
-                  className={`absolute top-2  w-full flex items-center justify-center text-center z-[1000] pt-1 text-white`}
+                  className={`absolute top-2  w-full flex items-center justify-center text-center pt-1 text-white`}
                 >
                   {item.exhibition}
                 </div>
                 <div className="absolute top-0 opacity-75 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
                 {selectedItem == item.id && (
-                  <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full z-[1000] overflow-hidden">
+                  <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full overflow-hidden">
                     <div
-                      className={`h-full bg-white z-[1000] w-full transition-all`}
+                      className={`h-full bg-white w-full transition-all`}
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>
                 )}
                 {selectedItem == item.id && (
-                    <div className="absolute bottom-10 p-3 z-[1000] w-10 h-10 cursor-pointer"  onClick={() => setAutoPlay(!autoPlay)}>
+                    <div className="absolute bottom-10 p-3 w-10 h-10 cursor-pointer"  onClick={() => setAutoPlay(!autoPlay)}>
                     {autoPlay ? (
                         <IconPlayerPause  />
                     ) : (
@@ -159,27 +159,27 @@ export default function SliderStepsComponent({
                 height={2000}
               />
               <div
-                className={`absolute top-0 bg-black  w-full flex items-center justify-center text-center z-[1000] pt-1 text-white`}
+                className={`absolute top-0 bg-black  w-full flex items-center justify-center text-center pt-1 text-white z-50`}
               >
                 {data[selectedItem - 1].exhibition}
               </div>
               <div className="absolute top-0 opacity-100 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
               <div className="absolute bottom-0 opacity-100 h-16 bg-gradient-to-t from-black to-transparent w-full"></div>
-              <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full z-[1000] overflow-hidden">
+              <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full overflow-hidden">
                 <div
-                  className={`h-full bg-white z-[1000] w-full transition-all`}
+                  className={`h-full bg-white w-full transition-all`}
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
             </motion.div>
-                <div className="absolute bottom-10 p-3 z-[1000] cursor-pointer text-white bg-gradient-to-l to-[#00000059] from-transparent"  onClick={() => setAutoPlay(!autoPlay)}>
+                <div className="absolute bottom-10 p-3 cursor-pointer text-white bg-gradient-to-l to-[#00000059] from-transparent"  onClick={() => setAutoPlay(!autoPlay)}>
                 {autoPlay ? (
                     <IconPlayerPause  />
                 ) : (
                     <IconPlayerPlay />
                 )}
                 </div>
-                <div className="absolute pt-4 bottom-10 right-0 p-3 z-[1000] cursor-pointer text-white bg-gradient-to-r to-[#00000059] from-transparent"  onClick={() => changeItem("increment")}>
+                <div className="absolute pt-4 bottom-10 right-0 p-3 cursor-pointer text-white bg-gradient-to-r to-[#00000059] from-transparent"  onClick={() => changeItem("increment")}>
                     Próximo
                 </div>
           </AnimatePresence>
@@ -194,13 +194,13 @@ export default function SliderStepsComponent({
                 onClick={() => {setSelectedItem(item.id), setProgress(0), setSeconds(100);}}
                 className={`relative flex text-xs p-2  h-10 w-18 bg-dark justify-between items-center ${selectedItem == item.id ? "" : ""}`}
               >
-                <span className="z-[1001] ">
+                <span className="z-50 ">
                   {item.exhibition}
                 </span>
                 {selectedItem == item.id && (
-                  <div className="absolute left-0 w-full h-full bg-gray z-[1000] overflow-hidden">
+                  <div className="absolute left-0 w-full h-full bg-gray overflow-hidden">
                     <div
-                      className={`h-full bg-${item.theme} z-[1000] w-full transition-all opacity-100`}
+                      className={`h-full bg-${item.theme} w-full transition-all opacity-100`}
                       style={{ width: `${autoPlay ? progress : "100"}%` }}
                     ></div>
                   </div>

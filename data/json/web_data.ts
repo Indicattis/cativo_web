@@ -59,12 +59,12 @@ const web_data_array: WebDataDTO[] = [
     {
         id: 4, // Note: corrected the duplicate id
         exhibition: "Negócios - 2",
-        url: `${UNSPLASH_LINK}/1200x1200?tree`,
+        url: `/img/project/web_business_template_desktop.jpg`,
         theme: "neon_blue",
         subimages: [
-            `${UNSPLASH_LINK}/350x800?tree`,
-            `${UNSPLASH_LINK}/350x800?tree`,
-            `${UNSPLASH_LINK}/350x800?tree`
+            `/img/project/web_business_template_desktop.jpg`,
+            `/img/project/web_business_template_desktop.jpg`,
+            `/img/project/web_business_template_desktop.jpg`
         ],
         service_id: 4
     }
