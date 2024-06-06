@@ -49,11 +49,11 @@ export default function HeaderComponent() {
 
     return (
         <motion.header 
-            className={`fixed left-0 h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300 ${isScrolled ? 'bg-black shadow-lg top-0' : 'top-5 '}`}
+            className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${isScrolled ? 'bg-black shadow-lg top-0' : 'top-5 '}`}
         >
-            <nav ref={navRef} className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] items-center max-lg:w-[90%] z-[9999]">
-                <div className=" w-full">
-                    <Image width={120} height={120} alt="" src={`/video/anim_default.gif`} />
+            <nav ref={navRef} className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] items-center justify-center max-lg:w-[95%] z-[9999]">
+                <div className="w-full h-full max-h-10 mb-4">
+                    <Image width={90} height={90} alt="" src={`/video/anim_default.gif`} />
                 </div>
                 {menu_array.map((item, index) => {
                     return (
@@ -68,18 +68,19 @@ export default function HeaderComponent() {
                 <AnimatePresence>
                     <motion.div
                     onClick={() => setDropdown(!dropdown)}  
-                    className={`absolute hidden p-5 right-0 cursor-pointer transition-all max-lg:flex z-[9998]`}>
+                    className={`absolute hidden p-3  right-0 cursor-pointer transition-all max-lg:flex z-[10000] ${dropdown && "bg-gray"}`}>
                         {dropdown ? (
                             <motion.div
                             key="icon-caret-up"
                             initial={{y:-100}}
                             animate={dropdown && { y:0}}
                             exit={{y:100, transition: {delay: 1}}}
+                            className=''
                             transition={{
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
                             >
-                                <IconCaretUp/>
+                                <IconCaretUp width={35} height={35}/>
                             </motion.div>
                         ) : (
                             <motion.div
@@ -91,7 +92,7 @@ export default function HeaderComponent() {
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
                             >
-                                <IconMenuDeep/>
+                                <IconMenuDeep width={35} height={35}/>
                             </motion.div> 
                         )}
                     </motion.div>
@@ -101,7 +102,7 @@ export default function HeaderComponent() {
                     style={{ left: barPosition.left, width: barPosition.width }}
                 />
             </nav>
-            <motion.div className={`absolute rounded-full transition-all  w-full max-w-[1080px]  h-full max-lg:w-[90%] z-[9997] ${dropdown ? (isScrolled ? 'opacity-0 bg-black' : "opacity-100 bg-dark") : "bg-transparent"}`} />
+            <motion.div className={`absolute rounded-md transition-all  w-full max-w-[1080px] h-full max-lg:w-[95%] z-[9997] ${dropdown ? (isScrolled ? 'opacity-0 bg-black' : "opacity-100 bg-dark") : "bg-transparent"}`} />
             
             <AnimatePresence>
             {dropdown && (
@@ -109,17 +110,9 @@ export default function HeaderComponent() {
             initial={{ height: 0, opacity: 0}} 
             animate={{ height: 500, opacity: 1}} 
             exit={{ height: 0, opacity: 0}}
-            className={`absolute text-white top-[120%] w-full max-w-[1080px] hidden flex-col gap-5 max-lg:w-[90%] max-lg:flex z-[9997]`}>
+            className={`absolute text-white top-[120%] w-full max-w-[1080px] hidden flex-col gap-5 max-lg:w-[95%] max-lg:flex z-[9997]`}>
                 <motion.div
-                    className={`cursor-pointer flex justify-between  p-5 ${dropdown ? (isScrolled ? 'opacity-100 bg-dark rounded-t-md' : "opacity-100 bg-dark rounded-t-3xl") : "bg-transparent"}`}
-                    onClick={() => setDropdown(false)}
-                    key="icon-x"
-                    initial={{y:-100}}
-                    animate={{ y:0}}
-                    exit={{y:-100}}
-                    transition={{
-                        x: { type: "spring", stiffness: 600, damping: 50 },
-                    }}
+                    className={`cursor-pointer flex justify-between z-[9997] rounded-t-md p-5 ${dropdown ? (isScrolled ? 'opacity-100 bg-dark' : "opacity-100 bg-dark") : "bg-transparent"}`}
                     >
                         <span className='mt-1 ml-2'>MENU</span>
                         <IconX/>
@@ -128,14 +121,6 @@ export default function HeaderComponent() {
                     {menu_array.map((item, index) => {
                         return (
                             <motion.div 
-                            key={index}
-                            initial={{y:-100, opacity: 0}}
-                            animate={{ y:0, opacity:1}}
-                            exit={{y:-100, opacity:0}}
-                            transition={{
-                                type: "spring", stiffness: 600, damping: 50 ,
-                                delay: index * 0.1,
-                            }}
                             className='relative flex w-full h-12 justify-center items-center'
                             onClick={() => setDropdown(false)}>
 
@@ -161,7 +146,7 @@ export default function HeaderComponent() {
                         )
                     })}
                 </div>
-                <div className={`absolute top-0 left-0  w-full transition-all h-full ${dropdown ? (isScrolled ? 'opacity-100 bg-dark rounded-lg shadow-xl shadow-black' : "opacity-100 bg-dark rounded-3xl") : "bg-gray"}`}></div>
+                <div className={`absolute top-0 left-0  rounded-md w-full transition-all h-full ${dropdown ? (isScrolled ? 'opacity-100 bg-dark shadow-xl shadow-black' : "opacity-100 bg-dark") : "bg-gray"}`}></div>
             </motion.div>
                 
             )}
