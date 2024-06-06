@@ -51,7 +51,8 @@ export default function ModalComponent({ children, onClose }: ModalProps) {
         className="_modal_display"
       >
         <div className="_modal w-full">
-          <div className="flex flex-col gap-96 w-full justify-around h-screen">
+          <div className="flex flex-col gap-96 w-full justify-around items-center h-screen">
+            <div onClick={onClose} className="absolute top-24 h-16 w-16 flex items-center justify-center rounded-full bg-dark z-[10000] cursor-pointer opacity-65"><IconX width={40} height={40}/></div>
             <div className="w-full flex gap-3 items-center justify-center">
               {children}
             </div>
