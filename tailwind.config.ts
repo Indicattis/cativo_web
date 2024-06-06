@@ -22,8 +22,8 @@ const config: Config = {
         neon_green: "#68fe9a",
         neon_blue: "#407cf3",
         neon_pink: "#f5618b",
-        neon_green2: "#47ff0a",
-        neon_pink2: "#d705f2",
+        // neon_green2: "#47ff0a",
+        // neon_pink2: "#d705f2",
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],

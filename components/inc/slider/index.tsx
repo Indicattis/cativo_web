@@ -1,4 +1,5 @@
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 
@@ -76,7 +77,10 @@ export default function SliderComponent( {selectedItem, setSelectedItem, numOfSl
                             }}
                             className={`absolute top-0 left-0 bg-${item.theme} w-full h-full flex items-center justify-center`}
                         >
-                            {item.exhibition}
+                            {/* <Image className="w-full h-full object-cover" priority draggable={false} alt="" src={item.url} width={3000} height={3000}/> */}
+                            <video className="w-full h-full object-cover" autoPlay loop>
+                                <source src={item.url} />
+                            </video>
                         </motion.div>
                     )}
             </AnimatePresence>

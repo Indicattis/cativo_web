@@ -5,6 +5,7 @@ import { IconCaretUp, IconHome, IconMenuDeep, IconX } from "@tabler/icons-react"
 import Image from "next/image";
 import { AnimatePresence, motion } from 'framer-motion';
 import { menu_array } from '@/data/json/menu';
+import getColor from '@/components/utils/getColor';
 
 export default function HeaderComponent() {
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -57,7 +58,7 @@ export default function HeaderComponent() {
                 {menu_array.map((item, index) => {
                     return (
                         <HeaderItem
-                            key={index}
+                            key={`item-`+index}
                             itemName={item.exhibition}
                             isSelected={selectedItem === item.exhibition}
                             onClick={handleItemClick}
@@ -139,7 +140,7 @@ export default function HeaderComponent() {
                             onClick={() => setDropdown(false)}>
 
                                 <motion.div 
-                                key={index}
+                                key={`exhibition-`+index}
                                 className={`absolute left-1 w-[99%] h-full  p-3  rounded text-white f text-sm  capitalize   z-[9997] flex gap-3 items-center
                                 ${isScrolled ? "" : ""}
                                 `}>
@@ -149,14 +150,9 @@ export default function HeaderComponent() {
                                     </span>
                                 </motion.div>
                                 <motion.div
-                                key={index}
+                                key={`neon-`+index}
                                 className={`absolute bottom-0 left-0 h-full w-1 rounded z-[9999]
-                                ${isScrolled ? "shadow-md" : ""}
-                                ${item.theme == 'neon_red' && "bg-neon_red shadow-neon_red"}
-                                ${item.theme == 'neon_green' && "bg-neon_green shadow-neon_green"}
-                                ${item.theme == 'neon_green2' && "bg-neon_green2 shadow-neon_green2"}
-                                ${item.theme == 'neon_blue' && "bg-neon_blue shadow-neon_blue"}
-                                ${item.theme == 'neon_purple' && "bg-neon_purple shadow-neon_purple"}
+                                ${getColor(item.theme)}
                                 `}>
 
                                 </motion.div>

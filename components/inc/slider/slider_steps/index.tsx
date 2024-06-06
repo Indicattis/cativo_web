@@ -102,7 +102,7 @@ export default function SliderStepsComponent({
           data.map((item, index) => (
             <AnimatePresence key={item.id}>
               <motion.div
-                key={index + 1}
+                key={`box-`+index+`slider-`+selectedItem}
                 className={`relative w-full h-[400px] flex items-center justify-center cursor-pointer transition-all text-2xl max-lg:text-sm  ${
                   selectedItem == item.id ? "opacity-100" : " opacity-65"
                 }`}
@@ -227,7 +227,7 @@ export default function SliderStepsComponent({
           {data.map((item, index) => {
             return (
               <div
-                key={index}
+                key={`control-`+index}
                 onClick={() => {
                   setSelectedItem(item.id), setProgress(0), setSeconds(100);
                 }}

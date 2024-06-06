@@ -34,14 +34,14 @@ export default function WebComponent({
         <div className="relative flex w-full">
           <div className="w-full relative">
             {/* Aqui - são exibidos os itens principais do array web_services */}
-            <SliderStepsComponent
+            {/* <SliderStepsComponent
               isAutoPlay
               showControllers
               selectedItem={selectedItemIndex}
               setSelectedItem={setSelectedItemIndex}
               numOfSliders={web_services.length}
               data={web_services}
-            />
+            /> */}
           </div>
         </div>
         <div className="mt-5 flex flex-col items-center">

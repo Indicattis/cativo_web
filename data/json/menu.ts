@@ -9,13 +9,13 @@ const menu_array: MenuDTO[] = [
         },
         {
             id: 2,
-            exhibition: "Portifólio",
+            exhibition: "Web Macket",
             theme: "neon_blue"
         },
         {
             id: 3,
-            exhibition: "Sobre",
-            theme: "neon_green2"
+            exhibition: "Social Media",
+            theme: "neon_green"
         },
         {
             id: 4,
