@@ -7,6 +7,7 @@ import SliderStepsComponent from "@/components/inc/slider/slider_steps";
 import PortifolioShowcase from "./showcase";
 import WebsiteShowcase from "./showcase";
 import getColor from "@/components/utils/getColor";
+import ControllerDefault from "@/components/inc/controllers/default";
 
 interface PortifolioProps {
   web_data: WebDataDTO[];
@@ -31,24 +32,22 @@ export default function WebComponent({
   return (
     <section className="_section relative overflow-hidden">
       <div className="flex flex-col items-center w-full">
-        <div className="relative flex w-full">
-          <div className="w-full relative">
-            {/* Aqui - são exibidos os itens principais do array web_services */}
-            {/* <SliderStepsComponent
-              isAutoPlay
-              showControllers
-              selectedItem={selectedItemIndex}
-              setSelectedItem={setSelectedItemIndex}
-              numOfSliders={web_services.length}
-              data={web_services}
-            /> */}
-          </div>
-        </div>
         <div className="mt-5 flex flex-col items-center">
           <span className="mt-1 text-2xl">Explore</span>
           <p className="text-sm font-poppins normal-case tracking-wide text-zinc-400">
             Escolha o melhor para o seu perfil!
           </p>
+        </div>
+        <div className="relative flex w-full">
+          <div className="flex p-5 items-center justify-center w-full gap-3">
+            {/* Aqui - são exibidos os itens principais do array web_services */}
+            <ControllerDefault
+              selectedItem={selectedItemIndex}
+              setSelectedItem={setSelectedItemIndex}
+              numOfSliders={web_services.length}
+              data={web_services}
+            />
+          </div>
         </div>
         <div className="flex flex-col p-5 items-center justify-center min-h-[500px] w-full gap-3">
           <motion.div className="flex gap-5">

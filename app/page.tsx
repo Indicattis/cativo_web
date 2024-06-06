@@ -16,7 +16,7 @@ export default function Home() {
       <NamespaceComponent exhibition="Web marcket"/>
       <WebComponent web_services={web_serv_array} web_data={web_data_array}/>
       <NamespaceComponent exhibition="Visual"/>
-      {/* <VisualComponent visual_data={visual_data_array} visual_services={visual_serv_array}/> */}
+      <VisualComponent visual_data={visual_data_array} visual_services={visual_serv_array}/>
     </main>
   );
 }
