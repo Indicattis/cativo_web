@@ -67,6 +67,18 @@ const web_data_array: WebDataDTO[] = [
             `/img/project/web_business_template_desktop.jpg`
         ],
         service_id: 4
+    },
+    {
+        id: 5, // Note: corrected the duplicate id
+        exhibition: "teste",
+        url: `/img/project/landing_page_template.png`,
+        theme: "neon_blue",
+        subimages: [
+            `/img/project/landing_page_template.png`,
+            `/img/project/landing_page_template.png`,
+            `/img/project/landing_page_template.png`
+        ],
+        service_id: 5
     }
 ]
 

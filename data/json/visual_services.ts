@@ -33,7 +33,7 @@ const visual_serv_array: VisualServiceDTO[] = [
     {
         id: 5, // Note: corrected the duplicate id
         exhibition: "Post",
-        theme: "neon_green2",
+        theme: "neon_green",
         url: `/img/design/banner.jpg`,
         logo: `/img/design/post_example_02.jpg`,
     },

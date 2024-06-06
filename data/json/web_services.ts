@@ -25,8 +25,15 @@ const web_serv_array: WebServiceDTO[] = [
     },
     {
         id: 4, // Note: corrected the duplicate id
-        exhibition: "Negócios",
+        exhibition: "Agendamento online",
         theme: "neon_pink",
+        url: `/img/project/web_business_template_desktop.jpg`,
+        logo: `/img/project/web_business_template_desktop.jpg`,
+    },
+    {
+        id: 5, // Note: corrected the duplicate id
+        exhibition: "Ecommerce",
+        theme: "neon_green",
         url: `/img/project/web_business_template_desktop.jpg`,
         logo: `/img/project/web_business_template_desktop.jpg`,
     }

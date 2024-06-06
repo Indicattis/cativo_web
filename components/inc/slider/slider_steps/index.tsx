@@ -1,4 +1,10 @@
-import { IconCaretLeft, IconCaretRight, IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
+import getColor from "@/components/utils/getColor";
+import {
+  IconCaretLeft,
+  IconCaretRight,
+  IconPlayerPause,
+  IconPlayerPlay,
+} from "@tabler/icons-react";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -18,8 +24,7 @@ export default function SliderStepsComponent({
   numOfSliders,
   data,
   showControllers,
-  isAutoPlay
-
+  isAutoPlay,
 }: SliderProps) {
   const [progress, setProgress] = useState(0);
   const [seconds, setSeconds] = useState(100);
@@ -44,19 +49,17 @@ export default function SliderStepsComponent({
     let interval: NodeJS.Timeout | null = null;
 
     if (autoPlay) {
-
-        interval = setInterval(() => {
-            setSeconds((prevSeconds) => {
-              if (prevSeconds > 0) {
-                return prevSeconds - 1;
-              } else {
-                return 0;
-              }
-            });
-            setProgress((prevProgress) => prevProgress + 1);
-          }, 100);
+      interval = setInterval(() => {
+        setSeconds((prevSeconds) => {
+          if (prevSeconds > 0) {
+            return prevSeconds - 1;
+          } else {
+            return 0;
+          }
+        });
+        setProgress((prevProgress) => prevProgress + 1);
+      }, 100);
     }
-
 
     return () => {
       if (interval) clearInterval(interval);
@@ -65,9 +68,9 @@ export default function SliderStepsComponent({
 
   useEffect(() => {
     if (seconds === 0) {
-    changeItem("increment")
-    setProgress(0);
-    setSeconds(100);
+      changeItem("increment");
+      setProgress(0);
+      setSeconds(100);
     } else {
       setProgress(100 - seconds);
     }
@@ -87,14 +90,10 @@ export default function SliderStepsComponent({
         setSelectedItem(selectedItem - 1);
       }
     }
-    
+
     setProgress(0);
     setSeconds(100);
-  }
-
-
-
-
+  };
 
   return (
     <div className="h-full w-full relative flex flex-col">
@@ -120,29 +119,65 @@ export default function SliderStepsComponent({
                   height={2000}
                 />
                 <div
-                  className={`absolute top-2  w-full flex items-center justify-center text-center pt-1 text-white`}
+                  className={`absolute top-0 bg-black  w-full flex items-center justify-center text-center pt-1 text-white z-50`}
                 >
                   {item.exhibition}
                 </div>
-                <div className="absolute top-0 opacity-75 h-16 bg-gradient-to-b from-black to-transparent w-full"></div>
+                <div
+                  className={`absolute top-0 opacity-75 h-16  w-full ${
+                    selectedItem == item.id
+                      ? ""
+                      : "bg-gradient-to-b from-black to-transparent"
+                  }`}
+                ></div>
+                <div
+                  className={`absolute bottom-0 opacity-75 h-16  w-full ${
+                    selectedItem == item.id
+                      ? ""
+                      : "bg-gradient-to-t from-black to-transparent"
+                  }`}
+                ></div>
                 {selectedItem == item.id && (
                   <div className="absolute bottom-5 w-4/5 h-1 bg-gray rounded-full overflow-hidden">
                     <div
-                      className={`h-full bg-white w-full transition-all`}
+                      className={`h-full ${getColor(
+                        item.theme
+                      )} w-full transition-all`}
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>
                 )}
                 {selectedItem == item.id && (
-                    <div className="absolute bottom-10 p-3 w-10 h-10 cursor-pointer"  onClick={() => setAutoPlay(!autoPlay)}>
-                    {autoPlay ? (
-                        <IconPlayerPause  />
-                    ) : (
-                        <IconPlayerPlay />
-                    )}
+                  <div
+                    className={`absolute bottom-10 flex gap-3 w-full items-center justify-center `}
+                  >
+                    <div
+                      className={`w-10 h-10 cursor-pointer rounded-full flex items-center justify-center ${getColor(
+                        item.theme
+                      )}`}
+                      onClick={() => changeItem("decrement")}
+                    >
+                      <IconCaretLeft />
                     </div>
+                    <div
+                      className={` w-10 h-10 cursor-pointer rounded-full flex items-center justify-center ${getColor(
+                        item.theme
+                      )}`}
+                      onClick={() => setAutoPlay(!autoPlay)}
+                    >
+                      {autoPlay ? <IconPlayerPause /> : <IconPlayerPlay />}
+                    </div>
+                    <div
+                      className={`w-10 h-10 cursor-pointer rounded-full flex items-center justify-center ${getColor(
+                        item.theme
+                      )}`}
+                      onClick={() => changeItem("increment")}
+                    >
+                      <IconCaretRight />
+                    </div>
+                  </div>
                 )}
-                </motion.div>
+              </motion.div>
             </AnimatePresence>
           ))
         ) : (
@@ -172,16 +207,18 @@ export default function SliderStepsComponent({
                 ></div>
               </div>
             </motion.div>
-                <div className="absolute bottom-10 p-3 cursor-pointer text-white bg-gradient-to-l to-[#00000059] from-transparent"  onClick={() => setAutoPlay(!autoPlay)}>
-                {autoPlay ? (
-                    <IconPlayerPause  />
-                ) : (
-                    <IconPlayerPlay />
-                )}
-                </div>
-                <div className="absolute pt-4 bottom-10 right-0 p-3 cursor-pointer text-white bg-gradient-to-r to-[#00000059] from-transparent"  onClick={() => changeItem("increment")}>
-                    Próximo
-                </div>
+            <div
+              className="absolute bottom-10 p-3 cursor-pointer text-white bg-gradient-to-l to-[#00000059] from-transparent"
+              onClick={() => setAutoPlay(!autoPlay)}
+            >
+              {autoPlay ? <IconPlayerPause /> : <IconPlayerPlay />}
+            </div>
+            <div
+              className="absolute pt-4 bottom-10 right-0 p-3 cursor-pointer text-white bg-gradient-to-r to-[#00000059] from-transparent"
+              onClick={() => changeItem("increment")}
+            >
+              Próximo
+            </div>
           </AnimatePresence>
         )}
       </div>
@@ -191,12 +228,14 @@ export default function SliderStepsComponent({
             return (
               <div
                 key={index}
-                onClick={() => {setSelectedItem(item.id), setProgress(0), setSeconds(100);}}
-                className={`relative flex text-xs p-2  h-10 w-18 bg-dark justify-between items-center ${selectedItem == item.id ? "" : ""}`}
+                onClick={() => {
+                  setSelectedItem(item.id), setProgress(0), setSeconds(100);
+                }}
+                className={`relative flex text-xs p-2  h-10 w-18 bg-dark justify-between items-center ${
+                  selectedItem == item.id ? "" : ""
+                }`}
               >
-                <span className="z-50 ">
-                  {item.exhibition}
-                </span>
+                <span className="z-50 ">{item.exhibition}</span>
                 {selectedItem == item.id && (
                   <div className="absolute left-0 w-full h-full bg-gray overflow-hidden">
                     <div
