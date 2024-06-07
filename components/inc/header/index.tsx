@@ -121,11 +121,11 @@ export default function HeaderComponent() {
                     {menu_array.map((item, index) => {
                         return (
                             <motion.div 
+                            key={`dropdown-exhibition-`+index}
                             className='relative flex w-full h-12 justify-center items-center'
                             onClick={() => setDropdown(false)}>
 
                                 <motion.div 
-                                key={`exhibition-`+index}
                                 className={`absolute left-1 w-[99%] h-full  p-3  rounded text-white f text-sm  capitalize   z-[9997] flex gap-3 items-center
                                 ${isScrolled ? "" : ""}
                                 `}>
