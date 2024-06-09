@@ -21,10 +21,12 @@ export default function FaceComponent() {
           numOfSliders={2}
           data={[
             <BackgroundComponent
+              key={`slider-case-1`}
               content={<ExhibitionComponent color="neon_pink"/>}
               theme="neon_pink"
             ></BackgroundComponent>,
             <BackgroundComponent
+              key={`slider-case-2`}
               content={<ColaboratesComponent data={colaborates_array} />}
               theme="neon_purple"
             ></BackgroundComponent>,
