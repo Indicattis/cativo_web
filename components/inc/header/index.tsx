@@ -68,31 +68,34 @@ export default function HeaderComponent() {
                 <AnimatePresence>
                     <motion.div
                     onClick={() => setDropdown(!dropdown)}  
-                    className={`absolute hidden p-3  right-0 cursor-pointer transition-all max-lg:flex z-[10000] ${dropdown && "bg-gray"}`}>
+                    
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`absolute h-10 w-10 right-2 rounded-md cursor-pointer hidden max-md:flex justify-center items-center z-[10000] ${dropdown ? "bg-gray" : "bg-transparent"}`}>
                         {dropdown ? (
                             <motion.div
                             key="icon-caret-up"
                             initial={{y:-100}}
                             animate={dropdown && { y:0}}
-                            exit={{y:100, transition: {delay: 1}}}
+                            exit={{y:100}}
                             className=''
                             transition={{
-                                x: { type: "spring", stiffness: 600, damping: 50 },
+                                x: { type: "spring", stiffness: 300, damping: 30 },
                             }}
                             >
-                                <IconCaretUp width={35} height={35}/>
+                                <IconCaretUp width={30} height={30}/>
                             </motion.div>
                         ) : (
                             <motion.div
                             key="icon-menu-deep"
                             initial={{y:100}}
                             animate={!dropdown && { y:0}}
-                            exit={{y:-100, transition: {delay: 1}}}
+                            exit={{y:-100}}
                             transition={{
-                                x: { type: "spring", stiffness: 600, damping: 50 },
+                                x: { type: "spring", stiffness: 300, damping: 30 },
                             }}
                             >
-                                <IconMenuDeep width={35} height={35}/>
+                                <IconMenuDeep width={30} height={30}/>
                             </motion.div> 
                         )}
                     </motion.div>
@@ -107,22 +110,17 @@ export default function HeaderComponent() {
             <AnimatePresence>
             {dropdown && (
             <motion.div
-            initial={{ height: 0, opacity: 0}} 
-            animate={{ height: 500, opacity: 1}} 
-            exit={{ height: 0, opacity: 0}}
-            className={`absolute text-white top-[120%] w-full max-w-[1080px] hidden flex-col gap-5 max-lg:w-[95%] max-lg:flex z-[9997]`}>
-                <motion.div
-                    className={`cursor-pointer flex justify-between z-[9997] rounded-t-md p-5 ${dropdown ? (isScrolled ? 'opacity-100 bg-dark' : "opacity-100 bg-dark") : "bg-transparent"}`}
-                    >
-                        <span className='mt-1 ml-2'>MENU</span>
-                        <IconX/>
-                </motion.div> 
+            initial={{ height: 0, scale: 0, width: 0 }} 
+            animate={{ height: "60vh", scale: 1, width: "100%" }} 
+            exit={{ height: 0, scale: 0, width: 0}}
+            transition={{bounce: true}}
+            className={`absolute text-white top-[120%] w-full max-w-[1080px] hidden flex-col gap-5 max-lg:max-w-[95%] max-lg:flex z-[9997]`}>
                 <div className='w-full flex flex-col gap-3 z-[9997] p-5'>
                     {menu_array.map((item, index) => {
                         return (
                             <motion.div 
                             key={`dropdown-exhibition-`+index}
-                            className='relative flex w-full h-12 justify-center items-center'
+                            className='relative flex w-full h-12 justify-center items-center bg-gray rounded-lg'
                             onClick={() => setDropdown(false)}>
 
                                 <motion.div 
@@ -146,7 +144,7 @@ export default function HeaderComponent() {
                         )
                     })}
                 </div>
-                <div className={`absolute top-0 left-0  rounded-md w-full transition-all h-full ${dropdown ? (isScrolled ? 'opacity-100 bg-dark shadow-xl shadow-black' : "opacity-100 bg-dark") : "bg-gray"}`}></div>
+                <div className={`absolute top-0 left-0  rounded-md w-full transition-all h-full ${dropdown ? (isScrolled ? 'opacity-100 bg-black shadow-xl shadow-black' : "opacity-100 bg-dark") : "bg-black"}`}></div>
             </motion.div>
                 
             )}
@@ -158,7 +156,7 @@ export default function HeaderComponent() {
             transition={{
                 x: { type: "spring", stiffness: 600, damping: 50 },
             }}
-            className={`${!dropdown ? "hidden" : "flex"} fixed top-0 left-0 bg-[#25252598] h-full w-full`} onClick={() => setDropdown(false)}>
+            className={`${!dropdown ? "hidden" : "flex"} fixed top-0 left-0 bg-transparent h-full w-full z-[9000]`} onClick={() => setDropdown(false)}>
 
             </motion.div>
         </motion.header>

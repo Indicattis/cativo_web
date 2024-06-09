@@ -79,7 +79,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
           ></motion.div>
         </motion.div>
       </AnimatePresence>
-
+{/* 
       <div className="flex flex-col max-md:hidden">
         <motion.div
           key={"website-case-2"}
@@ -135,7 +135,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
             )} w-full h-full shadow-lg shadow-dark rounded-full cursor-pointer`}
           ></motion.div>
         </motion.div>
-      </div>
+      </div> */}
     </div>
   );
 }

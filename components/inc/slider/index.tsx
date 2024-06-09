@@ -1,3 +1,4 @@
+import getColor from "@/components/utils/getColor";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
@@ -9,7 +10,7 @@ interface SliderProps {
     selectedItem: number;
     setSelectedItem: React.Dispatch<React.SetStateAction<number>>;
     numOfSliders: number;
-    data: any[];
+    data: React.ReactNode[];
     showControllers: boolean;
 }
 
@@ -23,7 +24,7 @@ export default function SliderComponent( {selectedItem, setSelectedItem, numOfSl
     };
 
     const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-        const dragThreshold = 30; // Ajuste o limiar de arrasto conforme necessário
+        const dragThreshold = 10; // Ajuste o limiar de arrasto conforme necessário
         if (info.offset.x > dragThreshold && selectedItem > 1) {
             setSelectedItem(selectedItem - 1);
         } else if (info.offset.x < -dragThreshold && selectedItem < numOfSliders) {
@@ -56,13 +57,14 @@ export default function SliderComponent( {selectedItem, setSelectedItem, numOfSl
             {data.map((item, index) => {
                 return (
                     <AnimatePresence key={index + 1}>
-                    {selectedItem === item.id && (
+                    {selectedItem === index + 1 && (
                         <motion.div
                             key={index + 1}
                             drag="x"
                             onDragEnd={handleDragEnd}
                             variants={variants}
                             dragElastic={0.1}
+                            dragSnapToOrigin
                             dragConstraints={{
                                 top: 0,
                                 left: -30,
@@ -75,12 +77,11 @@ export default function SliderComponent( {selectedItem, setSelectedItem, numOfSl
                             transition={{
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
-                            className={`absolute top-0 left-0 bg-${item.theme} w-full h-full flex items-center justify-center`}
+                            className={`absolute top-0 left-0 w-full h-full flex items-center justify-center ${getColor("dark")}`}
                         >
                             {/* <Image className="w-full h-full object-cover" priority draggable={false} alt="" src={item.url} width={3000} height={3000}/> */}
-                            <video className="w-full h-full object-cover" autoPlay loop>
-                                <source src={item.url} />
-                            </video>
+                            
+                            {item}
                         </motion.div>
                     )}
             </AnimatePresence>
@@ -93,9 +94,9 @@ export default function SliderComponent( {selectedItem, setSelectedItem, numOfSl
                         return (
                             <FaceControllers
                                 key={index}
-                                itemID={item.id}
-                                isSelected={selectedItem === item.id}
-                                onClick={() => handleItemClick(item.id)}
+                                itemID={index+1}
+                                isSelected={selectedItem === index+1}
+                                onClick={() => handleItemClick(index+1)}
                             />
                         )
                     })}
