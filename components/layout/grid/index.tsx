@@ -10,7 +10,7 @@ interface GridProps {
 
 export default function GridComponent({ children, cols, rows }: GridProps) {
     return (
-        <div className={`h-full w-full grid grid-flow-row-dense max-lg:flex flex-col
+        <div className={`h-min w-full grid grid-flow-row-dense max-lg:flex flex-col 
         ${cols == 1 ? "grid-cols-1" : ""} 
         ${cols == 2 ? "grid-cols-2" : ""} 
         ${cols == 3 ? "grid-cols-3" : ""} 
@@ -32,7 +32,7 @@ interface CardProps {
 
 export function GridElement({children, col, row}:CardProps) {
     return (
-        <div className={`border border-dark
+        <div className={`relative flex flex-col justify-center items-center overflow-hidden
         ${col == 1 ? "col-span-1" : ""} 
         ${col == 2 ? "col-span-2" : ""} 
         ${col == 3 ? "col-span-3" : ""} 

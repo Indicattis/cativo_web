@@ -7,11 +7,13 @@ import {
 } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { Colaborate } from "../../home-slider/colaborates";
 
 interface ItemProps {
   url: string | undefined;
   theme: string;
   key: number | undefined;
+  exhibition: string | undefined;
 }
 
 export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
@@ -21,7 +23,6 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
   const positionsY = [0, -8, -10, -15, -10, -8, 0]
   const duration = 10
   return (
-    <div className="w-full ">
       <AnimatePresence>
         <motion.div
           key={key}
@@ -31,7 +32,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
           transition={{
             type: "spring", stiffness: 80, damping: 10, delay: 0.3
           }}
-          className={`relative p-5 flex items-center justify-center w-full max-w-[800px] h-[500px]
+          className={`relative p-5 flex items-center justify-center w-full max-w-[800px] max-h-[800px] h-full
             `}
         >
           <motion.div className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black  z-10">
@@ -58,6 +59,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
                 height={1000}
               />
             </div>
+
           </motion.div>
 
           <motion.div
@@ -73,69 +75,11 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
               repeat: Infinity,
               repeatDelay: 0,
             }}
-            className={`absolute top-0   w-full h-[85%] z-0 rounded-3xl shadow-2xl shadow-black transition-all
+            className={`absolute top-5   w-full h-[85%] z-0 rounded-3xl shadow-2xl shadow-black transition-all
                     ${getColor(theme)}
                     `}
           ></motion.div>
         </motion.div>
       </AnimatePresence>
-{/* 
-      <div className="flex flex-col max-md:hidden">
-        <motion.div
-          key={"website-case-2"}
-          animate={{
-            x: positionsY,
-            y: positionsX,
-          }}
-          transition={{
-            duration: duration,
-            ease: "easeInOut",
-            times: times,
-            repeat: Infinity,
-            repeatDelay: 0,
-          }}
-          className={`w-28 h-48 rounded-full overflow-hidden cursor-pointer ml-24`}
-        >
-          <motion.div
-            whileHover={{
-              scale: 1.2,
-              transition: { duration: 1 },
-            }}
-            whileTap={{ scale: 0.9 }}
-            whileInView={{ opacity: 1 }}
-            className={`${getColor(
-              theme
-            )} w-full h-full shadow-lg shadow-dark rounded-full`}
-          ></motion.div>
-        </motion.div>
-        <motion.div
-          key={"website-case-1"}
-          animate={{
-            x: positionsX,
-            y: positionsY,
-          }}
-          transition={{
-            duration: duration,
-            ease: "easeInOut",
-            times: times,
-            repeat: Infinity,
-            repeatDelay: 0,
-          }}
-          className={`w-20 h-36 rounded-full overflow-hidden mt-20`}
-        >
-          <motion.div
-            whileHover={{
-              scale: 1.2,
-              transition: { duration: 1 },
-            }}
-            whileTap={{ scale: 0.9 }}
-            whileInView={{ opacity: 1 }}
-            className={`${getColor(
-              theme
-            )} w-full h-full shadow-lg shadow-dark rounded-full cursor-pointer`}
-          ></motion.div>
-        </motion.div>
-      </div> */}
-    </div>
   );
 }

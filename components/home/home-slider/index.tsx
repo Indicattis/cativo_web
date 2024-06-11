@@ -19,7 +19,7 @@ export default function FaceComponent() {
           showControllers
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}
-          numOfSliders={3}
+          numOfSliders={2}
           data={[
             <BackgroundComponent
               key={`slider-case-1`}
@@ -27,18 +27,14 @@ export default function FaceComponent() {
               theme="neon_pink"
             ></BackgroundComponent>,
             <BackgroundComponent
-              key={`slider-case-2`}
-              content={<ColaboratesComponent data={colaborates_array} />}
-              theme="neon_purple"
-            ></BackgroundComponent>,
-            <BackgroundComponent
               key={`slider-case-3`}
-              content={<div className={` w-full h-full flex items-center justify-center`}>
-              <div className=" w-full h-full flex justify-center items-center max-lg:w-[85%]">
-                  <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
-              </div>
-          </div>}
-              theme="neon_blue"
+              content={
+                <div className={` w-full h-full flex items-center justify-center`}>
+                    <div className=" w-full h-full flex justify-center items-center max-lg:w-[85%]">
+                        <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
+                    </div>
+                </div>}
+              theme="neon_purple"
             ></BackgroundComponent>,
           ]}
         />

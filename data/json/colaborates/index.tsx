@@ -1,5 +1,5 @@
 import ColaborateDTO from "@/data/types/colaborates";
-import { IconBrandAdobe, IconBrandAws, IconBrandNextjs, IconBrandNodejs, IconBrandPatreon, IconBrandPrisma, IconBrandReact, IconBrandTailwind, IconBrush, IconPhoto } from "@tabler/icons-react";
+import { IconBrandAdobe, IconBrandAws, IconBrandGithub, IconBrandNextjs, IconBrandNodejs, IconBrandPatreon, IconBrandPrisma, IconBrandReact, IconBrandTailwind, IconBrush, IconPhoto } from "@tabler/icons-react";
 
 
 const colaborates_array: ColaborateDTO[] = [
@@ -16,6 +16,7 @@ const colaborates_array: ColaborateDTO[] = [
             <IconBrandNodejs width={18} />,
             <IconBrandPrisma width={18} />,
             <IconBrandAws width={18} />,
+            <IconBrandGithub width={18}/>
           ],
         theme: "neon_blue"
     },

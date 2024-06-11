@@ -6,15 +6,19 @@ import Image from "next/image";
 
 interface ItemProps {
     url: string
-    wide: string
+    key: number
 }
 
-export default function MobileShowcase({url, wide}: ItemProps) {
+export default function MobileShowcase({url, key}: ItemProps) {
 
     return (
         <AnimatePresence>
             <motion.div 
-            className={`relative p-2 flex items-center justify-center h-[400px] w-[212px]`}>
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            transition={{delay: key*0.1}}
+            className={`relative p-2 flex items-center justify-center h-[450px] w-[242px]`}>
                     <motion.div 
                     className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black z-20">
                         <div className="absolute top-0 flex w-full justify-center">

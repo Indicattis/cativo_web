@@ -42,10 +42,10 @@ export default function ColaboratesComponent(data: ColaboratesProps) {
 
 
 
-function Colaborate({ img, name, role, age, skills, theme }: ColaborateDTO) {
+export function Colaborate({ img, name, role, age, skills, theme }: ColaborateDTO) {
   return (
-    <div className="flex gap-3 relative p-3 items-center justify-between cursor-pointer">
-      <div className={`overflow-hidden rounded-full h-20 min-w-20 border-2 z-20`}>
+    <div className="flex gap-3 relative p-3 items-center justify-between cursor-pointer w-full max-md:w-full">
+      <div className={`overflow-hidden rounded-full h-[90px] w-[90px] border-2 z-20`}>
         <Image
           alt=" "
           src={img}
@@ -66,7 +66,7 @@ function Colaborate({ img, name, role, age, skills, theme }: ColaborateDTO) {
             {age} anos
           </span>
         </div>
-        <div className="flex gap-2 items-center justify-between">
+        <div className="flex gap-2 items-center justify-between max-w-[300px]">
             {skills.map((sk, index) => {
                 return (
                 <div key={`skill-${name}-${index}`} className="">
@@ -75,11 +75,11 @@ function Colaborate({ img, name, role, age, skills, theme }: ColaborateDTO) {
                 )
             })}
             <div className="flex gap-2 z-20">
-              <div className={` _text _small text-center flex py-1 px-2 rounded-md text-zinc-400 bg-gray`}>Ver mais</div>
+              <div className={` _text _small text-center flex py-1 px-2 rounded-md font-bold text-black ${getColor(theme)}`}>ver mais</div>
             </div>
         </div>
       </div>
-      <div className="absolute w-full h-full rounded-lg top-0 left-0 bg-gradient-to-t from-dark to-gray z-10"></div>
+      <div className={`absolute w-full h-full top-0 left-0 bg-gray z-10`}></div>
     </div>
   );
 }
