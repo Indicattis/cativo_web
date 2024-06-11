@@ -21,7 +21,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
   const positionsY = [0, -8, -10, -15, -10, -8, 0]
   const duration = 10
   return (
-    <div className="flex gap-16 bg-gradient-to-tr ">
+    <div className="w-full ">
       <AnimatePresence>
         <motion.div
           key={key}
@@ -29,13 +29,12 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 100 }}
           transition={{
-            x: { type: "spring", stiffness: 80, damping: 1 },
-            opacity: { duration: 0.1 },
+            type: "spring", stiffness: 80, damping: 10, delay: 0.3
           }}
-          className={`relative p-5 flex items-center justify-center h-full w-full max-w-[800px] max-h-[600px]
+          className={`relative p-5 flex items-center justify-center w-full max-w-[800px] h-[500px]
             `}
         >
-          <motion.div className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black">
+          <motion.div className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black  z-10">
             <div className="bg-dark h-10 p-2 flex justify-between">
               <div className=" flex">
                 <IconPointFilled color="#ff0066"></IconPointFilled>
@@ -51,6 +50,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
 
             <div className="h-full max-h-[400px]">
               <Image
+              priority
                 draggable={false}
                 src={url ? url : ""}
                 alt=""
@@ -73,7 +73,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
               repeat: Infinity,
               repeatDelay: 0,
             }}
-            className={`absolute top-0   w-full h-[85%] z-[-1] rounded-3xl shadow-2xl shadow-black transition-all
+            className={`absolute top-0   w-full h-[85%] z-0 rounded-3xl shadow-2xl shadow-black transition-all
                     ${getColor(theme)}
                     `}
           ></motion.div>

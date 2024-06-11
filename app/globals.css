@@ -32,6 +32,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   overflow-x: hidden;
+  font-size: 62.5rem;
 }
 
 @layer utilities {
@@ -45,12 +46,33 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "figtree";
+  src: url("../public/fonts/Figtree-VariableFont_wght.ttf");
+}
 ._section {
   width: 100vw;
   display: flex;
   justify-items: center;
   align-items: center;
   flex-direction: column;
+}
+
+._text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+._text._small {
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+
+._display_text {
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  font-weight: bold;
+  line-height: 1.25rem;
 }
 
 ._modal_display {

@@ -129,9 +129,9 @@ function FaceControllers({ itemID, isSelected, onClick }: ControllerProps) {
         <div
             ref={itemRef}
             onClick={handleClick}
-            className={`cursor-pointer z-40 text-xl px-5 mt-1 ${isSelected ? 'text-white' : 'text-zinc-400 hover:text-white'}`}
+            className={`cursor-pointer z-40 text-xl `}
         >
-            {itemID}
+                <div className={`w-10 h-1 cursor-pointer rounded-full  ${isSelected ? 'bg-white' : 'bg-zinc-400'}`}></div>
         </div>
     );
 }

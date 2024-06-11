@@ -13,31 +13,31 @@ export default function BackgroundComponent({
 }: BackgroundProps) {
   return (
     <div className={`flex flex-col justify-center items-center w-full h-full relative ${getColor(theme)} overflow-hidden`}>
-      <div className="">{content}</div>
+      <div className="z-20">{content}</div>
       <div className="absolute h-full w-[1920px] top-0 left-0">
-        <AnimationElement num={1} wide="mini" initialX="top-[0px]" initialY="left-[-50px]" slack={30} theme={theme}/>
-        <AnimationElement num={2} wide="mini" initialX="top-[-20px]" initialY="left-[100px]" slack={30} theme={theme}/>
-        <AnimationElement num={3} wide="mini" initialX="top-[110px]" initialY="left-[10px]" slack={30} theme={theme}/>
-        <AnimationElement num={4} wide="xs" initialX="top-[190px]" initialY="left-[110px]" slack={30} theme={theme}/>
-        <AnimationElement num={5} wide="xs" initialX="top-[30px]" initialY="left-[200px]" slack={30} theme={theme}/>
-        <AnimationElement num={6} wide="xs" initialX="top-[350px]" initialY="left-[320px]" slack={60} theme={theme}/>
-        <AnimationElement num={7} wide="sm" initialX="top-[150px]" initialY="left-[450px]" slack={60} theme={theme}/>
-        <AnimationElement num={8} wide="sm" initialX="top-[10px]" initialY="left-[330px]" slack={60} theme={theme}/>
-        <AnimationElement num={9} wide="sm" initialX="top-[210px]" initialY="left-[200px]" slack={60} theme={theme}/>
-        <AnimationElement num={10} wide="mini" initialX="top-[340px]" initialY="left-[-40px]" slack={60} theme={theme}/>
-        <AnimationElement num={13} wide="sm" initialX="top-[-50px]" initialY="left-[600px]" slack={60} theme={theme}/>
-        <AnimationElement num={14} wide="xs" initialX="top-[530px]" initialY="left-[-60px]" slack={60} theme={theme}/>
-        <AnimationElement num={15} wide="sm" initialX="top-[450px]" initialY="left-[110px]" slack={60} theme={theme}/>
-        <AnimationElement num={16} wide="lg" initialX="top-[580px]" initialY="left-[210px]" slack={90} theme={theme}/>
-        <AnimationElement num={17} wide="lg" initialX="top-[180px]" initialY="left-[750px]" slack={90} theme={theme}/>
-        <AnimationElement num={18} wide="lg" initialX="top-[330px]" initialY="left-[500px]" slack={90} theme={theme}/>
-        <AnimationElement num={19} wide="lg" initialX="top-[-80px]" initialY="left-[780px]" slack={90} theme={theme}/>
-        <AnimationElement num={20} wide="xl" initialX="top-[560px]" initialY="left-[520px]" slack={120} theme={theme}/>
-        <AnimationElement num={22} wide="xl" initialX="top-[320px]" initialY="left-[900px]" slack={120} theme={theme}/>
-        <AnimationElement num={22} wide="2xl" initialX="top-[700px]" initialY="left-[800px]" slack={150} theme={theme}/>
-        <AnimationElement num={21} wide="2xl" initialX="top-[-120px]" initialY="left-[1120px]" slack={150} theme={theme}/>
-        <AnimationElement num={23} wide="2xl" initialX="top-[420px]" initialY="left-[1200px]" slack={150} theme={theme}/>
-        <AnimationElement num={24} wide="2xl" initialX="top-[0px]" initialY="left-[1400px]" slack={150} theme={theme}/>
+        <AnimationElement num={1} wide="mini" initialX="top-[0px]" initialY="left-[-50px]" slack={50} theme={theme}/>
+        <AnimationElement num={2} wide="mini" initialX="top-[-20px]" initialY="left-[100px]" slack={50} theme={theme}/>
+        <AnimationElement num={3} wide="mini" initialX="top-[110px]" initialY="left-[10px]" slack={50} theme={theme}/>
+        <AnimationElement num={4} wide="xs" initialX="top-[190px]" initialY="left-[110px]" slack={90} theme={theme}/>
+        <AnimationElement num={5} wide="xs" initialX="top-[30px]" initialY="left-[200px]" slack={90} theme={theme}/>
+        <AnimationElement num={6} wide="xs" initialX="top-[350px]" initialY="left-[320px]" slack={90} theme={theme}/>
+        <AnimationElement num={7} wide="sm" initialX="top-[150px]" initialY="left-[450px]" slack={130} theme={theme}/>
+        <AnimationElement num={8} wide="sm" initialX="top-[10px]" initialY="left-[330px]" slack={130} theme={theme}/>
+        <AnimationElement num={9} wide="sm" initialX="top-[210px]" initialY="left-[200px]" slack={130} theme={theme}/>
+        <AnimationElement num={10} wide="mini" initialX="top-[340px]" initialY="left-[-40px]" slack={50} theme={theme}/>
+        <AnimationElement num={13} wide="sm" initialX="top-[-50px]" initialY="left-[600px]" slack={130} theme={theme}/>
+        <AnimationElement num={14} wide="xs" initialX="top-[530px]" initialY="left-[-60px]" slack={90} theme={theme}/>
+        <AnimationElement num={15} wide="sm" initialX="top-[450px]" initialY="left-[110px]" slack={130} theme={theme}/>
+        <AnimationElement num={16} wide="lg" initialX="top-[580px]" initialY="left-[210px]" slack={170} theme={theme}/>
+        <AnimationElement num={17} wide="lg" initialX="top-[180px]" initialY="left-[750px]" slack={170} theme={theme}/>
+        <AnimationElement num={18} wide="lg" initialX="top-[330px]" initialY="left-[500px]" slack={170} theme={theme}/>
+        <AnimationElement num={19} wide="lg" initialX="top-[-80px]" initialY="left-[780px]" slack={170} theme={theme}/>
+        <AnimationElement num={20} wide="xl" initialX="top-[560px]" initialY="left-[520px]" slack={210} theme={theme}/>
+        <AnimationElement num={22} wide="xl" initialX="top-[320px]" initialY="left-[900px]" slack={210} theme={theme}/>
+        <AnimationElement num={22} wide="2xl" initialX="top-[700px]" initialY="left-[800px]" slack={250} theme={theme}/>
+        <AnimationElement num={21} wide="2xl" initialX="top-[-120px]" initialY="left-[1120px]" slack={250} theme={theme}/>
+        <AnimationElement num={23} wide="2xl" initialX="top-[420px]" initialY="left-[1200px]" slack={250} theme={theme}/>
+        <AnimationElement num={24} wide="2xl" initialX="top-[0px]" initialY="left-[1400px]" slack={250} theme={theme}/>
       </div>
     </div>
   );
@@ -63,8 +63,8 @@ function AnimationElement({
 
     
 const times = [0, 20, 40];
-const positionsX = [0, -slack, 0, -slack, 0, -slack, 0];
-const positionsY = [0, slack, 0, slack, 0, slack, 0];
+const positionsX = [0, -slack, slack, -slack, slack, -slack, 0];
+const positionsY = [0, slack, -slack, slack, -slack, slack, 0];
 const duration = 40;
 
 

@@ -14,7 +14,7 @@ export default function MobileShowcase({url, wide}: ItemProps) {
     return (
         <AnimatePresence>
             <motion.div 
-            className={`relative p-2 flex items-center justify-center h-[600px] w-[312px]`}>
+            className={`relative p-2 flex items-center justify-center h-[400px] w-[212px]`}>
                     <motion.div 
                     className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black z-20">
                         <div className="absolute top-0 flex w-full justify-center">

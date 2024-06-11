@@ -9,12 +9,12 @@ const menu_array: MenuDTO[] = [
         },
         {
             id: 2,
-            exhibition: "Web Macket",
+            exhibition: "Contato",
             theme: "neon_blue"
         },
         {
             id: 3,
-            exhibition: "Social Media",
+            exhibition: "Quem somos",
             theme: "neon_green"
         },
         {

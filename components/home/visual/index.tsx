@@ -106,7 +106,7 @@ function VisualItem({ visual_data, select }: VisualItemProps) {
         alt=""
         src={visual_data.subimages[2]}
       />
-      <div className="relative w-full h-full font-poppins flex justify-center">
+      <div className="relative w-full h-full flex justify-center">
         <div className="z-30  flex justify-center items-center">
           {visual_data.subimages.length >= 4 ? (
             <div className=" flex justify-center items-center">

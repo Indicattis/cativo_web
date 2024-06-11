@@ -10,12 +10,9 @@ interface InterProps {
 
 export default function ExhibitionComponent({color}:InterProps ) {
     return (
-        <div className={` w-full h-full flex items-center justify-center
-        ${getColor(color)}
-        `
-        }>
+        <div className={` w-full h-full flex items-center justify-center`}>
             <div className=" w-full h-full flex justify-center items-center max-lg:w-[85%]">
-                <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
+                <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo-2.png`} />
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
-import FaceComponent from "@/components/home/face";
-import NamespaceComponent from "@/components/home/services";
+import NamespaceComponent from "@/components/home/home-namespace";
+import FaceComponent from "@/components/home/home-slider";
 import VisualComponent from "@/components/home/visual";
 import WebComponent from "@/components/home/web";
 import HeaderComponent from "@/components/inc/header";
@@ -13,9 +13,10 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center m-auto w-full relative">
       <HeaderComponent/>
       <FaceComponent/>
-      <NamespaceComponent exhibition="Web marcket"/>
+      <NamespaceComponent/>
+      {/* <GridInfoComponent/> */}
       <WebComponent web_services={web_serv_array} web_data={web_data_array}/>
-      <NamespaceComponent exhibition="Visual"/>
+      <NamespaceComponent/>
       {/* <VisualComponent visual_data={visual_data_array} visual_services={visual_serv_array}/> */}
     </main>
   );

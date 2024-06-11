@@ -26,8 +26,8 @@ const config: Config = {
         neon_pink2: "#d705f2",
       },
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
         'newake': ['newake', 'sans-serif'],
+        'figtree': ['figtree'],
       },
     },
   },
