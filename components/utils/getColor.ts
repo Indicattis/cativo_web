@@ -2,7 +2,7 @@
 
 
 
-function getColor(color: string) {
+function getColor(color: string | undefined) {
 
     switch (color) {
         case "neon_green":

@@ -20,6 +20,10 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
   return (
     <AnimatePresence>
       <motion.div
+        className={`relative p-5 flex items-center justify-center w-full max-w-[800px] max-h-[900px] h-full
+            `}
+      >
+        <motion.div
         key={key}
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -29,11 +33,8 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
           stiffness: 80,
           damping: 10,
           delay: 0.3,
-        }}
-        className={`relative p-5 flex items-center justify-center w-full max-w-[800px] max-h-[900px] h-full
-            `}
-      >
-        <motion.div className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black  z-10">
+        }} 
+        className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black max-h-[500px] z-10">
           <div className="bg-dark h-10 p-2 flex justify-between">
             <div className=" flex">
               <IconPointFilled color="#ff0066"></IconPointFilled>
@@ -49,6 +50,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
 
           <div className="h-full max-h-[400px]">
             <Image
+            className=""
               priority
               draggable={false}
               src={url ? url : ""}
@@ -59,12 +61,12 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
           </div>
         </motion.div>
 
-        {/* <motion.div
+        <motion.div
           key={`box-${key}`}
-          className={`absolute top-0  w-full h-[85%] z-0 rounded-3xl shadow-2xl shadow-black transition-all max-md:rounded-none
+          className={`absolute top-3  w-full h-[85%] max-h-[500px] z-0 rounded-3xl shadow-2xl shadow-black transition-all max-md:rounded-none
                     ${getColor(theme)}
                     `}
-        ></motion.div> */}
+        ></motion.div>
 
       </motion.div>
     </AnimatePresence>

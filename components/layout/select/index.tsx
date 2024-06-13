@@ -1,7 +1,7 @@
 import { IconCaretDown, IconCheck } from "@tabler/icons-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { getTextColor } from "@/components/utils/getColor";
+import { getColor, getTextColor } from "@/components/utils/getColor";
 interface SelectProps {
   exhibition: string;
   itens: string[];
@@ -13,13 +13,13 @@ export default function SelectDefault({ exhibition, itens, theme }: SelectProps)
 
   return (
     <AnimatePresence>
-      <motion.div className="flex flex-col gap-3">
+      <motion.div className="flex flex-col gap-2">
         <motion.div
           initial={{ opacity: 0.6 }}
           whileTap={{ scale: 0.99 }}
           whileInView={{ opacity: 1 }}
           onClick={() => setOpen(!open)}
-          className={`rounded-md bg-white  font-bold _text flex justify-between p-3 gap-3 cursor-pointer z-20 ${getTextColor(theme)} ${open ? "opacity-100" : "opacity-75"}`}
+          className={`rounded-md  shadow shadow-dark font-semibold _text flex justify-between p-3 gap-3 cursor-pointer z-20  ${open ? getColor(theme) : "bg-dark"}`}
         >
           <h1>{exhibition}</h1>
           <motion.div animate={{ rotate: open ? 180 : 0 }} className="">
@@ -48,7 +48,7 @@ export default function SelectDefault({ exhibition, itens, theme }: SelectProps)
                     stiffness: 600,
                     damping: 100,
                   }}
-                  className="flex gap-1 _text _small py-1 px-3 items-center"
+                  className="flex gap-1 _text _small p-1 items-center"
                 >
                   <IconCheck/>{item}
                 </motion.div>

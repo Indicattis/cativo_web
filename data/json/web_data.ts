@@ -57,14 +57,13 @@ const web_data_array: WebDataDTO[] = [
         service_id: 1
     },
     {
-        id: 4, // Note: corrected the duplicate id
-        exhibition: "Negócios - 2",
-        url: `/img/project/web_business_template_desktop.jpg`,
+        id: 6, // Note: corrected the duplicate id
+        exhibition: "Barber Shop",
+        url: `/img/project/04-thelordbarber/1.jpg`,
         theme: "neon_blue",
         subimages: [
-            `/img/project/web_business_template_desktop.jpg`,
-            `/img/project/web_business_template_desktop.jpg`,
-            `/img/project/web_business_template_desktop.jpg`
+            `/img/project/04-thelordbarber/2.jpg`,
+            `/img/project/04-thelordbarber/3.jpg`,
         ],
         service_id: 4
     },
@@ -81,14 +80,14 @@ const web_data_array: WebDataDTO[] = [
         service_id: 5
     },
     {
-        id: 6, // Note: corrected the duplicate id
-        exhibition: "Barber Shop",
-        url: `/img/project/web_business_template_desktop.png`,
+        id: 4, // Note: corrected the duplicate id
+        exhibition: "E-commerce",
+        url: `/img/project/web_business_template_desktop.jpg`,
         theme: "neon_blue",
         subimages: [
-            `/img/project/web_business_template_desktop.png`,
-            `/img/project/web_business_template_desktop.png`,
-            `/img/project/web_business_template_desktop.png`
+            `/img/project/web_business_template_desktop.jpg`,
+            `/img/project/web_business_template_desktop.jpg`,
+            `/img/project/web_business_template_desktop.jpg`
         ],
         service_id: 4
     }
