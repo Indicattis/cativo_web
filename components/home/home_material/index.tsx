@@ -37,7 +37,7 @@ export default function MaterialComponent({
 
   return (
     <section className={`_section relative overflow-hidden ${getColor(web_services[selectedItemIndex - 1]?.theme)}`}>
-      <div className="relative w-full flex justify-center bg-gray overflow-hidden ">
+      <div className="relative w-full flex justify-center bg-black overflow-hidden ">
         <div className=" max-w-[1080px] flex w-full justify-between p-5  max-lg:flex-col gap-5 border-b border-gray">
           <div className=" flex flex-col items-start gap-3">
             <h1 className="_display_text">Explore</h1>
