@@ -1,4 +1,4 @@
-import getColor from "@/components/utils/getColor";
+import { getColor } from "@/components/utils/getColor";
 import {
   IconCaretLeft,
   IconCaretRight,

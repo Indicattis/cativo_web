@@ -1,4 +1,3 @@
-import getColor from "@/components/utils/getColor";
 import Image from "next/image";
 
 

@@ -1,5 +1,4 @@
 'use client'
-import getColor from "@/components/utils/getColor";
 import { motion } from "framer-motion";
 
 

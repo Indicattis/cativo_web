@@ -1,4 +1,4 @@
-import getColor from "@/components/utils/getColor";
+import { getColor } from "@/components/utils/getColor";
 import colaborates_array from "@/data/json/colaborates";
 import ColaborateDTO from "@/data/types/colaborates";
 import {
@@ -79,7 +79,7 @@ export function Colaborate({ img, name, role, age, skills, theme }: ColaborateDT
             </div>
         </div>
       </div>
-      <div className={`absolute w-full h-full top-0 left-0 bg-gray z-10`}></div>
+      <div className={`absolute w-full h-full top-0 left-0 z-10`}></div>
     </div>
   );
 }

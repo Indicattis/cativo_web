@@ -1,4 +1,4 @@
-import getColor from "@/components/utils/getColor";
+import { getColor } from "@/components/utils/getColor";
 import { motion } from "framer-motion";
 
 interface ControllerProps {
@@ -25,9 +25,9 @@ export default function ControllerDefault({
             className="relative flex rounded-md justify-center items-center  "
           >
             <div
-              className={`cursor-pointer rounded-full h-full py-1 px-3 flex items-center z-20 _text ${selectedItem == item.id ? "bg-transparent" : "bg-gray"}`}
+              className={`cursor-pointer lowercase rounded-full h-full py-1 px-3 flex items-center z-20 _text ${selectedItem == item.id ? "bg-transparent" : "bg-dark"}`}
             >
-              {item.exhibition}
+              #{item.exhibition}
             </div>
             <motion.div
               key={`controller-bg-` + index}
@@ -35,7 +35,7 @@ export default function ControllerDefault({
               animate={{ scale: selectedItem == item.id ? 1 : 0 }}
               exit={{ scale: 0 }}
               transition={{delay: 0.1, type: "spring", stiffness: 600, damping: 40}}
-              className={`absolute top-0 left-0 w-full h-full z-10 rounded-full shadow-lg shadow-dark ${getColor(
+              className={`absolute top-0 left-0 w-full h-full z-10 shadow-lg shadow-dark rounded-full ${getColor(
                 item.theme
               )} ${selectedItem == item.id ? "" : ""}`}
             ></motion.div>

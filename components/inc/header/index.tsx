@@ -1,11 +1,10 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react';
-import { IconCaretUp, IconHome, IconMenuDeep, IconX } from "@tabler/icons-react";
+import { IconCaretRight, IconCaretUp, IconHome, IconMenuDeep, IconX } from "@tabler/icons-react";
 import Image from "next/image";
 import { AnimatePresence, motion } from 'framer-motion';
 import { menu_array } from '@/data/json/menu';
-import getColor from '@/components/utils/getColor';
 
 export default function HeaderComponent() {
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -49,7 +48,7 @@ export default function HeaderComponent() {
 
     return (
         <motion.header 
-            className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${isScrolled ? 'bg-black shadow-lg top-0' : 'top-5 '}`}
+            className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${isScrolled || dropdown ? 'bg-black shadow-lg top-0' : 'top-5 '}`}
         >
             <nav ref={navRef} className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] items-center justify-center max-lg:w-[95%] z-[9999]">
                 <div className="w-full h-full max-h-10 mb-4">
@@ -71,26 +70,26 @@ export default function HeaderComponent() {
                     
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`absolute h-10 w-10 right-2 rounded-md cursor-pointer hidden max-md:flex justify-center items-center z-[10000] ${dropdown ? "bg-gray" : "bg-transparent"}`}>
+                    className={`absolute h-10 w-10 right-2 rounded-md cursor-pointer hidden max-md:flex justify-center items-center z-[10000] `}>
                         {dropdown ? (
                             <motion.div
                             key="icon-caret-up"
-                            initial={{y:-100}}
-                            animate={dropdown && { y:0}}
-                            exit={{y:100}}
+                            initial={{x:100}}
+                            animate={dropdown && { x:0}}
+                            exit={{x:100}}
                             className=''
                             transition={{
                                 x: { type: "spring", stiffness: 300, damping: 30 },
                             }}
                             >
-                                <IconCaretUp width={30} height={30}/>
+                                <IconCaretRight width={30} height={30}/>
                             </motion.div>
                         ) : (
                             <motion.div
                             key="icon-menu-deep"
-                            initial={{y:100}}
-                            animate={!dropdown && { y:0}}
-                            exit={{y:-100}}
+                            initial={{x:100}}
+                            animate={!dropdown && { x:0}}
+                            exit={{x:100}}
                             transition={{
                                 x: { type: "spring", stiffness: 300, damping: 30 },
                             }}
@@ -105,46 +104,67 @@ export default function HeaderComponent() {
                     style={{ left: barPosition.left, width: barPosition.width }}
                 />
             </nav>
-            <motion.div className={`absolute rounded-md transition-all  w-full max-w-[1080px] h-full max-lg:w-[95%] z-[9997] ${dropdown ? (isScrolled ? 'opacity-0 bg-black' : "opacity-100 bg-dark") : "bg-transparent"}`} />
+            <motion.div className={`absolute rounded-md transition-all  w-full max-w-[1080px] h-full max-lg:w-[95%] z-[9997] ${dropdown ? "bg-black" : "bg-transparent"}`} />
             
             <AnimatePresence>
             {dropdown && (
             <motion.div
-            initial={{ height: 0, scale: 0, width: 0 }} 
-            animate={{ height: "60vh", scale: 1, width: "100%" }} 
-            exit={{ height: 0, scale: 0, width: 0}}
+            initial={{ height: 0, width: 0 }} 
+            animate={{ height: "20vh",  width: "100%" }} 
+            exit={{ height: 0, width: 0}}
             transition={{bounce: true}}
-            className={`absolute text-white top-[120%] w-full max-w-[1080px] hidden flex-col gap-5 max-lg:max-w-[95%] max-lg:flex z-[9997]`}>
-                <div className='w-full flex flex-col gap-3 z-[9997] p-5'>
+            className={`absolute text-white top-0 right-0 w-full max-w-[1080px] hidden flex-col pt-14 max-lg:flex z-[9997]`}>
+                <AnimatePresence>
+
+                <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+                transition={{delay: 0.4}} 
+                className='h-14 px-6 flex items-center w-full _text font-bold z-[9997] '>
+                    <div className=''>
+                        ...E ai! Bem vindo
+                    </div>
+                </motion.div>
+                <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+                transition={{delay: 0.4}} className='w-full flex flex-wrap gap-3 z-[9997] p-5 '>
                     {menu_array.map((item, index) => {
                         return (
                             <motion.div 
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
+                            transition={{delay: 0.1}}
                             key={`dropdown-exhibition-`+index}
-                            className='relative flex w-full h-12 justify-center items-center bg-gray rounded-lg'
+                            className='relative flex  h-12 justify-center items-center border border-dark  rounded-full bg-dark _text px-2'
                             onClick={() => setDropdown(false)}>
 
                                 <motion.div 
-                                className={`absolute left-1 w-[99%] h-full  p-3  rounded text-white f text-sm  capitalize   z-[9997] flex gap-3 items-center
+                                className={` text-zinc-400  lowercase   z-[9999] flex gap-3 items-center
                                 ${isScrolled ? "" : ""}
                                 `}>
                                     
-                                    <span className='mt-1'>
-                                        {item.exhibition}
-                                    </span>
+                                        #{item.exhibition}
                                 </motion.div>
-                                <motion.div
+                                {/* <motion.div
                                 key={`neon-`+index}
-                                className={`absolute bottom-0 left-0 h-full w-1 rounded z-[9999]
-                                ${getColor(item.theme)}
+                                className={`absolute bottom-0 left-0 h-full w-full rounded z-[9998]
+                                    ${getColor(item.theme)}
                                 `}>
 
-                                </motion.div>
+                                </motion.div> */}
                             </motion.div>
 
                         )
                     })}
-                </div>
-                <div className={`absolute top-0 left-0  rounded-md w-full transition-all h-full ${dropdown ? (isScrolled ? 'opacity-100 bg-black shadow-xl shadow-black' : "opacity-100 bg-dark") : "bg-black"}`}></div>
+                </motion.div>
+                
+                
+                <motion.div className={`absolute top-0 left-0  w-full transition-all h-full bg-black`}></motion.div>
+                </AnimatePresence>
             </motion.div>
                 
             )}

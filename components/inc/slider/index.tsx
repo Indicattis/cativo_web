@@ -1,4 +1,4 @@
-import getColor from "@/components/utils/getColor";
+import { getColor } from "@/components/utils/getColor";
 import { AnimatePresence, motion, PanInfo } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";

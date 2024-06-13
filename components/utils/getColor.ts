@@ -2,7 +2,7 @@
 
 
 
-export default function getColor(color: string) {
+function getColor(color: string) {
 
     switch (color) {
         case "neon_green":
@@ -24,3 +24,30 @@ export default function getColor(color: string) {
             break;
     }
 }
+
+
+ function getTextColor(color: string) {
+
+    switch (color) {
+        case "neon_green":
+            return `text-neon_green` 
+            break;
+        case "neon_red":
+            return `text-neon_pink` 
+            break;
+        case "neon_purple":
+            return `text-neon_blue` 
+            break;
+        case "neon_blue":
+            return `text-neon_green` 
+            break;
+        case "neon_pink":
+            return `text-neon_pink` 
+            break;
+        default:
+            return `text-dark`
+            break;
+    }
+}
+
+export { getColor, getTextColor}

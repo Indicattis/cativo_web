@@ -54,7 +54,7 @@ const web_data_array: WebDataDTO[] = [
             `${UNSPLASH_LINK}/350x800?tree`,
             `${UNSPLASH_LINK}/350x800?tree`
         ],
-        service_id: 4
+        service_id: 1
     },
     {
         id: 4, // Note: corrected the duplicate id
@@ -71,14 +71,26 @@ const web_data_array: WebDataDTO[] = [
     {
         id: 5, // Note: corrected the duplicate id
         exhibition: "teste",
-        url: `/img/project/landing_page_template.png`,
+        url: `/img/project/web_landingpage_template_desktop.jpg`,
         theme: "neon_blue",
         subimages: [
-            `/img/project/landing_page_template.png`,
-            `/img/project/landing_page_template.png`,
-            `/img/project/landing_page_template.png`
+            `/img/project/web_landingpage_template_desktop.jpg`,
+            `/img/project/web_landingpage_template_desktop.jpg`,
+            `/img/project/web_landingpage_template_desktop.jpg`
         ],
         service_id: 5
+    },
+    {
+        id: 6, // Note: corrected the duplicate id
+        exhibition: "Barber Shop",
+        url: `/img/project/web_business_template_desktop.png`,
+        theme: "neon_blue",
+        subimages: [
+            `/img/project/web_business_template_desktop.png`,
+            `/img/project/web_business_template_desktop.png`,
+            `/img/project/web_business_template_desktop.png`
+        ],
+        service_id: 4
     }
 ]
 
