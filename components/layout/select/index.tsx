@@ -1,10 +1,10 @@
-import { IconCaretDown, IconCheck } from "@tabler/icons-react";
+import { IconCaretDown, IconCheck, IconPoint } from "@tabler/icons-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { getColor, getTextColor } from "@/components/utils/getColor";
 interface SelectProps {
   exhibition: string;
-  itens: string[];
+  itens: React.ReactNode[];
   theme: string;
 }
 
@@ -48,9 +48,9 @@ export default function SelectDefault({ exhibition, itens, theme }: SelectProps)
                     stiffness: 600,
                     damping: 100,
                   }}
-                  className="flex gap-1 _text _small p-1 items-center"
+                  className="_text _small p-1"
                 >
-                  <IconCheck/>{item}
+                  {item}
                 </motion.div>
               );
             })}
@@ -59,4 +59,18 @@ export default function SelectDefault({ exhibition, itens, theme }: SelectProps)
       </motion.div>
     </AnimatePresence>
   );
+}
+
+type Option = {
+  label: string;
+  icon?: React.ReactNode;
+}
+
+export function SelectOption({ label, icon }: Option) {
+  return (
+    <div className="flex items-center gap-1 px-2">
+      <div>{icon ? icon : (<IconPoint/>)}</div>
+      <div>{label}</div>
+    </div>
+  )
 }

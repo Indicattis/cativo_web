@@ -202,7 +202,7 @@ function HeaderItem({ itemName, isSelected, onClick }: ItemProps) {
         <div
             ref={itemRef}
             onClick={handleClick}
-            className={`cursor-pointer text-lg font-bold tracking-tighter text-nowrap mr-10 max-lg:hidden ${isSelected ? 'text-white' : 'text-zinc-400 hover:text-white'}`}
+            className={`cursor-pointer _text text-nowrap mr-10 max-lg:hidden ${isSelected ? 'text-white' : 'text-zinc-200 hover:text-white'}`}
         >
             <h1>{itemName}</h1>
         </div>

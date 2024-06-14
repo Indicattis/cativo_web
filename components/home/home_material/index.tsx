@@ -9,10 +9,29 @@ import WebsiteShowcase from "./showcase";
 import ControllerDefault from "@/components/inc/controllers/default";
 import GridComponent, { GridElement } from "../../layout/grid";
 import Image from "next/image";
-import { IconCaretDown, IconDeviceMobile, IconInfoSquare, IconListCheck, IconPointFilled } from "@tabler/icons-react";
+import {
+  IconBrandAws,
+  IconBrandFramerMotion,
+  IconBrandNodejs,
+  IconBrandReact,
+  IconBrandTailwind,
+  IconBrandTypescript,
+  IconCaretDown,
+  IconCertificate,
+  IconCloud,
+  IconDeviceMobile,
+  IconHexagons,
+  IconInfoSquare,
+  IconListCheck,
+  IconNetwork,
+  IconPhotoScan,
+  IconPointFilled,
+  IconRefresh,
+  IconSpy,
+} from "@tabler/icons-react";
 import { Colaborate } from "../home-slider/colaborates";
 import colaborates_array from "@/data/json/colaborates";
-import SelectDefault from "@/components/layout/select";
+import SelectDefault, { SelectOption } from "@/components/layout/select";
 import { getColor } from "@/components/utils/getColor";
 
 interface PortifolioProps {
@@ -52,12 +71,14 @@ export default function MaterialComponent({
         </div>
         <div className="flex">
           <div className="text-gray">
-            <IconInfoSquare/>
+            <IconInfoSquare />
           </div>
         </div>
       </div>
 
-      <div className={`relative w-full flex justify-center items-center overflow-hidden gap-5  h-5 `}>
+      <div
+        className={`relative w-full flex justify-center items-center overflow-hidden gap-5  h-5 `}
+      >
         {filteredWebData.length > 0 &&
           filteredWebData.map((item, index) => (
             <motion.div
@@ -77,21 +98,56 @@ export default function MaterialComponent({
       </div>
       <GridComponent cols={2} rows={2}>
         <GridElement col={2} row={1}>
-          <motion.div className={`flex gap-10 justify-center  w-full min-h-[700px] max-w-[1080px] max-md:flex-col-reverse py-10 `}>
-
+          <motion.div
+            className={`flex gap-10 justify-center  w-full min-h-[700px] max-w-[1080px] max-md:flex-col-reverse py-10 `}
+          >
             <motion.div className="flex flex-col gap-5 w-[300px] p-3 max-md:p-5 max-md:w-full">
               <h1 className="_display_text flex flex-col gap-2 justify-center">
-                <span className="flex gap-2"><IconListCheck></IconListCheck>Especificações</span>
-                <span className="_text _small font-light text-zinc-400">Propriedades de desenvolvimento</span>
+                <span className="flex gap-2">
+                  <IconListCheck></IconListCheck>Especificações
+                </span>
+                <span className="_text _small font-light text-zinc-400">
+                  Propriedades de desenvolvimento
+                </span>
               </h1>
               <div className="flex flex-col gap-3">
-
-              <SelectDefault theme={web_services[selectedItemIndex - 1]?.theme} exhibition="Tecnologias" itens={["Node JS","ReactJS","Typescript"]}/>
-              <SelectDefault theme={web_services[selectedItemIndex - 1]?.theme}  exhibition="Hospedagem" itens={["AWS EC2","Domínio próprio","Firewall de rede"]}/>
-              <SelectDefault theme={web_services[selectedItemIndex - 1]?.theme}  exhibition="Design" itens={["Tailwind CSS","Framer Motion","Next Image"]}/>
-              <SelectDefault theme={web_services[selectedItemIndex - 1]?.theme}  exhibition="Segurança" itens={["Backups","Appache","Certificado SSL"]}/>
+                <SelectDefault
+                  theme={web_services[selectedItemIndex - 1]?.theme}
+                  exhibition="Tecnologias"
+                  itens={[
+                    <SelectOption icon={<IconBrandNodejs width={18}/>} label="Node JS"/>,
+                    <SelectOption icon={<IconBrandReact  width={18}/>} label="React JS"/>,
+                    <SelectOption icon={<IconBrandTypescript  width={18}/>} label="Typescript"/>
+                  ]}
+                />
+                <SelectDefault
+                  theme={web_services[selectedItemIndex - 1]?.theme}
+                  exhibition="Design"
+                  itens={[
+                    <SelectOption icon={<IconBrandTailwind width={18}/>} label="Cores personalizadas"/>,
+                    <SelectOption icon={<IconBrandFramerMotion  width={18}/>} label="Animações"/>,
+                    <SelectOption icon={<IconHexagons  width={18}/>} label="Diversas bibliotecas"/>
+                  ]}
+                />
+                <SelectDefault
+                  theme={web_services[selectedItemIndex - 1]?.theme}
+                  exhibition="Hospedagem"
+                  itens={[
+                    <SelectOption icon={<IconBrandAws width={18}/>} label="Amazon Web Services"/>,
+                    <SelectOption icon={<IconNetwork  width={18}/>} label="Domínio próprio"/>,
+                    <SelectOption icon={<IconCloud  width={18}/>} label="Hospedagem em núvem"/>
+                  ]}
+                />
+                <SelectDefault
+                  theme={web_services[selectedItemIndex - 1]?.theme}
+                  exhibition="Segurança"
+                  itens={[
+                    <SelectOption icon={<IconRefresh width={18}/>} label="Backups"/>,
+                    <SelectOption icon={<IconSpy  width={18}/>} label="Cookies e privacidade"/>,
+                    <SelectOption icon={<IconCertificate  width={18}/>} label="Certificado SSL"/>
+                  ]}
+                />
               </div>
-
             </motion.div>
 
             {/* Aqui - exibir url do primeiro subitem do item selecionado acima */}
@@ -104,20 +160,17 @@ export default function MaterialComponent({
                 theme={web_services[selectedItemIndex - 1]?.theme}
               />
             )}
-            
           </motion.div>
-          
         </GridElement>
         <GridElement col={2} row={1}>
-          
-          
-              
-              <h1 className="absolute top-5 _display_text flex flex-col gap-2 items-center w-full">
-                <div className="flex gap-2 items-center"><IconDeviceMobile></IconDeviceMobile>Dispositivos móveis</div>
-                <span className="_text  font-light text-white">Responsividade</span>
-              </h1>
+          <h1 className="absolute top-5 _display_text flex flex-col gap-2 items-center w-full">
+            <div className="flex gap-2 items-center">
+              <IconDeviceMobile></IconDeviceMobile>Dispositivos móveis
+            </div>
+            <span className="_text  font-light text-white">Responsividade</span>
+          </h1>
           <motion.div
-            className={`gap-3 w-full items-center justify-center h-full flex overflow-x-auto p-1 py-16 ${getColor(
+            className={`gap-3 w-full items-center justify-center h-full flex overflow-x-auto p-1 py-10 ${getColor(
               web_services[selectedItemIndex - 1]?.theme
             )}`}
           >
@@ -126,7 +179,7 @@ export default function MaterialComponent({
               filteredWebData[selectedSubItemIndex]?.subimages
                 .slice(0, 4)
                 .map((subimage, index) => (
-                  <motion.div key={`mobile-showcase-${index}`}>
+                  <motion.div key={`mobile-showcase-${index}`} className="mt-16">
                     <MobileShowcase key={index} url={subimage} />
                   </motion.div>
                 ))}
@@ -134,10 +187,16 @@ export default function MaterialComponent({
         </GridElement>
       </GridComponent>
 
-      
       <div className="w-full bg-gray flex justify-center">
         <div className=" max-w-[1080px] w-full">
-          <Colaborate age="23" img="/img/colaborates/indicatti.jpg" name="João Pedro Indicatti" role="Desenvolvedor" skills={colaborates_array[0].skills} theme={web_services[selectedItemIndex - 1]?.theme} />
+          <Colaborate
+            age="23"
+            img="/img/colaborates/indicatti.jpg"
+            name="João Pedro Indicatti"
+            role="Desenvolvedor"
+            skills={colaborates_array[0].skills}
+            theme={web_services[selectedItemIndex - 1]?.theme}
+          />
         </div>
       </div>
     </section>

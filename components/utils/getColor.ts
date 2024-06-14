@@ -20,6 +20,12 @@ function getColor(color: string | undefined) {
         case "neon_pink":
             return `bg-gradient-to-tr from-neon_pink2 to-neon_pink` 
             break;
+        case "gray":
+            return `bg-gray` 
+            break;
+        case "black":
+            return `bg-black` 
+            break;
         default:
             break;
     }
@@ -33,16 +39,16 @@ function getColor(color: string | undefined) {
             return `text-neon_green` 
             break;
         case "neon_red":
-            return `text-neon_pink` 
+            return `text-neon_red` 
             break;
         case "neon_purple":
-            return `text-neon_blue` 
+            return `text-neon_purple` 
             break;
         case "neon_blue":
-            return `text-neon_green` 
+            return `text-neon_blue` 
             break;
         case "neon_pink":
-            return `text-neon_pink` 
+            return `text-neon_pink2` 
             break;
         default:
             return `text-dark`
@@ -50,4 +56,115 @@ function getColor(color: string | undefined) {
     }
 }
 
-export { getColor, getTextColor}
+
+function getShadow(color: string | undefined) {
+
+    switch (color) {
+        case "neon_green":
+            return `shadow-neon_green2` 
+            break;
+        case "neon_red":
+            return `shadow-neon_red` 
+            break;
+        case "neon_purple":
+            return `shadow-neon_purple` 
+            break;
+        case "neon_blue":
+            return `shadow-neon_blue` 
+            break;
+        case "neon_pink":
+            return `shadow-neon_pink2` 
+            break;
+        default:
+            return `shadow-dark`
+            break;
+    }
+}
+
+
+function getBottomGradient(color: string | undefined) {
+
+    switch (color) {
+        case "neon_green":
+            return `bg-gradient-to-b from-neon_green2 from-10% via-10% to-80%` 
+            break;
+        case "neon_red":
+            return `bg-gradient-to-b from-neon_red from-10% via-10% to-80%` 
+            break;
+        case "neon_purple":
+            return `bg-gradient-to-b from-neon_purple from-10% via-10% to-80%` 
+            break;
+        case "neon_blue":
+            return `bg-gradient-to-b from-neon_blue from-10% via-10% to-80%` 
+            break;
+        case "neon_pink":
+            return `bg-gradient-to-b from-neon_pink2 from-10% via-10% to-80%` 
+            break;
+        case "gray":
+            return `bg-gray` 
+            break;
+        case "black":
+            return `bg-black` 
+            break;
+        default:
+            break;
+    }
+}
+function getTopGradient(color: string | undefined) {
+
+    switch (color) {
+        case "neon_green":
+            return `bg-gradient-to-t from-neon_green2 from-10% via-10% to-80%` 
+            break;
+        case "neon_red":
+            return `bg-gradient-to-t from-neon_red from-10% via-10% to-80%` 
+            break;
+        case "neon_purple":
+            return `bg-gradient-to-t from-neon_purple from-10% via-10% to-80%` 
+            break;
+        case "neon_blue":
+            return `bg-gradient-to-t from-neon_blue from-10% via-10% to-80%` 
+            break;
+        case "neon_pink":
+            return `bg-gradient-to-t from-neon_pink2 from-10% via-10% to-80%` 
+            break;
+        case "gray":
+            return `bg-gray` 
+            break;
+        case "black":
+            return `bg-black` 
+            break;
+        default:
+            break;
+    }
+}
+
+function getRadiusGradient(color: string | undefined) {
+
+    switch (color) {
+        case "neon_green":
+            return `bg-gradient-radial  from-neon_green2 from-10% via-10% to-70%` 
+            break;
+        case "neon_red":
+            return `bg-gradient-radial from-neon_red from-10% via-10% to-70%` 
+            break;
+        case "neon_purple":
+            return `bg-gradient-radial from-neon_purple from-10% via-10% to-70%` 
+            break;
+        case "neon_blue":
+            return `bg-gradient-radial from-neon_blue from-10% via-10% to-70%` 
+            break;
+        case "neon_pink":
+            return `bg-gradient-radial from-neon_pink2 from-10% via-10% to-70%` 
+            break;
+        case "gray":
+            return `bg-gradient-radial ` 
+            break;
+        case "black":
+            return `bg-black` 
+            break;
+        default:
+            break;
+    }
+}
+export { getColor, getTextColor, getShadow, getBottomGradient, getTopGradient, getRadiusGradient}

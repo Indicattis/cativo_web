@@ -66,6 +66,7 @@ body {
 ._text._small {
   font-size: 0.8rem;
   line-height: 1rem;
+  letter-spacing: 0.01rem;
 }
 
 ._display_text {

@@ -19,7 +19,7 @@ export default function FaceComponent() {
           showControllers
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}
-          numOfSliders={2}
+          numOfSliders={3}
           data={[
             <BackgroundComponent
               key={`slider-case-1`}
@@ -36,6 +36,7 @@ export default function FaceComponent() {
                 </div>}
               theme="neon_purple"
             ></BackgroundComponent>,
+            <ExhibitionComponent color="neon_purple" />
           ]}
         />
       </div>
