@@ -36,7 +36,8 @@ export default function FaceComponent() {
                 </div>}
               theme="neon_purple"
             ></BackgroundComponent>,
-            <ExhibitionComponent color="neon_purple" />
+            <ExhibitionComponent
+            key={`slider-case-2`} color="neon_purple" />
           ]}
         />
       </div>

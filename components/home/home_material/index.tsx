@@ -115,36 +115,36 @@ export default function MaterialComponent({
                   theme={web_services[selectedItemIndex - 1]?.theme}
                   exhibition="Tecnologias"
                   itens={[
-                    <SelectOption icon={<IconBrandNodejs width={18}/>} label="Node JS"/>,
-                    <SelectOption icon={<IconBrandReact  width={18}/>} label="React JS"/>,
-                    <SelectOption icon={<IconBrandTypescript  width={18}/>} label="Typescript"/>
+                    <SelectOption key={`tec-1`} icon={<IconBrandNodejs width={18}/>} label="Node JS"/>,
+                    <SelectOption key={`tec-2`} icon={<IconBrandReact  width={18}/>} label="React JS"/>,
+                    <SelectOption key={`tec-3`} icon={<IconBrandTypescript  width={18}/>} label="Typescript"/>
                   ]}
                 />
                 <SelectDefault
                   theme={web_services[selectedItemIndex - 1]?.theme}
                   exhibition="Design"
                   itens={[
-                    <SelectOption icon={<IconBrandTailwind width={18}/>} label="Cores personalizadas"/>,
-                    <SelectOption icon={<IconBrandFramerMotion  width={18}/>} label="Animações"/>,
-                    <SelectOption icon={<IconHexagons  width={18}/>} label="Diversas bibliotecas"/>
+                    <SelectOption key={`des-1`} icon={<IconBrandTailwind width={18}/>} label="Cores personalizadas"/>,
+                    <SelectOption key={`des-2`} icon={<IconBrandFramerMotion  width={18}/>} label="Animações"/>,
+                    <SelectOption key={`des-3`} icon={<IconHexagons  width={18}/>} label="Diversas bibliotecas"/>
                   ]}
                 />
                 <SelectDefault
                   theme={web_services[selectedItemIndex - 1]?.theme}
                   exhibition="Hospedagem"
                   itens={[
-                    <SelectOption icon={<IconBrandAws width={18}/>} label="Amazon Web Services"/>,
-                    <SelectOption icon={<IconNetwork  width={18}/>} label="Domínio próprio"/>,
-                    <SelectOption icon={<IconCloud  width={18}/>} label="Hospedagem em núvem"/>
+                    <SelectOption key={`host-1`} icon={<IconBrandAws width={18}/>} label="Amazon Web Services"/>,
+                    <SelectOption key={`host-2`} icon={<IconNetwork  width={18}/>} label="Domínio próprio"/>,
+                    <SelectOption key={`host-3`} icon={<IconCloud  width={18}/>} label="Hospedagem em núvem"/>
                   ]}
                 />
                 <SelectDefault
                   theme={web_services[selectedItemIndex - 1]?.theme}
                   exhibition="Segurança"
                   itens={[
-                    <SelectOption icon={<IconRefresh width={18}/>} label="Backups"/>,
-                    <SelectOption icon={<IconSpy  width={18}/>} label="Cookies e privacidade"/>,
-                    <SelectOption icon={<IconCertificate  width={18}/>} label="Certificado SSL"/>
+                    <SelectOption key={`seg-1`} icon={<IconRefresh width={18}/>} label="Backups"/>,
+                    <SelectOption key={`seg-2`} icon={<IconSpy  width={18}/>} label="Cookies e privacidade"/>,
+                    <SelectOption key={`seg-3`} icon={<IconCertificate  width={18}/>} label="Certificado SSL"/>
                   ]}
                 />
               </div>
