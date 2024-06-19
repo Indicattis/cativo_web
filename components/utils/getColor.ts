@@ -26,6 +26,9 @@ function getColor(color: string | undefined) {
         case "black":
             return `bg-black` 
             break;
+        case "dark":
+            return `bg-dark` 
+            break;
         default:
             break;
     }
@@ -167,4 +170,28 @@ function getRadiusGradient(color: string | undefined) {
             break;
     }
 }
-export { getColor, getTextColor, getShadow, getBottomGradient, getTopGradient, getRadiusGradient}
+
+function ConvertRGB(color: string | undefined) {
+
+    switch (color) {
+        case "#68fe9a":
+            return `neon_green` 
+            break;
+        case "#ff0066":
+            return `neon_red` 
+            break;
+        case "#5005f2":
+            return `neon_purple` 
+            break;
+        case "#f5618b":
+            return `neon_pink` 
+            break;
+        case "#407cf3":
+            return `neon_blue` 
+            break;
+        default:
+            return `neon_red` 
+            break;
+    }
+}
+export { getColor, getTextColor, getShadow, getBottomGradient, getTopGradient, getRadiusGradient, ConvertRGB}

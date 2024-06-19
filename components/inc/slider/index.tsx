@@ -77,7 +77,7 @@ export default function SliderComponent( {selectedItem, setSelectedItem, numOfSl
                             transition={{
                                 x: { type: "spring", stiffness: 600, damping: 50 },
                             }}
-                            className={`absolute top-0 left-0 w-full h-full flex items-center justify-center ${getColor("dark")}`}
+                            className={`absolute top-0 left-0 w-full h-full flex items-center justify-center`}
                         >
                             {/* <Image className="w-full h-full object-cover" priority draggable={false} alt="" src={item.url} width={3000} height={3000}/> */}
                             

@@ -4,22 +4,22 @@ import { UNSPLASH_LINK } from "../config";
 const menu_array: MenuDTO[] = [
         {
             id: 1,
-            exhibition: "Início",
+            exhibition: "Home",
             theme: "neon_red"
         },
         {
             id: 2,
-            exhibition: "Contato",
+            exhibition: "Projetos",
             theme: "neon_blue"
         },
         {
             id: 3,
-            exhibition: "Quem somos",
+            exhibition: "Atributos",
             theme: "neon_green"
         },
         {
             id: 4,
-            exhibition: "Ajuda",
+            exhibition: "Avaliações",
             theme: "neon_purple"
         },
 ]

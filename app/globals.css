@@ -32,9 +32,11 @@
 body {
   color: rgb(var(--foreground-rgb));
   overflow-x: hidden;
-  font-size: 62.5rem;
+  font-size: 16px;
 }
-
+input {
+  outline: none;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -74,6 +76,13 @@ body {
   letter-spacing: -0.05em;
   font-weight: bold;
   line-height: 1.25rem;
+}
+
+._display_text._biggest {
+  font-size: 4rem;
+  letter-spacing: -0.05em;
+  font-weight: bold;
+  line-height: 4.25rem;
 }
 
 ._modal_display {

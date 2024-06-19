@@ -70,7 +70,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
                     `}
         ></motion.div>
 
-        <motion.div className="w-full flex items-center gap-3 _text  mt-14 max-md:flex-col max-md:items-start">
+        <motion.div className="w-full flex items-center gap-3 _text  mt-14 max-md:flex-col max-md:items-start p-1">
           <div className="w-14 h-14 overflow-hidden rounded-full">
             <Image width={1000} height={1000} alt="" src={`/img/colaborates/indicatti.jpg`}/>
           </div>
@@ -98,15 +98,15 @@ type Link = {
   icon: React.ReactNode;
 }
 
-function WebsiteHyperlink( { url, theme, exhibition, icon }: Link) {
+export function WebsiteHyperlink( { url, theme, exhibition, icon }: Link) {
   return (
     
-    <div className={` p-3 rounded-lg cursor-pointer flex _small gap-2 items-center _text font-medium 
+    <div className={` h-12 px-3 rounded-lg cursor-pointer flex _small gap-2 items-center _text font-medium 
     ${getColor(theme)}`}
     onClick={() => window.location.href = url}
     >
       <div>{icon}</div>
-      <h1 className="capitalize">{exhibition}</h1>
+      {/* <h1 className="capitalize">{exhibition}</h1> */}
     </div>
   )
 }

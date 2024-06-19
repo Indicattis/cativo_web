@@ -15,7 +15,7 @@ export default function ControllerDefault({
   setSelectedItem,
 }: ControllerProps) {
   return (
-    <div className="flex flex-wrap gap-5">
+    <div className="flex flex-wrap gap-3 pl-5">
       {data.map((item, index) => {
         return (
           <motion.div
@@ -25,7 +25,7 @@ export default function ControllerDefault({
             className="relative flex rounded-md justify-center items-center  "
           >
             <div
-              className={`cursor-pointer lowercase rounded-full h-full py-1 px-3 flex items-center z-20 _text ${selectedItem == item.id ? "bg-transparent" : "bg-dark"}`}
+              className={`cursor-pointer lowercase rounded-full h-14 px-3 flex items-center z-20 _text ${selectedItem == item.id ? "bg-transparent" : "bg-dark"}`}
             >
               #{item.exhibition}
             </div>

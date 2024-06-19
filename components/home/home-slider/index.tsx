@@ -13,29 +13,24 @@ export default function FaceComponent() {
   const [selectedItem, setSelectedItem] = useState<number>(1);
 
   return (
-    <section className="_section min-h-[50vh] max-h-[100vh] h-screen z-10 relative overflow-hidden">
+    <section className="_section min-h-[50vh] max-h-[100vh] h-screen z-10 relative overflow-hidden bg-black">
       <div className="w-full h-[80vh] flex items-center justify-center flex-col">
         <SliderComponent
           showControllers
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}
-          numOfSliders={3}
+          numOfSliders={1}
           data={[
-            <BackgroundComponent
-              key={`slider-case-1`}
-              content={<ExhibitionComponent color="neon_pink"/>}
-              theme="neon_pink"
-            ></BackgroundComponent>,
-            <BackgroundComponent
-              key={`slider-case-3`}
-              content={
-                <div className={` w-full h-full flex items-center justify-center`}>
-                    <div className=" w-full h-full flex justify-center items-center max-lg:w-[85%]">
-                        <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
-                    </div>
-                </div>}
-              theme="neon_purple"
-            ></BackgroundComponent>,
+            // <BackgroundComponent
+            //   key={`slider-case-3`}
+            //   content={
+            //     <div className={` w-full h-full flex items-center justify-center`}>
+            //         <div className=" w-full h-full flex justify-center items-center max-lg:w-[85%]">
+            //             <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
+            //         </div>
+            //     </div>}
+            //   theme="neon_purple"
+            // ></BackgroundComponent>,
             <ExhibitionComponent
             key={`slider-case-2`} color="neon_purple" />
           ]}
