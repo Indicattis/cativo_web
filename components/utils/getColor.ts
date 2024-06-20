@@ -53,9 +53,18 @@ function getColor(color: string | undefined) {
         case "neon_pink":
             return `text-neon_pink2` 
             break;
-        default:
-            return `text-dark`
+        case "gray":
+            return `text-dark` 
             break;
+        case "dark":
+            return `text-dark`
+            break
+        case "black":
+            return `text-black` 
+            break;
+        default:
+            return `text-white`
+            break
     }
 }
 

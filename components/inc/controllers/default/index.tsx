@@ -15,7 +15,7 @@ export default function ControllerDefault({
   setSelectedItem,
 }: ControllerProps) {
   return (
-    <div className="flex flex-wrap gap-3 pl-5  rounded-lg py-2">
+    <div className="flex flex-wrap gap-3 rounded-lg py-2">
       {data.map((item, index) => {
         return (
           <motion.div

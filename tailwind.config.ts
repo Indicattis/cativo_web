@@ -16,7 +16,6 @@ const config: Config = {
       colors: {
         dark: "#151C36",
         // dark: "#15161B",
-
         black: "#060606",
         gray: "#faf7ff",
         neon_red: "#ff0066",

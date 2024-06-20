@@ -33,6 +33,7 @@ body {
   color: rgb(var(--foreground-rgb));
   overflow-x: hidden;
   font-size: 16px;
+  margin: 0 auto;
 }
 input {
   outline: none;
