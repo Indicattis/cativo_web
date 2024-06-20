@@ -9,7 +9,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Colaborate } from "../../home-slider/colaborates";
-import { getColor } from "@/components/utils/getColor";
+import { getColor, getTextColor } from "@/components/utils/getColor";
 
 interface ItemProps {
   url: string | undefined;
@@ -101,8 +101,8 @@ type Link = {
 export function WebsiteHyperlink( { url, theme, exhibition, icon }: Link) {
   return (
     
-    <div className={` h-12 px-3 rounded-lg cursor-pointer flex _small gap-2 items-center _text font-medium 
-    ${getColor(theme)}`}
+    <div className={` h-12 px-3 rounded-lg cursor-pointer flex _small gap-2 items-center _text font-medium hover:bg-zinc-200 
+    ${getTextColor(theme)}`}
     onClick={() => window.location.href = url}
     >
       <div>{icon}</div>

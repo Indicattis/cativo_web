@@ -1,4 +1,4 @@
-import { motion, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import { ConvertRGB, getColor } from "@/components/utils/getColor";
 import { useState, useEffect, useRef, Suspense } from "react";
 import { colors } from "@/data/json/colors";
@@ -29,16 +29,10 @@ export default function ExhibitionComponent({ color }: InterProps) {
         <ExhibitionContainer>
             {/* <BordersNeon light={light} x={x} ballWidth={ballWidth} /> */}
             <ExhibitionSection>
-                <div className="w-full h-full flex flex-col justify-center items-start gap-5 overflow-hidden">
+                <div className="w-full h-full flex flex-col justify-center items-start gap-5 overflow-hidden max-md:items-center">
                     {/* <Image draggable={false} width={300} height={300} alt="" src={`/img/cativo-logo-2.png`} /> */}
-                    <div className="flex w-full items-center gap-3 justify-start px-5 max-md:justify-center">
-                        <WebsiteHyperlink exhibition="github" icon={<IconBrandGithub/>} theme="gray" url="https://github.com/Indicattis"/>
-                        <WebsiteHyperlink exhibition="vercel" icon={<IconBrandVercel/>} theme="black" url="https://vercel.com/indicattis-projects"/>
-                        <WebsiteHyperlink exhibition="instagram" icon={<IconBrandInstagram/>} theme="neon_red" url="https://vercel.com/indicattis-projects"/>
-                        <WebsiteHyperlink exhibition="linkedin" icon={<IconBrandLinkedin/>} theme="neon_purple" url="https://vercel.com/indicattis-projects"/>
-                    </div>
                     <motion.div
-                        initial={{ x: -200 }}
+                        initial={{ x: -400 }}
                         animate={{
                             x: 0,
                         }}
@@ -54,27 +48,23 @@ export default function ExhibitionComponent({ color }: InterProps) {
                         className="relative flex flex-col w-full px-5 gap-2 max-md:text-center"
                     >
                         <h1 className="_display_text _biggest text-wrap max-md:!text-[20px]">
-                            Olá! Seja bem vindo!
+                            Desenvolvedor
                         </h1>
-                        <div className="_text text-zinc-400">
-                            Eu sou o{" "}
-                            <span className="text-white">João Pedro</span> e sou
-                            um desenvolvedor de sites, quer saber mais sobre meu
-                            trabalho?{" "}
-                            <span className="text-white">
-                                Clique no botão abaixo.
-                            </span>
-                        </div>
+                        <p className="_text text-zinc-400">
+                            Nome: {" "}
+                            <span className="text-white">João Pedro Indicatti</span> -
+                            Fullstack Developer: {" "}
+                        </p>
                     </motion.div>
                     <motion.div
-                        initial={{ x: -200 }}
+                        initial={{ x: -400 }}
                         animate={{
                             x: 0,
                         }}
                         transition={{
                             x: {
                                 duration: 0.2,
-                                delay: 0.7,
+                                delay: 0.6,
                                 type: "spring",
                                 stiffness: 600,
                                 damping: 130,
@@ -93,6 +83,26 @@ export default function ExhibitionComponent({ color }: InterProps) {
                         </DefaultButton>
                     </motion.div>
                     
+                    <motion.div 
+                        initial={{ x: -400 }}
+                        animate={{
+                            x: 0,
+                        }}
+                        transition={{
+                            x: {
+                                duration: 0.2,
+                                delay: 0.9,
+                                type: "spring",
+                                stiffness: 600,
+                                damping: 130,
+                            },
+                        }}
+                    className="flex items-center gap-3 justify-start mx-5 px-3 max-md:items-center bg-white h-14 rounded-2xl">
+                        <WebsiteHyperlink exhibition="github" icon={<IconBrandGithub/>} theme="gray" url="https://github.com/Indicattis"/>
+                        <WebsiteHyperlink exhibition="vercel" icon={<IconBrandVercel/>} theme="black" url="https://vercel.com/indicattis-projects"/>
+                        <WebsiteHyperlink exhibition="instagram" icon={<IconBrandInstagram/>} theme="neon_red" url="https://vercel.com/indicattis-projects"/>
+                        <WebsiteHyperlink exhibition="linkedin" icon={<IconBrandLinkedin/>} theme="neon_purple" url="https://vercel.com/indicattis-projects"/>
+                    </motion.div>
                     {/* Bola aqui */}
                 </div>
 
@@ -109,10 +119,8 @@ export default function ExhibitionComponent({ color }: InterProps) {
         </Canvas>
         </div>  */}
                 <motion.div
-                initial={{rotate: 6}}
                     animate={{
-                        y: [0, 20, -20, 10, 0],
-                        rotate: 6
+                        y: [0, 5, -5, 5, 0],
                     }}
                     transition={{
                         y: {
@@ -121,7 +129,7 @@ export default function ExhibitionComponent({ color }: InterProps) {
                             damping: 100,
                             stiffness: 60,
                             bounceDamping: 100,
-                            times: [0, 2, 4, 6, 8, 10],
+                            times: [0, 0.1, 0.7, 2, 19, 10],
                             repeat: Infinity,
                             repeatDelay: 0,
                             // delay: 0,
