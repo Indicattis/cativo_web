@@ -15,7 +15,7 @@ export default function ControllerDefault({
   setSelectedItem,
 }: ControllerProps) {
   return (
-    <div className="flex flex-wrap gap-3 pl-5">
+    <div className="flex flex-wrap gap-3 pl-5  rounded-lg py-2">
       {data.map((item, index) => {
         return (
           <motion.div
@@ -25,7 +25,7 @@ export default function ControllerDefault({
             className="relative flex rounded-md justify-center items-center  "
           >
             <div
-              className={`cursor-pointer lowercase rounded-full h-14 px-3 flex items-center z-20 _text ${selectedItem == item.id ? "bg-transparent" : "bg-dark"}`}
+              className={`cursor-pointer lowercase rounded-xl h-12 px-3 flex items-center z-20 _text font-bold tracking-tight ${selectedItem == item.id ? "" : "bg-dark"}`}
             >
               #{item.exhibition}
             </div>
@@ -35,8 +35,8 @@ export default function ControllerDefault({
               animate={{ scale: selectedItem == item.id ? 1 : 0 }}
               exit={{ scale: 0 }}
               transition={{delay: 0.1, type: "spring", stiffness: 600, damping: 40}}
-              className={`absolute top-0 left-0 w-full h-full z-10 shadow-lg shadow-dark rounded-full ${getColor(
-                item.theme
+              className={`absolute top-0 left-0 w-full h-full z-10  rounded-xl ${getColor(
+                "neon_purple"
               )} ${selectedItem == item.id ? "" : ""}`}
             ></motion.div>
           </motion.div>

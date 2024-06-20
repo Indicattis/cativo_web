@@ -50,10 +50,9 @@ export default function ExhibitionComponent({ color }: InterProps) {
                         <h1 className="_display_text _biggest text-wrap max-md:!text-[20px]">
                             Desenvolvedor
                         </h1>
-                        <p className="_text text-zinc-400">
-                            Nome: {" "}
+                        <p className="_text text-gray">
                             <span className="text-white">João Pedro Indicatti</span> -
-                            Fullstack Developer: {" "}
+                            Fullstack Developer{" "}
                         </p>
                     </motion.div>
                     <motion.div
@@ -77,7 +76,7 @@ export default function ExhibitionComponent({ color }: InterProps) {
                             wide="xl"
                             rounded="full"
                             type="button"
-                            theme={ConvertRGB(light)}
+                            theme={"neon_purple"}
                         >
                             Explorar
                         </DefaultButton>
@@ -97,7 +96,7 @@ export default function ExhibitionComponent({ color }: InterProps) {
                                 damping: 130,
                             },
                         }}
-                    className="flex items-center gap-3 justify-start mx-5 px-3 max-md:items-center bg-white h-14 rounded-2xl">
+                    className="flex items-center gap-1 justify-start mx-5 px-1 max-md:items-center bg-white h-14 rounded-xl">
                         <WebsiteHyperlink exhibition="github" icon={<IconBrandGithub/>} theme="gray" url="https://github.com/Indicattis"/>
                         <WebsiteHyperlink exhibition="vercel" icon={<IconBrandVercel/>} theme="black" url="https://vercel.com/indicattis-projects"/>
                         <WebsiteHyperlink exhibition="instagram" icon={<IconBrandInstagram/>} theme="neon_red" url="https://vercel.com/indicattis-projects"/>
@@ -162,13 +161,13 @@ export default function ExhibitionComponent({ color }: InterProps) {
                             repeatDelay: 0,
                         }}
                         className={`z-0 absolute w-full h-[600px] max-md:h-[330px] rounded-[50px]  max-md:w-[250px] ${getColor(
-                            ConvertRGB(light)
+                            "neon_purple"
                         )}`}
                     ></motion.div>
                 </motion.div>
             </ExhibitionSection>
             <DefaultShadow
-                theme={ConvertRGB(light)}
+                theme={"neon_purple"}
                 height={1500}
                 width={1500}
                 distanceY={700}

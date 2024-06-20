@@ -21,7 +21,7 @@ interface ItemProps {
 export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
   return (
       <motion.div
-        className={`relative p-5 flex flex-col items-center justify-center w-full max-w-[800px] max-h-[900px] h-full
+        className={`relative  flex flex-col items-center justify-center w-full max-w-[800px] max-h-[900px] h-full
             `}
       >
     <AnimatePresence>
@@ -36,7 +36,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
           damping: 10,
           delay: 0.3,
         }} 
-        className="w-full h-full shadow-lg rounded-3xl overflow-hidden shadow-black max-h-[500px] z-10">
+        className="w-full h-full  rounded-3xl overflow-hidden  max-h-[500px] z-10">
           <div className="bg-dark h-10 p-2 flex justify-between">
             <div className=" flex">
               <IconPointFilled color="#ff0066"></IconPointFilled>
@@ -63,30 +63,13 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
           </div>
     </motion.div>
     </AnimatePresence>
-        <motion.div
+
+    <motion.div
           key={`box-${key}`}
-          className={`absolute top-3  w-full h-full max-h-[400px] z-0 rounded-3xl shadow-2xl shadow-black transition-all max-md:rounded-none max-md:max-h-[300px]
-                    ${getColor(theme)}
+          className={`absolute bottom-3 left-3 w-full h-full z-0 rounded-3xl shadow-2xl shadow-black transition-all max-md:rounded-none max-md:max-h-[300px]
+                    ${getColor("neon_purple")}
                     `}
         ></motion.div>
-
-        <motion.div className="w-full flex items-center gap-3 _text  mt-14 max-md:flex-col max-md:items-start p-1">
-          <div className="w-14 h-14 overflow-hidden rounded-full">
-            <Image width={1000} height={1000} alt="" src={`/img/colaborates/indicatti.jpg`}/>
-          </div>
-          <div className="flex flex-col">
-            <h1 className="text-zinc-400 _text font-thin">
-              Desenvolvido e hospedado por <span className="font-normal">João Pedro Indicatti</span>
-            </h1>
-            <h1 className="text-zinc-400 _text _small font-thin">
-              @direitos reservados ao autor
-            </h1>
-          </div>
-          <div className="flex items-center gap-3 justify-center">
-            <WebsiteHyperlink exhibition="github" icon={<IconBrandGithub/>} theme="gray" url="https://github.com/Indicattis"/>
-            <WebsiteHyperlink exhibition="vercel" icon={<IconBrandVercel/>} theme="black" url="https://vercel.com/indicattis-projects"/>
-          </div>
-        </motion.div>
     </motion.div>
   );
 }
@@ -101,7 +84,7 @@ type Link = {
 export function WebsiteHyperlink( { url, theme, exhibition, icon }: Link) {
   return (
     
-    <div className={` h-12 px-3 rounded-lg cursor-pointer flex _small gap-2 items-center _text font-medium hover:bg-zinc-200 
+    <div className={` h-12 px-3 rounded-lg cursor-pointer flex _small gap-2 items-center _text font-medium hover:bg-gray
     ${getTextColor(theme)}`}
     onClick={() => window.location.href = url}
     >
