@@ -72,7 +72,7 @@ input {
 }
 
 ._text._small {
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1rem;
   letter-spacing: 0.01rem;
 }
@@ -147,7 +147,7 @@ input {
     line-height: 2.25rem;
   } */
   html {
-    font-size: 90%;
+    font-size: 95%;
   }
   
 }

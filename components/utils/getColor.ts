@@ -5,20 +5,8 @@
 function getColor(color: string | undefined) {
 
     switch (color) {
-        case "neon_green":
-            return `bg-gradient-to-tr from-neon_green2 to-neon_green` 
-            break;
-        case "neon_red":
-            return `bg-gradient-to-tr from-neon_red to-neon_pink` 
-            break;
         case "neon_purple":
-            return `bg-gradient-to-tr from-neon_purple to-neon_blue` 
-            break;
-        case "neon_blue":
-            return `bg-gradient-to-tr from-neon_blue to-neon_green` 
-            break;
-        case "neon_pink":
-            return `bg-gradient-to-tr from-neon_pink2 to-neon_pink` 
+            return `bg-neon_purple` 
             break;
         case "gray":
             return `bg-gray` 

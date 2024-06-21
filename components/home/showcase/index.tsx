@@ -19,7 +19,7 @@ import { Suspense } from "react";
 
 export default function HomeShowcase() {
     return (
-        <SectionComponent className="bg-black">
+        <SectionComponent className="bg-palette_black">
             <MainComponent className="flex w-full h-full items-center justify-center gap-10  flex-col">
                 {/* <div className="w-full h-full cursor-pointer absolute top-10 -left-96 z-50">
                     <Canvas className="">
@@ -31,9 +31,9 @@ export default function HomeShowcase() {
                         <directionalLight />
                     </Canvas>
                 </div> */}
-                <DivComponent className="gap-10">
+                <DivComponent className="gap-16">
                     <div className={`h-full w-full flex relative items-center justify-center `}>
-                        <StaticImage url="/img/notebook-wide-template.png" wide={800} className="right-10 rounded-[50px] max-md:-right-16" />
+                        <StaticImage url="/img/notebook-wide-template.png" wide={1000} className="right-10 rounded-[50px] max-md:-right-10" />
                     </div>
                     <div className=" w-full min-h-[600px] flex flex-col justify-center gap-20 ">
                         <ParagraphComponent className="gap-3 text-start" h1="Tecnologias" p="Com as novas tecnologias do mercado as aplicações desenvolvidas contam com funcionalidades reativas e páginas dinâmicas."/>
@@ -42,7 +42,7 @@ export default function HomeShowcase() {
                     </div>
                 </DivComponent>
 
-                <DivComponent className="gap-10">
+                <DivComponent className="gap-16">
                     <div className=" w-full min-h-[600px] flex flex-col justify-center gap-20 ">
                         <ParagraphComponent className="gap-3 text-start" h1="Preço justo" p="Projetos pelo preço ideal para você! Orçamento detalhado com diversas opções de pagamento."/>
                         <ParagraphComponent className="gap-3 text-start" h1="Elaboração" p="Todo o cuidado e atenção na hora de elaborar seu projeto com novas ideias e discussões sobre seu desenvolvimento."/>

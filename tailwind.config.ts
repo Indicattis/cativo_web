@@ -23,7 +23,7 @@ const config: Config = {
         neon_pink2: "#d705f2",
         // 
         palette_gray: "#5E5F64",
-        palette_dark: "#15161B",
+        palette_dark: "#151C36",
         palette_black: "#060606",
         purple: "#151C36",
 

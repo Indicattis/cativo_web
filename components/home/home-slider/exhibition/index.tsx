@@ -48,7 +48,7 @@ export default function ExhibitionComponent({ color }: InterProps) {
                         className="relative flex flex-col w-full px-5  max-md:text-center"
                     >
                         <h1 className="_display_text _biggest text-wrap max-md:text-[20px]">
-                            Olá! eu sou um Desenvolvedor
+                            Olá! eu sou um <span className="text-neon_purple">Desenvolvedor</span>
                         </h1>
                         <p className="_text text-gray">
                             <span className="text-white">João Pedro Indicatti</span> -
@@ -74,7 +74,7 @@ export default function ExhibitionComponent({ color }: InterProps) {
                         <DefaultButton
                             variant="filled"
                             wide="xl"
-                            rounded="full"
+                            rounded="md"
                             type="button"
                             theme={"neon_purple"}
                         >
@@ -82,26 +82,6 @@ export default function ExhibitionComponent({ color }: InterProps) {
                         </DefaultButton>
                     </motion.div>
                     
-                    <motion.div 
-                        initial={{ x: -400 }}
-                        animate={{
-                            x: 0,
-                        }}
-                        transition={{
-                            x: {
-                                duration: 0.2,
-                                delay: 0.9,
-                                type: "spring", 
-                                stiffness: 600,
-                                damping: 130,
-                            },
-                        }}
-                    className="flex items-center gap-1 justify-start mx-5 px-1 max-md:items-center bg-white h-14 rounded-xl">
-                        <WebsiteHyperlink exhibition="github" icon={<IconBrandGithub/>} theme="gray" url="https://github.com/Indicattis"/>
-                        <WebsiteHyperlink exhibition="vercel" icon={<IconBrandVercel/>} theme="black" url="https://vercel.com/indicattis-projects"/>
-                        <WebsiteHyperlink exhibition="instagram" icon={<IconBrandInstagram/>} theme="neon_red" url="https://vercel.com/indicattis-projects"/>
-                        <WebsiteHyperlink exhibition="linkedin" icon={<IconBrandLinkedin/>} theme="neon_purple" url="https://vercel.com/indicattis-projects"/>
-                    </motion.div>
                     {/* Bola aqui */}
                 </div>
 

@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-palette_black font-figtree text-white`}>
+      <body className={`bg-black font-figtree text-white`}>
         {children}</body>
     </html>
   );

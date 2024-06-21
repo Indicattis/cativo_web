@@ -10,8 +10,8 @@ import { IconBrandGithub, IconBrandVercel } from "@tabler/icons-react"
 export default function CopyrightCard() {
     return (
 
-        <motion.div className="w-[350px] flex items-center gap-3 _text px-5 flex-col max-md:items-start py-3 bg-dark rounded-[20px]">
-            <div className="flex gap-3">
+        <motion.div className="w-[350px] flex items-center gap-3 _text px-5 flex-col max-md:items-start bg-dark rounded-[20px]">
+            <div className="flex gap-3 w-full justify-start">
                 <div className="w-14 h-14 overflow-hidden rounded-full">
                     <Image
                         width={1000}

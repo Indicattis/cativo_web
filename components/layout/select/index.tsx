@@ -13,13 +13,13 @@ export default function SelectDefault({ exhibition, itens, theme }: SelectProps)
 
   return (
     <AnimatePresence>
-      <motion.div className="flex flex-col gap-2">
+      <motion.div className="flex flex-col gap-2 w-full max-w-[170px]">
         <motion.div
           initial={{ opacity: 0.6 }}
           whileTap={{ scale: 0.99 }}
           whileInView={{ opacity: 1 }}
           onClick={() => setOpen(!open)}
-          className={`rounded-md  shadow shadow-dark font-semibold _text flex justify-between p-3 gap-3 cursor-pointer z-20  ${open ? getColor(theme) : "bg-dark"}`}
+          className={`rounded-md  shadow shadow-black font-semibold _text flex justify-between p-2 gap-3 cursor-pointer z-20  ${open ? getColor(theme) : "bg-dark"}`}
         >
           <h1>{exhibition}</h1>
           <motion.div animate={{ rotate: open ? 180 : 0 }} className="">

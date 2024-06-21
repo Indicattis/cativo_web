@@ -8,6 +8,7 @@ import web_data_array from "@/data/json/web_data";
 import web_serv_array from "@/data/json/web_services";
 import MaterialComponent from "@/components/home/home_material";
 import HomeShowcase from "@/components/home/showcase";
+import ProfessionalComponent from "@/components/home/professional";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <HeaderComponent/>
       <FaceComponent/>
       {/* <NamespaceComponent/> */}
+      <ProfessionalComponent/>
       <HomeShowcase/>
       <NamespaceComponent/>
       <MaterialComponent web_services={web_serv_array} web_data={web_data_array}/>
