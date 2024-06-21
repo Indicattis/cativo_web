@@ -45,14 +45,14 @@ export default function ExhibitionComponent({ color }: InterProps) {
                                 damping: 130,
                             },
                         }}
-                        className="relative flex flex-col w-full px-5 gap-2 max-md:text-center"
+                        className="relative flex flex-col w-full px-5  max-md:text-center"
                     >
-                        <h1 className="_display_text _biggest text-wrap max-md:!text-[20px]">
-                            Desenvolvedor
+                        <h1 className="_display_text _biggest text-wrap max-md:text-[20px]">
+                            Olá! eu sou um Desenvolvedor
                         </h1>
                         <p className="_text text-gray">
                             <span className="text-white">João Pedro Indicatti</span> -
-                            Fullstack Developer{" "}
+                            Frontend Developer{" "}
                         </p>
                     </motion.div>
                     <motion.div
@@ -78,7 +78,7 @@ export default function ExhibitionComponent({ color }: InterProps) {
                             type="button"
                             theme={"neon_purple"}
                         >
-                            Explorar
+                            Saiba mais
                         </DefaultButton>
                     </motion.div>
                     
@@ -91,7 +91,7 @@ export default function ExhibitionComponent({ color }: InterProps) {
                             x: {
                                 duration: 0.2,
                                 delay: 0.9,
-                                type: "spring",
+                                type: "spring", 
                                 stiffness: 600,
                                 damping: 130,
                             },

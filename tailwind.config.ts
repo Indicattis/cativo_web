@@ -14,18 +14,19 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        dark: "#151C36",
-        // dark: "#15161B",
-        black: "#060606",
-        gray: "#faf7ff",
         neon_red: "#ff0066",
         neon_purple: "#5005f2",
-        purple: "#151C36",
         neon_green: "#68fe9a",
         neon_blue: "#407cf3",
         neon_pink: "#f5618b",
         neon_green2: "#47ff0a",
         neon_pink2: "#d705f2",
+        // 
+        palette_gray: "#5E5F64",
+        palette_dark: "#15161B",
+        palette_black: "#060606",
+        purple: "#151C36",
+
       },
       fontFamily: {
         'newake': ['newake', 'sans-serif'],

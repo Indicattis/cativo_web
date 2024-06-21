@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/iphone/Scene.jsx", "public/gltf/iphone/Iphone.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/iphone/Scene.jsx", "public/gltf/iphone/Iphone.jsx", "public/3d/notebook/index.jsx"],
   "exclude": ["node_modules"]
 }

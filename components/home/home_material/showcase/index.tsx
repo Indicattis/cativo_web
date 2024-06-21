@@ -38,7 +38,7 @@ export default function WebsiteShowcase({ url, theme, key }: ItemProps) {
                     }}
                     className="w-full h-full  rounded-[20px] overflow-hidden  max-h-[700px] z-10 max-md:rounded-none"
                 >
-                    <div className="bg-dark h-10 p-2 flex justify-between">
+                    <div className="bg-black h-10 p-2 flex justify-between">
                         <div className=" flex">
                             <IconPointFilled color="#ff0066"></IconPointFilled>
                             <IconPointFilled color="#FFF419"></IconPointFilled>

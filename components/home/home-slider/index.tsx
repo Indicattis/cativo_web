@@ -13,7 +13,7 @@ export default function FaceComponent() {
   const [selectedItem, setSelectedItem] = useState<number>(1);
 
   return (
-    <section className="_section min-h-[50vh] max-h-[100vh] h-screen z-10 relative overflow-hidden bg-black">
+    <section className="_section min-h-[50vh] max-h-[100vh] h-screen z-10 relative overflow-hidden bg-[#000000]">
       <div className="w-full h-[80vh] flex items-center justify-center flex-col">
         <SliderComponent
           showControllers

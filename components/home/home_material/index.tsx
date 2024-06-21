@@ -1,41 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import MobileShowcase from "./showcase/mobile";
-import SliderStepsComponent from "@/components/inc/slider/slider_steps";
-import PortifolioShowcase, { WebsiteHyperlink } from "./showcase";
+import  { WebsiteHyperlink } from "./showcase";
 import WebsiteShowcase from "./showcase";
 import ControllerDefault from "@/components/inc/controllers/default";
-import GridComponent, { GridElement } from "../../layout/grid";
 import Image from "next/image";
 import {
-    IconBrandAws,
-    IconBrandFramerMotion,
     IconBrandGithub,
-    IconBrandNodejs,
-    IconBrandReact,
-    IconBrandTailwind,
-    IconBrandTypescript,
     IconBrandVercel,
-    IconCaretDown,
-    IconCertificate,
-    IconCloud,
     IconDeviceMobile,
-    IconHexagons,
-    IconInfoSquare,
-    IconListCheck,
-    IconNetwork,
-    IconPhotoScan,
-    IconPointFilled,
-    IconRefresh,
-    IconSpy,
 } from "@tabler/icons-react";
-import { Colaborate } from "../home-slider/colaborates";
-import colaborates_array from "@/data/json/colaborates";
-import SelectDefault, { SelectOption } from "@/components/layout/select";
-import { getColor } from "@/components/utils/getColor";
+import { getColor, getTextColor } from "@/components/utils/getColor";
 import MainComponent from "@/components/layout/main";
+import CopyrightCard from "./copyright";
 
 interface PortifolioProps {
     web_data: WebDataDTO[];
@@ -59,9 +38,9 @@ export default function MaterialComponent({
 
     return (
         <section className={`_section relative overflow-hidden `}>
-            <MainComponent className="relative w-full flex justify-between bg-black border-b border-dark max-md:flex-col gap-5">
+            <MainComponent className="relative w-full flex justify-between  max-md:flex-col gap-5">
                 <div className=" flex flex-col items-start gap-3">
-                    <h1 className="_display_text">Explore</h1>
+                    <h1 className="_display_text">Expl<span className={`${getTextColor("neon_purple")}`}>ore</span></h1>
                     <p className="_text">
                         Veja exemplos de projetos realizados!
                     </p>
@@ -242,39 +221,7 @@ export default function MaterialComponent({
                                     </motion.div>
                                 ))}
                         </div>
-                        <motion.div className="w-full flex items-center gap-3 _text px-5  max-md:flex-col max-md:items-start py-3 bg-dark rounded-[12px]">
-                            <div className="w-14 h-14 overflow-hidden rounded-full">
-                                <Image
-                                    width={1000}
-                                    height={1000}
-                                    alt=""
-                                    src={`/img/colaborates/indicatti.jpg`}
-                                />
-                            </div>
-                            <div className="flex flex-col">
-                                <h1 className="text-white _text font-thin">
-                                    Desenvolvido e hospedado por{" "}
-                                    <span className="font-normal">
-                                        João Pedro Indicatti
-                                    </span>
-                                </h1>
-                                <h1 className="text-gray _text _small font-thin">
-                                    @direitos reservados ao autor
-                                </h1>
-                            </div>
-                            <div className="flex items-center gap-1 justify-center ">
-                                <WebsiteHyperlink
-                                    exhibition="github"
-                                    icon={<IconBrandGithub />}
-                                    url="https://github.com/Indicattis"
-                                />
-                                <WebsiteHyperlink
-                                    exhibition="vercel"
-                                    icon={<IconBrandVercel />}
-                                    url="https://vercel.com/indicattis-projects"
-                                />
-                            </div>
-                        </motion.div>
+                        <CopyrightCard/>
                     </div>
                 </motion.div>
             </MainComponent>

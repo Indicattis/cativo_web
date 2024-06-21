@@ -25,9 +25,9 @@ export default function ControllerDefault({
             className="relative flex rounded-md justify-center items-center  "
           >
             <div
-              className={`cursor-pointer lowercase rounded-xl h-12 px-3 flex items-center z-20 _text font-bold tracking-tight ${selectedItem == item.id ? "" : "bg-dark"}`}
+              className={`cursor-pointer rounded-xl h-12 px-3 flex items-center z-20 _text tracking-tight ${selectedItem == item.id ? "" : " text-palette_gray "}`}
             >
-              #{item.exhibition}
+              {item.exhibition}
             </div>
             <motion.div
               key={`controller-bg-` + index}
