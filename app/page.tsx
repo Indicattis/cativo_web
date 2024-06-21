@@ -1,6 +1,5 @@
 import NamespaceComponent from "@/components/home/home-namespace";
 import FaceComponent from "@/components/home/home-slider";
-import VisualComponent from "@/components/home/visual";
 import HeaderComponent from "@/components/inc/header";
 import visual_data_array from "@/data/json/visual_data";
 import visual_serv_array from "@/data/json/visual_services";
@@ -20,6 +19,7 @@ export default function Home() {
       <HomeShowcase/>
       <NamespaceComponent/>
       <MaterialComponent web_services={web_serv_array} web_data={web_data_array}/>
+      {/* <VisualComponent visual_data={visual_data_array} visual_services={visual_serv_array}/> */}
     </main>
   );
 }

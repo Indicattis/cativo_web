@@ -19,7 +19,7 @@ import { Suspense } from "react";
 
 export default function HomeShowcase() {
     return (
-        <SectionComponent className="bg-palette_black">
+        <SectionComponent className="">
             <MainComponent className="flex w-full h-full items-center justify-center gap-10  flex-col">
                 {/* <div className="w-full h-full cursor-pointer absolute top-10 -left-96 z-50">
                     <Canvas className="">

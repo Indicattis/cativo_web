@@ -60,7 +60,7 @@ export default function HeaderComponent() {
     return (
         <motion.header
             className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${
-                isScrolled || dropdown ? "bg-black shadow-lg top-0" : "top-5 "
+                isScrolled || dropdown ? "bg-neon_purple shadow-lg top-0" : "top-5 "
             }`}
         >
             <nav
@@ -75,7 +75,7 @@ export default function HeaderComponent() {
                             rounded="full"
                             wide="md"
                         >
-                            Contato
+                            Contratar
                         </DefaultButton>
                     </div>
                     {menu_array.map((item, index) => {
@@ -205,7 +205,7 @@ export default function HeaderComponent() {
                             </motion.div>
 
                             <motion.div
-                                className={`absolute top-0 left-0  w-full transition-all h-full bg-black`}
+                                className={`absolute top-0 left-0  w-full transition-all h-full bg-neon_purple`}
                             ></motion.div>
                         </AnimatePresence>
                     </motion.div>
@@ -290,38 +290,3 @@ function HeaderSearch() {
     );
 }
 
-function HeaderColorSet() {
-  const [isOpen, setOpen] = useState<boolean>(true);
-  return (
-    
-      <div className="max-md:hidden relative flex items-center justify-center">
-        <motion.div
-            onClick={() => setOpen(!isOpen)}
-            whileTap={{ scale: 0.95 }}
-            className="cursor-pointer"
-        >
-            <IconPalette />
-        </motion.div>
-        {isOpen && (
-          <motion.div 
-          initial={{y: -400, opacity: 0}}
-          animate={{y: 0, opacity: 1}}
-          exit={{y: -400}}
-          transition={{
-            y: {
-              type: "spring",
-              stiffness: 600,
-              damping: 50,
-            },
-          }}
-          className="fixed top-14  w-[50px] bg-black rounded-b-full p-3 flex flex-col gap-2 items-center justify-center">
-            <motion.div className={`w-7 h-7 rounded-full cursor-pointer ${getColor(`neon_green`)}`}> </motion.div>
-            <motion.div className={`w-7 h-7 rounded-full cursor-pointer ${getColor(`neon_purple`)}`}> </motion.div>
-            <motion.div className={`w-7 h-7 rounded-full cursor-pointer ${getColor(`neon_red`)}`}> </motion.div>
-            <motion.div className={`w-7 h-7 rounded-full cursor-pointer ${getColor(`neon_blue`)}`}> </motion.div>
-            <motion.div className={`w-7 h-7 rounded-full cursor-pointer ${getColor(`neon_pink`)}`}> </motion.div>
-          </motion.div>
-        )}
-    </div>
-  )
-}
