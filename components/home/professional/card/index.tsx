@@ -52,19 +52,19 @@ export default function PersonalCard() {
 
 
                 <div className="flex justify-between gap-3 max-lg:flex-col">
-                    <h1 className="text-white _text font-thin  rounded-lg p-3 bg-palette_dark border-2 border-transparent cursor-pointer hover:border-neon_purple">
+                    <h1 className="text-white _text font-thin  rounded p-3 bg-palette_dark border-2 border-transparent cursor-pointer shadow-lg shadow-purple">
                         `&quot;`Meu nome é João Pedro e trabalho no desenvolvimento de
                         aplicações web utilizando diversas ferramentas tanto para
                         desenvolvimento, quanto deploy e hospedagem.`&quot;`
                     </h1>
 
-                    <h1 className="text-white _text font-thin rounded-lg p-3 bg-palette_dark border-2 border-transparent cursor-pointer hover:border-neon_purple ">
+                    <h1 className="text-white _text font-thin rounded p-3 bg-palette_dark border-2 border-transparent cursor-pointer shadow-lg shadow-purple ">
                         `&quot;`Faço uso dos serviços da Amazon Cloud Service (AWS) como EC2
                         e RDS para databases e hospedagem. Também utilizo github com a
                         vercel para deploy teste de aplicações.`&quot;`
                     </h1>
 
-                    <h1 className="text-white _text font-thin rounded-lg p-3 bg-palette_dark border-2 border-transparent cursor-pointer hover:border-neon_purple ">
+                    <h1 className="text-white _text font-thin rounded p-3 bg-palette_dark border-2 border-transparent cursor-pointer shadow-lg shadow-purple ">
                         `&quot;`Tenho grande anseio pela área do desenvolvimento e sempre
                         busco por mais conhecimento para ampliar minhas capacidades e
                         ferramentas.`&quot;`

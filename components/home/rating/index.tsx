@@ -11,7 +11,7 @@ import { IconDotsVertical } from '@tabler/icons-react';
 import Image from 'next/image';
 
 export default function RatingComponent() {
-  const [itemActive, setItemActive] = useState(1);
+  const [itemActive, setItemActive] = useState<number>(1);
   const [direction, setDirection] = useState(0); // New state for direction
   const dragControls = useDragControls();
 
@@ -30,11 +30,11 @@ export default function RatingComponent() {
       }
     }
   };
-  const itemChange = (side: "left" | "right") => {
-    if (side == "left") {
+  const itemChange = (id: any) => {
+    if (id < itemActive) {
       setDirection(-1);
       setItemActive((prev) => prev - 1);
-    } else {
+    } else if (id > itemActive) {
       setDirection(1);
       setItemActive((prev) => prev + 1);
     }
@@ -47,9 +47,13 @@ export default function RatingComponent() {
       <MainComponent className=" overflow-hidden">
         <DivComponent className="">
           <motion.div
+            animate={
+              {translateX: itemActive == 0 ? 350 : (itemActive == rating_array.length - 1 ? -150 : 0)}
+            }
+            transition={{
+              translateX: { type: "spring", stiffness: 350, damping: 80 },
+            }}
             className={`flex gap-3 justify-center items-center h-full min-h-[500px]
-              ${itemActive == 0 ? "pl-[700px]" : ""}
-              ${itemActive == rating_array.length - 1 ? "pr-[300px]" : ""}
               `}
             drag="x"
             dragControls={dragControls}
@@ -67,6 +71,7 @@ export default function RatingComponent() {
                 loged_from={item.loged_from}
                 rating_media={item.rating_media}
                 rating_text={item.rating_text}
+                setItem={itemChange}
               />
             ))}
           </motion.div>
@@ -83,14 +88,15 @@ export default function RatingComponent() {
 
 
 type CardType = {
-  id?: number
+  id: number
   isActive?: boolean;
   profile_name: string;
   profile_img: string;
   loged_from: string;
   rating_media: number;
   rating_text: string;
-  direction: number
+  direction: number;
+  setItem?: React.Dispatch<React.SetStateAction<number>> | any
 };
 
 function RatinCard({
@@ -102,6 +108,7 @@ function RatinCard({
   profile_img,
   rating_media,
   rating_text,
+  setItem
 }: CardType) {
   return (
     <AnimatePresence custom={direction}>
@@ -118,6 +125,7 @@ function RatinCard({
         } 
           
           bg-palette_dark flex flex-col justify-between gap-5 p-5 rounded cursor-pointer w-[340px] shadow-lg shadow-purple`}
+        onClick={() => setItem(id)}
       >
         <div className="flex items-center justify-between">
           <div className="flex gap-3">
@@ -148,13 +156,15 @@ const cardVariants = {
   enter: (direction: number) => {
     return {
       x: direction > 0 ? 340 : -340,
+      scale: 1,
     };
   },
   center: {
     zIndex: 1,
     x: 0,
+    scale: 1,
     transition: {
-      x: { type: "spring", stiffness: 340, damping: 30 },
+      x: { type: "spring", stiffness: 440, damping: 80 },
       opacity: { duration: 0.2 },
     },
   },
@@ -162,9 +172,9 @@ const cardVariants = {
     return {
       zIndex: 1,
       x: direction < 0 ? 340 : -340,
-      opacity: 0,
+      scale: 0.8,
       transition: {
-        x: { type: "spring", stiffness: 340, damping: 30 },
+        x: { type: "spring", stiffness: 440, damping: 80 },
         opacity: { duration: 0.2 },
       },
     };
