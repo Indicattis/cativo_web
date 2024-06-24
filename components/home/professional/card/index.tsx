@@ -27,22 +27,22 @@ export default function PersonalCard() {
                         </div>
                         <div className="flex flex-col justify-center items-start gap-1 w-full max-lg:items-center">
                             <h1 className="_display_text">João Pedro Indicatti</h1>
-                            <p className="_text text-palette_gray">Desenvolvedor Web</p>
+                            <p className="_text text-neon_purple">Desenvolvedor Web</p>
                         </div>
                     </div>
 
                     <motion.div
                         className=" flex  items-center gap-3 justify-center p-1  h-14 rounded-xl">
-                        <div className="rounded-lg bg-zinc-800 w-12 h-12 flex items-center justify-center">
+                        <div className="rounded-lg bg-zinc-950 w-12 h-12 flex items-center justify-center">
                             <IconBrandGithub />
                         </div>
-                        <div className="rounded-lg bg-black w-12 h-12 flex items-center justify-center">
+                        <div className="rounded-lg bg-palette_black w-12 h-12 flex items-center justify-center">
                             <IconBrandVercel />
                         </div>
-                        <div className="rounded-lg bg-gradient-to-br from-pink-700 to-violet-500 w-12 h-12 flex items-center justify-center">
+                        <div className="rounded-lg bg-neon_red w-12 h-12 flex items-center justify-center">
                             <IconBrandInstagram />
                         </div>
-                        <div className="rounded-lg bg-blue-600 w-12 h-12 flex items-center justify-center">
+                        <div className="rounded-lg bg-neon_blue w-12 h-12 flex items-center justify-center">
                             <IconBrandLinkedin />
                         </div>
                     </motion.div>
@@ -73,7 +73,7 @@ export default function PersonalCard() {
                     
                 </div>
                 
-                <motion.div className="flex items-start justify-center gap-5 w-full  max-md:w-full max-lg:flex-wrap">
+                {/* <motion.div className="flex items-start justify-center gap-5 w-full  max-md:w-full max-lg:flex-wrap">
                     <SelectDefault
                         theme={`neon_purple`}
                         exhibition="Tecnologias"
@@ -172,7 +172,7 @@ export default function PersonalCard() {
                             />,
                         ]}
                     />
-                </motion.div>
+                </motion.div> */}
             </div>
 
 

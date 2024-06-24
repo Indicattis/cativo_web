@@ -19,18 +19,18 @@ export default function FaceComponent() {
           showControllers
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}
-          numOfSliders={1}
+          numOfSliders={2}
           data={[
-            // <BackgroundComponent
-            //   key={`slider-case-3`}
-            //   content={
-            //     <div className={` w-full h-full flex items-center justify-center`}>
-            //         <div className=" w-full h-full flex justify-center items-center max-lg:w-[85%]">
-            //             <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
-            //         </div>
-            //     </div>}
-            //   theme="neon_purple"
-            // ></BackgroundComponent>,
+            <BackgroundComponent
+              key={`slider-case-3`}
+              content={
+                <div className={` w-full h-full flex items-center justify-center`}>
+                    <div className=" w-full h-full flex justify-center items-center max-lg:w-[85%]">
+                        <Image draggable={false} width={600} height={600} alt="" src={`/img/cativo-logo.png`} />
+                    </div>
+                </div>}
+              theme="neon_purple"
+            ></BackgroundComponent>,
             <ExhibitionComponent
             key={`slider-case-2`} color="neon_purple" />
           ]}
