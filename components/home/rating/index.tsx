@@ -87,6 +87,7 @@ export default function RatingComponent() {
             {rating_array.map((item, index) => {
               return (
                 <motion.div
+                key={`bar-`+item.profile_name}
                 onClick={() => itemChange(index)}
                 className={`h-2 w-12 rounded-full cursor-pointer ${itemActive === index ? "bg-contrast_color_3" : "bg-contrast_color_2"}`}
                 >
