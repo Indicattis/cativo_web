@@ -7,7 +7,7 @@ import DivComponent from '@/components/layout/div';
 import MainComponent from '@/components/layout/main';
 import SectionComponent from '@/components/layout/section';
 import { rating_array } from '@/data/json/rating';
-import { IconDotsVertical } from '@tabler/icons-react';
+import { IconDotsVertical, IconStar, IconStarFilled, IconStarHalfFilled } from '@tabler/icons-react';
 import Image from 'next/image';
 
 export default function RatingComponent() {
@@ -48,7 +48,7 @@ export default function RatingComponent() {
         <DivComponent className="">
           <motion.div
             animate={
-              {translateX: itemActive == 0 ? 350 : (itemActive == rating_array.length - 1 ? -150 : 0)}
+              { translateX: itemActive == 0 ? 350 : (itemActive == rating_array.length - 1 ? -150 : 0) }
             }
             transition={{
               translateX: { type: "spring", stiffness: 350, damping: 80 },
@@ -60,6 +60,7 @@ export default function RatingComponent() {
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={handleDragEnd}
           >
+            <AnimatePresence initial={false} custom={direction}>
             {rating_array.slice(startIndex, startIndex + 3).map((item, index) => (
               <RatinCard
                 key={startIndex + `-` + index}
@@ -74,17 +75,28 @@ export default function RatingComponent() {
                 setItem={itemChange}
               />
             ))}
+            </AnimatePresence>
           </motion.div>
         </DivComponent>
         <DivComponent className="">
-          <DefaultButton variant="submit" rounded="full" wide="lg">
-            +
-          </DefaultButton>
+          <motion.div className='flex gap-3'>
+            {rating_array.map((item, index) => {
+              return (
+                <motion.div
+                onClick={() => itemChange(index)}
+                className={`h-2 w-12 rounded-full cursor-pointer ${itemActive === index ? "bg-contrast_color_3" : "bg-contrast_color_2"}`}
+                >
+
+                </motion.div>
+              )
+            })}
+          </motion.div>
         </DivComponent>
       </MainComponent>
     </SectionComponent>
   );
 }
+
 
 
 type CardType = {
@@ -110,21 +122,34 @@ function RatinCard({
   rating_text,
   setItem
 }: CardType) {
+  const renderStars = (rating: number) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<IconStarFilled key={i} className="text-contrast_color_4" />);
+      } else if (i - rating < 1) {
+        stars.push(<IconStarHalfFilled key={i} className="text-contrast_color_4" />);
+      } else {
+        stars.push(<IconStar key={i} className="text-contrast_color_2" />);
+      }
+    }
+    return stars;
+  };
+
   return (
     <AnimatePresence custom={direction}>
       <motion.div
-        key={`rating-box-` + id}
+        key={`rating-box-${id}`}
         variants={cardVariants}
         custom={direction}
         initial="enter"
         animate="center"
         exit="exit"
         whileTap={{ scale: 0.95 }}
-        className={`${
-          isActive ? 'h-[230px] opacity-100' : 'h-[220px] opacity-60'
-        } 
+        className={`${isActive ? 'h-[230px] opacity-100' : 'h-[220px] opacity-60'
+          } 
           
-          bg-palette_dark flex flex-col justify-between gap-5 p-5 rounded cursor-pointer w-[340px] shadow-lg shadow-purple`}
+          bg-palette_dark flex flex-col justify-between gap-5 p-3 rounded cursor-pointer w-[340px] shadow-lg shadow-purple`}
         onClick={() => setItem(id)}
       >
         <div className="flex items-center justify-between">
@@ -132,7 +157,7 @@ function RatinCard({
             <div className="w-10 h-10 overflow-hidden rounded-full bg-black">
               <Image alt="" src={profile_img} width={100} height={100} />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap">
               <h1 className="_text">{profile_name}</h1>
               <p className="_text _small text-palette_gray">
                 Logged from <span className="font-bold text-neon_purple">{loged_from}</span>
@@ -143,14 +168,17 @@ function RatinCard({
             <IconDotsVertical />
           </div>
         </div>
-        <div>
+        <div className='p-2 bg-contrast_color_2 rounded-lg'>
           <p className="_text _small">&quot;{rating_text}&quot;</p>
         </div>
-        <div className="">{rating_media}</div>
+        <div className="flex">
+          {renderStars(rating_media)}
+        </div>
       </motion.div>
     </AnimatePresence>
   );
 }
+
 
 const cardVariants = {
   enter: (direction: number) => {
