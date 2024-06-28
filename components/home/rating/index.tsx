@@ -12,6 +12,7 @@ import Image from 'next/image';
 
 export default function RatingComponent() {
   const [itemActive, setItemActive] = useState<number>(1);
+  const [scroll, setScroll] = useState<number>(340)
   const [direction, setDirection] = useState(0); // New state for direction
   const dragControls = useDragControls();
 
@@ -21,12 +22,14 @@ export default function RatingComponent() {
       if (itemActive < rating_array.length - 1) {
         setDirection(1);
         setItemActive((prev) => prev + 1);
+        setScroll(scroll - 346)
       }
     } else if (info.offset.x > 50) { // Changed condition to match expected behavior
       // Drag to the left
       if (itemActive > 0) {
         setDirection(-1);
         setItemActive((prev) => prev - 1);
+        setScroll(scroll + 346)
       }
     }
   };
@@ -34,13 +37,14 @@ export default function RatingComponent() {
     if (id < itemActive) {
       setDirection(-1);
       setItemActive((prev) => prev - 1);
+      setScroll(scroll + 346)
     } else if (id > itemActive) {
       setDirection(1);
       setItemActive((prev) => prev + 1);
+      setScroll(scroll - 346)
     }
   }
 
-  const startIndex = Math.max(0, itemActive - 1);
 
   return (
     <SectionComponent className="">
@@ -48,7 +52,7 @@ export default function RatingComponent() {
         <DivComponent className="">
           <motion.div
             animate={
-              { translateX: itemActive == 0 ? 350 : (itemActive == rating_array.length - 1 ? -150 : 0) }
+              { translateX: scroll }
             }
             transition={{
               translateX: { type: "spring", stiffness: 350, damping: 80 },
@@ -61,11 +65,11 @@ export default function RatingComponent() {
             onDragEnd={handleDragEnd}
           >
             <AnimatePresence initial={false} custom={direction}>
-            {rating_array.slice(startIndex, startIndex + 3).map((item, index) => (
+            {rating_array.map((item, index) => (
               <RatinCard
-                key={startIndex + `-` + index}
-                id={startIndex + index}
-                isActive={itemActive === startIndex + index}
+                key={`rating-card-` + index}
+                id={index}
+                isActive={itemActive === index}
                 direction={direction} // Pass direction to the card
                 profile_name={item.profile_name}
                 profile_img={item.profile_img}
