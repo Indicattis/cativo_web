@@ -2,69 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 36, 39, 44;
-  --background-start-rgb: 36, 39, 44;
-  --background-end-rgb: 36, 39, 44;
-}
-::-webkit-scrollbar {
-  width: 6px; /* Largura da barra de rolagem */
-  height: 3px;
-}
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+} */
 
-/* Estilo do polegar da barra de rolagem */
-::-webkit-scrollbar-thumb {
-  background-color: rgb(28 31 36); /* Cor do polegar da barra de rolagem */
-}
-
-/* Estilo da trilha da barra de rolagem */
-::-webkit-scrollbar-track {
-  background-color: rgb(36 39 44); /* Cor da trilha da barra de rolagem */
-}
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) { */
   :root {
-    --foreground-rgb: 36, 39, 44;
-    --background-start-rgb: 36, 39, 44;
-    --background-end-rgb: 36, 39, 44;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
-}
-html {
-  font-size: 100%;
-  line-height: 100%
-}
+/* } */
 
 body {
   color: rgb(var(--foreground-rgb));
-  overflow-x: hidden;
-  margin: 0 auto;
-  font-size: 1.6rem;
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
-input {
-  outline: none;
-}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
-@font-face {
-  font-family: "newake";
-  src: url("../public/fonts/Newake-Font-Demo.otf");
-  font-weight: normal;
-  font-style: normal;
-}
+
+/* ==========================================   FONTES   =============================================== */
+
 @font-face {
   font-family: "figtree";
   src: url("../public/fonts/Figtree-VariableFont_wght.ttf");
 }
-._section {
-  width: 100vw;
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
+
+
+
+/* ==========================================   DEFAULT   =============================================== */
+
+
+html {
+  font-size: 100%;
+  line-height: 100%
 }
+
+
+
+/* ==========================================   CUSTOM   =============================================== */
+
 
 ._text {
   font-size: 1rem;
@@ -89,65 +77,4 @@ input {
   letter-spacing: -0.05em;
   font-weight: bold;
   line-height: 3.25rem;
-}
-
-._modal_display {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #1a1b1e8a;
-  z-index: 50;
-  display: flex;
-  justify-items: center;
-  align-items: center;
-}
-._modal_fixed {
-
-  position: fixed;
-}
-._modal_background {
-  background-color: #000000a2;
-}
-._modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-shadow: 0 1px 10px 0 #fff;
-  border-radius: 100%;
-}
-
-
-
-@media (max-width: 768px) {
-  /* ._text {
-    font-size: 1.4rem;
-    line-height: 1.5rem;
-  }
-  
-  ._text._small {
-    font-size: 1rem;
-    line-height: 1rem;
-    letter-spacing: 0.01rem;
-  }
-  
-  ._display_text {
-    font-size: 2rem;
-    letter-spacing: -0.05em;
-    font-weight: bold;
-    line-height: 1.25rem;
-  }
-  
-  ._display_text._biggest {
-    font-size: 2.8rem;
-    letter-spacing: -0.05em;
-    font-weight: bold;
-    line-height: 2.25rem;
-  } */
-  html {
-    font-size: 95%;
-  }
-  
 }

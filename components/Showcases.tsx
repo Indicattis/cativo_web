@@ -1,0 +1,95 @@
+"use client"
+
+import { useState } from "react";
+import { Layout } from "./Layouts";
+import { Showcase } from "./Showcase";
+import { Showcases } from "@/data/json/showcases";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+
+export default function ShowcaseComponent() {
+    const [activeId, setActiveId] = useState<number>(1);
+    const [currentPage, setCurrentPage] = useState<number>(0);
+
+    const itemsPerPage = 1;
+    const totalPages = Math.ceil(Showcases.length / itemsPerPage);
+
+    const setItemActive = (id: number) => {
+        if (id > Showcases.length) {
+            setActiveId(1);
+            setCurrentPage(0)
+        } else if (id < 1) {
+            setActiveId(0);
+            setCurrentPage(0)
+        }  else {
+            setCurrentPage(id -1)
+            setActiveId(id);
+        }
+
+    };
+
+
+
+    return (
+        <Layout.Section className="relative !overflow-hidden h-screen max-md:h-[800px]">
+            <Layout.Main className="flex w-full h-full items-center justify-center gap-10 flex-col">
+                <Layout.Div className=" z-50">
+                    <Showcase.Root className="max-md:flex-col">
+                        <Showcase.Content>
+                            {Showcases.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item, index) => {
+                                return (
+                                    <AnimatePresence
+                                    key={index}>
+                                        <motion.div
+                                            initial={{ x: -600 }}
+                                            animate={{ x: 0 }}
+                                            exit={{ x: -600 }}
+                                            transition={{
+                                                delay: index * 0.1,
+                                                type: "spring",
+                                                damping: 30
+                                            }}
+                                            key={index}
+                                        >
+                                            <Showcase.Text 
+                                                itemActive={activeId == item.id} 
+                                                id={item.id} 
+                                                setItemActive={setItemActive} 
+                                                h1={item.title} 
+                                                key={`showcase-text-${item.id}`} 
+                                                p={item.text} 
+                                                className="gap-3 text-start"
+                                            />
+                                        </motion.div>
+                                    </AnimatePresence>
+                                );
+                            })}
+                            <Showcase.Controllers handleChangePage={setCurrentPage} length={totalPages} activePage={currentPage}/>
+                        </Showcase.Content>
+                        <AnimatePresence >
+                        {activeId == 1 && (
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        )}
+                        {activeId == 2 && (
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        )}
+                        {activeId == 3 && (
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        )}
+                        {activeId == 4 && (
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        )}
+                        {activeId == 5 && (
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        )}
+                        {activeId == 6 && (
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        )}
+                        </AnimatePresence>
+                    </Showcase.Root>
+                </Layout.Div>
+                 <Image className="absolute z-0 h-full max-md:hidden" alt="" src={"/img/showcase/background.png"} width={2000} height={800}/>
+            </Layout.Main>
+                 </Layout.Section>
+    );
+}

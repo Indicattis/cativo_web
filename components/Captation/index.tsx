@@ -1,0 +1,18 @@
+import CaptationControllers from "./CaptationControllers";
+import CaptationDescription from "./CaptationDescription";
+import CaptationRoot from "./CaptationRoot";
+import CaptationServices from "./CaptationServices";
+import CaptationStart from "./CaptationStart";
+
+
+
+
+
+
+export const Captation = {
+    Root: CaptationRoot,
+    Start: CaptationStart,
+    Services: CaptationServices,
+    Description: CaptationDescription,
+    Controllers: CaptationControllers,
+}

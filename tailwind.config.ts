@@ -14,13 +14,6 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        neon_red: "#ff0066",
-        neon_green: "#68fe9a",
-        neon_blue: "#407cf3",
-        // neon_pink: "#f5618b",
-        // neon_green2: "#47ff0a",
-        // neon_pink2: "#d705f2",
-        // 
         purple: "#151C36",
         neon_purple: "#5005f2",
         palette_gray: "#5E5F64",
@@ -30,10 +23,13 @@ const config: Config = {
         contrast_color_2: "#2E3D75",
         contrast_color_3: "#5F80F5",
         contrast_color_4: "#5673DB",
+        neon_red: "#ff0066",
+        neon_green: "#68fe9a",
+        neon_blue: "#407cf3",
+        neon_green2: "#47ff0a",
 
       },
       fontFamily: {
-        'newake': ['newake', 'sans-serif'],
         'figtree': ['figtree'],
       },
     },
