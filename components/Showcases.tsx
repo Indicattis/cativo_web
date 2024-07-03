@@ -31,10 +31,13 @@ export default function ShowcaseComponent() {
 
 
     return (
-        <Layout.Section className="relative !overflow-hidden h-screen max-md:h-[800px]">
-            <Layout.Main className="flex w-full h-full items-center justify-center gap-10 flex-col">
+        <Layout.Section className="relative  h-screen max-md:h-[800px]">
+            <Layout.Main className=" flex w-full h-full items-center justify-center gap-10 flex-col">
                 <Layout.Div className=" z-50">
-                    <Showcase.Root className="max-md:flex-col">
+                    
+                <div className="absolute left-0 top-0 w-full h-96 bg-gradient-to-b from-black to-transparent z-40"></div>
+                <div className="absolute left-0 bottom-0 w-full h-96 bg-gradient-to-t from-black to-transparent z-40"></div>
+                    <Showcase.Root className="max-md:flex-col max-md:justify-end">
                         <Showcase.Content>
                             {Showcases.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item, index) => {
                                 return (
@@ -66,29 +69,32 @@ export default function ShowcaseComponent() {
                             })}
                             <Showcase.Controllers handleChangePage={setCurrentPage} length={totalPages} activePage={currentPage}/>
                         </Showcase.Content>
-                        <AnimatePresence >
+                        
+            <AnimatePresence >
                         {activeId == 1 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 2 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 3 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 4 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 5 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 6 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500} className="rounded-[50px]" />
+                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
-                        </AnimatePresence>
+                        </AnimatePresence> 
                     </Showcase.Root>
+                    
                 </Layout.Div>
-                 <Image className="absolute z-0 h-full max-md:hidden" alt="" src={"/img/showcase/background.png"} width={2000} height={800}/>
+                 <Image className="absolute right-0 z-0 h-full max-md:hidden" alt="" src={"/img/showcase/background.png"} width={2000} height={800}/>
+                 
             </Layout.Main>
                  </Layout.Section>
     );

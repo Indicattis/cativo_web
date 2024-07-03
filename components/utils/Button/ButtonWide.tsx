@@ -7,7 +7,7 @@ interface ButtonWideProps {
     children: ReactNode
     wide: "sm" | "lg" | "md" | "xl" | "full",
     rounded: "sm" | "lg" | "md" | "xl" | "full",
-    variant: "default" | "red" | "blue" | "green" | "gray" | "black",
+    variant: "default" | "red" | "blue" | "green" | "gray" | "black" | "disabled",
     onClick?: () => void
 }
 
@@ -25,6 +25,7 @@ export default function ButtonWide ( { children, wide, rounded, variant = "defau
             ${variant == "blue" ? "bg-neon_blue" : ""}
             ${variant == "gray" ? "bg-palette_gray" : ""}
             ${variant == "black" ? "bg-black" : ""}
+            ${variant == "disabled" ? "bg-purple" : ""}
             ${wide == "sm" ? "h-8 _text _small" : ""}
             ${wide == "md" ? "h-10 _text _small" : ""}
             ${wide == "lg" ? "h-12 _display_text " : ""}

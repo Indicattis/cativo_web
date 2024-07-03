@@ -17,10 +17,8 @@ export default function ShowcaseImage({ url, className, wide, key }: ImageType) 
             duration: .6,
             type: "spring",
         }}
-            style={{
-                width: wide,
-            }}
-            className={`absolute right-0 max-md:w-full overflow-hidden max-md:top-96 ${className}`}>
+            
+            className={`absolute -right-5 overflow-hidden min-w-[450px] rounded-[50px] z-0 max-md:rounded-none ${className}`}>
             <Image width={wide} height={wide} alt="" src={url} />
         </motion.div>
     )
