@@ -30,21 +30,21 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col justify-between items-start gap-5 min-h-[700px] top-0">
+                    }} className="flex flex-col justify-between items-start gap-5 h-[580px] top-0">
 
                     <div className="flex flex-col gap-2 w-full">
                         <h1 className="_display_text">Deseja fazer um orçamento?</h1>
                         <p className="_text text-palette_gray">Veja a melhor opção para você!</p>
                     </div>
 
-                    <div className="flex gap-3 w-full items-center border-b border-purple py-5 max-md:flex-col">
+                    <div className="flex gap-3 w-full items-center border-b border-purple py-5 max-md:grid grid-cols-2">
                         <BasicPlanCard isActive={planChoice == "plan1"} onChange={setPlanChoice} />
                         <DefaultPlanCard isActive={planChoice == "plan2"} onChange={setPlanChoice} />
                         <AdvancedPlanCard isActive={planChoice == "plan3"} onChange={setPlanChoice} />
                     </div>
-                    <div className="w-full flex items-center gap-2">
+                    <div className="w-full flex items-center justify-between gap-2">
 
-                        <Button.Wide rounded="full" variant="default" wide="md" onClick={() => { setPlan(planChoice), setStage(1) }}>
+                        <Button.Wide rounded="full" variant="default" wide="lg" onClick={() => { setPlan(planChoice), setStage(1) }}>
                             <Button.Text text="Começar!" />
                             <Button.Icon icon={<IconCaretRightFilled />} />
                         </Button.Wide>
@@ -86,7 +86,7 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             <div className="w-full p-3 text-center">
                 <h1 className="_display_text">Plano mensal</h1>
             </div>
-            <div className="flex flex-col gap-2 p-3 max-md:hidden">
+            <div className="flex flex-col gap-2 p-3 max-md:hidden _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>
@@ -117,7 +117,7 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
             <div className="w-full p-3 text-center">
                 <h1 className="_display_text">Plano semestral</h1>
             </div>
-            <div className="flex flex-col gap-2 p-3 max-md:hidden">
+            <div className="flex flex-col gap-2 p-3 max-md:hidden _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>
@@ -148,7 +148,7 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
             <div className="w-full p-3 text-center">
                 <h1 className="_display_text">Plano anual</h1>
             </div>
-            <div className="flex flex-col gap-2 p-3 max-md:hidden">
+            <div className="flex flex-col gap-2 p-3 max-md:hidden _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>

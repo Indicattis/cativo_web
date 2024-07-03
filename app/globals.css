@@ -25,6 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
     overflow-x: hidden;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
 }
 
 @layer utilities {
@@ -49,7 +52,6 @@ html {
   font-size: 100%;
   line-height: 100%
 }
-
 
 
 /* ==========================================   CUSTOM   =============================================== */
@@ -78,4 +80,25 @@ html {
   letter-spacing: -0.05em;
   font-weight: bold;
   line-height: 3.25rem;
+}
+
+/* ==========================================   MEDIA   =============================================== */
+
+@media (max-width: 768px) {
+
+  html {
+    font-size: 90%;
+    line-height: 90%
+  }
+  
+}
+
+
+@media (max-width: 1024px) {
+
+  html {
+    font-size: 95%;
+    line-height: 95%
+  }
+  
 }

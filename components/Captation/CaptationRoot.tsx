@@ -6,7 +6,7 @@ interface CaptationRootProps {
 
 export default function CaptationRoot({children}: CaptationRootProps) {
     return (
-        <div className="w-full flex flex-col gap-10 justify-between relative">
+        <div className="w-full flex flex-col gap-5 justify-between relative">
             {children}
         </div>
     )

@@ -62,7 +62,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col justify-between items-start gap-5 min-h-[700px] top-0">
+                    }} className="flex flex-col justify-between items-start gap-5 h-[580px] top-0">
 
                     <div className="flex flex-col gap-2">
                         <h1 className="_display_text">Agora sobre você!</h1>
@@ -115,11 +115,11 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                     )}
                     <div className="flex gap-2">
 
-                        <Button.Wide rounded="full" variant="disabled" wide="md" onClick={() => { setStage(2) }}>
+                        <Button.Wide rounded="full" variant="disabled" wide="lg" onClick={() => { setStage(2) }}>
                             <Button.Icon icon={<IconCaretLeftFilled />} />
                             <Button.Text text="Anterior" />
                         </Button.Wide>
-                        <Button.Wide rounded="full" variant="default" wide="md" onClick={onSubmit}>
+                        <Button.Wide rounded="full" variant="default" wide="lg" onClick={onSubmit}>
                             <Button.Text text="Próximo" />
                             <Button.Icon icon={<IconCaretRightFilled />} />
                         </Button.Wide>
