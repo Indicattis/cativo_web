@@ -36,10 +36,10 @@ export default function CaptationServices({ setProjectServices, isActive, setSta
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col gap-5 w-full justify-between min-h-[600px]">
+                    }} className="flex flex-col gap-5 w-full justify-between min-h-[700px]">
                     <div>
                         <div className="flex flex-col gap-3">
-                            <h1 className="_display_text">Seleção de funcionalidades:</h1>
+                            <h1 className="_display_text">Qual o intuito do seu projeto?</h1>
                             <p className="_text text-palette_gray">Selecione as categorias que definam as funcionalidades do seu projeto</p>
                             <p className="_text text-palette_gray">* o preço da mensalidade pode varias de acordo com a quantidade de funcionalidades necessárias.</p>
                         </div>

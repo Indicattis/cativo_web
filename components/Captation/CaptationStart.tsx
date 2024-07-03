@@ -15,7 +15,7 @@ interface CaptationStart {
 
 
 export default function CaptationStart({ setStage, setPlan, isActive }: CaptationStart) {
-    const [planChoice, setPlanChoice] = useState("")
+    const [planChoice, setPlanChoice] = useState("plan2")
     const [modalActive, setModalActive] = useState<boolean>(false)
     return (
         <AnimatePresence>
@@ -30,7 +30,7 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col justify-between items-start gap-5 min-h-[600px] top-0">
+                    }} className="flex flex-col justify-between items-start gap-5 min-h-[700px] top-0">
 
                     <div className="flex flex-col gap-2 w-full">
                         <h1 className="_display_text">Deseja fazer um orçamento?</h1>
@@ -57,13 +57,13 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
             {modalActive && (
 
                 <Modal.Root>
-                <Modal.Box>
-                    <Modal.Message message={`Planos`}/>
-                    <Modal.Content>
-                        <p className="_text _small">Cada plano está relacionado a modalidade, sendo: mensal, semestral ou anual que corresponde ao valor de manutenção e hospedagem de um site</p>
-                    </Modal.Content>
-                    <Modal.Button onClick={setModalActive}/>
-                </Modal.Box>
+                    <Modal.Box>
+                        <Modal.Message message={`Planos`}/>
+                        <Modal.Content>
+                            <p className="_text _small">Cada plano está relacionado a modalidade, sendo: mensal, semestral ou anual que corresponde ao valor de manutenção e hospedagem de um site</p>
+                        </Modal.Content>
+                        <Modal.Button onClick={setModalActive}/>
+                    </Modal.Box>
                 </Modal.Root>
             )}
         </AnimatePresence>

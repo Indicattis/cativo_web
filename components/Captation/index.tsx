@@ -1,5 +1,7 @@
+import CaptationClient from "./CaptationClient";
 import CaptationControllers from "./CaptationControllers";
 import CaptationDescription from "./CaptationDescription";
+import CaptationEnd from "./CaptationEnd";
 import CaptationRoot from "./CaptationRoot";
 import CaptationServices from "./CaptationServices";
 import CaptationStart from "./CaptationStart";
@@ -15,4 +17,6 @@ export const Captation = {
     Services: CaptationServices,
     Description: CaptationDescription,
     Controllers: CaptationControllers,
+    Client: CaptationClient,
+    End: CaptationEnd,
 }

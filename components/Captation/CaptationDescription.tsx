@@ -29,12 +29,12 @@ export default function CaptationDescription({ isActive, setProjectDescription, 
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col justify-between min-h-[600px]">
+                    }} className="flex flex-col justify-between min-h-[700px]">
                     <div className="flex flex-col gap-2">
                         <h1 className="_display_text">Fale mais sobre seu projeto:</h1>
                         <p className="_text text-palette_gray">Descreva em uma frase a ideia do seu site</p>
                     </div>
-                    <textarea onChange={(e) => setDescription(e.target.value)} placeholder="Eu quero um site..." className="h-[140px] bg-transparent outline-none w-full border border-purple p-3 focus:border-neon_purple rounded " />
+                    <textarea onChange={(e) => setDescription(e.target.value)} placeholder="A minha ideia é...." className="h-[140px] bg-transparent outline-none w-full border border-purple p-3 focus:border-neon_purple rounded " />
                     <div className="flex gap-2">
 
                         <Button.Wide rounded="full" variant="disabled" wide="md" onClick={() => { setStage(1) }}>
