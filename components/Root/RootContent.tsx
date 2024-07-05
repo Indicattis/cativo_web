@@ -1,12 +1,16 @@
-import { DefaultProps } from "@/data/utils/default-props";
+import { ReactNode } from "react"
 
 
 
 
+interface RootContentProps {
+    className: string
+    children: ReactNode
+}
 
 
 
-export default function RootContent({children, className}: DefaultProps) {
+export default function RootContent({children, className}: RootContentProps) {
     return (
         <main className={className}>
             {children}

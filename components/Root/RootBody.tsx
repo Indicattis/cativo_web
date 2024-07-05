@@ -1,12 +1,15 @@
-import { DefaultProps } from "@/data/utils/default-props";
+import { ReactNode } from "react"
 
 
 
+interface RootBodyProps {
+    className: string
+    children: ReactNode
+}
 
 
 
-
-export default function RootBody({children, className}: DefaultProps) {
+export default function RootBody({children, className}: RootBodyProps) {
     return (
         <main className={className}>
             {children}
