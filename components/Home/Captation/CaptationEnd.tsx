@@ -21,7 +21,7 @@ export default function CaptationEnd({ isActive, setStage, data, client }: Capta
     const startChatWhatsapp = () => {
         const services = data?.projectServices.map(str => str.toLowerCase());
         const description = (data?.projectDescription)?.toLowerCase
-        window.location.href = `https://wa.me/5554996598024?text=Olá!%20quero%20saber%20mais%20sobre%20o%20desenvolvimento%20de%20um%20projeto!\n%20Quero%20algo%20que%20tenha%20${services}.\n%20Minha%20ideia%20é%20${description}.`
+        window.location.href = `https://wa.me/5554996598024?text=Olá!%20quero%20saber%20mais%20sobre%20o%20desenvolvimento%20de%20um%20projeto!%20Quero%20algo%20que%20tenha%20${services}.%20Minha%20ideia%20é%20${description}.`
     }
 
     return (

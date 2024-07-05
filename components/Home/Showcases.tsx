@@ -72,22 +72,22 @@ export default function ShowcaseComponent() {
                         
             <AnimatePresence >
                         {activeId == 1 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
+                        <Showcase.Image key={`showcase-image-1`} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 2 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
+                        <Showcase.Image key={`showcase-image-2`} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 3 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
+                        <Showcase.Image key={`showcase-image-3`} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 4 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
+                        <Showcase.Image key={`showcase-image-4`} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 5 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
+                        <Showcase.Image key={`showcase-image-5`} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         {activeId == 6 && (
-                        <Showcase.Image key={`showcase-image-`+activeId} url={Showcases[activeId - 1]?.url} wide={500}/>
+                        <Showcase.Image key={`showcase-image-6`} url={Showcases[activeId - 1]?.url} wide={500}/>
                         )}
                         </AnimatePresence> 
                     </Showcase.Root>

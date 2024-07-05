@@ -1,9 +1,9 @@
 "use client"
 
 import Image from "next/image";
-import { Layout } from "../Layouts";
 import { Button } from "../utils/Button";
 import { IconCaretUpFilled } from "@tabler/icons-react";
+import { Layout } from "../Layouts";
 
 
 

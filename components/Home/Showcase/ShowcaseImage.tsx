@@ -4,10 +4,9 @@ type ImageType = {
     url: string
     className?: string
     wide: number
-    key: string
 }
 
-export default function ShowcaseImage({ url, className, wide, key }: ImageType) {
+export default function ShowcaseImage({ url, className, wide }: ImageType) {
     return (
         <motion.div
         initial={{x: 250, opacity: 0, scale: 0.6}}
