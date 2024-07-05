@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { Layout } from "../Layouts";
 import { Button } from "../utils/Button";
 import { Captation } from "./Captation";
+import { Layout } from "../Layouts";
 
 
 

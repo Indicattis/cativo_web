@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react";
-import { Layout } from "../Layouts";
 import { Showcase } from "./Showcase";
 import { Showcases } from "@/data/json/showcases";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { Layout } from "../Layouts";
 
 export default function ShowcaseComponent() {
     const [activeId, setActiveId] = useState<number>(1);
