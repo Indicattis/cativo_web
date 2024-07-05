@@ -1,7 +1,7 @@
 import Services from "@/data/json/services"
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { Button } from "../utils/Button"
+import { Button } from "../../utils/Button"
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCheck } from "@tabler/icons-react"
 
 interface CaptationServicesProps {
@@ -36,14 +36,14 @@ export default function CaptationServices({ setProjectServices, isActive, setSta
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col gap-5 w-full justify-between h-[580px]">
+                    }} className="flex flex-col gap-5 w-full justify-between h-full">
                     <div>
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-col gap-2 w-full items-center">
                             <h1 className="_display_text">Qual o intuito do seu projeto?</h1>
                             <p className="_text text-palette_gray">Selecione as categorias que melhor representam a sua finalidade.</p>
                         </div>
                     </div>
-                    <div className=" flex gap-3 flex-wrap w-full justify-start items-center border-b border-purple py-5">
+                    <div className=" flex gap-3 flex-wrap w-full justify-start items-center">
                         {Services.map((service, index) => {
                             return (
                                 <motion.div
@@ -64,7 +64,7 @@ export default function CaptationServices({ setProjectServices, isActive, setSta
                         })}
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="w-full flex items-center justify-between gap-2 border-t border-purple py-5">
                         <Button.Wide rounded="full" variant="disabled" wide="lg" onClick={() => { setProjectServices(selectedServices), setStage(0) }}>
                             <Button.Icon icon={<IconCaretLeftFilled />} />
                             <Button.Text text="Anterior" />

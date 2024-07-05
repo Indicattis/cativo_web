@@ -1,10 +1,10 @@
 "use cleent"
 
 import { AnimatePresence, motion } from "framer-motion"
-import { Button } from "../utils/Button"
+import { Button } from "../../utils/Button"
 import { IconCaretRightFilled, IconCheck, IconExclamationCircle, IconX } from "@tabler/icons-react"
 import { useState } from "react"
-import { Modal } from "../utils/Modal"
+import { Modal } from "../../utils/Modal"
 
 
 interface CaptationStart {
@@ -30,28 +30,27 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col justify-between items-start gap-5 h-[580px] top-0">
+                    }} className="flex flex-col justify-between items-start gap-5 h-full top-0">
 
-                    <div className="flex flex-col gap-2 w-full">
+                    <div className="flex flex-col gap-2 w-full items-center">
                         <h1 className="_display_text">Deseja fazer um orçamento?</h1>
                         <p className="_text text-palette_gray">Veja a melhor opção para você!</p>
                     </div>
 
-                    <div className="flex gap-3 w-full items-center border-b border-purple py-5 max-md:grid grid-cols-2">
+                    <div className="flex gap-3 w-full items-center max-md:grid grid-cols-2">
                         <BasicPlanCard isActive={planChoice == "plan1"} onChange={setPlanChoice} />
                         <DefaultPlanCard isActive={planChoice == "plan2"} onChange={setPlanChoice} />
                         <AdvancedPlanCard isActive={planChoice == "plan3"} onChange={setPlanChoice} />
                     </div>
-                    <div className="w-full flex items-center justify-between gap-2">
-
-                        <Button.Wide rounded="full" variant="default" wide="lg" onClick={() => { setPlan(planChoice), setStage(1) }}>
-                            <Button.Text text="Começar!" />
-                            <Button.Icon icon={<IconCaretRightFilled />} />
-                        </Button.Wide>
+                    <div className="w-full flex items-center justify-between gap-2 border-t border-purple py-5">
                         <div 
-                        onClick={() => setModalActive(true)}
-                        className="cursor-pointer _text _small text-contrast_color_3 border-b border-contrast_color_3">Como funcionam os planos?</div>
-                    </div>
+                            onClick={() => setModalActive(true)}
+                            className="cursor-pointer _text _small text-contrast_color_3 border-b border-contrast_color_3">Como funcionam os planos?</div>
+                            <Button.Wide rounded="full" variant="default" wide="lg" onClick={() => { setPlan(planChoice), setStage(1) }}>
+                                <Button.Text text="Começar!" />
+                                <Button.Icon icon={<IconCaretRightFilled />} />
+                            </Button.Wide>
+                        </div>
                 </motion.div>
             )}
             {modalActive && (

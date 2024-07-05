@@ -6,15 +6,15 @@ import { SetStateAction } from "react"
 interface CaptationControllersProps {
     stage: number
     numOfStages: number
-    setStage: React.Dispatch<SetStateAction<number>>
+    isActive?: boolean
 }
 
-export default function CaptationControllers({stage, numOfStages, setStage}: CaptationControllersProps) {
+export default function CaptationControllers({stage, numOfStages, isActive = false}: CaptationControllersProps) {
     return (
-        <div className="flex gap-2">
+        isActive && (
+            <div className="flex gap-2">
             {Array.from({ length: numOfStages }, (_, index) => (
                 <motion.div
-                onClick={() => setStage(index)}
                 key={`captation-controller-`+index}
                     className={`cursor-pointer z-40 text-xl `}
                     animate={{width: stage == index ? 56 : 32}}
@@ -23,5 +23,6 @@ export default function CaptationControllers({stage, numOfStages, setStage}: Cap
                 </motion.div>
             ))}
         </div>
+        )
     )
 }

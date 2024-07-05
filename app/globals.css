@@ -84,21 +84,22 @@ html {
 
 /* ==========================================   MEDIA   =============================================== */
 
-@media (max-width: 768px) {
-
-  html {
-    font-size: 90%;
-    line-height: 90%
-  }
-  
-}
 
 
 @media (max-width: 1024px) {
 
   html {
-    font-size: 95%;
-    line-height: 95%
+    font-size: 93%;
+    line-height: 93%
+  }
+  
+}
+
+@media (max-width: 768px) {
+
+  html {
+    font-size: 87%;
+    line-height: 87%
   }
   
 }

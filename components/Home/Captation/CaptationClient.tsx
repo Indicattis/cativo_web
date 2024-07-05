@@ -4,11 +4,13 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google"
 import { motion, AnimatePresence } from "framer-motion"
 import { jwtDecode } from "jwt-decode"
-import { Button } from "../utils/Button"
+import { Button } from "../../utils/Button"
 import { IconCaretLeftFilled, IconCaretRightFilled, IconDeviceMobileFilled, IconMailFilled, IconTrashFilled, IconUserFilled } from "@tabler/icons-react"
 import Image from "next/image"
 import { useState } from "react"
-import { Input } from "../utils/Input"
+import { InputNumber } from "@/components/utils/InputNumber"
+import { Input } from "@/components/utils/Input"
+import { handlePhoneChange } from "@/functions/mask"
 
 
 
@@ -62,58 +64,41 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col justify-between items-start gap-5 h-[580px] top-0">
+                    }} className="flex flex-col justify-between items-center gap-5  h-full top-0">
 
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 text-center">
                         <h1 className="_display_text">Agora sobre você!</h1>
                         <p className="_text text-palette_gray">Informe seus dados para contato!</p>
                     </div>
-                    {isOAuth ? (
 
-                        <div className="flex items-center gap-5 p-3 bg-gradient-to-tr from-neon_purple to-neon_blue rounded">
-                            <div className="rounded-full overflow-hidden">
-                                <Image alt="" src={`${userProfilePic}`} width={60} height={60} />
+                        <div className="flex flex-col gap-3 w-[400px] items-center">
+                            <Input.Root>
+                                <Input.Icon icon={<IconUserFilled color="#ffffff" />} />
+                                <Input.Box value={userProfileName} onChange={setUserProfileName} placehoder="Nome" />
+                            </Input.Root>
+                            <Input.Root>
+                                <Input.Icon icon={<IconMailFilled color="#ffffff" />} />
+                                <Input.Box value={userProfileMail} onChange={setUserProfileMail} placehoder="E-mail" />
+                            </Input.Root>
+                            <InputNumber.Root>
+                                <InputNumber.Icon icon={<IconDeviceMobileFilled color="#ffffff" />} />
+                                <InputNumber.Box value={userProfilePhone} onChange={(event) => handlePhoneChange(event, setUserProfilePhone)} placehoder="Whatsapp" />
+                            </InputNumber.Root>
+                                <div>
+                                <div className="text-purple font-jetbrains gap-3 p-2 w-full flex items-center justify-center">
+                                    <span className="w-full bg-purple h-[2px]"></span>
+                                    ou
+                                    <span className="w-full bg-purple h-[2px]"></span>
+                                </div>
                             </div>
-
-                            <div className="flex flex-col justify-center">
-                                <h1 className="_text">{userProfileName}</h1>
-                                <p className="_text _small ">{userProfileMail}</p>
-                            </div>
-                            <div className="cursor-pointer" onClick={() => setOAuth(false)}>
-                                <IconTrashFilled/>
-                            </div>
+                            <GoogleOAuthProvider clientId="753411784831-paf4239i5bci83ss1e4ju4akl8mdokqh.apps.googleusercontent.com">
+                                <GoogleLogin
+                                    text="continue_with"
+                                    theme="filled_black"
+                                    onSuccess={oAuthSuccess} />
+                            </GoogleOAuthProvider>
                         </div>
-                    ) : (
-
-                        <div className="flex flex-col gap-3 w-full">
-                        <Input.Root>
-                            <Input.Icon icon={<IconUserFilled color="rgb(46 61 117)" />} />
-                            <Input.Box disabled={isOAuth} onChange={setUserProfileName} placehoder="Nome" />
-                        </Input.Root>
-                        <Input.Root>
-                            <Input.Icon icon={<IconMailFilled color="rgb(46 61 117)" />} />
-                            <Input.Box disabled={isOAuth}  onChange={setUserProfileMail} placehoder="E-mail" />
-                        </Input.Root>
-                        <Input.Root>
-                            <Input.Icon icon={<IconDeviceMobileFilled color="rgb(46 61 117)" />} />
-                            <Input.Box  disabled={isOAuth}  onChange={setUserProfilePhone} placehoder="Whatsapp" />
-                        </Input.Root>
-                        <div>
-                            <div className="text-purple font-jetbrains gap-3 p-2 w-full flex items-center justify-center">
-                                <span className="w-full bg-purple h-[2px]"></span>
-                                ou
-                                <span className="w-full bg-purple h-[2px]"></span>
-                            </div>
-                        </div>
-                        <GoogleOAuthProvider clientId="753411784831-paf4239i5bci83ss1e4ju4akl8mdokqh.apps.googleusercontent.com">
-                            <GoogleLogin
-                                text="continue_with"
-                                theme="filled_black"
-                                onSuccess={oAuthSuccess} />
-                        </GoogleOAuthProvider>
-                    </div>
-                    )}
-                    <div className="flex gap-2">
+                    <div className="w-full flex items-center justify-between gap-2 border-t border-purple py-5">
 
                         <Button.Wide rounded="full" variant="disabled" wide="lg" onClick={() => { setStage(2) }}>
                             <Button.Icon icon={<IconCaretLeftFilled />} />

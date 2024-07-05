@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion, useDragControls } from 'framer-motion';
 import { Assessments } from '@/data/json/assessments';
 import { Assessment } from './Assesment';
-import { Layout } from './Layouts';
+import { Layout } from '../Layouts';
 import { IconMessage } from '@tabler/icons-react';
 
 export default function AssessmentComponent() {

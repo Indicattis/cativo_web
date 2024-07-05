@@ -16,7 +16,7 @@ const config: Config = {
       colors: {
         purple: "#151C36",
         neon_purple: "#5005f2",
-        palette_gray: "#5E5F64",
+        palette_gray: "rgb(161 161 170)",
         palette_dark: "#151C36",
         palette_black: "#060606",
         contrast_color_1: "#4860B8",

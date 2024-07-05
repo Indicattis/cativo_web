@@ -1,9 +1,9 @@
-import AssessmentComponent from "@/components/Assessments";
-import CaptationComponent from "@/components/Captations";
-import { Exhibition } from "@/components/Exhibition";
-import ExhibitionComponent from "@/components/Exhibitions";
+import AssessmentComponent from "@/components/Home/Assessments";
+import CaptationComponent from "@/components/Home/Captations";
+import ExhibitionComponent from "@/components/Home/Exhibitions";
+import ShowcaseComponent from "@/components/Home/Showcases";
 import { Root } from "@/components/Root";
-import ShowcaseComponent from "@/components/Showcases";
+
 
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { Layout } from "./Layouts";
+import { Layout } from "../Layouts";
 import { Showcase } from "./Showcase";
 import { Showcases } from "@/data/json/showcases";
 import { AnimatePresence, motion } from "framer-motion";
