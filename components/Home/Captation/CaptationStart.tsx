@@ -81,11 +81,11 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan1")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
-        w-full  rounded-md shadow-lg p-1 cursor-pointer`}>
-            <div className="w-full p-3 text-center">
+        w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
+            <div className="w-full py-5 text-center">
                 <h1 className="_display_text">Plano mensal</h1>
             </div>
-            <div className="flex flex-col gap-2 p-3 max-md:hidden _text">
+            <div className="flex flex-col gap-2  max-md:hidden _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>
@@ -112,11 +112,11 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan2")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
-        w-full  rounded-md shadow-lg p-1 cursor-pointer`}>
-            <div className="w-full p-3 text-center">
+        w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
+            <div className="w-full py-5 text-center">
                 <h1 className="_display_text">Plano semestral</h1>
             </div>
-            <div className="flex flex-col gap-2 p-3 max-md:hidden _text">
+            <div className="flex flex-col gap-2 max-md:hidden _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>
@@ -143,11 +143,11 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan3")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
-        w-full  rounded-md shadow-lg p-1 cursor-pointer`}>
-            <div className="w-full p-3 text-center">
+        w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
+            <div className="w-full py-5 text-center">
                 <h1 className="_display_text">Plano anual</h1>
             </div>
-            <div className="flex flex-col gap-2 p-3 max-md:hidden _text">
+            <div className="flex flex-col gap-2 max-md:hidden _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>

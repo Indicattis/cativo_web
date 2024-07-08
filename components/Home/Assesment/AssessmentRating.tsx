@@ -11,11 +11,11 @@ export default function AssessmentRating( { rating }: AssessmentRatingProps) {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       if (i <= rating) {
-        stars.push(<IconStarFilled key={i} className="text-neon_purple" />);
+        stars.push(<IconStarFilled key={i} className="text-white" />);
       } else if (i - rating < 1) {
-        stars.push(<IconStarHalfFilled key={i} className="text-neon_purple" />);
+        stars.push(<IconStarHalfFilled key={i} className="text-white" />);
       } else {
-        stars.push(<IconStar key={i} className="text-contrast_color_2" />);
+        stars.push(<IconStar key={i} className="text-purple" />);
       }
     }
     return stars;

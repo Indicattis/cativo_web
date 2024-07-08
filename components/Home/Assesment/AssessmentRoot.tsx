@@ -26,10 +26,10 @@ interface AssessmentRootProps {
           animate="center"
           exit="exit"
           whileTap={{ scale: 0.95 }}
-          className={`${isActive ? 'h-[240px] shadow-lg' : 'h-[220px] shadow-md'
+          className={`${isActive ? 'h-[240px] bg-gradient-to-tr from-neon_purple to-neon_pink2' : 'h-[220px] bg-purple'
             } 
             
-            bg-purple flex flex-col justify-between gap-5 p-3 rounded-lg cursor-pointer w-[400px] shadow-purple`}
+             flex flex-col justify-between gap-5 p-3 rounded-[5px] cursor-pointer w-[400px]`}
           onClick={() => setItem(id)}
         >
             {children}
