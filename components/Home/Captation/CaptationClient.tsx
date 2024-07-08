@@ -5,12 +5,11 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google"
 import { motion, AnimatePresence } from "framer-motion"
 import { jwtDecode } from "jwt-decode"
 import { Button } from "../../utils/Button"
-import { IconCaretLeftFilled, IconCaretRightFilled, IconDeviceMobileFilled, IconMailFilled, IconTrashFilled, IconUserFilled } from "@tabler/icons-react"
+import { IconCaretLeftFilled, IconCaretRightFilled, IconDeviceMobileFilled, IconExclamationMark, IconMailFilled, IconTrashFilled, IconUserFilled } from "@tabler/icons-react"
 import Image from "next/image"
 import { useState } from "react"
-import { InputNumber } from "@/components/utils/InputNumber"
 import { Input } from "@/components/utils/Input"
-import { handlePhoneChange } from "@/functions/mask"
+import { handleEmailChange, handlePhoneChange } from "@/functions/mask"
 
 
 
@@ -27,6 +26,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
     const [userProfileName, setUserProfileName] = useState("")
     const [userProfileMail, setUserProfileMail] = useState("")
     const [userProfilePhone, setUserProfilePhone] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
     const [isOAuth, setOAuth] = useState<boolean>(false)
 
     const oAuthSuccess = (response: any) => {
@@ -71,39 +71,52 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         <p className="_text text-palette_gray">Informe seus dados para contato!</p>
                     </div>
 
-                        <div className="flex flex-col gap-3 w-[400px] items-center">
-                            <Input.Root>
-                                <Input.Icon icon={<IconUserFilled color="#ffffff" />} />
-                                <Input.Box value={userProfileName} onChange={setUserProfileName} placehoder="Nome" />
-                            </Input.Root>
-                            <Input.Root>
-                                <Input.Icon icon={<IconMailFilled color="#ffffff" />} />
-                                <Input.Box value={userProfileMail} onChange={setUserProfileMail} placehoder="E-mail" />
-                            </Input.Root>
-                            <InputNumber.Root>
-                                <InputNumber.Icon icon={<IconDeviceMobileFilled color="#ffffff" />} />
-                                <InputNumber.Box value={userProfilePhone} onChange={(event) => handlePhoneChange(event, setUserProfilePhone)} placehoder="Whatsapp" />
-                            </InputNumber.Root>
-                                <div>
-                                <div className="text-purple font-jetbrains gap-3 p-2 w-full flex items-center justify-center">
-                                    <span className="w-full bg-purple h-[2px]"></span>
-                                    ou
-                                    <span className="w-full bg-purple h-[2px]"></span>
-                                </div>
+                    <div className="flex flex-col gap-3 w-[400px] items-center">
+                        <Input.Root>
+                            <Input.Icon icon={<IconUserFilled/>} />
+                            <Input.Box value={userProfileName} onChange={setUserProfileName} placehoder="Nome" />
+                        </Input.Root>
+                        <Input.Root>
+                            <Input.Icon icon={<IconMailFilled/>} />
+                            <Input.BoxMail value={userProfileMail} onChange={(event) => handleEmailChange(event, setUserProfileMail, setErrorMessage)} placehoder="E-mail" />
+                        </Input.Root>
+                        <Input.Root>
+                            <Input.Icon icon={<IconDeviceMobileFilled/>} />
+                            <Input.BoxNumber required value={userProfilePhone} onChange={(event) => handlePhoneChange(event, setUserProfilePhone)} placehoder="Whatsapp" />
+                        </Input.Root>
+                        <div>
+                            <div className="text-purple _text gap-3 p-2 w-full flex items-center justify-center">
+                                <span className="w-full bg-purple h-[2px]"></span>
+                                ou
+                                <span className="w-full bg-purple h-[2px]"></span>
                             </div>
-                            <GoogleOAuthProvider clientId="753411784831-paf4239i5bci83ss1e4ju4akl8mdokqh.apps.googleusercontent.com">
-                                <GoogleLogin
-                                    text="continue_with"
-                                    theme="filled_black"
-                                    onSuccess={oAuthSuccess} />
-                            </GoogleOAuthProvider>
                         </div>
+                        <GoogleOAuthProvider clientId="753411784831-paf4239i5bci83ss1e4ju4akl8mdokqh.apps.googleusercontent.com">
+                            <GoogleLogin
+                                text="continue_with"
+                                theme="filled_black"
+                                onSuccess={oAuthSuccess} />
+                        </GoogleOAuthProvider>
+                    </div>
                     <div className="w-full flex items-center justify-between gap-2 border-t border-purple py-5">
 
                         <Button.Wide rounded="full" variant="disabled" wide="lg" onClick={() => { setStage(2) }}>
                             <Button.Icon icon={<IconCaretLeftFilled />} />
                             <Button.Text text="Anterior" />
                         </Button.Wide>
+                        {errorMessage && (
+                            <AnimatePresence>
+                                <motion.div
+                                    key={`error-box`}
+                                    initial={{ y: 100, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: 100, opacity: 0 }}
+                                    className="_text bg-contrast_color_2 p-3 rounded font-bold flex gap-3">
+                                        <IconExclamationMark/>
+                                    {errorMessage}
+                                </motion.div>
+                            </AnimatePresence>
+                        )}
                         <Button.Wide rounded="full" variant="default" wide="lg" onClick={onSubmit}>
                             <Button.Text text="Próximo" />
                             <Button.Icon icon={<IconCaretRightFilled />} />
