@@ -39,10 +39,9 @@ export default function CaptationComponent() {
                     <Captation.Root>
                         <Captation.Start setStage={setStage} setPlan={setProjectPlan} isActive={stage == 0} />
                         <Captation.Services setStage={setStage} isActive={stage == 1} setProjectServices={setProjectServices} />
-                        <Captation.Description setStage={setStage} isActive={stage == 2} setProjectDescription={setProjectDescription} />
-                        <Captation.Client setStage={setStage} isActive={stage == 3} setClient={setClient}/>
-                        <Captation.End data={order} client={client} setStage={setStage}  isActive={stage == 4} />
-                        <Captation.Controllers isActive={stage != 0} numOfStages={5} stage={stage} />
+                        <Captation.Client setStage={setStage} isActive={stage == 2} setClient={setClient}/>
+                        <Captation.End data={order} client={client} setStage={setStage}  isActive={stage == 3} />
+                        <Captation.Controllers isActive={stage != 0} numOfStages={4} stage={stage} />
                     </Captation.Root>
                     
                 </Layout.Div>

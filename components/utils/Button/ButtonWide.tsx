@@ -9,13 +9,15 @@ interface ButtonWideProps {
     rounded: "sm" | "lg" | "md" | "xl" | "full",
     variant: "default" | "red" | "blue" | "green" | "gray" | "black" | "disabled",
     onClick?: () => void
+    disabled?: boolean
 }
 
-export default function ButtonWide ( { children, wide, rounded, variant = "default", onClick }: ButtonWideProps) {
+export default function ButtonWide ( { children, wide, rounded, variant = "default", onClick, disabled }: ButtonWideProps) {
     return (
         <motion.button 
         onClick={onClick}
         whileTap={{scale: .95}}
+        disabled={disabled}
         className={`
             flex justify-center items-center gap-1
             px-5 py-2

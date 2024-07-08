@@ -15,7 +15,6 @@ export const Captation = {
     Root: CaptationRoot,
     Start: CaptationStart,
     Services: CaptationServices,
-    Description: CaptationDescription,
     Controllers: CaptationControllers,
     Client: CaptationClient,
     End: CaptationEnd,
