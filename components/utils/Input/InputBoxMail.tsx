@@ -17,7 +17,7 @@ export function InputBoxMail({ placehoder, disabled, value, ...rest}: InputBoxMa
         <input 
         type="mail"
         {...rest}
-        className="h-full _text w-full outline-none bg-transparent rounded px-3"
+        className="h-full _text w-full outline-none bg-purple  px-3"
         placeholder={placehoder}
         disabled={disabled}
         value={value}

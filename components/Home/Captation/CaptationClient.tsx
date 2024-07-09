@@ -7,7 +7,7 @@ import { jwtDecode } from "jwt-decode"
 import { Button } from "../../utils/Button"
 import { IconCaretLeftFilled, IconCaretRightFilled, IconDeviceMobileFilled, IconExclamationMark, IconMailFilled, IconTrashFilled, IconUserFilled } from "@tabler/icons-react"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Input } from "@/components/utils/Input"
 import { handleEmailChange, handlePhoneChange } from "@/functions/mask"
 
@@ -27,6 +27,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
     const [userProfileMail, setUserProfileMail] = useState("")
     const [userProfilePhone, setUserProfilePhone] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [mailError, setMailError] = useState("")
     const [isOAuth, setOAuth] = useState<boolean>(false)
 
     const oAuthSuccess = (response: any) => {
@@ -39,16 +40,31 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
     }
 
     const onSubmit = () => {
-        const clientData: ClientDTO = {
-            profile_mail: userProfileMail,
-            profile_name: userProfileName,
-            profile_picture: userProfilePic,
-            profile_phone: userProfilePhone
+        if (mailError != "") {
+            setMailError(mailError)
+        } else {
+            const clientData: ClientDTO = {
+                profile_mail: userProfileMail,
+                profile_name: userProfileName,
+                profile_picture: userProfilePic,
+                profile_phone: userProfilePhone
+            }
+            setClient(clientData)
+            setStage(3)
         }
-        setClient(clientData)
-        setStage(4)
 
     }
+
+
+    useEffect(() => {
+        if (userProfilePhone == "" || userProfileName == "" || userProfileMail == "") {
+            setErrorMessage("Insira todas as informações")
+            setOAuth(false)
+        } else {
+            setOAuth(true)
+            setErrorMessage("")
+        }
+    }, [userProfilePhone, userProfileName, userProfileMail, mailError])
 
     return (
 
@@ -64,28 +80,28 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col justify-between items-center gap-5  h-full top-0">
+                    }} className="relative flex flex-col justify-between items-center gap-5  h-full top-0">
 
                     <div className="flex flex-col gap-2 text-center">
                         <h1 className="_display_text">Agora sobre você!</h1>
                         <p className="_text text-palette_gray">Informe seus dados para contato!</p>
                     </div>
 
-                    <div className="flex flex-col gap-3 w-[400px] items-center">
+                    <div className="flex flex-col gap-5 w-[400px] items-center">
                         <Input.Root>
-                            <Input.Icon icon={<IconUserFilled/>} />
                             <Input.Box value={userProfileName} onChange={setUserProfileName} placehoder="Nome" />
+                            <Input.Icon icon={<IconUserFilled width={20} />} />
                         </Input.Root>
                         <Input.Root>
-                            <Input.Icon icon={<IconMailFilled/>} />
-                            <Input.BoxMail value={userProfileMail} onChange={(event) => handleEmailChange(event, setUserProfileMail, setErrorMessage)} placehoder="E-mail" />
+                            <Input.BoxMail value={userProfileMail} onChange={(event) => handleEmailChange(event, setUserProfileMail, setMailError)} placehoder="E-mail" />
+                            <Input.Icon icon={<IconMailFilled width={20} />} />
                         </Input.Root>
                         <Input.Root>
-                            <Input.Icon icon={<IconDeviceMobileFilled/>} />
-                            <Input.BoxNumber required value={userProfilePhone} onChange={(event) => handlePhoneChange(event, setUserProfilePhone)} placehoder="Whatsapp" />
+                            <Input.BoxNumber required value={userProfilePhone} onChange={(event) => handlePhoneChange(event, setUserProfilePhone)} placehoder="Telefone" />
+                            <Input.Icon icon={<IconDeviceMobileFilled width={20} />} />
                         </Input.Root>
                         <div>
-                            <div className="text-purple _text gap-3 p-2 w-full flex items-center justify-center">
+                            <div className="text-neon_purple _text gap-3 p-2 w-full flex items-center justify-center">
                                 <span className="w-full bg-purple h-[2px]"></span>
                                 ou
                                 <span className="w-full bg-purple h-[2px]"></span>
@@ -93,31 +109,51 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         </div>
                         <GoogleOAuthProvider clientId="753411784831-paf4239i5bci83ss1e4ju4akl8mdokqh.apps.googleusercontent.com">
                             <GoogleLogin
+                            width={500}
                                 text="continue_with"
                                 theme="filled_black"
                                 onSuccess={oAuthSuccess} />
                         </GoogleOAuthProvider>
                     </div>
+
+
+                    {errorMessage && (
+                        <AnimatePresence>
+                            <motion.div
+                                key={`error-box`}
+                                initial={{ y: 100, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: 100, opacity: 0 }}
+                                className="_text  bg-contrast_color_2 p-3 rounded font-bold flex gap-3">
+                                <IconExclamationMark />
+                                {errorMessage}
+                            </motion.div>
+                        </AnimatePresence>
+                    )}
                     <div className="w-full flex items-center justify-between gap-2 border-t border-purple py-5">
 
-                        <Button.Wide rounded="full" variant="disabled" wide="lg" onClick={() => { setStage(2) }}>
+                        <Button.Wide rounded="full" variant="disabled" wide="lg" onClick={() => { setStage(1) }}>
                             <Button.Icon icon={<IconCaretLeftFilled />} />
                             <Button.Text text="Anterior" />
                         </Button.Wide>
-                        {errorMessage && (
+                        {mailError && (
                             <AnimatePresence>
                                 <motion.div
                                     key={`error-box`}
                                     initial={{ y: 100, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     exit={{ y: 100, opacity: 0 }}
-                                    className="_text bg-contrast_color_2 p-3 rounded font-bold flex gap-3">
-                                        <IconExclamationMark/>
-                                    {errorMessage}
+                                    className="_text _small items-center  bg-purple rounded overflow-hidden flex gap-1">
+                                        <div className="bg-contrast_color_2 p-3 text-white">
+                                            <IconExclamationMark width={20} className=""/>
+                                        </div>
+                                        <div className="px-3">
+                                            {mailError}
+                                        </div>
                                 </motion.div>
                             </AnimatePresence>
                         )}
-                        <Button.Wide rounded="full" variant="default" wide="lg" onClick={onSubmit}>
+                        <Button.Wide type="submit" rounded="full" variant="default" wide="lg" onClick={onSubmit} disabled={!isOAuth}>
                             <Button.Text text="Próximo" />
                             <Button.Icon icon={<IconCaretRightFilled />} />
                         </Button.Wide>

@@ -6,7 +6,9 @@ interface InputIconProps {
 
 export  function InputIcon({icon}: InputIconProps) {
     return (
-        <div className="px-2 bg-gradient-to-tr from-neon_purple to-neon_blue h-full flex items-center">
+        <div className="w-14 
+        text-white bg-contrast_color_2
+        h-full flex items-center justify-center">
             {icon}
         </div>
     )

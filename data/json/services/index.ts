@@ -24,6 +24,18 @@ const Services: ServiceDTO[] = [
     },
     {
         id: 5,
+        description: "E-commerce"
+    },
+    {
+        id: 6,
+        description: "Plataforma educacional"
+    },
+    {
+        id: 7,
+        description: "Sistema de gestão"
+    },
+    {
+        id: 99,
         description: "Outros"
     },
 

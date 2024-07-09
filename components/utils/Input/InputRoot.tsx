@@ -17,7 +17,7 @@ interface InputRootProps {
 export function InputRoot ( { children }: InputRootProps) {
     return (
         <motion.div 
-        className={`w-full h-10 rounded overflow-hidden flex items-center bg-purple  border-white
+        className={`w-full h-14 rounded  flex items-center shadow-lg shadow-indigo-950
             `}>
             
             {children}
