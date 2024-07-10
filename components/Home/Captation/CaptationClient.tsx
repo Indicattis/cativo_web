@@ -28,6 +28,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
     const [userProfilePhone, setUserProfilePhone] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [mailError, setMailError] = useState("")
+    const [phoneError, setPhoneError] = useState("")
     const [isOAuth, setOAuth] = useState<boolean>(false)
 
     const oAuthSuccess = (response: any) => {
@@ -42,7 +43,9 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
     const onSubmit = () => {
         if (mailError != "") {
             setMailError(mailError)
-        } else {
+        } else if (userProfilePhone.length < 11) {
+            setPhoneError("Número para contato inválido")
+        }else {
             const clientData: ClientDTO = {
                 profile_mail: userProfileMail,
                 profile_name: userProfileName,
@@ -87,7 +90,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         <p className="_text text-palette_gray">Informe seus dados para contato!</p>
                     </div>
 
-                    <div className="flex flex-col gap-5 w-[400px] items-center">
+                    <div className="flex flex-col gap-5 w-full items-center">
                         <Input.Root>
                             <Input.Box value={userProfileName} onChange={setUserProfileName} placehoder="Nome" />
                             <Input.Icon icon={<IconUserFilled width={20} />} />
@@ -117,29 +120,35 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                     </div>
 
 
-                    {errorMessage && (
-                        <AnimatePresence>
-                            <motion.div
-                                key={`error-box`}
-                                initial={{ y: 100, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                exit={{ y: 100, opacity: 0 }}
-                                className="_text  bg-contrast_color_2 p-3 rounded font-bold flex gap-3">
-                                <IconExclamationMark />
-                                {errorMessage}
-                            </motion.div>
-                        </AnimatePresence>
-                    )}
                     <div className="w-full flex items-center justify-between gap-2 border-t border-purple py-5">
 
                         <Button.Wide rounded="full" variant="disabled" wide="lg" onClick={() => { setStage(1) }}>
                             <Button.Icon icon={<IconCaretLeftFilled />} />
                             <Button.Text text="Anterior" />
                         </Button.Wide>
+                        <div className="flex gap-1">
+                        {phoneError && (
+                            
+                            <AnimatePresence>
+                                <motion.div
+                                    key={`error-box-1`}
+                                    initial={{ y: 100, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: 100, opacity: 0 }}
+                                    className="_text _small items-center  bg-purple rounded overflow-hidden flex gap-1">
+                                        <div className="bg-contrast_color_2 p-3 text-white">
+                                            <IconExclamationMark width={20} className=""/>
+                                        </div>
+                                        <div className="px-3">
+                                            {phoneError}
+                                        </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        )}
                         {mailError && (
                             <AnimatePresence>
                                 <motion.div
-                                    key={`error-box`}
+                                    key={`error-box-2`}
                                     initial={{ y: 100, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     exit={{ y: 100, opacity: 0 }}
@@ -153,6 +162,25 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                                 </motion.div>
                             </AnimatePresence>
                         )}
+                        {errorMessage && (
+                        <AnimatePresence>
+                            <motion.div
+                                key={`error-box-3`}
+                                initial={{ y: 100, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: 100, opacity: 0 }}
+                                className="_text _small items-center  bg-purple rounded overflow-hidden flex gap-1">
+                                
+                                        <div className="bg-contrast_color_2 p-3 text-white">
+                                            <IconExclamationMark width={20} className=""/>
+                                        </div>
+                                        <div className="px-3">
+                                        {errorMessage}
+                                        </div>
+                            </motion.div>
+                        </AnimatePresence>
+                        )}
+                        </div>
                         <Button.Wide type="submit" rounded="full" variant="default" wide="lg" onClick={onSubmit} disabled={!isOAuth}>
                             <Button.Text text="Próximo" />
                             <Button.Icon icon={<IconCaretRightFilled />} />

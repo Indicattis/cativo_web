@@ -44,7 +44,7 @@ export default function RootFooter() {
                                 <p className="_text _small text-palette_gray">2024, inc</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-5 _text">
                             <a href="">Sobre</a>
                             <a href="">Contato</a>
                             <a href="">Ajuda</a>

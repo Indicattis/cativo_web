@@ -37,7 +37,7 @@ export default function ShowcaseComponent() {
 
                     <div className="absolute left-0 top-0 w-full h-96 bg-gradient-to-b from-black to-transparent z-40"></div>
                     <div className="absolute left-0 bottom-0 w-full h-96 bg-gradient-to-t from-black to-transparent z-40"></div>
-                    <Showcase.Root className="max-md:flex-col max-md:justify-end">
+                    <Showcase.Root className="max-md:flex-col-reverse max-md:justify-center">
                         <Showcase.Content>
                             {Showcases.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item, index) => {
                                 return (
@@ -70,26 +70,6 @@ export default function ShowcaseComponent() {
                             <Showcase.Controllers handleChangePage={setCurrentPage} length={totalPages} activePage={currentPage} />
                         </Showcase.Content>
 
-                        <AnimatePresence >
-                            {activeId == 1 && (
-                                <Showcase.Image key={`showcase-image-1`} url={Showcases[activeId - 1]?.url} wide={500} />
-                            )}
-                            {activeId == 2 && (
-                                <Showcase.Image key={`showcase-image-2`} url={Showcases[activeId - 1]?.url} wide={500} />
-                            )}
-                            {activeId == 3 && (
-                                <Showcase.Image key={`showcase-image-3`} url={Showcases[activeId - 1]?.url} wide={500} />
-                            )}
-                            {activeId == 4 && (
-                                <Showcase.Image key={`showcase-image-4`} url={Showcases[activeId - 1]?.url} wide={500} />
-                            )}
-                            {activeId == 5 && (
-                                <Showcase.Image key={`showcase-image-5`} url={Showcases[activeId - 1]?.url} wide={500} />
-                            )}
-                            {activeId == 6 && (
-                                <Showcase.Image key={`showcase-image-6`} url={Showcases[activeId - 1]?.url} wide={500} />
-                            )}
-                        </AnimatePresence>
                     </Showcase.Root>
 
                 </Layout.Div>
@@ -97,6 +77,12 @@ export default function ShowcaseComponent() {
             <div className="absolute left-0 bottom-0 w-full h-96 bg-gradient-to-t from-black to-transparent z-0 "></div>
             <div className="absolute  left-0 h-full w-[50%] bg-gradient-to-r from-black to-transparent z-0 "></div>
             <div className="absolute  right-0 h-full w-[50%] bg-gradient-to-l from-neon_purple to-transparent z-0 "></div>
+            {/* Otimize aqui */}
+            <AnimatePresence >
+                {activeId > 0 && activeId <= Showcases.length && (
+                    <Showcase.Image key={`showcase-image-${activeId}`} url={Showcases[activeId - 1]?.url} />
+                )}
+                </AnimatePresence>
         </Layout.Section>
     );
 }

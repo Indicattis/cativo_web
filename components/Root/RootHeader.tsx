@@ -66,7 +66,8 @@ export default function RootHeader() {
                 ref={navRef}
                 className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] items-center justify-between max-lg:w-[95%] z-[9999]"
             >
-                <HeaderSearch />
+                {/* <HeaderSearch /> */}
+                <HeaderLogo/>
                 <div className="flex items-center justify-center gap-5">
                     <div className="max-md:hidden">
                         <Button.Wide wide="md" rounded="full" variant="default">
@@ -282,3 +283,11 @@ function HeaderSearch() {
     );
 }
 
+
+function HeaderLogo() {
+    return (
+        <div className="rotate-[135deg]">
+            <Image draggable={false} alt="" src={`icons/logo.svg`} width={30} height={30}/>
+        </div>
+    )
+}

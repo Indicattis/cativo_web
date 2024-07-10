@@ -3,10 +3,9 @@ import { motion } from "framer-motion"
 type ImageType = {
     url: string
     className?: string
-    wide: number
 }
 
-export default function ShowcaseImage({ url, className, wide }: ImageType) {
+export default function ShowcaseImage({ url, className }: ImageType) {
     return (
         <motion.div
         initial={{x: 250, opacity: 0, scale: 0.6}}
@@ -17,8 +16,8 @@ export default function ShowcaseImage({ url, className, wide }: ImageType) {
             type: "spring",
         }}
             
-            className={`absolute -right-5 overflow-hidden min-w-[450px] rounded-[50px] z-0 max-md:rounded-none ${className}`}>
-            <Image width={wide} height={wide} alt="" src={url} />
+            className={`absolute flex justify-end right-0 overflow-hidden   z-0 max-md:rounded-none w-full ${className}`}>
+            <Image className={`max-w-screen rounded-[50px]`} width={1000} height={2000} alt="" src={url} />
         </motion.div>
     )
 }
