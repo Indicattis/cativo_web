@@ -1,15 +1,15 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 
 
 
-interface ModalContentProps {
+interface ModalContentProps extends HTMLAttributes<HTMLDivElement>{
     children: ReactNode
 }
 
 
-export default function ModalContent({children}: ModalContentProps) {
+export default function ModalContent({children, ...rest}: ModalContentProps) {
     return (
-        <div>{children}</div>
+        <div {...rest}>{children}</div>
     )
 }

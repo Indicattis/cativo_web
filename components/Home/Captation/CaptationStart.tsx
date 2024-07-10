@@ -37,7 +37,7 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                         <p className="_text text-palette_gray">Veja a melhor opção para você!</p>
                     </div>
 
-                    <div className="flex gap-3 w-full items-center max-md:grid grid-cols-2">
+                    <div className="flex gap-3 w-full items-center max-md:flex-col">
                         <BasicPlanCard isActive={planChoice == "plan1"} onChange={setPlanChoice} />
                         <DefaultPlanCard isActive={planChoice == "plan2"} onChange={setPlanChoice} />
                         <AdvancedPlanCard isActive={planChoice == "plan3"} onChange={setPlanChoice} />
@@ -58,8 +58,19 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                 <Modal.Root>
                     <Modal.Box>
                         <Modal.Message message={`Planos`}/>
-                        <Modal.Content>
-                            <p className="_text _small">Cada plano está relacionado a modalidade, sendo: mensal, semestral ou anual que corresponde ao valor de manutenção e hospedagem de um site</p>
+                        <Modal.Content className="flex flex-col gap-3">
+                            <div className="_text ">
+                                <p className="">Projeto simples: </p>
+                                <p className="_text _small">Este plano é ideal para projetos simples e rápidos, como landing pages, sites de página única, sites institucionais e portfólios online. Perfeito para quem deseja uma presença online funcional e eficiente.</p>
+                            </div>
+                            <div className="_text ">
+                                <p className="">Projeto desenvolvido: </p>
+                                <p className="_text _small">Perfeito para projetos mais complexos e desenvolvidos, este plano atende sites de notícias e mídia, blogs, sistemas de agendamento online e qualquer projeto que lida com um volume significativo de dados.</p>
+                            </div>
+                            <div className="_text ">
+                                <p className="">Grande porte: </p>
+                                <p className="_text _small">Ideal para projetos de grande porte, este plano é voltado para sites de e-commerce, sistemas de gestão interna (ERPs) e projetos que necessitam lidar com um grande volume de dados, garantindo robustez e eficiência.</p>
+                            </div>
                         </Modal.Content>
                         <Modal.Button onClick={setModalActive}/>
                     </Modal.Box>
@@ -82,10 +93,10 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
-            <div className="w-full py-5 text-center">
+            <div className="w-full py-3">
                 <h1 className="_display_text">Projeto Simples</h1>
             </div>
-            <div className="flex flex-col gap-2  max-md:hidden _text">
+            <div className="flex flex-col gap-1 _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Landing Page</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de Página Única</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites Institucionais</div>
@@ -113,10 +124,10 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
-            <div className="w-full py-5 text-center">
+            <div className="w-full py-3">
                 <h1 className="_display_text">Projeto Desenvolvido</h1>
             </div>
-            <div className="flex flex-col gap-2 max-md:hidden _text">
+            <div className="flex flex-col gap-1  _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de Notícias e Mídia</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Blogs e Sites de Conteúdo</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sistemas de agendamento online</div>
@@ -143,10 +154,10 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
-            <div className="w-full py-5 text-center">
+            <div className="w-full py-3">
                 <h1 className="_display_text">Grande Porte</h1>
             </div>
-            <div className="flex flex-col gap-2 max-md:hidden _text">
+            <div className="flex flex-col gap-1  _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de E-commerce (Lojas Virtuais)</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sistemas de gestão interna (ERPs)</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Volume grande de dados</div>

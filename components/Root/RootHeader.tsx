@@ -159,15 +159,6 @@ export default function RootHeader() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="h-14 px-6 flex items-center w-full _text font-bold z-[9997] "
-                            >
-                                <div className="">...E ai! Bem vindo</div>
-                            </motion.div>
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ delay: 0.4 }}
                                 className="w-full flex flex-wrap gap-3 z-[9997] p-5 "
                             >
                                 {PageControllers.map((item, index) => {
@@ -178,16 +169,12 @@ export default function RootHeader() {
                                             exit={{ opacity: 0 }}
                                             transition={{ delay: 0.1 }}
                                             key={`dropdown-exhibition-` + index}
-                                            className="relative flex  h-12 justify-center items-center border border-dark  rounded-full bg-dark _text px-2"
-                                            onClick={() => setDropdown(false)}
+                                            className="relative border rounded-full border-palette_gray"
+                                            onClick={() => {setDropdown(false)}}
                                         >
-                                            <motion.div
-                                                className={` text-zinc-400  lowercase   z-[9999] flex gap-3 items-center
-                                ${isScrolled ? "" : ""}
-                                `}
-                                            >
-                                                #{item.exhibition}
-                                            </motion.div>
+                                            <Button.Wide rounded="full" wide="lg" variant="disabled">
+                                                <a href={`#${item.url}`}><Button.Text text={item.exhibition}/></a>
+                                            </Button.Wide>
                                             {/* <motion.div
                                 key={`neon-`+index}
                                 className={`absolute bottom-0 left-0 h-full w-full rounded z-[9998]
@@ -201,7 +188,7 @@ export default function RootHeader() {
                             </motion.div>
 
                             <motion.div
-                                className={`absolute top-0 left-0  w-full transition-all h-full bg-neon_purple`}
+                                className={`absolute top-0 left-0  w-full transition-all h-full bg-purple`}
                             ></motion.div>
                         </AnimatePresence>
                     </motion.div>
