@@ -11,7 +11,7 @@ export default function AnimatedBackground({
 }: AnimatedBackgroundProps) {
   return (
     <div className={`flex flex-col justify-center items-center w-full h-full relative bg-gradient-to-tr from-neon_purple to-neon_pink2 overflow-hidden`}>
-      <div className="z-[9999] w-full">{content}</div>
+      <div className="z-[9999] w-full h-full flex items-center justify-center">{content}</div>
       <div className="absolute h-full w-[1920px] top-0 left-0">
         <AnimationElement num={1} wide="mini" initialX="top-[0px]" initialY="left-[-50px]" slack={30} />
         <AnimationElement num={2} wide="mini" initialX="top-[-20px]" initialY="left-[100px]" slack={30} />

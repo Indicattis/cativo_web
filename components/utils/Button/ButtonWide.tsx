@@ -31,7 +31,7 @@ export default function ButtonWide ( { children, wide, rounded, variant = "defau
             ${variant == "black" ? "bg-black" : ""}
             ${variant == "disabled" || disabled ? "bg-purple" : ""}
             ${wide == "sm" ? "h-8 _text _small" : ""}
-            ${wide == "md" ? "h-10 _text _small" : ""}
+            ${wide == "md" ? "h-10 !px-3 _text _small" : ""}
             ${wide == "lg" ? "h-12 _text " : ""}
             ${wide == "xl" ? "h-16 _display_text" : ""}
             ${wide == "full" ? "h-20 w-20 _display_text " : ""}
