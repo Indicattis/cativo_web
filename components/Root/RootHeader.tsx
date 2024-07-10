@@ -71,7 +71,7 @@ export default function RootHeader() {
                 <div className="flex items-center justify-center gap-5">
                     <div className="max-md:hidden">
                         <Button.Wide wide="md" rounded="full" variant="default">
-                            <Button.Text text="Contratar"/>
+                            <a href="#captation"><Button.Text text="Contratar"/></a>
                         </Button.Wide>
                     </div>
                     {PageControllers.map((item, index) => {
@@ -81,6 +81,7 @@ export default function RootHeader() {
                                 itemName={item.exhibition}
                                 isSelected={selectedItem === item.exhibition}
                                 onClick={handleItemClick}
+                                url={item.url}
                             />
                         );
                     })}
@@ -226,9 +227,10 @@ interface ItemProps {
     itemName: string;
     isSelected: boolean;
     onClick: (itemName: string, itemRef: HTMLDivElement) => void;
+    url: string
 }
 
-function HeaderItem({ itemName, isSelected, onClick }: ItemProps) {
+function HeaderItem({ itemName, isSelected, onClick, url }: ItemProps) {
     const itemRef = useRef<HTMLDivElement>(null);
 
     const handleClick = () => {
@@ -244,7 +246,7 @@ function HeaderItem({ itemName, isSelected, onClick }: ItemProps) {
             className={`cursor-pointer _text text-nowrap mr-3 max-lg:hidden ${
                 isSelected ? "text-white" : "text-zinc-300 hover:text-white"}`}
         >
-            <h1>{itemName}</h1>
+            <a href={`#${url}`}>{itemName}</a>
         </div>
     );
 }

@@ -1,19 +1,19 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 
 
 
 
-interface LayoutSectionProps {
+interface LayoutSectionProps extends HTMLAttributes<HTMLDivElement>{
     children: ReactNode
     className: string
 }
 
 
 
-export default function LayoutSection({className, children}: LayoutSectionProps) {
+export default function LayoutSection({className, children, ...rest}: LayoutSectionProps) {
     return (
-        <div className={`h-full flex w-full items-center justify-center overflow-hidden ${className}`}>
+        <div {...rest} className={`h-full flex w-full items-center justify-center overflow-hidden ${className}`}>
             {children}
         </div>
     )

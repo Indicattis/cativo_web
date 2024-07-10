@@ -31,7 +31,7 @@ export default function ShowcaseComponent() {
 
 
     return (
-        <Layout.Section className="relative  h-screen max-md:h-[800px]">
+        <Layout.Section id="showcases" className="relative  h-screen max-md:h-[800px]">
             <Layout.Main className=" flex w-full h-full items-center justify-center gap-10 flex-col">
                 <Layout.Div className=" z-50">
 

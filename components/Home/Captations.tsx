@@ -33,7 +33,7 @@ export default function CaptationComponent() {
     }, [projectDescription, projectServices, projectPlan])
 
     return (
-        <Layout.Section className="h-screen relative">
+        <Layout.Section id="captation" className="h-screen relative">
             <Layout.Main className="z-10">
                 <Layout.Div className=" w-full h-full overflow-hidden">
                     <Captation.Root>

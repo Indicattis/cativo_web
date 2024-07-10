@@ -1,5 +1,5 @@
 type PageControllerDTO = {
     id?: number,
     exhibition: string,
-    url?: string
+    url: string
 }

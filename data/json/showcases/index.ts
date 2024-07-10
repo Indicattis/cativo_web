@@ -3,7 +3,7 @@ import { ShowcaseDTO } from "@/data/types/showcase";
 const Showcases: ShowcaseDTO[] = [
     {
         id: 1,
-        title: "Habilidades",
+        title: "Tecnologias",
         text: `Desenvolvo aplicações com funcionalidades reativas e páginas dinâmicas, utilizando tecnologias modernas como React, TypeScript e Tailwind CSS, além de HTML5, JavaScript e CSS/SCSS.`,
         url: "/img/showcase/habilidades.png",
     },

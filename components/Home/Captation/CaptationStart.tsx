@@ -83,24 +83,24 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
             <div className="w-full py-5 text-center">
-                <h1 className="_display_text">Plano mensal</h1>
+                <h1 className="_display_text">Projeto Simples</h1>
             </div>
             <div className="flex flex-col gap-2  max-md:hidden _text">
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Atualizações de versão</div>
-                <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Alterações inclusas</div>
-                <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Landing Page</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de Página Única</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites Institucionais</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Portfólios Online</div>
+                {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Alterações inclusas</div> */}
+                {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div> */}
                 <div className="flex gap-1 items-center"></div>
             </div>
-            <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
+            {/* <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
                 <p className="_text">a partir de</p>
                 <h1 className="_display_text">149,90/mês</h1>
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
                 <p className="_text _small text-center py-3 flex gap-2 items-center justify-center"><IconExclamationCircle />Valor de desenvolvimento não incluso</p>
-            </div>
+            </div> */}
         </div>
     )
 }
@@ -114,24 +114,23 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
             <div className="w-full py-5 text-center">
-                <h1 className="_display_text">Plano semestral</h1>
+                <h1 className="_display_text">Projeto Desenvolvido</h1>
             </div>
             <div className="flex flex-col gap-2 max-md:hidden _text">
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Atualizações de versão</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Alterações inclusas</div>
-                <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de Notícias e Mídia</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Blogs e Sites de Conteúdo</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sistemas de agendamento online</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Volume significativo de dados</div>
+                {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div> */}
                 <div className="flex gap-1 items-center"></div>
             </div>
-            <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
+            {/* <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
                 <p className="_text">a partir de</p>
                 <h1 className="_display_text">219,90/mês</h1>
             </div>
             <div>
                 <p className="_text _small text-center py-3 flex gap-2 items-center justify-center"><IconExclamationCircle />Valor de desenvolvimento não incluso</p>
-            </div>
+            </div> */}
         </div>
     )
 }
@@ -145,24 +144,21 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
             <div className="w-full py-5 text-center">
-                <h1 className="_display_text">Plano anual</h1>
+                <h1 className="_display_text">Grande Porte</h1>
             </div>
             <div className="flex flex-col gap-2 max-md:hidden _text">
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Hospedagem</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Configuração de cookies</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Manutenções preventivas</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Atualizações de versão</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Alterações inclusas</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Primeiros 3 meses grátis</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de E-commerce (Lojas Virtuais)</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sistemas de gestão interna (ERPs)</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Volume grande de dados</div>
                 <div className="flex gap-1 items-center"></div>
             </div>
-            <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
+            {/* <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
                 <p className="_text">a partir de</p>
                 <h1 className="_display_text">329,90/mês</h1>
             </div>
             <div>
                 <p className="_text _small text-center py-3 flex gap-2 items-center justify-center"><IconExclamationCircle />Valor de desenvolvimento não incluso</p>
-            </div>
+            </div> */}
         </div>
     )
 }
