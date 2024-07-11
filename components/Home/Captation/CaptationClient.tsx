@@ -103,11 +103,11 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                             <Input.BoxNumber required value={userProfilePhone} onChange={(event) => handlePhoneChange(event, setUserProfilePhone)} placehoder="Telefone" />
                             <Input.Icon icon={<IconDeviceMobileFilled width={20} />} />
                         </Input.Root>
-                        <div>
-                            <div className="text-neon_purple _text gap-3 p-2 w-full flex items-center justify-center">
-                                <span className="w-full bg-purple h-[2px]"></span>
+                        <div className="flex">
+                            <div className="text-white _text gap-3 p-2 w-full flex items-center justify-center">
+                                <span className="w-full bg-purple h-1"> </span>
                                 ou
-                                <span className="w-full bg-purple h-[2px]"></span>
+                                <span className="w-full bg-purple h-1"> </span>
                             </div>
                         </div>
                         <GoogleOAuthProvider clientId="753411784831-paf4239i5bci83ss1e4ju4akl8mdokqh.apps.googleusercontent.com">

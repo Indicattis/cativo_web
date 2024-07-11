@@ -19,7 +19,7 @@ export default function Home() {
 
         <CaptationComponent/>
         <Layout.Separator/>
-        <AssessmentComponent/>
+        {/* <AssessmentComponent/> */}
         </Root.Content>
       <Root.Footer/>
     </Root.Body>

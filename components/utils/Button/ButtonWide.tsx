@@ -22,7 +22,7 @@ export default function ButtonWide ( { children, wide, rounded, variant = "defau
         type={type}
         className={`
             flex justify-center items-center gap-1
-            px-5 py-2
+            py-2
             ${variant == "default" ? "bg-neon_purple" : ""}
             ${variant == "red" ? "bg-neon_red" : ""}
             ${variant == "green" ? "bg-neon_green" : ""}
@@ -31,8 +31,8 @@ export default function ButtonWide ( { children, wide, rounded, variant = "defau
             ${variant == "black" ? "bg-black" : ""}
             ${variant == "disabled" || disabled ? "bg-purple" : ""}
             ${wide == "sm" ? "h-8 _text _small" : ""}
-            ${wide == "md" ? "h-10 !px-3 _text _small" : ""}
-            ${wide == "lg" ? "h-12 _text " : ""}
+            ${wide == "md" ? "h-12 !px-3 _text _small" : ""}
+            ${wide == "lg" ? "h-14 !px-4  _text " : ""}
             ${wide == "xl" ? "h-16 _display_text" : ""}
             ${wide == "full" ? "h-20 w-20 _display_text " : ""}
             ${rounded == "sm" ? "rounded-sm" : ""}
