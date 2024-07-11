@@ -15,7 +15,7 @@ import AnimatedBackground from "./Exhibition/Exhibitions/AnimatedBackground";
 
 export default function ContactComponent() {
     return (
-        <Layout.Section id="contact" className="bg-neon_purple h-[500px] relative">
+        <Layout.Section id="contact" className="bg-neon_purple h-[500px] relative  !z-0">
 
             <AnimatedBackground content={
                 <Layout.Main className="h-full w-full">
@@ -59,7 +59,7 @@ export default function ContactComponent() {
                                 <div>
                                     <h1 className="_display_text">Contato Profissional</h1>
                                 </div>
-                                <div className="flex  gap-2">
+                                <div className="flex flex-wrap gap-2">
 
                                     <Button.Wide rounded="md" variant="black" wide="lg" onClick={() => window.location.href = "mailto:joao.indicatti@outlook.com?subject=Contato"}>
                                         <Button.Text text="Enviar e-mail" />

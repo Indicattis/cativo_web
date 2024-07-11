@@ -33,9 +33,9 @@ const Showcases: ShowcaseDTO[] = [
     },
     {
         id: 6,
-        title: "Confiabilidade",
+        title: "Funcionalidades",
         text: `Asseguro segurança e estabilidade nas aplicações com o uso das tecnologias de desenvolvimento mais atualizadas e confiáveis do mercado.`,
-        url: "/img/showcase/Acessibilidade.png",
+        url: "/img/showcase/mobile.jpg",
     }
 ];
 
