@@ -8,13 +8,8 @@ const PageControllers: PageControllerDTO[] = [
         },
         {
             id: 2,
-            exhibition: "Sobre",
-            url: "showcases"
-        },
-        {
-            id: 3,
             exhibition: "Contato",
-            url: "showcases"
+            url: "contact"
         },
 ]
 

@@ -62,7 +62,7 @@ export default function RootFooter() {
                             </div>
                         </div>
                         <div className="flex items-center gap-5 _text">
-                            <Button.Wide rounded="lg" variant="default" wide="lg">
+                            <Button.Wide rounded="lg" variant="default" wide="md">
                                 <a href="#exhibition"><Button.Icon icon={<IconCaretUpFilled />} /></a>
                             </Button.Wide>
                         </div>

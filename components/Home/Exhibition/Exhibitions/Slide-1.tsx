@@ -55,8 +55,8 @@ export default function Slider_1() {
                             className="flex flex-col w-full justify-center items-start gap-3 "
                         >
                             
-                        <Button.Wide wide="lg" rounded="lg" variant="default">
-                            <Button.Text text="Saiba Mais!"/>
+                        <Button.Wide wide="lg" rounded="lg" variant="purple" onClick={() => window.location.href = "#captation"}>
+                            <Button.Text text="Get started"/>
                         </Button.Wide>
                         </motion.div>
 

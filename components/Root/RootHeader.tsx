@@ -69,11 +69,6 @@ export default function RootHeader() {
                 {/* <HeaderSearch /> */}
                 <HeaderLogo/>
                 <div className="flex items-center justify-center gap-5">
-                    <div className="max-md:hidden">
-                        <Button.Wide wide="md" rounded="full" variant="default">
-                            <a href="#captation"><Button.Text text="Contratar"/></a>
-                        </Button.Wide>
-                    </div>
                     {PageControllers.map((item, index) => {
                         return (
                             <HeaderItem
