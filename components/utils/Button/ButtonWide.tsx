@@ -34,7 +34,7 @@ export default function ButtonWide ( { children, wide, rounded, variant = "defau
             ${wide == "sm" ? "h-8 _text _small" : ""}
             ${wide == "md" ? "h-12 !px-3 _text _small" : ""}
             ${wide == "lg" ? "h-14 !px-4  _text " : ""}
-            ${wide == "xl" ? "h-16 _display_text" : ""}
+            ${wide == "xl" ? "h-16 !px-5 _display_text" : ""}
             ${wide == "full" ? "h-20 w-20 _display_text " : ""}
             ${rounded == "sm" ? "rounded-sm" : ""}
             ${rounded == "md" ? "rounded-md" : ""}

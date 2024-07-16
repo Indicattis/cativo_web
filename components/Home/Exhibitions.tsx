@@ -7,7 +7,6 @@ import { Exhibition } from "./Exhibition";
 import { Sliders } from "./Exhibition/Exhibitions";
 import Slider_1 from "./Exhibition/Exhibitions/Slide-1";
 import ExhibitionControllers from "./Exhibition/ExhibitionControllers";
-import Slider_2 from "./Exhibition/Exhibitions/Slide-2";
 
 
 
@@ -20,14 +19,20 @@ export default function ExhibitionComponent( ) {
     return (
         <Exhibition.Root>
             <Exhibition.Sliders 
-            data={[<Slider_1 key={`slider-1`}/>, <Slider_2 key={`slider-2`}/>]}
-            numOfSliders={2}
+            data={
+                [
+                <Slider_1 key={`slider-1`}/>, 
+                <Image className="min-w-[1920px] " key={`slider-2`} width={4000} height={3000} alt="" draggable={false} priority src={`/img/showcase/acessibilidade.png`}/>, 
+                <Image  className="min-w-[1920px] "key={`slider-3`} width={4000} height={3000} alt="" draggable={false} priority src={`/img/showcase/mobile.jpg`}/>,
+                <Image  className=" "key={`slider-3`} width={4000} height={3000} alt="" draggable={false} priority src={`/img/showcase/interface.png`}/>
+            ]}
+            numOfSliders={4}
             selectedItem={selectedItem}
             setSelectedItem={setSelectedItem}
             >
 
             </Exhibition.Sliders>
-            <ExhibitionControllers handleItemClick={setSelectedItem} selectedItem={selectedItem} data={[<Slider_1 key={`slider`}/>, <Slider_1 key={`slider`}/>]}/>
+            <ExhibitionControllers handleItemClick={setSelectedItem} selectedItem={selectedItem} data={[0, 1, 2, 3]}/>
         </Exhibition.Root>
     )
 }

@@ -14,12 +14,11 @@ export default function Home() {
       {/* <HeaderComponent/> */}
       <Root.Content className="">
         <ExhibitionComponent />
-        <Layout.Separator/>
         <ShowcaseComponent/>
         <Layout.Separator/>
 
         <CaptationComponent/>
-        {/* <AssessmentComponent/> */}
+        <AssessmentComponent/>
         <ContactComponent/>
         <Layout.Separator/>
         </Root.Content>

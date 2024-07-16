@@ -16,8 +16,8 @@ export default function ShowcaseImage({ url, className }: ImageType) {
             type: "spring",
         }}
             
-            className={`absolute flex justify-end right-0 overflow-hidden   z-0  w-full ${className}`}>
-            <Image className={`max-w-screen rounded-[50px] max-md:rounded-none h-full`} width={1000} height={2000} alt="" src={url} />
+            className={`absolute w-full top-0 left-0 h-full overflow-hidden  flex items-center justify-center  z-0   ${className}`}>
+            <Image className={` min-w-[1080px]`} width={3200} height={1920} alt="" src={url} />
         </motion.div>
     )
 }

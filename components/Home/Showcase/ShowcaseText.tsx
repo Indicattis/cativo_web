@@ -62,7 +62,7 @@ export default function ShowcaseText({ h1, p, className, setItemActive, itemActi
                     </div>
                 )}
             </h1>
-            <p className="_text text-palette_gray max-md:text-white">{p}</p>
+            <p className="_text text-white">{p}</p>
         </div>
     )
 }

@@ -91,7 +91,7 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
         <div
             onClick={() => onChange("plan1")}
             className={`
-            ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
+            ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
             <div className="w-full py-3">
                 <h1 className="_display_text">Projeto Simples</h1>
@@ -122,7 +122,7 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
         <div
             onClick={() => onChange("plan2")}
             className={`
-            ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
+            ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
             <div className="w-full py-3">
                 <h1 className="_display_text">Projeto Desenvolvido</h1>
@@ -152,7 +152,7 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
         <div
             onClick={() => onChange("plan3")}
             className={`
-            ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-purple"}
+            ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
         w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
             <div className="w-full py-3">
                 <h1 className="_display_text">Grande Porte</h1>

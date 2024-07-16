@@ -32,17 +32,14 @@ export default function ShowcaseComponent() {
 
     return (
         <Layout.Section id="showcases" className="relative  h-screen max-md:h-[800px]">
-            <Layout.Main className=" flex w-full h-full items-center justify-center gap-10 flex-col">
                 <Layout.Div className=" z-50">
 
-                    <div className="absolute left-0 top-0 w-full h-96 bg-gradient-to-b from-black to-transparent z-40"></div>
-                    <div className="absolute left-0 bottom-0 w-full h-96 bg-gradient-to-t from-black to-transparent z-40"></div>
                     <Showcase.Root className="max-md:flex-col-reverse max-md:justify-center">
                         <Showcase.Content>
                             {Showcases.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item, index) => {
                                 return (
                                     <AnimatePresence
-                                        key={index}>
+                                        key={`showcase-text-`+index}>
                                         <motion.div
                                             initial={{ x: -600 }}
                                             animate={{ x: 0 }}
@@ -53,6 +50,7 @@ export default function ShowcaseComponent() {
                                                 damping: 30
                                             }}
                                             key={index}
+                                            className="flex"
                                         >
                                             <Showcase.Text
                                                 itemActive={activeId == item.id}
@@ -61,9 +59,10 @@ export default function ShowcaseComponent() {
                                                 h1={item.title}
                                                 key={`showcase-text-${item.id}`}
                                                 p={item.text}
-                                                className="gap-3 text-start"
+                                                className="gap-3 text-start z-20"
                                             />
                                         </motion.div>
+                                        <Showcase.Image key={`showcase-image-${activeId}`} url={item.url} />
                                     </AnimatePresence>
                                 );
                             })}
@@ -73,16 +72,7 @@ export default function ShowcaseComponent() {
                     </Showcase.Root>
 
                 </Layout.Div>
-            </Layout.Main>
-            <div className="absolute left-0 bottom-0 w-full h-96 bg-gradient-to-t from-black to-transparent z-0 "></div>
-            <div className="absolute  left-0 h-full w-[50%] bg-gradient-to-r from-black to-transparent z-0 "></div>
-            <div className="absolute  right-0 h-full w-[50%] bg-gradient-to-l from-neon_purple to-transparent z-0 "></div>
             {/* Otimize aqui */}
-            <AnimatePresence >
-                {activeId > 0 && activeId <= Showcases.length && (
-                    <Showcase.Image key={`showcase-image-${activeId}`} url={Showcases[activeId - 1]?.url} />
-                )}
-                </AnimatePresence>
         </Layout.Section>
     );
 }
