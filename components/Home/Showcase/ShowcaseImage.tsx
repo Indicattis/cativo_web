@@ -17,7 +17,7 @@ export default function ShowcaseImage({ url, className }: ImageType) {
         }}
             
             className={`absolute w-full top-0 left-0 h-full overflow-hidden  flex items-center justify-center  z-0   ${className}`}>
-            <Image className={` min-w-[1080px]`} width={3200} height={1920} alt="" src={url} />
+            <Image className={` min-w-[1920px]`} width={3000} height={1080} alt="" src={url} />
         </motion.div>
     )
 }

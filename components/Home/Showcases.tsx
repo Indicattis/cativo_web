@@ -50,7 +50,7 @@ export default function ShowcaseComponent() {
                                                 damping: 30
                                             }}
                                             key={index}
-                                            className="flex"
+                                            className="flex relative  !z-[8888]"
                                         >
                                             <Showcase.Text
                                                 itemActive={activeId == item.id}
@@ -59,7 +59,7 @@ export default function ShowcaseComponent() {
                                                 h1={item.title}
                                                 key={`showcase-text-${item.id}`}
                                                 p={item.text}
-                                                className="gap-3 text-start z-20"
+                                                className="gap-3 text-start"
                                             />
                                         </motion.div>
                                         <Showcase.Image key={`showcase-image-${activeId}`} url={item.url} />
@@ -71,6 +71,8 @@ export default function ShowcaseComponent() {
 
                     </Showcase.Root>
 
+                    <div className="absolute bottom-0 z-50 bg-gradient-to-t from-[#000000ad] to-[#00000088] w-full h-full">
+            </div>
                 </Layout.Div>
             {/* Otimize aqui */}
         </Layout.Section>

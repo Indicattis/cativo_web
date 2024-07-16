@@ -20,7 +20,7 @@ export default function ShowcaseControllers({handleChangePage, length, activePag
                     key={`showcase-control-` + index} 
                     onClick={() => handleChangePage(index)}
                     className={`
-                        h-2 rounded-full cursor-pointer z-20
+                        h-2 rounded-full cursor-pointer    !z-[8888]
                     ${activePage == index ? " bg-neon_purple" : " bg-contrast_color_2"}`}>
                     </motion.div>
                 )
