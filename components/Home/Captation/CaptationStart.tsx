@@ -92,14 +92,13 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan1")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded-md shadow-lg cursor-pointer p-3 flex flex-col gap-3`}>
+        w-full  rounded-md shadow-lg cursor-pointer p-1 flex flex-col gap-1`}>
             <div className="w-full  p-3 bg-black rounded">
                 <h1 className="_display_text">Projeto Simples</h1>
             </div>
             <div className="flex flex-col gap-1 _text">
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Landing Page</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de Página Única</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites Institucionais</div>
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites Institucionais</div> 
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Portfólios Online</div>
                 {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Alterações inclusas</div> */}
                 {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div> */}
@@ -128,15 +127,14 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan2")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded-md shadow-lg p-3 cursor-pointer flex flex-col gap-3`}>
+        w-full  rounded-md shadow-lg p-1 cursor-pointer flex flex-col gap-1`}>
             <div className="w-full p-3 bg-black rounded">
                 <h1 className="_display_text">Projeto Desenvolvido</h1>
             </div>
-            <div className="flex flex-col gap-1  _text">
+            <div className="flex flex-col gap-1  _text ">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de Notícias e Mídia</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Blogs e Sites de Conteúdo</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sistemas de agendamento online</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Volume significativo de dados</div>
                 {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div> */}
                 <div className="flex gap-1 items-center"></div>
             </div>
@@ -156,7 +154,7 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan3")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded-md shadow-lg p-3 cursor-pointer flex flex-col gap-3`}>
+        w-full  rounded-md shadow-lg p-1 cursor-pointer flex flex-col gap-1`}>
             <div className="w-full p-3 bg-black rounded">
                 <h1 className="_display_text">Grande Porte</h1>
             </div>

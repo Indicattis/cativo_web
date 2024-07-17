@@ -1,3 +1,4 @@
+import AssessmentForm from "./AssessmentForm";
 import AssessmentMessage from "./AssessmentMessage";
 import AssessmentRating from "./AssessmentRating";
 import AssessmentRoot from "./AssessmentRoot";
@@ -9,4 +10,5 @@ export const Assessment = {
   User: AssessmentUser,
   Message: AssessmentMessage,
   Rating: AssessmentRating,
+  Form: AssessmentForm,
 }

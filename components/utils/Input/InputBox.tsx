@@ -12,7 +12,7 @@ interface InputBoxProps {
 export function InputBox({ placehoder, onChange, disabled, value}: InputBoxProps) {
     return (
         <motion.input 
-        className="h-full _text w-full outline-none bg-purple px-3 shadow-lg"
+        className="h-full _text w-full outline-none bg-purple px-3  shadow-lg shadow-contrast_color_2 rounded overflow-hidden relative"
         onChange={(e) => onChange(e.target.value)}
         placeholder={placehoder}
         disabled={disabled}
