@@ -21,18 +21,15 @@ export default function ExhibitionComponent( ) {
             <Exhibition.Sliders 
             data={
                 [
-                <Slider_1 key={`slider-1`}/>, 
-                <Image className="min-w-[1920px] " key={`slider-2`} width={4000} height={3000} alt="" draggable={false} priority src={`/img/showcase/acessibilidade.png`}/>, 
-                <Image  className="min-w-[1920px] "key={`slider-3`} width={4000} height={3000} alt="" draggable={false} priority src={`/img/showcase/mobile.jpg`}/>,
-                <Image  className=" "key={`slider-3`} width={4000} height={3000} alt="" draggable={false} priority src={`/img/showcase/interface.png`}/>
+                <Slider_1 key={`slider-1`}/>
             ]}
-            numOfSliders={4}
+            numOfSliders={1}
             selectedItem={selectedItem}
             setSelectedItem={setSelectedItem}
             >
 
             </Exhibition.Sliders>
-            <ExhibitionControllers handleItemClick={setSelectedItem} selectedItem={selectedItem} data={[0, 1, 2, 3]}/>
+            <ExhibitionControllers handleItemClick={setSelectedItem} selectedItem={selectedItem} data={[0]}/>
         </Exhibition.Root>
     )
 }

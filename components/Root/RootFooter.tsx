@@ -23,14 +23,14 @@ export default function RootFooter() {
                     <Layout.Div className="!items-start gap-5 !justify-between border-b border-purple py-5 max-md:flex-col">
                         <div className="flex flex-col gap-3">
                             <h1 className="_text">This website</h1>
-                            <div className="_text _small text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('terms')}>Termos de uso</div>
-                            <div className="_text _small text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('privacy')}>Aviso de privacidade</div>
-                            <div className="_text _small text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('development')}>Seu desenvolvimento</div>
+                            <div className="_text  text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('terms')}>Termos de uso</div>
+                            <div className="_text  text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('privacy')}>Aviso de privacidade</div>
+                            <div className="_text  text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('development')}>Seu desenvolvimento</div>
                         </div>
                         <div className="flex flex-col gap-3">
                             <h1 className="_text">Sobre</h1>
-                            <div className="_text _small text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('contact')}>Contato</div>
-                            <div className="_text _small text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('help')}>Ajuda</div>
+                            <div className="_text  text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('contact')}>Contato</div>
+                            <div className="_text  text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('help')}>Ajuda</div>
                         </div>
                         <div className="flex flex-col gap-3">
                             <h1 className="_text">Links</h1>
@@ -48,9 +48,6 @@ export default function RootFooter() {
                         </div>
                     </Layout.Div>
 
-                    <Layout.Div className="!justify-start w-full _text _small text-palette_gray gap-3">
-                        Copright@ 2024, todos os direitos reservados
-                    </Layout.Div>
                     <Layout.Div className="max-md:justify-start justify-between w-full gap-3 max-md:flex-col">
                         <div className="flex gap-3 items-center justify-center">
                             <div className="w-16 h-16 rounded-full overflow-hidden">
@@ -67,6 +64,10 @@ export default function RootFooter() {
                             </Button.Wide>
                         </div>
                     </Layout.Div>
+                    
+                    <Layout.Div className="!justify-start w-full _text _small text-palette_gray gap-3">
+                        Copright@ 2024, todos os direitos reservados
+                    </Layout.Div>
                 </Layout.Main>
             </Layout.Section>
 
@@ -78,7 +79,7 @@ export default function RootFooter() {
                             {modalContent === 'terms' && (
                                 <div className="_text">
                                     <p className="">Termos de uso:</p>
-                                    <p className="_text _small">
+                                    <p className="_text ">
                                         Bem-vindo(a) à página profissional do Indicatti. Ao acessar e utilizar este site, você concorda com os seguintes termos e condições:
                                         <br />
                                         1. Conteúdo e Uso
@@ -98,7 +99,7 @@ export default function RootFooter() {
                             {modalContent === 'privacy' && (
                                 <div className="_text">
                                     <p className="">Aviso de privacidade:</p>
-                                    <p className="_text _small">
+                                    <p className="_text ">
                                         Bem-vindo(a) à página profissional do Indicatti. Ao utilizar este site, você concorda com os seguintes termos de uso:
                                         <br />
                                         1. Informações e Conteúdo
@@ -124,7 +125,7 @@ export default function RootFooter() {
                             {modalContent === 'development' && (
                                 <div className="_text">
                                     <p className="">Seu desenvolvimento:</p>
-                                    <p className="_text _small">
+                                    <p className="_text ">
                                         Esse website foi desenvolvido utilizando React como framework de javascript, typescript como transpilador e tailwindCSS para o design. <br />
                                         As animações foram construidas com framer-motion. <br />
                                         Imagens e cores selecionadas exclusivamente para o desenvolvimento da página. <br />
@@ -144,7 +145,7 @@ export default function RootFooter() {
                             {modalContent === 'help' && (
                                 <div className="_text">
                                 <div className="_text  flex flex-col gap-3">
-                                    <p className="_text _small">
+                                    <p className="_text ">
                                         Se você precisa de ajuda, suporte ou dúvida, não exite em entrar em contato!<br />
                                     </p>
                                     <div className="font-bold flex gap-2 text-neon_blue"><IconHelp></IconHelp><a href="mailto:joao.indicatti@outlook.com?subject=Ajuda" className="">Contato</a></div>

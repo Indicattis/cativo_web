@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import {
     IconAffiliate,
+    IconBook,
     IconCaretRight,
     IconMenuDeep,
     IconPalette,
@@ -270,8 +271,8 @@ function HeaderSearch() {
 
 function HeaderLogo() {
     return (
-        <div className="rotate-[135deg]">
-            <Image draggable={false} alt="" src={`icons/logo.svg`} width={30} height={30}/>
+        <div className="rotate-[135deg] px-3">
+            <IconBook></IconBook>
         </div>
     )
 }

@@ -92,8 +92,8 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan1")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
-            <div className="w-full py-3">
+        w-full  rounded-md shadow-lg cursor-pointer p-3 flex flex-col gap-3`}>
+            <div className="w-full  p-3 bg-black rounded">
                 <h1 className="_display_text">Projeto Simples</h1>
             </div>
             <div className="flex flex-col gap-1 _text">
@@ -112,6 +112,11 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             {/* <div>
                 <p className="_text _small text-center py-3 flex gap-2 items-center justify-center"><IconExclamationCircle />Valor de desenvolvimento não incluso</p>
             </div> */}
+            <div className="w-full flex flex-wrap items-center gap-1 _text _small">
+                <div className="text-center bg-purple rounded p-2">+mockup</div>
+                <div className="text-center bg-purple rounded p-2">+design</div>
+                <div className="text-center bg-purple rounded p-2">+artes</div>
+            </div>
         </div>
     )
 }
@@ -123,8 +128,8 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan2")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
-            <div className="w-full py-3">
+        w-full  rounded-md shadow-lg p-3 cursor-pointer flex flex-col gap-3`}>
+            <div className="w-full p-3 bg-black rounded">
                 <h1 className="_display_text">Projeto Desenvolvido</h1>
             </div>
             <div className="flex flex-col gap-1  _text">
@@ -135,13 +140,11 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
                 {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div> */}
                 <div className="flex gap-1 items-center"></div>
             </div>
-            {/* <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
-                <p className="_text">a partir de</p>
-                <h1 className="_display_text">219,90/mês</h1>
+            <div className="w-full flex flex-wrap items-center gap-1 _text _small">
+                <div className="text-center bg-purple rounded p-2">+mockup</div>
+                <div className="text-center bg-purple rounded p-2">+design</div>
+                <div className="text-center bg-purple rounded p-2">+artes</div>
             </div>
-            <div>
-                <p className="_text _small text-center py-3 flex gap-2 items-center justify-center"><IconExclamationCircle />Valor de desenvolvimento não incluso</p>
-            </div> */}
         </div>
     )
 }
@@ -153,8 +156,8 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan3")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded-md shadow-lg p-3 cursor-pointer`}>
-            <div className="w-full py-3">
+        w-full  rounded-md shadow-lg p-3 cursor-pointer flex flex-col gap-3`}>
+            <div className="w-full p-3 bg-black rounded">
                 <h1 className="_display_text">Grande Porte</h1>
             </div>
             <div className="flex flex-col gap-1  _text">
@@ -163,13 +166,11 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Volume grande de dados</div>
                 <div className="flex gap-1 items-center"></div>
             </div>
-            {/* <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
-                <p className="_text">a partir de</p>
-                <h1 className="_display_text">329,90/mês</h1>
+            <div className="w-full flex flex-wrap items-center gap-1 _text _small">
+                <div className="text-center bg-purple rounded p-2">+mockup</div>
+                <div className="text-center bg-purple rounded p-2">+design</div>
+                <div className="text-center bg-purple rounded p-2">+artes</div>
             </div>
-            <div>
-                <p className="_text _small text-center py-3 flex gap-2 items-center justify-center"><IconExclamationCircle />Valor de desenvolvimento não incluso</p>
-            </div> */}
         </div>
     )
 }

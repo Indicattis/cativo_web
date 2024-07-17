@@ -29,7 +29,7 @@ const Showcases: ShowcaseDTO[] = [
         id: 5,
         title: "Organização",
         text: `Adoto a arquitetura hexagonal para paralelizar serviços e tornar o código mais escalável e de fácil manutenção. Quando combinada com o pattern de composição, essa stack se torna uma das mais ágeis do mercado.`,
-        url: "/img/showcase/interface-filled.png",
+        url: "/img/showcase/arquitetura.png",
     }
 ];
 

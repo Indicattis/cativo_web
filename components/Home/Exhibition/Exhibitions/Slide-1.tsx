@@ -15,8 +15,6 @@ export default function Slider_1() {
     const times = [0, 0.5, 1]
     const opacity = [.3, 1, .2, .1, .3, 1, .4]
 
-    const wide = []
-
     const onUpAnimation = {
         y: [380, -380],
         opacity: [0, 1],
