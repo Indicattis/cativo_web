@@ -24,6 +24,7 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
     const [rateText, setRateText] = useState("")
     const [stage, setStage] = useState<number>(1)
     const [oAuthStatus, setOAuthStatus] = useState<boolean>(false)
+    const [errorMessage, setErrorMessage] = useState("")
 
 
     const renderStars = (rating: number) => {
@@ -58,7 +59,7 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
             }
             setStage(3)
         } else {
-            return
+            setErrorMessage("Preencha todas as informações!")
         }
 
     }
@@ -90,7 +91,7 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
                         </div>
                     ) : (
                         
-                        <GoogleOAuthProvider clientId="753411784831-paf4239i5bci83ss1e4ju4akl8mdokqh.apps.googleusercontent.com">
+                        <GoogleOAuthProvider clientId="138480048434-is4hhc6ml8ukdk5vao2qprojdl8p3r3o.apps.googleusercontent.com">
                             <GoogleLogin
                                 width={1000}
                                 text="continue_with"
@@ -152,6 +153,12 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
                     <Button.Wide variant="purple" rounded="md" wide="lg" type="submit" disabled={!oAuthStatus}>
                         <Button.Text text="Enviar" />
                     </Button.Wide>
+                        
+                    {errorMessage != "" && (
+                        <div className="w-full text-center text-neon_red _text">
+                            {errorMessage}
+                        </div>
+                    )}
                 </>
 
             )}

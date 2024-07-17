@@ -92,8 +92,8 @@ export default function AssessmentComponent() {
             </AnimatePresence>
           </motion.div>
         </Layout.Div>
-        <Layout.Div className="">
-          <Button.Wide rounded='md' variant='purple' wide='lg' onClick={() => setModalActive(true)}>
+        <Layout.Div className="w-full !justify-start">
+          <Button.Wide rounded='md' variant='default' wide='md' onClick={() => setModalActive(true)}>
             <Button.Icon icon={<IconBrandHipchat/>} />
             <Button.Text text='Comentar' />
           </Button.Wide>
