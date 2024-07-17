@@ -7,7 +7,7 @@ import { IconBlockquote, IconPoint, IconRepeat, IconStar, IconStarFilled, IconSt
 import { jwtDecode } from "jwt-decode"
 import Image from "next/image"
 import { useState } from "react"
-
+import { sql } from "@vercel/postgres";
 
 interface AssessmentFormProps {
     onClose?: () => void

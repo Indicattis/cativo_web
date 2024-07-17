@@ -108,7 +108,6 @@ export default function AssessmentComponent() {
                   animate={{ width: itemActive == index ? 56 : 32 }}
                   className={`h-2 w-12 rounded-full cursor-pointer ${itemActive === index ? "bg-neon_purple" : "bg-purple"}`}
                 >
-
                 </motion.div>
               )
             })}

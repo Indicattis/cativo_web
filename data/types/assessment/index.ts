@@ -1,8 +1,8 @@
 export type AssessmentDTO = {
-    id: number,
-    profile_name: string,
-    profile_img: string,
-    rating_text: string
-    loged_from: string,
+    id?: string,
+    profile_name: string
+    profile_mail: string
+    profile_img:  string
+    rating_text:  string
     rating_media: number
 }
