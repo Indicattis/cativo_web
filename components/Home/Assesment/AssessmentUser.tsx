@@ -5,10 +5,9 @@ import Image from "next/image";
 interface AssessmentUserProps {
     profile_img: string
     profile_name: string
-    loged_from: string
 }
 
-export default function AssessmentUser( { profile_name, profile_img, loged_from }: AssessmentUserProps) {
+export default function AssessmentUser( { profile_name, profile_img }: AssessmentUserProps) {
     return (
         
         <div className="flex items-center justify-between">
@@ -19,7 +18,6 @@ export default function AssessmentUser( { profile_name, profile_img, loged_from 
             <div className="flex flex-col gap">
               <h1 className="_text">{profile_name}</h1>
               <p className="_text _small text-palette_gray">
-                Logged from <span className="font-bold text-neon_purple">{loged_from}</span>
               </p>
             </div>
           </div>

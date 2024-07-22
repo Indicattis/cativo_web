@@ -1,14 +1,14 @@
 
 "use client"
 
-import { useState } from 'react';
+import { useActionState, useState } from 'react';
 import { AnimatePresence, motion, useDragControls } from 'framer-motion';
-import { Assessments } from '@/data/json/assessments';
 import { Assessment } from './Assesment';
 import { IconBrandHipchat, IconMessage } from '@tabler/icons-react';
 import { Layout } from '../Layouts';
 import { Button } from '../utils/Button';
 import { Modal } from '../utils/Modal';
+import { getAssessments } from '@/data/services/assessments';
 
 export default function AssessmentComponent() {
   const [itemActive, setItemActive] = useState<number>(1);
@@ -16,11 +16,12 @@ export default function AssessmentComponent() {
   const [direction, setDirection] = useState(0); // New state for direction
   const dragControls = useDragControls();
   const [modalActive, setModalActive] = useState<boolean>(false);
+  const [assessments, fetchAction, isPending] = useActionState(getAssessments, null)
 
   const handleDragEnd = (event: any, info: any) => {
     if (info.offset.x < -50) { // Changed condition to match expected behavior
       // Drag to the right
-      if (itemActive < Assessments.length - 1) {
+      if (itemActive < assessments.length - 1) {
         setDirection(1);
         setItemActive((prev) => prev + 1);
         setScroll(scroll - 410)
@@ -76,7 +77,7 @@ export default function AssessmentComponent() {
             onDragEnd={handleDragEnd}
           >
             <AnimatePresence initial={false} custom={direction}>
-              {Assessments.map((item, index) => (
+              {assessments.map((item: any, index: number) => (
                 <Assessment.Root
                   key={`rating-card-` + index}
                   id={index}
@@ -84,7 +85,7 @@ export default function AssessmentComponent() {
                   direction={direction} // Pass direction to the card
                   setItem={itemChange}
                 >
-                  <Assessment.User profile_name={item.profile_name} loged_from={item.loged_from} profile_img={item.profile_img} />
+                  <Assessment.User profile_name={item.profile_name}  profile_img={item.profile_img} />
                   <Assessment.Message message={item.rating_text} />
                   <Assessment.Rating rating={item.rating_media} />
                 </Assessment.Root>
@@ -100,7 +101,7 @@ export default function AssessmentComponent() {
         </Layout.Div>
         <Layout.Div className="">
           <motion.div className='w-full flex gap-2'>
-            {Assessments.map((item, index) => {
+            {assessments.map((item: any, index: number) => {
               return (
                 <motion.div
                   key={`bar-` + item.profile_name}
