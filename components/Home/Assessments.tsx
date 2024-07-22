@@ -1,7 +1,7 @@
 
 "use client"
 
-import { useActionState, useState } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useDragControls } from 'framer-motion';
 import { Assessment } from './Assesment';
 import { IconBrandHipchat, IconMessage } from '@tabler/icons-react';
@@ -16,18 +16,30 @@ export default function AssessmentComponent() {
   const [direction, setDirection] = useState(0); // New state for direction
   const dragControls = useDragControls();
   const [modalActive, setModalActive] = useState<boolean>(false);
-  const [assessments, fetchAction, isPending] = useActionState(getAssessments, null)
+  const [assessments, setAssessments] = useState([])
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+      	const response = await getAssessments();
+        setAssessments(response)
+      } catch (error){
+        console.log(error)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   const handleDragEnd = (event: any, info: any) => {
-    if (info.offset.x < -50) { // Changed condition to match expected behavior
-      // Drag to the right
+    if (info.offset.x < -50) { 
       if (itemActive < assessments.length - 1) {
         setDirection(1);
         setItemActive((prev) => prev + 1);
         setScroll(scroll - 410)
       }
-    } else if (info.offset.x > 50) { // Changed condition to match expected behavior
-      // Drag to the left
+    } else if (info.offset.x > 50) { 
       if (itemActive > 0) {
         setDirection(-1);
         setItemActive((prev) => prev - 1);
@@ -85,7 +97,7 @@ export default function AssessmentComponent() {
                   direction={direction} // Pass direction to the card
                   setItem={itemChange}
                 >
-                  <Assessment.User profile_name={item.profile_name}  profile_img={item.profile_img} />
+                  <Assessment.User profile_mail={item.profile_mail} profile_name={item.profile_name}  profile_img={item.profile_img} />
                   <Assessment.Message message={item.rating_text} />
                   <Assessment.Rating rating={item.rating_media} />
                 </Assessment.Root>

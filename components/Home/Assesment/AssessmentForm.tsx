@@ -2,12 +2,15 @@
 
 import { Button } from "@/components/utils/Button"
 import { Input } from "@/components/utils/Input"
+import { SERVER_URL } from "@/data/config"
+import { insertAssessment } from "@/data/services/assessments"
+import { AssessmentDTO } from "@/data/types/assessment"
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google"
 import { IconBlockquote, IconPoint, IconRepeat, IconStar, IconStarFilled, IconStarHalfFilled } from "@tabler/icons-react"
+import axios from "axios"
 import { jwtDecode } from "jwt-decode"
 import Image from "next/image"
 import { useState } from "react"
-import { sql } from "@vercel/postgres";
 
 interface AssessmentFormProps {
     onClose?: () => void
@@ -50,14 +53,23 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
         setOAuthStatus(true)
     }
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
         if (rate !== 0 && rateText != "") {
-            const clientData: ClientDTO = {
-                profile_mail: userProfileMail,
+            const assessmentData: AssessmentDTO = {
+                rating_text: rateText,
                 profile_name: userProfileName,
-                profile_picture: userProfilePic,
+                profile_img: userProfilePic,
+                profile_mail: userProfileMail,
+                rating_media: rate
             }
-            setStage(3)
+            try {
+                const response = await insertAssessment(assessmentData)
+                console.log(response)
+                // setStage(3)
+            } catch (err: any) {
+                setErrorMessage(err.message)
+            }
+            
         } else {
             setErrorMessage("Preencha todas as informações!")
         }

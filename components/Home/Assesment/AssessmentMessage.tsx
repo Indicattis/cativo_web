@@ -17,7 +17,7 @@ export default function AssessmentMessage( { message }: AssessmentMessageProps) 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: .4 }}
-          className="_text _small font-thin">&quot;{message}&quot;
+          className="_text  font-thin">&quot;{message}&quot;
         </motion.p>
       </motion.div>
     )
