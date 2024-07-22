@@ -61,7 +61,7 @@ export default function AssessmentComponent() {
 
 
   return (
-    <Layout.Section className="h-screen">
+    <Layout.Section className="h-screen" id='assessments'>
       <Layout.Main className="gap-5">
         <Layout.Div className="">
           <div className='w-full py-5 flex flex-col gap-2'>

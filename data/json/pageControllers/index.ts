@@ -11,6 +11,11 @@ const PageControllers: PageControllerDTO[] = [
             exhibition: "Contato",
             url: "contact"
         },
+        {
+            id: 3,
+            exhibition: "Avaliações",
+            url: "assessments"
+        },
 ]
 
 export {PageControllers}

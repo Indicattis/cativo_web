@@ -81,9 +81,6 @@ export default function RootHeader() {
                             />
                         );
                     })}
-                    <div className="max-md:hidden">
-                        <IconAffiliate />
-                    </div>
                     {/* <HeaderColorSet/> */}
                 </div>
                 <AnimatePresence>
