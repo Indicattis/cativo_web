@@ -65,7 +65,7 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
             try {
                 const response = await insertAssessment(assessmentData)
                 console.log(response)
-                // setStage(3)
+                setStage(3)
             } catch (err: any) {
                 setErrorMessage(err.message)
             }
