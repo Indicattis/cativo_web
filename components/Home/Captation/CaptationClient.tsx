@@ -110,13 +110,15 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                                 <span className="w-full bg-purple h-1"> </span>
                             </div>
                         </div>
-                        <GoogleOAuthProvider clientId="753411784831-paf4239i5bci83ss1e4ju4akl8mdokqh.apps.googleusercontent.com">
-                            <GoogleLogin
-                            width={500}
-                                text="continue_with"
-                                theme="filled_black"
-                                onSuccess={oAuthSuccess} />
-                        </GoogleOAuthProvider>
+                        
+                        <GoogleOAuthProvider clientId="138480048434-is4hhc6ml8ukdk5vao2qprojdl8p3r3o.apps.googleusercontent.com">
+                                <GoogleLogin
+                                    width={1000}
+                                    size="large"
+                                    text="continue_with"
+                                    theme="filled_black"
+                                    onSuccess={oAuthSuccess} />
+                            </GoogleOAuthProvider>
                     </div>
 
 

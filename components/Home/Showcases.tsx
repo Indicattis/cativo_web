@@ -19,8 +19,8 @@ export default function ShowcaseComponent() {
             setActiveId(1);
             setCurrentPage(0)
         } else if (id < 1) {
-            setActiveId(0);
-            setCurrentPage(0)
+            setActiveId(Showcases.length);
+            setCurrentPage(Showcases.length -1)
         } else {
             setCurrentPage(id - 1)
             setActiveId(id);
@@ -33,7 +33,6 @@ export default function ShowcaseComponent() {
     return (
         <Layout.Section id="showcases" className="relative  h-screen max-md:h-[800px]">
                 <Layout.Div className=" z-50">
-
                     <Showcase.Root className="max-md:flex-col-reverse max-md:justify-center">
                         <Showcase.Content>
                             {Showcases.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item, index) => {
@@ -71,8 +70,12 @@ export default function ShowcaseComponent() {
 
                     </Showcase.Root>
 
-                    <div className="absolute bottom-0 z-50 bg-gradient-to-t from-[#000000ad] to-[#00000088] w-full h-full">
-            </div>
+                    <div className="absolute bottom-0 z-50 bg-gradient-to-t from-[#000000ad] to-[#00000088] w-full h-full flex items-center justify-center">
+                        <Showcase.Arrows 
+                        toLeft={() => setItemActive(activeId - 1)}
+                        toRight={() => setItemActive(activeId + 1)}
+                        />
+                    </div>
                 </Layout.Div>
             {/* Otimize aqui */}
         </Layout.Section>

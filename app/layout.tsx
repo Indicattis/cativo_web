@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-figtree`}>{children}</body>
+      <body className={`font-figtree bg-palette_dark`}>{children}</body>
     </html>
   );
 }

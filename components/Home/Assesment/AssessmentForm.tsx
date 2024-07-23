@@ -18,7 +18,7 @@ interface AssessmentFormProps {
 
 
 
-export default function AssessmentForm({onClose}: AssessmentFormProps) {
+export default function AssessmentForm({ onClose }: AssessmentFormProps) {
     const [ratingSpectrum, setSpectrum] = useState<number>(0)
     const [rate, setRate] = useState<number>(0)
     const [userProfilePic, setUserProfilePic] = useState("")
@@ -69,7 +69,7 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
             } catch (err: any) {
                 setErrorMessage(err.message)
             }
-            
+
         } else {
             setErrorMessage("Preencha todas as informações!")
         }
@@ -88,7 +88,7 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
                             <p className="_text">Seja muito bem vindo(a)! {userProfileName}</p>
                             <div className="flex gap-3 relative rounded bg-purple p-3 items-center shadow-lg shadow-contrast_color_2">
                                 <div className="max-w-14 max-h-14 rounded-full overflow-hidden">
-                                    <Image width={200} height={200} src={userProfilePic} alt=""/>
+                                    <Image width={200} height={200} src={userProfilePic} alt="" />
                                 </div>
                                 <div className="flex flex-col  justify-center">
                                     <p className=" _text">{userProfileName}</p>
@@ -96,21 +96,25 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
                                 </div>
                                 <div className="absolute right-5">
                                     <Button.Wide rounded="md" variant="disabled" wide="md" type="button" onClick={() => setOAuthStatus(false)}>
-                                        <Button.Icon icon={<IconRepeat/>}/>
+                                        <Button.Icon icon={<IconRepeat />} />
                                     </Button.Wide>
                                 </div>
                             </div>
                         </div>
                     ) : (
-                        
-                        <GoogleOAuthProvider clientId="138480048434-is4hhc6ml8ukdk5vao2qprojdl8p3r3o.apps.googleusercontent.com">
-                            <GoogleLogin
-                                width={1000}
-                                text="continue_with"
-                                theme="filled_black"
-                                onSuccess={oAuthSuccess} />
-                        </GoogleOAuthProvider>
+                        <div className="flex items-center justify-center w-full py-5">
+
+                            <GoogleOAuthProvider clientId="138480048434-is4hhc6ml8ukdk5vao2qprojdl8p3r3o.apps.googleusercontent.com">
+                                <GoogleLogin
+                                    width={1000}
+                                    size="large"
+                                    text="continue_with"
+                                    theme="filled_black"
+                                    onSuccess={oAuthSuccess} />
+                            </GoogleOAuthProvider>
+                        </div>
                     )}
+                    <div className="flex w-full h-[3px] bg-contrast_color_2 rounded-full"></div>
                     <Button.Wide variant="default" rounded="md" wide="lg" type="button" disabled={!oAuthStatus} onClick={() => setStage(2)}>
                         <Button.Text text="Continuar" />
                     </Button.Wide>
@@ -119,22 +123,24 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
             {stage == 2 && (
                 <>
                     <h1 className="_display_text">Avalie!</h1>
-                    
+
                     <div className="flex flex-col gap-3">
-                            <div className="flex gap-3 relative rounded bg-purple p-3 items-center shadow-lg shadow-contrast_color_2">
-                                <div className="max-w-14 max-h-14 rounded-full overflow-hidden">
-                                    <Image width={200} height={200} src={userProfilePic} alt=""/>
-                                </div>
-                                <div className="flex flex-col  justify-center">
-                                    <p className=" _text">{userProfileName}</p>
-                                    <p className=" _text _small">{userProfileMail}</p>
-                                </div>
+                        <div className="flex gap-3 relative rounded bg-purple p-3 items-center shadow-lg shadow-contrast_color_2">
+                            <div className="max-w-14 max-h-14 rounded-full overflow-hidden">
+                                <Image width={200} height={200} src={userProfilePic} alt="" />
+                            </div>
+                            <div className="flex flex-col  justify-center">
+                                <p className=" _text">{userProfileName}</p>
+                                <p className=" _text _small">{userProfileMail}</p>
                             </div>
                         </div>
+                    </div>
+                    <div className="flex w-full h-[3px] bg-contrast_color_2 rounded-full"></div>
                     <Input.Root>
                         <Input.Icon icon={<IconBlockquote />} />
-                        <Input.Box onChange={setRateText} placehoder='Comentário'/>
+                        <Input.Box onChange={setRateText} placehoder='Comentário' />
                     </Input.Root>
+                    <div className="flex w-full h-[3px] bg-contrast_color_2 rounded-full"></div>
                     <div className="flex flex-col gap-3">
                         <div className="flex w-full gap-3">
                             {renderStars(rate)}
@@ -165,7 +171,7 @@ export default function AssessmentForm({onClose}: AssessmentFormProps) {
                     <Button.Wide variant="purple" rounded="md" wide="lg" type="submit" disabled={!oAuthStatus}>
                         <Button.Text text="Enviar" />
                     </Button.Wide>
-                        
+
                     {errorMessage != "" && (
                         <div className="w-full text-center text-neon_red _text">
                             {errorMessage}

@@ -11,23 +11,23 @@ import Image from "next/image";
 export default function Slider_1() {
 
 
-    const duration = 10
+    const duration = 20
     const times = [0, 0.5, 1]
     const opacity = [.3, 1, .2, .1, .3, 1, .4]
 
     const onUpAnimation = {
-        y: [380, -380],
+        y: [680, -680],
         opacity: [0, 1],
     }
     return (
-        <LayoutSection className="h-full w-full">
+        <LayoutSection className="h-full w-full bg-black">
             <LayoutMain className="h-full w-full !px-0">
                 <LayoutDiv className="h-full w-full flex flex-col">
 
                     {/* <Image draggable={false} width={300} height={300} alt="" src={`/img/cativo-logo-2.png`} /> */}
 
                     <motion.div
-                        className={`relative w-full py-5 overflow-hidden  flex justify-center items-center transition-all z-10 max-md:flex-col gap-5`}
+                        className={`relative w-full h-full overflow-hidden  flex justify-center items-center transition-all z-10 max-md:flex-col gap-5`}
                     >
                         <motion.div
                             initial={{ y: 400 }}
@@ -45,7 +45,7 @@ export default function Slider_1() {
                             }}
                             className="relative w-full flex justify-center items-center z-20">
 
-                            <div className="rounded-full bg-gradient-to-r from-contrast_color_2 to-purple max-h-56 max-w-56 overflow-hidden">
+                            <div className="rounded-full bg-gradient-to-r from-contrast_color_2 to-purple max-h-56 max-w-56 overflow-hidden border-2">
 
                                 <Image
                                     className=""
@@ -57,30 +57,10 @@ export default function Slider_1() {
                                 />
                             </div>
                         </motion.div>
-                        <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ opacity: opacity, width: "100vw" }}
-                            transition={{
-                                opacity: {
-                                    duration: duration,
-                                    times: times,
-                                    easing: "easeInOut",
-                                    repeat: Infinity,
-                                    repeatDelay: 0,
-                                },
-                                width: {
-                                    duration: 1,
-                                    easing: "easeInOut",
-                                    delay: .2
-                                }
-                            }}
-                            className="absolute bottom-0  z-0 bg-gradient-to-t from-neon_purple w-full h-24 border-b-2 border-neon_pink2">
-
-                        </motion.div>
-                        <motion.div className="absolute  left-0 z-10 bg-gradient-to-r from-black w-96 h-full">
+                        {/* <motion.div className="absolute  left-0 z-10 bg-gradient-to-r from-black w-96 h-full">
                         </motion.div>
                         <motion.div className="absolute  right-0 z-10 bg-gradient-to-l from-black w-96 h-full">
-                        </motion.div>
+                        </motion.div> */}
 
                         <motion.div
                             className="relative overflow-hidden flex flex-col items-center justify-center gap-2 w-full z-20"
@@ -142,7 +122,7 @@ export default function Slider_1() {
                                         initial={{ x: 490, opacity: 0 }}
                                         animate={onUpAnimation}
                                         transition={{
-                                            duration: 4,
+                                            duration: 5,
                                             ease: "easeInOut",
                                             times: times,
                                             repeat: Infinity,
@@ -158,7 +138,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 7,
+                                                duration: 17,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -175,7 +155,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 3,
+                                                duration: 9,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -192,7 +172,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 9,
+                                                duration: 15,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -209,7 +189,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 5,
+                                                duration: 11,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -226,7 +206,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 7,
+                                                duration: 17,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -243,7 +223,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 3,
+                                                duration: 4,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -260,7 +240,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 12,
+                                                duration: 22,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -277,7 +257,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 3,
+                                                duration: 13,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -294,7 +274,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 5,
+                                                duration: 6,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -311,7 +291,7 @@ export default function Slider_1() {
                                         animate={onUpAnimation}
                                         transition={{
                                             y: {
-                                                duration: 9,
+                                                duration: 16,
                                                 ease: "easeInOut",
                                                 times: times,
                                                 repeat: Infinity,
@@ -331,6 +311,46 @@ export default function Slider_1() {
                 </LayoutDiv>
 
             </LayoutMain>
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ opacity: opacity, width: "100vw" }}
+                            transition={{
+                                opacity: {
+                                    duration: duration,
+                                    times: times,
+                                    easing: "easeInOut",
+                                    repeat: Infinity,
+                                    repeatDelay: 0,
+                                },
+                                width: {
+                                    duration: 1,
+                                    easing: "easeInOut",
+                                    delay: .2
+                                }
+                            }}
+                            className="absolute bottom-0  z-0 bg-gradient-to-t from-neon_purple w-full h-24 border-b-2 border-neon_pink2">
+
+                        </motion.div>
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ opacity: opacity, width: "100vw" }}
+                            transition={{
+                                opacity: {
+                                    duration: duration,
+                                    times: times,
+                                    easing: "easeInOut",
+                                    repeat: Infinity,
+                                    repeatDelay: 0,
+                                },
+                                width: {
+                                    duration: 1,
+                                    easing: "easeInOut",
+                                    delay: .2
+                                }
+                            }}
+                            className="absolute top-0  z-0 bg-gradient-to-b from-neon_purple w-full h-24 border-t-2 border-neon_pink2">
+
+                        </motion.div>
         </LayoutSection>
     );
 }

@@ -131,6 +131,7 @@ export default function AssessmentComponent() {
       {modalActive && (
         <Modal.Root>
           <Modal.Box>
+            <Modal.Close onClick={() => setModalActive(false)}/>
             <Modal.Content className="flex flex-col gap-3  p-3 rounded">
               <Assessment.Form onClose={() => setModalActive(false)}/>
             </Modal.Content>
