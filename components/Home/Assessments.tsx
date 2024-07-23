@@ -17,6 +17,7 @@ export default function AssessmentComponent() {
   const dragControls = useDragControls();
   const [modalActive, setModalActive] = useState<boolean>(false);
   const [assessments, setAssessments] = useState([])
+  const [currentPage, setCurrentPage] = useState<number>(0);
 
 
   useEffect(() => {
@@ -59,6 +60,9 @@ export default function AssessmentComponent() {
     }
   }
 
+  
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(assessments.length / itemsPerPage);
 
   return (
     <Layout.Section className="h-screen " id='assessments'>
@@ -104,6 +108,19 @@ export default function AssessmentComponent() {
               ))}
             </AnimatePresence>
           </motion.div>
+          <motion.div className='w-full flex gap-2 pt-10'>
+            {assessments.map((item: any, index: number) => {
+              return (
+                <motion.div
+                  key={`bar-` + item.profile_name}
+                  onClick={() => itemChange(index)}
+                  animate={{ width: itemActive == index ? 56 : 32 }}
+                  className={`h-2 w-12 rounded-full cursor-pointer ${itemActive === index ? "bg-neon_purple" : "bg-purple"}`}
+                >
+                </motion.div>
+              )
+            })}
+                            </motion.div>
         </Layout.Div>
         <Layout.Div className="max-lg:hidden block">
           <motion.div
@@ -111,7 +128,7 @@ export default function AssessmentComponent() {
               `}
           >
             <AnimatePresence initial={false} custom={direction}>
-              {assessments.map((item: any, index: number) => (
+              {assessments.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item: any, index: number) => (
                 <Assessment.Root
                   key={`rating-card-` + index}
                   id={index}
@@ -125,28 +142,14 @@ export default function AssessmentComponent() {
                 </Assessment.Root>
               ))}
             </AnimatePresence>
-          </motion.div>
+            <Assessment.Controllers handleChangePage={setCurrentPage} length={totalPages} activePage={currentPage} />
+            </motion.div>
         </Layout.Div>
         <Layout.Div className="w-full !justify-start">
           <Button.Wide rounded='sm' variant='default' wide='xl' onClick={() => setModalActive(true)}>
             <Button.Icon icon={<IconBrandHipchat />} />
             <Button.Text text='Comentar' />
           </Button.Wide>
-        </Layout.Div>
-        <Layout.Div className="hidden max-lg:block">
-          <motion.div className='w-full flex gap-2'>
-            {assessments.map((item: any, index: number) => {
-              return (
-                <motion.div
-                  key={`bar-` + item.profile_name}
-                  onClick={() => itemChange(index)}
-                  animate={{ width: itemActive == index ? 56 : 32 }}
-                  className={`h-2 w-12 rounded-full cursor-pointer ${itemActive === index ? "bg-neon_purple" : "bg-purple"}`}
-                >
-                </motion.div>
-              )
-            })}
-          </motion.div>
         </Layout.Div>
       </Layout.Main>
 

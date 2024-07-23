@@ -1,3 +1,4 @@
+import AssessmentsControllers from "./AssessmentControllers";
 import AssessmentForm from "./AssessmentForm";
 import AssessmentMessage from "./AssessmentMessage";
 import AssessmentRating from "./AssessmentRating";
@@ -11,4 +12,5 @@ export const Assessment = {
   Message: AssessmentMessage,
   Rating: AssessmentRating,
   Form: AssessmentForm,
+  Controllers: AssessmentsControllers
 }
