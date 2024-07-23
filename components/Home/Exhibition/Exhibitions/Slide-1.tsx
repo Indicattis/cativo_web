@@ -48,12 +48,12 @@ export default function Slider_1() {
                             <div className="rounded-full bg-gradient-to-r from-contrast_color_2 to-purple max-h-56 w-56 overflow-hidden border-2 flex items-center justify-center">
 
                                 <Image
-                                    className="rotate-[-5deg]"
+                                    className=""
                                     alt=""
                                     draggable={false}
                                     width={1000}
                                     height={1000}
-                                    src={`/img/profile/foto.png`}
+                                    src={`/img/profile/foto_2.jpeg`}
                                 />
                             </div>
                         </motion.div>
