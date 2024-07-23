@@ -10,6 +10,7 @@ import { Layout } from "../Layouts";
 export default function ShowcaseComponent() {
     const [activeId, setActiveId] = useState<number>(1);
     const [currentPage, setCurrentPage] = useState<number>(0);
+    const [hover, setHover] = useState<boolean>(false)
 
     const itemsPerPage = 1;
     const totalPages = Math.ceil(Showcases.length / itemsPerPage);
@@ -31,7 +32,10 @@ export default function ShowcaseComponent() {
 
 
     return (
-        <Layout.Section id="showcases" className="relative  h-screen max-md:h-[800px]">
+        <Layout.Section 
+        onMouseLeave={() => setHover(false)}
+        onMouseEnter={() => setHover(true)}
+        id="showcases" className="relative  h-screen max-md:h-[800px]">
                 <Layout.Div className=" z-50">
                     <Showcase.Root className="max-md:flex-col-reverse max-md:justify-center">
                         <Showcase.Content>
@@ -58,6 +62,7 @@ export default function ShowcaseComponent() {
                                                 h1={item.title}
                                                 key={`showcase-text-${item.id}`}
                                                 p={item.text}
+                                                isPoused={hover}
                                                 className="gap-3 text-start"
                                             />
                                         </motion.div>
@@ -72,6 +77,7 @@ export default function ShowcaseComponent() {
 
                     <div className="absolute bottom-0 z-50 bg-gradient-to-t from-[#000000ad] to-[#00000088] w-full h-full flex items-center justify-center">
                         <Showcase.Arrows 
+                        isActive={hover}
                         toLeft={() => setItemActive(activeId - 1)}
                         toRight={() => setItemActive(activeId + 1)}
                         />

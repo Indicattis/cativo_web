@@ -35,13 +35,10 @@ export default function RootFooter() {
                         <div className="flex flex-col gap-3">
                             <h1 className="_text">Links</h1>
                             <div className="flex gap-3">
-                                <Button.Wide rounded="lg" variant="red" wide="md" onClick={() => window.location.href = "https://www.instagram.com/indicatti_s/"}>
-                                    <Button.Icon icon={<IconBrandInstagram />} />
-                                </Button.Wide>
-                                <Button.Wide rounded="lg" variant="blue" wide="md" onClick={() => window.location.href = "https://www.linkedin.com/in/joão-pedro-indicatti-07975b265/"}>
+                                <Button.Wide rounded="sm" variant="blue" wide="md" onClick={() => window.location.href = "https://www.linkedin.com/in/joão-pedro-indicatti-07975b265/"}>
                                     <Button.Icon icon={<IconBrandLinkedin />} />
                                 </Button.Wide>
-                                <Button.Wide rounded="lg" variant="disabled" wide="md" onClick={() => window.location.href = "https://github.com/Indicattis"}>
+                                <Button.Wide rounded="sm" variant="disabled" wide="md" onClick={() => window.location.href = "https://github.com/Indicattis"}>
                                     <Button.Icon icon={<IconBrandGithub />} />
                                 </Button.Wide>
                             </div>
@@ -59,7 +56,7 @@ export default function RootFooter() {
                             </div>
                         </div>
                         <div className="flex items-center gap-5 _text">
-                            <Button.Wide rounded="lg" variant="default" wide="md">
+                            <Button.Wide rounded="sm" variant="default" wide="md">
                                 <a href="#exhibition"><Button.Icon icon={<IconCaretUpFilled />} /></a>
                             </Button.Wide>
                         </div>

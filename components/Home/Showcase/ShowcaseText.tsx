@@ -10,15 +10,15 @@ interface ShowcaseTextProps {
     className?: string
     setItemActive: (id: number) => void
     itemActive: boolean
+    isPoused: boolean
 }
 
-export default function ShowcaseText({ h1, p, className, setItemActive, itemActive, id }: ShowcaseTextProps) {
+export default function ShowcaseText({ h1, p, className, setItemActive, itemActive, id, isPoused }: ShowcaseTextProps) {
     const [progress, setProgress] = useState<number>(0);
-    const [isStopped, setIsStopped] = useState<boolean>(false);
 
     useEffect(() => {
         let timer: NodeJS.Timeout | undefined;
-        if (itemActive && !isStopped) {
+        if (itemActive && !isPoused) {
             const startTime = Date.now() - (progress * 100); // Continue from the current progress
             timer = setInterval(() => {
                 const elapsedTime = Date.now() - startTime;
@@ -34,22 +34,17 @@ export default function ShowcaseText({ h1, p, className, setItemActive, itemActi
         }
 
         return () => clearInterval(timer);
-    }, [setItemActive, itemActive, isStopped, id, progress]);
+    }, [setItemActive, itemActive, isPoused, id, progress]);
 
-    const handleStop = () => {
-        setIsStopped(true);
-        setProgress(0);
-        setItemActive(id); // Keep the current item active
-    };
 
     return (
         <div className={`w-full min-h-[140px] min-w-[280px] flex flex-col rounded-3xl -ml-4 p-3 justify-center ${className}`}>
             <h1 className="_display_text flex gap-3 items-center">{h1} 
                 <span className="bg-neon_purple cursor-pointer flex rounded-full w-8 justify-center items-center h-8 text-black">
-                    {itemActive && !isStopped ? (
-                        <IconPlayerStopFilled width={20} onClick={handleStop} />
+                    {itemActive && !isPoused ? (
+                        <IconPlayerStopFilled width={20} />
                     ) : (
-                        <IconPlayerPlayFilled width={20} onClick={() => { setIsStopped(false); setItemActive(id); }} />
+                        <IconPlayerPlayFilled width={20} />
                     )}
                 </span>
                 {/* Barra de progresso */}

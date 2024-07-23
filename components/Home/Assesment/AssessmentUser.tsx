@@ -11,7 +11,7 @@ interface AssessmentUserProps {
 export default function AssessmentUser( { profile_name, profile_img, profile_mail }: AssessmentUserProps) {
     return (
         
-        <div className="flex items-center justify-between rounded p-3">
+        <div className="flex items-center justify-between rounded py-3">
           <div className="flex gap-3">
             <div className="w-10 h-10 overflow-hidden rounded-full flex  justify-center items-center border">
               <Image alt="" src={profile_img} width={100} height={100} />
