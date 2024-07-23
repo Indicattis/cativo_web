@@ -18,7 +18,7 @@ export default function LayoutSeparator() {
         <motion.div 
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        className="w-full p-1 flex items-center justify-center h-20 gap-2 cursor-pointer overflow-hidden">
+        className="w-full p-1 flex items-center justify-center h-20 gap-2 cursor-pointer overflow-hidden border-t border-neon_purple">
             <motion.div
             initial={{opacity:1}}
             animate={{height: variant_2}}

@@ -63,10 +63,10 @@ export default function Slider_1() {
                         </motion.div> */}
 
                         <motion.div
-                            className="relative overflow-hidden flex flex-col items-center justify-center gap-2 w-full z-20"
+                            className="relative overflow-hidden gap-2 w-full z-20"
                         >
                             <motion.div
-                                className="text-center"
+                                className="flex flex-col justify-start w-full gap-3"
                                 initial={{ y: -400, opacity: 0 }}
                                 animate={{
                                     y: 0,
@@ -82,37 +82,36 @@ export default function Slider_1() {
                                     },
                                 }}>
 
-                                <h1 className="_display_text _biggest text-wrap text-center">
+                                <h1 className="_display_text _biggest ">
                                     Olá! Eu sou um <span className="text-neon_purple">Desenvolvedor</span>
                                 </h1>
                                 <p className="_text">
                                     <span className="text-white font-bold">João Pedro Indicatti</span> -
                                     Frontend Developer{" "}
                                 </p>
+                                <motion.div
+                                    initial={{ y: 400 }}
+                                    animate={{
+                                        y: 0,
+                                    }}
+                                    transition={{
+                                        y: {
+                                            duration: 0.2,
+                                            delay: 0.6,
+                                            type: "spring",
+                                            stiffness: 600,
+                                            damping: 130,
+                                        },
+                                    }}
+                                    className=" w-full justify-center items-center gap-3  z-20"
+                                >
+
+                                    <Button.Wide wide="xl" rounded="full" variant="purple" onClick={() => window.location.href = "#captation"}>
+                                        <Button.Text text="Saiba mais!" />
+                                    </Button.Wide>
+                                </motion.div>
                             </motion.div>
                         </motion.div>
-                        <motion.div
-                            initial={{ y: 400 }}
-                            animate={{
-                                y: 0,
-                            }}
-                            transition={{
-                                y: {
-                                    duration: 0.2,
-                                    delay: 0.6,
-                                    type: "spring",
-                                    stiffness: 600,
-                                    damping: 130,
-                                },
-                            }}
-                            className="flex flex-col w-full justify-center items-center gap-3  z-20"
-                        >
-
-                            <Button.Wide wide="xl" rounded="lg" variant="purple" onClick={() => window.location.href = "#captation"}>
-                                <Button.Text text="Contratar!" />
-                            </Button.Wide>
-                        </motion.div>
-
 
                         <div className="absolute w-full h-full flex items-center justify-center z-10">
                             <div className="relative w-20 h-20">
@@ -306,51 +305,54 @@ export default function Slider_1() {
 
                             </div>
                         </div>
+
+
                     </motion.div>
 
                 </LayoutDiv>
 
             </LayoutMain>
-                        <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ opacity: opacity, width: "100vw" }}
-                            transition={{
-                                opacity: {
-                                    duration: duration,
-                                    times: times,
-                                    easing: "easeInOut",
-                                    repeat: Infinity,
-                                    repeatDelay: 0,
-                                },
-                                width: {
-                                    duration: 1,
-                                    easing: "easeInOut",
-                                    delay: .2
-                                }
-                            }}
-                            className="absolute bottom-0  z-0 bg-gradient-to-t from-neon_purple w-full h-24 border-b-2 border-neon_pink2">
+            <motion.div
+                initial={{ width: 0 }}
+                animate={{ opacity: opacity, width: "100vw" }}
+                transition={{
+                    opacity: {
+                        duration: duration,
+                        times: times,
+                        easing: "easeInOut",
+                        repeat: Infinity,
+                        repeatDelay: 0,
+                    },
+                    width: {
+                        duration: 1,
+                        easing: "easeInOut",
+                        delay: .2
+                    }
+                }}
+                className="absolute bottom-0  z-0 bg-gradient-to-t from-neon_purple w-full h-24 border-b-2 border-neon_pink2">
 
-                        </motion.div>
-                        <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ opacity: opacity, width: "100vw" }}
-                            transition={{
-                                opacity: {
-                                    duration: duration,
-                                    times: times,
-                                    easing: "easeInOut",
-                                    repeat: Infinity,
-                                    repeatDelay: 0,
-                                },
-                                width: {
-                                    duration: 1,
-                                    easing: "easeInOut",
-                                    delay: .2
-                                }
-                            }}
-                            className="absolute top-0  z-0 bg-gradient-to-b from-neon_purple w-full h-24 border-t-2 border-neon_pink2">
+            </motion.div>
+            <motion.div
+                initial={{ width: 0 }}
+                animate={{ opacity: opacity, width: "100vw" }}
+                transition={{
+                    opacity: {
+                        duration: duration,
+                        times: times,
+                        easing: "easeInOut",
+                        repeat: Infinity,
+                        repeatDelay: 0,
+                    },
+                    width: {
+                        duration: 1,
+                        easing: "easeInOut",
+                        delay: .2
+                    }
+                }}
+                className="absolute top-0  z-0 bg-gradient-to-b from-neon_purple w-full h-24 border-t-2 border-neon_pink2">
 
-                        </motion.div>
+            </motion.div>
+
         </LayoutSection>
     );
 }

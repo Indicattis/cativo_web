@@ -12,7 +12,7 @@ export function InputBoxNumber({ placehoder, disabled, value, ...rest}: InputBox
     return (
         <input 
         {...rest}
-        className="h-full _text w-full outline-none bg-purple  px-3"
+        className="h-full _text w-full outline-none bg-purple px-3 rounded overflow-hidden relative"
         placeholder={placehoder}
         disabled={disabled}
         value={value}

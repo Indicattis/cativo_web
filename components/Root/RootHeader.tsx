@@ -24,9 +24,10 @@ export default function RootHeader() {
     const navRef = useRef<HTMLDivElement>(null);
     const [dropdown, setDropdown] = useState<boolean>(false);
 
-    const handleItemClick = (itemName: string, itemRef: HTMLDivElement) => {
+    const handleItemClick = (itemName: string, itemRef: HTMLDivElement, url: string) => {
         setSelectedItem(itemName);
         updateBarPosition(itemRef);
+        window.location.href = `#`+url
     };
 
     const updateBarPosition = (itemRef: HTMLDivElement) => {
@@ -88,7 +89,7 @@ export default function RootHeader() {
                         onClick={() => setDropdown(!dropdown)}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className={`absolute h-10 w-10 right-0 rounded-md cursor-pointer hidden max-md:flex justify-center items-center z-[10000] text-zinc-400`}
+                        className={`absolute h-10 w-10 right-0 rounded-md cursor-pointer hidden max-lg:flex justify-center items-center z-[10000] text-zinc-400`}
                     >
                         {dropdown ? (
                             <motion.div
@@ -206,7 +207,7 @@ export default function RootHeader() {
 interface ItemProps {
     itemName: string;
     isSelected: boolean;
-    onClick: (itemName: string, itemRef: HTMLDivElement) => void;
+    onClick: (itemName: string, itemRef: HTMLDivElement, itemUrl: string) => void;
     url: string
 }
 
@@ -215,7 +216,7 @@ function HeaderItem({ itemName, isSelected, onClick, url }: ItemProps) {
 
     const handleClick = () => {
         if (itemRef.current) {
-            onClick(itemName, itemRef.current);
+            onClick(itemName, itemRef.current, url);
         }
     };
 
@@ -226,7 +227,7 @@ function HeaderItem({ itemName, isSelected, onClick, url }: ItemProps) {
             className={`cursor-pointer _text text-nowrap mr-3 max-lg:hidden ${
                 isSelected ? "text-white" : "text-zinc-300 hover:text-white"}`}
         >
-            <a href={`#${url}`}>{itemName}</a>
+            {itemName}
         </div>
     );
 }

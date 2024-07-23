@@ -12,7 +12,7 @@ import { getAssessments } from '@/data/services/assessments';
 
 export default function AssessmentComponent() {
   const [itemActive, setItemActive] = useState<number>(1);
-  const [scroll, setScroll] = useState<number>(410)
+  const [scroll, setScroll] = useState<number>(530)
   const [direction, setDirection] = useState(0); // New state for direction
   const dragControls = useDragControls();
   const [modalActive, setModalActive] = useState<boolean>(false);
@@ -22,9 +22,9 @@ export default function AssessmentComponent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-      	const response = await getAssessments();
+        const response = await getAssessments();
         setAssessments(response)
-      } catch (error){
+      } catch (error) {
         console.log(error)
       }
     }
@@ -33,17 +33,17 @@ export default function AssessmentComponent() {
   }, [])
 
   const handleDragEnd = (event: any, info: any) => {
-    if (info.offset.x < -50) { 
+    if (info.offset.x < -50) {
       if (itemActive < assessments.length - 1) {
         setDirection(1);
         setItemActive((prev) => prev + 1);
-        setScroll(scroll - 410)
+        setScroll(scroll - 351)
       }
-    } else if (info.offset.x > 50) { 
+    } else if (info.offset.x > 50) {
       if (itemActive > 0) {
         setDirection(-1);
         setItemActive((prev) => prev - 1);
-        setScroll(scroll + 410)
+        setScroll(scroll + 351)
       }
     }
   };
@@ -51,17 +51,17 @@ export default function AssessmentComponent() {
     if (id < itemActive) {
       setDirection(-1);
       setItemActive((prev) => prev - 1);
-      setScroll(scroll + 410)
+      setScroll(scroll + 351)
     } else if (id > itemActive) {
       setDirection(1);
       setItemActive((prev) => prev + 1);
-      setScroll(scroll - 410)
+      setScroll(scroll - 351)
     }
   }
 
 
   return (
-    <Layout.Section className="h-screen" id='assessments'>
+    <Layout.Section className="h-screen " id='assessments'>
       <Layout.Main className="gap-5">
         <Layout.Div className="">
           <div className='w-full py-5 flex flex-col gap-2'>
@@ -73,7 +73,7 @@ export default function AssessmentComponent() {
           </div>
         </Layout.Div>
 
-        <Layout.Div className="">
+        <Layout.Div className="max-lg:block hidden">
           <motion.div
             animate={
               { translateX: scroll }
@@ -91,13 +91,35 @@ export default function AssessmentComponent() {
             <AnimatePresence initial={false} custom={direction}>
               {assessments.map((item: any, index: number) => (
                 <Assessment.Root
-                  key={`rating-card-` + index}
+                  key={`rating-slider-card-` + index}
                   id={index}
                   isActive={itemActive === index}
                   direction={direction} // Pass direction to the card
                   setItem={itemChange}
                 >
-                  <Assessment.User profile_mail={item.profile_mail} profile_name={item.profile_name}  profile_img={item.profile_img} />
+                  <Assessment.User profile_mail={item.profile_mail} profile_name={item.profile_name} profile_img={item.profile_img} />
+                  <Assessment.Message message={item.rating_text} />
+                  <Assessment.Rating rating={item.rating_media} />
+                </Assessment.Root>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </Layout.Div>
+        <Layout.Div className="max-lg:hidden block">
+          <motion.div
+            className={`grid grid-cols-3 gap-3 justify-center items-center h-full w-full
+              `}
+          >
+            <AnimatePresence initial={false} custom={direction}>
+              {assessments.map((item: any, index: number) => (
+                <Assessment.Root
+                  key={`rating-card-` + index}
+                  id={index}
+                  isActive={false}
+                  direction={direction} // Pass direction to the card
+                  setItem={itemChange}
+                >
+                  <Assessment.User profile_mail={item.profile_mail} profile_name={item.profile_name} profile_img={item.profile_img} />
                   <Assessment.Message message={item.rating_text} />
                   <Assessment.Rating rating={item.rating_media} />
                 </Assessment.Root>
@@ -106,12 +128,12 @@ export default function AssessmentComponent() {
           </motion.div>
         </Layout.Div>
         <Layout.Div className="w-full !justify-start">
-          <Button.Wide rounded='md' variant='default' wide='md' onClick={() => setModalActive(true)}>
-            <Button.Icon icon={<IconBrandHipchat/>} />
+          <Button.Wide rounded='sm' variant='default' wide='xl' onClick={() => setModalActive(true)}>
+            <Button.Icon icon={<IconBrandHipchat />} />
             <Button.Text text='Comentar' />
           </Button.Wide>
         </Layout.Div>
-        <Layout.Div className="">
+        <Layout.Div className="hidden max-lg:block">
           <motion.div className='w-full flex gap-2'>
             {assessments.map((item: any, index: number) => {
               return (
@@ -131,9 +153,9 @@ export default function AssessmentComponent() {
       {modalActive && (
         <Modal.Root>
           <Modal.Box>
-            <Modal.Close onClick={() => setModalActive(false)}/>
+            <Modal.Close onClick={() => setModalActive(false)} />
             <Modal.Content className="flex flex-col gap-3  p-3 rounded">
-              <Assessment.Form onClose={() => setModalActive(false)}/>
+              <Assessment.Form onClose={() => setModalActive(false)} />
             </Modal.Content>
           </Modal.Box>
         </Modal.Root>

@@ -22,7 +22,7 @@ export default function AssessmentRating( { rating }: AssessmentRatingProps) {
   };
     return (
         
-        <div className="flex">
+        <div className="flex p-3">
           {renderStars(rating)}
         </div>
     )
