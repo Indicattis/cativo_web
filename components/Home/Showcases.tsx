@@ -75,7 +75,7 @@ export default function ShowcaseComponent() {
 
                     </Showcase.Root>
 
-                    <div className="absolute bottom-0 z-50 bg-gradient-to-t from-[#000000ad] to-[#00000088] w-full h-full flex items-center justify-center">
+                    <div className="absolute bottom-0 z-50 bg-gradient-to-t from-[#000000ad] to-[#00000036] w-full h-full flex items-center justify-center">
                         <Showcase.Arrows 
                         isActive={hover}
                         toLeft={() => setItemActive(activeId - 1)}

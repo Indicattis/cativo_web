@@ -146,7 +146,7 @@ export default function AssessmentComponent() {
             </motion.div>
         </Layout.Div>
         <Layout.Div className="w-full !justify-start">
-          <Button.Wide rounded='sm' variant='default' wide='xl' onClick={() => setModalActive(true)}>
+          <Button.Wide rounded='full' variant='default' wide='lg' onClick={() => setModalActive(true)}>
             <Button.Icon icon={<IconBrandHipchat />} />
             <Button.Text text='Comentar' />
           </Button.Wide>
