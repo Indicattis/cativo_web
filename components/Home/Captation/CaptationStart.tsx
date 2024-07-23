@@ -43,21 +43,21 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                         <AdvancedPlanCard isActive={planChoice == "plan3"} onChange={setPlanChoice} />
                     </div>
                     <div className="w-full flex items-center justify-between gap-2 border-t border-purple py-5">
-                        <div 
+                        <div
                             onClick={() => setModalActive(true)}
                             className="cursor-pointer _text _small text-contrast_color_3 border-b border-contrast_color_3">Como funcionam os planos?</div>
-                            <Button.Wide rounded="full" variant="default" wide="lg" onClick={() => { setPlan(planChoice), setStage(1) }}>
-                                <Button.Text text="Começar!" />
-                                <Button.Icon icon={<IconCaretRightFilled />} />
-                            </Button.Wide>
-                        </div>
+                        <Button.Wide rounded="full" variant="default" wide="lg" onClick={() => { setPlan(planChoice), setStage(1) }}>
+                            <Button.Text text="Começar!" />
+                            <Button.Icon icon={<IconCaretRightFilled />} />
+                        </Button.Wide>
+                    </div>
                 </motion.div>
             )}
             {modalActive && (
 
                 <Modal.Root>
                     <Modal.Box>
-                        <Modal.Message message={`Planos`}/>
+                        <Modal.Message message={`Planos`} />
                         <Modal.Content className="flex flex-col gap-3">
                             <div className="_text ">
                                 <p className="">Projeto simples: </p>
@@ -72,7 +72,7 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                                 <p className="_text _small">Ideal para projetos de grande porte, este plano é voltado para sites de e-commerce, sistemas de gestão interna (ERPs) e projetos que necessitam lidar com um grande volume de dados, garantindo robustez e eficiência.</p>
                             </div>
                         </Modal.Content>
-                        <Modal.Button onClick={setModalActive}/>
+                        <Modal.Button onClick={setModalActive} />
                     </Modal.Box>
                 </Modal.Root>
             )}
@@ -92,17 +92,22 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan1")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded shadow-lg cursor-pointer p-3 flex flex-col gap-3`}>
+        w-full  rounded shadow-lg cursor-pointer p-2 flex flex-col gap-2`}>
             <div className="w-full  p-3 bg-black rounded">
                 <h1 className="_text font-bold text-center uppercase">Projeto Simples</h1>
             </div>
-            <div className="flex flex-col gap-1 _text">
+            <div className="flex flex-col  _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de Página Única</div>
-                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites Institucionais</div> 
+                <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites Institucionais</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Portfólios Online</div>
                 {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Alterações inclusas</div> */}
                 {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div> */}
-                <div className="flex gap-1 items-center"></div>
+                
+                <div className="w-full flex flex-wrap items-center gap-1 _text _small">
+                    <div className="text-center bg-purple rounded p-2">+mockup</div>
+                    <div className="text-center bg-purple rounded p-2">+design</div>
+                    <div className="text-center bg-purple rounded p-2">+artes</div>
+                </div>
             </div>
             {/* <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
                 <p className="_text">a partir de</p>
@@ -111,11 +116,6 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
             {/* <div>
                 <p className="_text _small text-center py-3 flex gap-2 items-center justify-center"><IconExclamationCircle />Valor de desenvolvimento não incluso</p>
             </div> */}
-            <div className="w-full flex flex-wrap items-center gap-1 _text _small">
-                <div className="text-center bg-purple rounded p-2">+mockup</div>
-                <div className="text-center bg-purple rounded p-2">+design</div>
-                <div className="text-center bg-purple rounded p-2">+artes</div>
-            </div>
         </div>
     )
 }
@@ -127,11 +127,11 @@ function DefaultPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan2")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded shadow-lg p-3 cursor-pointer flex flex-col gap-3`}>
+        w-full  rounded shadow-lg p-2 cursor-pointer flex flex-col gap-2`}>
             <div className="w-full p-3 bg-black rounded">
                 <h1 className="_text font-bold text-center uppercase">Projeto Desenvolvido</h1>
             </div>
-            <div className="flex flex-col gap-1  _text ">
+            <div className="flex flex-col  _text ">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de Notícias e Mídia</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Blogs e Sites de Conteúdo</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sistemas de agendamento online</div>
@@ -154,11 +154,11 @@ function AdvancedPlanCard({ onChange, isActive }: CardProps) {
             onClick={() => onChange("plan3")}
             className={`
             ${isActive ? "bg-gradient-to-tr from-neon_purple to-neon_pink2 " : "bg-gradient-to-r from-contrast_color_2 to-purple"}
-        w-full  rounded shadow-lg p-3 cursor-pointer flex flex-col gap-3`}>
+            w-full  rounded shadow-lg p-2 cursor-pointer flex flex-col gap-2`}>
             <div className="w-full p-3 bg-black rounded">
                 <h1 className="_text font-bold text-center uppercase">Projeto Grande Porte</h1>
             </div>
-            <div className="flex flex-col gap-1  _text">
+            <div className="flex flex-col  _text">
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sites de E-commerce (Lojas Virtuais)</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Sistemas de gestão interna (ERPs)</div>
                 <div className="flex gap-1 items-center"><IconCheck className="text-neon_green2" />Volume grande de dados</div>
