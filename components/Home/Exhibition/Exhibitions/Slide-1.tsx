@@ -43,12 +43,12 @@ export default function Slider_1() {
                                     damping: 130,
                                 },
                             }}
-                            className="relative w-full flex justify-center items-center z-20">
+                            className="relative flex justify-center items-center z-20">
 
-                            <div className="rounded-full bg-gradient-to-r from-contrast_color_2 to-purple max-h-56 max-w-56 overflow-hidden border-2">
+                            <div className="rounded-full bg-gradient-to-r from-contrast_color_2 to-purple max-h-56 w-56 overflow-hidden border-2 flex items-center justify-center">
 
                                 <Image
-                                    className=""
+                                    className="rotate-[-5deg]"
                                     alt=""
                                     draggable={false}
                                     width={1000}
@@ -66,7 +66,7 @@ export default function Slider_1() {
                             className="relative overflow-hidden gap-2 w-full z-20"
                         >
                             <motion.div
-                                className="flex flex-col justify-start w-full gap-3"
+                                className="flex flex-col justify-center w-full gap-3 px-3 max-md:text-center"
                                 initial={{ y: -400, opacity: 0 }}
                                 animate={{
                                     y: 0,
@@ -86,8 +86,8 @@ export default function Slider_1() {
                                     Olá! Eu sou um <span className="text-neon_purple">Desenvolvedor</span>
                                 </h1>
                                 <p className="_text">
-                                    <span className="text-white font-bold">João Pedro Indicatti</span> -
-                                    Frontend Developer{" "}
+                                    <span className="text-white font-bold">João Pedro Indicatti</span> - 23 anos - Brasileiro <br /> 
+                                    Desenvolvedor Web Fullstack{" "}
                                 </p>
                                 <motion.div
                                     initial={{ y: 400 }}
@@ -103,11 +103,11 @@ export default function Slider_1() {
                                             damping: 130,
                                         },
                                     }}
-                                    className=" w-full justify-center items-center gap-3  z-20"
+                                    className="w-full flex justify-start items-center max-md:justify-center gap-3  z-20"
                                 >
 
-                                    <Button.Wide wide="xl" rounded="full" variant="purple" onClick={() => window.location.href = "#captation"}>
-                                        <Button.Text text="Saiba mais!" />
+                                    <Button.Wide wide="xl" rounded="full" variant="purple" onClick={() => window.location.href = "#showcases"}>
+                                        <Button.Text text="Ver serviços!" />
                                     </Button.Wide>
                                 </motion.div>
                             </motion.div>
@@ -329,7 +329,7 @@ export default function Slider_1() {
                         delay: .2
                     }
                 }}
-                className="absolute bottom-0  z-0 bg-gradient-to-t from-neon_purple w-full h-24 border-b-2 border-neon_pink2">
+                className="absolute bottom-0  z-0 bg-gradient-to-t from-neon_purple w-full h-56 border-b-2 border-neon_pink2">
 
             </motion.div>
             <motion.div
@@ -349,10 +349,12 @@ export default function Slider_1() {
                         delay: .2
                     }
                 }}
-                className="absolute top-0  z-0 bg-gradient-to-b from-neon_purple w-full h-24 border-t-2 border-neon_pink2">
+                className="absolute top-0  z-0 bg-gradient-to-b from-neon_purple w-full h-56 border-t-2 border-neon_pink2">
 
             </motion.div>
 
+            <div className="absolute  left-0 h-full w-[50%] bg-gradient-to-r from-black to-transparent z-0 "></div>
+            <div className="absolute  right-0 h-full w-[50%] bg-gradient-to-l from-black to-transparent z-0 "></div>
         </LayoutSection>
     );
 }

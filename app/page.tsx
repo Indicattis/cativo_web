@@ -17,7 +17,6 @@ export default function Home() {
         <ShowcaseComponent/>
         <Layout.Separator/>
         <CaptationComponent/>
-        <Layout.Separator/>
         <AssessmentComponent/>
         <ContactComponent/>
         <Layout.Separator/>
