@@ -4,9 +4,14 @@ import { useState, useRef, useEffect } from "react";
 import {
     IconAffiliate,
     IconBook,
+    IconBrandGithub,
+    IconBrandGmail,
+    IconBrandInstagram,
+    IconBrandLinkedin,
     IconCaretRight,
     IconMenuDeep,
     IconPalette,
+    IconPointFilled,
     IconSearch,
 } from "@tabler/icons-react";
 import Image from "next/image";
@@ -34,10 +39,9 @@ export default function RootHeader() {
         }
       }, []);
 
-    const handleItemClick = (itemName: string, itemRef: HTMLDivElement, url: string) => {
+    const handleItemClick = (itemName: string, itemRef: HTMLDivElement) => {
         setSelectedItem(itemName);
         updateBarPosition(itemRef);
-        window.location.href = url
     };
 
     const updateBarPosition = (itemRef: HTMLDivElement) => {
@@ -84,19 +88,28 @@ export default function RootHeader() {
                     <HeaderLogo/>
                     <HeaderBreadCrumb itens={pathArray}/>
                 </div>
-                <div className="flex items-center justify-center gap-5">
+                <div className="flex items-center justify-center gap-5 max-lg:hidden ">
                     {PageControllers.map((item, index) => {
                         return (
                             <HeaderItem
                                 key={`item-` + index}
                                 itemName={item.exhibition}
                                 isSelected={selectedItem === item.exhibition}
-                                onClick={handleItemClick}
+                                onMouseOver={handleItemClick}
                                 url={item.url}
                             />
                         );
                     })}
-                    {/* <HeaderColorSet/> */}
+                    <span><IconPointFilled width={10}/></span>
+                    <div className="cursor-pointer hover:text-neon_purple" onClick={() => window.location.href = "mailto:joao.indicatti@outlook.com?subject=Contato"}>
+                        <IconBrandGmail width={18}/>
+                    </div>
+                    <div className="cursor-pointer hover:text-neon_purple" onClick={() => window.location.href = "https://www.linkedin.com/in/joão-pedro-indicatti-07975b265/"}>
+                        <IconBrandLinkedin width={18}/>
+                    </div>
+                    <div className="cursor-pointer hover:text-neon_purple" onClick={() => window.location.href = "https://github.com/Indicattis"}>
+                        <IconBrandGithub width={18}/>
+                    </div>
                 </div>
                 <AnimatePresence>
                     <motion.div
@@ -142,7 +155,7 @@ export default function RootHeader() {
                     </motion.div>
                 </AnimatePresence>
                 <motion.div
-                    className={`absolute bottom-0 h-[3px] bg-white transition-all duration-300 z-[9997]`}
+                    className={`absolute bottom-0 h-[1px] bg-white transition-all duration-300 z-[9997]`}
                     style={{ left: barPosition.left, width: barPosition.width }}
                 />
             </nav>
@@ -221,24 +234,25 @@ export default function RootHeader() {
 interface ItemProps {
     itemName: string;
     isSelected: boolean;
-    onClick: (itemName: string, itemRef: HTMLDivElement, itemUrl: string) => void;
+    onMouseOver: (itemName: string, itemRef: HTMLDivElement) => void;
     url: string
 }
 
-function HeaderItem({ itemName, isSelected, onClick, url }: ItemProps) {
+function HeaderItem({ itemName, isSelected, onMouseOver, url }: ItemProps) {
     const itemRef = useRef<HTMLDivElement>(null);
 
     const handleClick = () => {
         if (itemRef.current) {
-            onClick(itemName, itemRef.current, url);
+            onMouseOver(itemName, itemRef.current);
         }
     };
 
     return (
         <div
             ref={itemRef}
-            onClick={handleClick}
-            className={`cursor-pointer _text text-nowrap mr-3 max-lg:hidden ${
+            onMouseOver={handleClick}
+            onClick={() => window.location.href = url}
+            className={`cursor-pointer _text _small text-nowrap mr-3 max-lg:hidden ${
                 isSelected ? "text-white" : "text-zinc-300 hover:text-white"}`}
         >
             {itemName}

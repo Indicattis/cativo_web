@@ -10,7 +10,7 @@ interface ModalButtonProps {
 
 export default function ModalButton({onClick, text}: ModalButtonProps) {
     return (
-        <Button.Wide rounded="full" variant="default" wide="md" onClick={() => onClick(false)}>
+        <Button.Wide rounded="sm" variant="default" wide="lg" onClick={() => onClick(false)}>
             <Button.Text text={text ? text : "Entendi"}/>
         </Button.Wide>
     )

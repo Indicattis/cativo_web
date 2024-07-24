@@ -145,10 +145,10 @@ export default function AssessmentComponent() {
             <Assessment.Controllers handleChangePage={setCurrentPage} length={totalPages} activePage={currentPage} />
             </motion.div>
         </Layout.Div>
-        <Layout.Div className="w-full !justify-start">
-          <Button.Wide rounded='full' variant='default' wide='lg' onClick={() => window.location.href = "/avaliar"}>
-            <Button.Icon icon={<IconBrandHipchat />} />
+        <Layout.Div className="w-full">
+          <Button.Wide rounded='full' variant='purple' wide='lg' onClick={() => window.location.href = "/avaliar"}>
             <Button.Text text='Comentar' />
+            <Button.Icon icon={<IconBrandHipchat />} />
           </Button.Wide>
         </Layout.Div>
       </Layout.Main>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "../utils/Button";
-import { IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconCaretUpFilled, IconHelp } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin, IconCaretUpFilled, IconHelp } from "@tabler/icons-react";
 import { Layout } from "../Layouts";
 import { Modal } from "../utils/Modal";
 import { useState } from "react";
@@ -22,7 +22,7 @@ export default function RootFooter() {
                 <Layout.Main className="gap-5">
                     <Layout.Div className="!items-start gap-5 !justify-between border-b border-purple py-5 max-md:flex-col">
                         <div className="flex flex-col gap-3">
-                            <h1 className="_text">This website</h1>
+                            <h1 className="_text">Políticas</h1>
                             <div className="_text  text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('terms')}>Termos de uso</div>
                             <div className="_text  text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('privacy')}>Aviso de privacidade</div>
                             <div className="_text  text-palette_gray cursor-pointer hover:text-white" onClick={() => handleModalContent('development')}>Seu desenvolvimento</div>
@@ -134,7 +134,6 @@ export default function RootFooter() {
                                 <div className="_text">
                                     <div className="_text  flex flex-col gap-3">
                                         <div className="font-bold">Email: <a href="mailto:joao.indicatti@outlook.com?subject=Contato" className="font-normal text-neon_blue">joao.indicatti@outlook.com</a></div>
-                                        <div className="font-bold">Telefone: <a href="https://wa.me/5554996598024?text=Olá!." className="font-normal text-neon_blue">+55 (54) 9 9659-8024</a></div>
                                         <div className="font-bold">Linkedin: <a href="https://www.linkedin.com/in/joão-pedro-indicatti-07975b265/" className="font-normal text-neon_blue">Linkedin</a></div>
                                     </div>
                                 </div>

@@ -39,7 +39,7 @@ export default function ShowcaseText({ h1, p, className, setItemActive, itemActi
 
     return (
         <div className={`w-full min-h-[140px] min-w-[280px] flex flex-col rounded-3xl -ml-4 p-3 justify-center ${className}`}>
-            <h1 className="_display_text flex gap-3 items-center">{h1} 
+            <h1 className="_display_text _biggest flex gap-3 items-center">{h1} 
                 <span className="bg-neon_purple cursor-pointer flex rounded-full w-8 justify-center items-center h-8 text-black">
                     {itemActive && !isPoused ? (
                         <IconPlayerStopFilled width={20} />

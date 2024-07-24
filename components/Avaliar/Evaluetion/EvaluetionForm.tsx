@@ -62,7 +62,10 @@ export default function EvaluetionForm({ changeStage, isActive, userData }: Asse
     return (
         isActive && (
             <form action={onSubmit} className='flex flex-col gap-5 min-w-96'>
+            <div>
                 <h1 className="_display_text">Avalie!</h1>
+                <p className="_text text-palette_gray">Adicione um comentário e uma nota.</p>
+            </div>
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-3 relative rounded bg-purple p-3 items-center">
                         <div className="max-w-14 max-h-14 rounded-full overflow-hidden">

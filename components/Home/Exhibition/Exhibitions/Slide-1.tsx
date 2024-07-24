@@ -4,7 +4,7 @@ import LayoutDiv from "@/components/Layouts/LayoutDiv";
 import LayoutMain from "@/components/Layouts/LayoutMain";
 import LayoutSection from "@/components/Layouts/LayoutSection";
 import { Button } from "@/components/utils/Button";
-import { IconBrandAws, IconBrandJavascript, IconBrandNodejs, IconBrandPhp, IconBrandReact, IconBrandSass, IconBrandTailwind, IconBrandTypescript, IconCloud, IconDatabase, IconFileTypeSql } from "@tabler/icons-react";
+import { IconBraces, IconBrandAws, IconBrandJavascript, IconBrandNodejs, IconBrandPhp, IconBrandReact, IconBrandSass, IconBrandTailwind, IconBrandTypescript, IconBriefcase2Filled, IconCloud, IconDatabase, IconFileTypeSql, IconStarFilled } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
@@ -108,12 +108,15 @@ export default function Slider_1() {
 
                                     <Button.Wide wide="lg" rounded="full" variant="disabled" onClick={() => window.location.href = "#showcases"}>
                                         <Button.Text text="Saber mais" />
+                                        <Button.Icon icon={<IconBraces/>}/>
                                     </Button.Wide>
                                     <Button.Wide wide="lg" rounded="full" variant="disabled" onClick={() => window.location.href = "#assessments"}>
                                         <Button.Text text="Avaliações" />
+                                        <Button.Icon icon={<IconStarFilled/>}/>
                                     </Button.Wide>
                                     <Button.Wide wide="lg" rounded="full" variant="purple" onClick={() => window.location.href = "#captation"}>
                                         <Button.Text text="Contratar" />
+                                        <Button.Icon icon={<IconBriefcase2Filled/>}/>
                                     </Button.Wide>
                                 </motion.div>
                             </motion.div>

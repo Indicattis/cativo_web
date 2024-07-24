@@ -1,5 +1,5 @@
 import { Button } from "@/components/utils/Button";
-import ButtonText from "@/components/utils/Button/ButtonText";
+import { IconJewishStarFilled } from "@tabler/icons-react";
 
 
 
@@ -10,7 +10,8 @@ export default function ExploreButton() {
     return (
         <div className="w-full flex items-center justify-center">
             <Button.Wide rounded="full" variant="purple" wide="lg" onClick={() => window.location.href = "/get-started"}>
-                <ButtonText text="Começar"/>
+                <Button.Text text="Começar"/>
+                <Button.Icon icon={<IconJewishStarFilled/>}/>
             </Button.Wide>
         </div>
     )

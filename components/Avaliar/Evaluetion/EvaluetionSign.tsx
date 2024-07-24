@@ -39,7 +39,10 @@ export default function EvaluetionSign({changeStage, isActive, setUserData}: Eva
     return (
         isActive && (
                 <div className="flex flex-col gap-5 min-w-96">
-                    <h1 className="_display_text">Faça login para continuar</h1>
+                    <div>
+                        <h1 className="_display_text">E ai! O que achou?</h1>
+                        <p className="_text text-palette_gray">Mande seu feedback!</p>
+                    </div>
                     {oAuthStatus ? (
                         <div className="flex flex-col gap-3">
                             <div className="flex gap-3 relative rounded bg-purple p-3 items-center">
