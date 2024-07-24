@@ -27,6 +27,7 @@ export default function ButtonWide ( { children, wide, rounded, variant = "defau
         className={`
             flex justify-center items-center gap-1
             py-2
+            ${disabled ? "!bg-purple" : ""}
             ${wide == "sm" ? "h-8 _text _small" : ""}
             ${wide == "md" ? "h-12 !px-3 _text _small" : ""}
             ${wide == "lg" ? "h-14 !px-4  _text " : ""}

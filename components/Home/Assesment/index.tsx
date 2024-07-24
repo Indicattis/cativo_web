@@ -1,5 +1,5 @@
 import AssessmentsControllers from "./AssessmentControllers";
-import AssessmentForm from "./AssessmentForm";
+import AssessmentForm from "../../Avaliar/Evaluetion/EvaluetionForm";
 import AssessmentMessage from "./AssessmentMessage";
 import AssessmentRating from "./AssessmentRating";
 import AssessmentRoot from "./AssessmentRoot";
@@ -11,6 +11,5 @@ export const Assessment = {
   User: AssessmentUser,
   Message: AssessmentMessage,
   Rating: AssessmentRating,
-  Form: AssessmentForm,
   Controllers: AssessmentsControllers
 }

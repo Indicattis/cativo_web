@@ -146,23 +146,14 @@ export default function AssessmentComponent() {
             </motion.div>
         </Layout.Div>
         <Layout.Div className="w-full !justify-start">
-          <Button.Wide rounded='full' variant='default' wide='lg' onClick={() => setModalActive(true)}>
+          <Button.Wide rounded='full' variant='default' wide='lg' onClick={() => window.location.href = "/avaliar"}>
             <Button.Icon icon={<IconBrandHipchat />} />
             <Button.Text text='Comentar' />
           </Button.Wide>
         </Layout.Div>
       </Layout.Main>
 
-      {modalActive && (
-        <Modal.Root>
-          <Modal.Box>
-            <Modal.Close onClick={() => setModalActive(false)} />
-            <Modal.Content className="flex flex-col gap-3  p-3 rounded">
-              <Assessment.Form onClose={() => setModalActive(false)} />
-            </Modal.Content>
-          </Modal.Box>
-        </Modal.Root>
-      )}
+ 
     </Layout.Section>
   );
 }
