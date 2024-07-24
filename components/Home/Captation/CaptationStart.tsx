@@ -103,12 +103,12 @@ function BasicPlanCard({ onChange, isActive }: CardProps) {
                 {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Alterações inclusas</div> */}
                 {/* <div className="flex gap-1 items-center"><IconX className="text-neon_red" />Primeiros 3 meses grátis</div> */}
                 
+            </div>
                 <div className="w-full flex flex-wrap items-center gap-1 _text _small">
                     <div className="text-center bg-purple rounded p-2">+mockup</div>
                     <div className="text-center bg-purple rounded p-2">+design</div>
                     <div className="text-center bg-purple rounded p-2">+artes</div>
                 </div>
-            </div>
             {/* <div className="w-full flex flex-col items-center justify-center p-3 text-center bg-black rounded">
                 <p className="_text">a partir de</p>
                 <h1 className="_display_text">149,90/mês</h1>

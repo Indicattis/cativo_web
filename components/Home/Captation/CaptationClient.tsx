@@ -90,18 +90,18 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         <p className="_text text-palette_gray">Informe seus dados para contato!</p>
                     </div>
 
-                    <div className="flex flex-col gap-5 w-full items-center">
+                    <div className="flex flex-col gap-3 w-full items-center max-w-96">
                         <Input.Root>
+                            <Input.Icon icon={<IconUserFilled/>} />
                             <Input.Box value={userProfileName} onChange={setUserProfileName} placehoder="Nome" />
-                            <Input.Icon icon={<IconUserFilled width={20} />} />
                         </Input.Root>
                         <Input.Root>
+                            <Input.Icon icon={<IconMailFilled />} />
                             <Input.BoxMail value={userProfileMail} onChange={(event) => handleEmailChange(event, setUserProfileMail, setMailError)} placehoder="E-mail" />
-                            <Input.Icon icon={<IconMailFilled width={20} />} />
                         </Input.Root>
                         <Input.Root>
+                            <Input.Icon icon={<IconDeviceMobileFilled />} />
                             <Input.BoxNumber required value={userProfilePhone} onChange={(event) => handlePhoneChange(event, setUserProfilePhone)} placehoder="Telefone" />
-                            <Input.Icon icon={<IconDeviceMobileFilled width={20} />} />
                         </Input.Root>
                         <div className="flex">
                             <div className="text-white _text gap-3 p-2 w-full flex items-center justify-center">
@@ -113,7 +113,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         
                         <GoogleOAuthProvider clientId="138480048434-is4hhc6ml8ukdk5vao2qprojdl8p3r3o.apps.googleusercontent.com">
                                 <GoogleLogin
-                                    width={1000}
+                                    width={384}
                                     size="large"
                                     text="continue_with"
                                     theme="filled_black"

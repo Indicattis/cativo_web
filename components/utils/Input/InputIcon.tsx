@@ -6,8 +6,8 @@ interface InputIconProps {
 
 export  function InputIcon({icon}: InputIconProps) {
     return (
-        <div className="w-14  rounded
-        text-white bg-contrast_color_2
+        <div className="p-3  rounded
+        text-neon_purple
         h-full flex items-center justify-center">
             {icon}
         </div>
