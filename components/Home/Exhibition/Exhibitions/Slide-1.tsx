@@ -45,7 +45,7 @@ export default function Slider_1() {
                             }}
                             className="relative flex justify-center items-center z-20">
 
-                            <div className="rounded-full bg-gradient-to-r from-contrast_color_2 to-purple max-h-56 w-56 overflow-hidden border-2 flex items-center justify-center">
+                            <div className="rounded-full bg-gradient-to-r from-contrast_color_2 to-purple max-h-56 w-56 overflow-hidden border-4 flex items-center justify-center">
 
                                 <Image
                                     className=""
@@ -106,8 +106,14 @@ export default function Slider_1() {
                                     className="w-full flex justify-start items-center max-md:justify-center gap-3  z-20"
                                 >
 
-                                    <Button.Wide wide="xl" rounded="full" variant="purple" onClick={() => window.location.href = "#showcases"}>
-                                        <Button.Text text="Ver serviços!" />
+                                    <Button.Wide wide="lg" rounded="full" variant="disabled" onClick={() => window.location.href = "#showcases"}>
+                                        <Button.Text text="Saber mais" />
+                                    </Button.Wide>
+                                    <Button.Wide wide="lg" rounded="full" variant="disabled" onClick={() => window.location.href = "#assessments"}>
+                                        <Button.Text text="Avaliações" />
+                                    </Button.Wide>
+                                    <Button.Wide wide="lg" rounded="full" variant="purple" onClick={() => window.location.href = "#captation"}>
+                                        <Button.Text text="Contratar" />
                                     </Button.Wide>
                                 </motion.div>
                             </motion.div>

@@ -13,6 +13,8 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { PageControllers } from "@/data/json/pageControllers";
 import { Button } from "../utils/Button";
+import { Link, Outlet } from "react-router-dom";
+import HeaderBreadCrumb from "./Breadcrumb/BreadCrumb";
 
 export default function RootHeader() {
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -23,11 +25,19 @@ export default function RootHeader() {
     const [isScrolled, setIsScrolled] = useState(false);
     const navRef = useRef<HTMLDivElement>(null);
     const [dropdown, setDropdown] = useState<boolean>(false);
+    const [pathArray, setPathArray] = useState<string[]>([]);
+    
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+          const newArray = window.location.pathname.substring(1).split('/');
+          setPathArray(newArray);
+        }
+      }, []);
 
     const handleItemClick = (itemName: string, itemRef: HTMLDivElement, url: string) => {
         setSelectedItem(itemName);
         updateBarPosition(itemRef);
-        window.location.href = `#`+url
+        window.location.href = url
     };
 
     const updateBarPosition = (itemRef: HTMLDivElement) => {
@@ -58,6 +68,7 @@ export default function RootHeader() {
         };
     }, []);
 
+
     return (
         <motion.header
             className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${
@@ -69,7 +80,10 @@ export default function RootHeader() {
                 className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] items-center justify-between max-lg:w-[95%] z-[9999]"
             >
                 {/* <HeaderSearch /> */}
-                <HeaderLogo/>
+                <div className="flex items-center">
+                    <HeaderLogo/>
+                    <HeaderBreadCrumb itens={pathArray}/>
+                </div>
                 <div className="flex items-center justify-center gap-5">
                     {PageControllers.map((item, index) => {
                         return (
@@ -269,8 +283,9 @@ function HeaderSearch() {
 
 function HeaderLogo() {
     return (
-        <div className="rotate-[135deg] px-3">
+        <div className="cursor-pointer rotate-[135deg] px-3" onClick={() => window.location.href = "/"}>
             <IconBook></IconBook>
         </div>
     )
 }
+

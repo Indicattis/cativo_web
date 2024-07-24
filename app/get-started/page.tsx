@@ -1,14 +1,14 @@
-import EvaluetionComponent from "@/components/Avaliar/Evaluetions";
+import CaptationComponent from "@/components/Get-Started/Captations";
 import { Root } from "@/components/Root";
 
 
-export default function Rate() {
+export default function GetStarted() {
   return (
     <Root.Body className="">
       <Root.Header/>
       {/* <HeaderComponent/> */}
       <Root.Content className="">
-        <EvaluetionComponent/>
+        <CaptationComponent/>
         </Root.Content>
       <Root.Footer/>
     </Root.Body>

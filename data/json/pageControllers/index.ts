@@ -3,18 +3,13 @@
 const PageControllers: PageControllerDTO[] = [
         {
             id: 1,
-            exhibition: "Atributos",
-            url: "showcases"
+            exhibition: "Contratar",
+            url: "/get-started"
         },
         {
             id: 2,
-            exhibition: "Contato",
-            url: "contact"
-        },
-        {
-            id: 3,
-            exhibition: "Avaliações",
-            url: "assessments"
+            exhibition: "Avaliar",
+            url: "/avaliar"
         },
 ]
 
