@@ -12,7 +12,7 @@ export default function EvaluetionComponent() {
     const [stage, setStage] = useState<number>(1)
     const [userData, setUserData] = useState<ClientDTO>()
     return (
-        <Layout.Section className="h-screen">
+        <Layout.Section className="min-h-screen">
             <Layout.Main className="z-20">
                 <Layout.Div className="">
                     <Evaluetion.Root>
