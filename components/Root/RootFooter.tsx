@@ -6,6 +6,7 @@ import { IconBrandGithub, IconBrandLinkedin, IconCaretUpFilled, IconHelp } from 
 import { Layout } from "../Layouts";
 import { Modal } from "../utils/Modal";
 import { useState } from "react";
+import { Images } from "@/static/imgs";
 
 export default function RootFooter() {
     const [modalActive, setModalActive] = useState<boolean>(false);
@@ -48,7 +49,7 @@ export default function RootFooter() {
                     <Layout.Div className="max-md:justify-start justify-between w-full gap-3 max-md:flex-col">
                         <div className="flex gap-3 items-center justify-center">
                             <div className="w-16 h-16 rounded-full overflow-hidden">
-                                <Image alt="" src={`/img/profile/foto_2.jpeg`} width={100} height={100} />
+                                <Image alt="" src={Images.Profile_1} width={100} height={100} />
                             </div>
                             <div className="_text flex flex-col gap-2">
                                 <h1>João Pedro Staehler Indicatti</h1>

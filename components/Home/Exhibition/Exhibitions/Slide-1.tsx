@@ -5,6 +5,7 @@ import LayoutMain from "@/components/Layouts/LayoutMain";
 import LayoutSection from "@/components/Layouts/LayoutSection";
 import { Button } from "@/components/utils/Button";
 import { Slide } from "@/static/animations";
+import { Images } from "@/static/imgs";
 import { IconBraces, IconBrandAws, IconBrandJavascript, IconBrandNodejs, IconBrandPhp, IconBrandReact, IconBrandSass, IconBrandTailwind, IconBrandTypescript, IconBriefcase2Filled, IconCloud, IconDatabase, IconFileTypeSql, IconStarFilled } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -45,7 +46,7 @@ export default function Slider_1() {
                                     draggable={false}
                                     width={1000}
                                     height={1000}
-                                    src={`/img/profile/foto_2.jpeg`}
+                                    src={Images.Profile_1}
                                 />
                             </div>
                         </motion.div>
