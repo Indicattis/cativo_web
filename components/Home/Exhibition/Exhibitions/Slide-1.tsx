@@ -4,6 +4,7 @@ import LayoutDiv from "@/components/Layouts/LayoutDiv";
 import LayoutMain from "@/components/Layouts/LayoutMain";
 import LayoutSection from "@/components/Layouts/LayoutSection";
 import { Button } from "@/components/utils/Button";
+import { Slide } from "@/static/animations";
 import { IconBraces, IconBrandAws, IconBrandJavascript, IconBrandNodejs, IconBrandPhp, IconBrandReact, IconBrandSass, IconBrandTailwind, IconBrandTypescript, IconBriefcase2Filled, IconCloud, IconDatabase, IconFileTypeSql, IconStarFilled } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -30,19 +31,10 @@ export default function Slider_1() {
                         className={`relative w-full h-full overflow-hidden  flex justify-center items-center transition-all z-10 max-md:flex-col gap-5`}
                     >
                         <motion.div
-                            initial={{ y: 400 }}
-                            animate={{
-                                y: 0,
-                            }}
-                            transition={{
-                                y: {
-                                    duration: 0.2,
-                                    delay: 0.3,
-                                    type: "spring",
-                                    stiffness: 600,
-                                    damping: 130,
-                                },
-                            }}
+                                variants={Slide.ToDown}
+                                initial={"start"}
+                                animate={"middle"}
+                                exit={"end"} 
                             className="relative flex justify-center items-center z-20">
 
                             <div className="rounded-full bg-gradient-to-r from-contrast_color_2 to-purple max-h-56 w-56 overflow-hidden border-4 flex items-center justify-center">
@@ -67,20 +59,11 @@ export default function Slider_1() {
                         >
                             <motion.div
                                 className="flex flex-col justify-center w-full gap-3 px-3 max-md:text-center"
-                                initial={{ y: -400, opacity: 0 }}
-                                animate={{
-                                    y: 0,
-                                    opacity: 1
-                                }}
-                                transition={{
-                                    y: {
-                                        duration: 0.2,
-                                        delay: 0.3,
-                                        type: "spring",
-                                        stiffness: 600,
-                                        damping: 130,
-                                    },
-                                }}>
+                                variants={Slide.ToDown}
+                                initial={"start"}
+                                animate={"middle"}
+                                exit={"end"} 
+                                >
 
                                 <h1 className="_display_text _biggest ">
                                     Olá! Eu sou um <span className="text-neon_purple">Desenvolvedor</span>
@@ -90,20 +73,11 @@ export default function Slider_1() {
                                     Desenvolvedor Web Fullstack{" "}
                                 </p>
                                 <motion.div
-                                    initial={{ y: 400 }}
-                                    animate={{
-                                        y: 0,
-                                    }}
-                                    transition={{
-                                        y: {
-                                            duration: 0.2,
-                                            delay: 0.6,
-                                            type: "spring",
-                                            stiffness: 600,
-                                            damping: 130,
-                                        },
-                                    }}
-                                    className="w-full flex justify-start items-center max-md:justify-center gap-3  z-20"
+                                    variants={Slide.ToUp}
+                                    initial={"start"}
+                                    animate={"middle"}
+                                    exit={"end"} 
+                                    className="w-full flex justify-start items-center max-md:justify-center gap-3  z-20 max-md:flex-col"
                                 >
 
                                     <Button.Wide wide="lg" rounded="full" variant="disabled" onClick={() => window.location.href = "#showcases"}>

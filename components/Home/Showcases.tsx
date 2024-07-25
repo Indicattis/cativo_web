@@ -35,7 +35,7 @@ export default function ShowcaseComponent() {
         <Layout.Section 
         onMouseLeave={() => setHover(false)}
         onMouseEnter={() => setHover(true)}
-        id="showcases" className="relative  h-screen max-md:h-[800px]">
+        id="showcases" className="relative  h-screen">
                 <Layout.Div className=" z-50">
                     <Showcase.Root className="max-md:flex-col-reverse max-md:justify-center">
                         <Showcase.Content>

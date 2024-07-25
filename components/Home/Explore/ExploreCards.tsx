@@ -8,7 +8,7 @@ interface ExploreCardsProps {
 
 export default function ExploreCards({children}: ExploreCardsProps) {
     return (
-        <div className="grid grid-cols-3 gap-5 w-full">
+        <div className="grid grid-cols-3 w-full max-md:flex flex-col">
             {children}
         </div>
     )

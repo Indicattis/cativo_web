@@ -82,32 +82,3 @@ export default function ExhibitionSliders( {selectedItem, setSelectedItem, numOf
         </>
     )
 }
-
-
-
-
-interface ControllerProps {
-    itemID: number;
-    isSelected: boolean;
-    onClick: (itemName: number, itemRef: HTMLDivElement) => void;
-}
-
-function FaceControllers({ itemID, isSelected, onClick }: ControllerProps) {
-    const itemRef = useRef<HTMLDivElement>(null);
-
-    const handleClick = () => {
-        if (itemRef.current) {
-            onClick(itemID, itemRef.current);
-        }
-    };
-
-    return (
-        <div
-            ref={itemRef}
-            onClick={handleClick}
-            className={`cursor-pointer z-40 text-xl `}
-        >
-                <div className={`w-10 h-1 cursor-pointer rounded-full  ${isSelected ? 'bg-white' : 'bg-zinc-400'}`}></div>
-        </div>
-    );
-}

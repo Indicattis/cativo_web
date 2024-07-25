@@ -19,7 +19,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PageControllers } from "@/data/json/pageControllers";
 import { Button } from "../utils/Button";
 import { Link, Outlet } from "react-router-dom";
-import HeaderBreadCrumb from "./Breadcrumb/BreadCrumb";
+import BreadCrumbs from "./Breadcrumb/BreadCrumb";
+import DisplayText from "./DisplayText/DisplayText";
 
 export default function RootHeader() {
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -31,6 +32,7 @@ export default function RootHeader() {
     const navRef = useRef<HTMLDivElement>(null);
     const [dropdown, setDropdown] = useState<boolean>(false);
     const [pathArray, setPathArray] = useState<string[]>([]);
+    const [ displayContent, changeDisplayContent] = useState<boolean>(false)
     
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -73,6 +75,15 @@ export default function RootHeader() {
     }, []);
 
 
+    useEffect(() => {
+        // Configura um intervalo que alterna o estado a cada 5 segundos
+        const interval = setInterval(() => {
+          changeDisplayContent((prev) => !prev);
+        }, 5000);
+    
+        // Limpa o intervalo quando o componente é desmontado
+        return () => clearInterval(interval);
+      }, []);
     return (
         <motion.header
             className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${
@@ -86,7 +97,8 @@ export default function RootHeader() {
                 {/* <HeaderSearch /> */}
                 <div className="flex items-center">
                     <HeaderLogo/>
-                    <HeaderBreadCrumb itens={pathArray}/>
+                    <DisplayText isActive={!displayContent} text="Web Developer"/>
+                    <BreadCrumbs itens={pathArray} isActive={displayContent}/>
                 </div>
                 <div className="flex items-center justify-center gap-5 max-lg:hidden ">
                     {PageControllers.map((item, index) => {

@@ -9,14 +9,14 @@ import { Layout } from '../Layouts';
 import { Button } from '../utils/Button';
 import { Modal } from '../utils/Modal';
 import { getAssessments } from '@/data/services/assessments';
+import { AssessmentDTO } from '@/data/types/assessment';
 
 export default function AssessmentComponent() {
   const [itemActive, setItemActive] = useState<number>(1);
   const [scroll, setScroll] = useState<number>(530)
   const [direction, setDirection] = useState(0); // New state for direction
   const dragControls = useDragControls();
-  const [modalActive, setModalActive] = useState<boolean>(false);
-  const [assessments, setAssessments] = useState([])
+  const [assessments, setAssessments] = useState<AssessmentDTO[]>([])
   const [currentPage, setCurrentPage] = useState<number>(0);
 
 
@@ -93,7 +93,7 @@ export default function AssessmentComponent() {
             onDragEnd={handleDragEnd}
           >
             <AnimatePresence initial={false} custom={direction}>
-              {assessments.map((item: any, index: number) => (
+              {assessments.slice(0, 6).map((item: any, index: number) => (
                 <Assessment.Root
                   key={`rating-slider-card-` + index}
                   id={index}
@@ -103,13 +103,13 @@ export default function AssessmentComponent() {
                 >
                   <Assessment.User profile_mail={item.profile_mail} profile_name={item.profile_name} profile_img={item.profile_img} />
                   <Assessment.Message message={item.rating_text} />
-                  <Assessment.Rating rating={item.rating_media} />
+                  <Assessment.Rating created_at={item.createdAt} rating={item.rating_media} />
                 </Assessment.Root>
               ))}
             </AnimatePresence>
           </motion.div>
           <motion.div className='w-full flex gap-2 pt-10'>
-            {assessments.map((item: any, index: number) => {
+            {assessments.slice(0, 6).map((item: any, index: number) => {
               return (
                 <motion.div
                   key={`bar-` + item.profile_name}
@@ -122,9 +122,9 @@ export default function AssessmentComponent() {
             })}
                             </motion.div>
         </Layout.Div>
-        <Layout.Div className="max-lg:hidden block">
+        <Layout.Div className="max-lg:hidden flex flex-col gap-10">
           <motion.div
-            className={`grid grid-cols-3 gap-3 justify-center items-center h-full w-full
+            className={`grid grid-cols-3 gap-3 justify-center items-center h-full min-h-[460px] w-full
               `}
           >
             <AnimatePresence initial={false} custom={direction}>
@@ -138,12 +138,13 @@ export default function AssessmentComponent() {
                 >
                   <Assessment.User profile_mail={item.profile_mail} profile_name={item.profile_name} profile_img={item.profile_img} />
                   <Assessment.Message message={item.rating_text} />
-                  <Assessment.Rating rating={item.rating_media} />
+                  <Assessment.Rating created_at={item.createdAt} rating={item.rating_media} />
                 </Assessment.Root>
               ))}
             </AnimatePresence>
-            <Assessment.Controllers handleChangePage={setCurrentPage} length={totalPages} activePage={currentPage} />
             </motion.div>
+            
+            <Assessment.Controllers handleChangePage={setCurrentPage} length={totalPages} activePage={currentPage} />
         </Layout.Div>
         <Layout.Div className="w-full">
           <Button.Wide rounded='full' variant='purple' wide='lg' onClick={() => window.location.href = "/avaliar"}>
