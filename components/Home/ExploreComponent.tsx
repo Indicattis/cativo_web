@@ -15,7 +15,7 @@ import { IconBulb, IconCloud, IconCode, IconInputSearch } from "@tabler/icons-re
 export default function ExploreComponent() {
 
     return (
-        <Layout.Section id="captation" className="min-h-screen relative rounded-b-[600px] max-md:rounded-none">
+        <Layout.Section id="explore" className="min-h-screen relative rounded-b-[600px] max-md:rounded-none">
             <Layout.Main className="z-10">
                 <Layout.Div className=" w-full h-full overflow-hidden">
                     <Explore.Root>

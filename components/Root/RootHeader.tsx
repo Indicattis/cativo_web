@@ -2,25 +2,21 @@
 
 import { useState, useRef, useEffect } from "react";
 import {
-    IconAffiliate,
     IconBook,
     IconBrandGithub,
     IconBrandGmail,
-    IconBrandInstagram,
     IconBrandLinkedin,
     IconCaretRight,
     IconMenuDeep,
-    IconPalette,
     IconPointFilled,
     IconSearch,
 } from "@tabler/icons-react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { PageControllers } from "@/data/json/pageControllers";
-import { Button } from "../utils/Button";
-import { Link, Outlet } from "react-router-dom";
 import BreadCrumbs from "./Breadcrumb/BreadCrumb";
 import DisplayText from "./DisplayText/DisplayText";
+import { Images } from "@/static/imgs";
 
 export default function RootHeader() {
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -32,14 +28,14 @@ export default function RootHeader() {
     const navRef = useRef<HTMLDivElement>(null);
     const [dropdown, setDropdown] = useState<boolean>(false);
     const [pathArray, setPathArray] = useState<string[]>([]);
-    const [ displayContent, changeDisplayContent] = useState<boolean>(false)
-    
+    const [displayContent, changeDisplayContent] = useState<boolean>(false)
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
-          const newArray = window.location.pathname.substring(1).split('/');
-          setPathArray(newArray);
+            const newArray = window.location.pathname.substring(1).split('/');
+            setPathArray(newArray);
         }
-      }, []);
+    }, []);
 
     const handleItemClick = (itemName: string, itemRef: HTMLDivElement) => {
         setSelectedItem(itemName);
@@ -78,17 +74,16 @@ export default function RootHeader() {
     useEffect(() => {
         // Configura um intervalo que alterna o estado a cada 5 segundos
         const interval = setInterval(() => {
-          changeDisplayContent((prev) => !prev);
+            changeDisplayContent((prev) => !prev);
         }, 5000);
-    
+
         // Limpa o intervalo quando o componente é desmontado
         return () => clearInterval(interval);
-      }, []);
+    }, []);
     return (
         <motion.header
-            className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${
-                isScrolled || dropdown ? "bg-neon_purple shadow-lg top-0" : "top-5 "
-            }`}
+            className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${isScrolled || dropdown ? "bg-neon_purple shadow-lg top-0" : "top-5 "
+                }`}
         >
             <nav
                 ref={navRef}
@@ -96,9 +91,9 @@ export default function RootHeader() {
             >
                 {/* <HeaderSearch /> */}
                 <div className="flex items-center">
-                    <HeaderLogo/>
-                    <DisplayText isActive={!displayContent} text="Web Developer"/>
-                    <BreadCrumbs itens={pathArray} isActive={displayContent}/>
+                    <HeaderLogo />
+                    <DisplayText isActive={!displayContent} text="Web Developer" />
+                    <BreadCrumbs itens={pathArray} isActive={displayContent} />
                 </div>
                 <div className="flex items-center justify-center gap-5 max-lg:hidden ">
                     {PageControllers.map((item, index) => {
@@ -112,15 +107,15 @@ export default function RootHeader() {
                             />
                         );
                     })}
-                    <span><IconPointFilled width={10}/></span>
+                    <span><IconPointFilled width={10} /></span>
                     <div className="cursor-pointer hover:text-neon_purple" onClick={() => window.location.href = "mailto:joao.indicatti@outlook.com?subject=Contato"}>
-                        <IconBrandGmail width={18}/>
+                        <IconBrandGmail width={18} />
                     </div>
                     <div className="cursor-pointer hover:text-neon_purple" onClick={() => window.location.href = "https://www.linkedin.com/in/joão-pedro-indicatti-07975b265/"}>
-                        <IconBrandLinkedin width={18}/>
+                        <IconBrandLinkedin width={18} />
                     </div>
                     <div className="cursor-pointer hover:text-neon_purple" onClick={() => window.location.href = "https://github.com/Indicattis"}>
-                        <IconBrandGithub width={18}/>
+                        <IconBrandGithub width={18} />
                     </div>
                 </div>
                 <AnimatePresence>
@@ -128,7 +123,7 @@ export default function RootHeader() {
                         onClick={() => setDropdown(!dropdown)}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className={`absolute h-10 w-10 right-0 rounded-md cursor-pointer hidden max-lg:flex justify-center items-center z-[10000] text-zinc-400`}
+                        className={`absolute h-10 w-10 right-0 rounded-md cursor-pointer hidden max-lg:flex justify-center items-center`}
                     >
                         {dropdown ? (
                             <motion.div
@@ -181,49 +176,48 @@ export default function RootHeader() {
                 {dropdown && (
                     <motion.div
                         initial={{ width: 0 }}
-                        animate={{ width: "100%" }}
+                        animate={{ width: "80%" }}
                         exit={{ width: 0 }}
-                        transition={{ bounce: true }}
-                        className={`absolute text-white top-0 right-0 w-full h-screen max-w-[1080px] hidden flex-col pt-14 max-lg:flex z-[9997] `}
+                        transition={{ stiffness: 40, damping: 10 }}
+                        className={`absolute top-0 mt-14 right-0 h-screen max-w-[1080px] hidden max-lg:flex `}
                     >
-                        <AnimatePresence>
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ delay: 0.4 }}
-                                className="w-full flex flex-wrap gap-3 z-[9997] p-5 "
-                            >
-                                {PageControllers.map((item, index) => {
-                                    return (
-                                        <motion.div
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                            transition={{ delay: 0.1 }}
-                                            key={`dropdown-exhibition-` + index}
-                                            className="relative border rounded-full border-palette_gray"
-                                            onClick={() => {setDropdown(false)}}
-                                        >
-                                            <Button.Wide rounded="full" wide="lg" variant="disabled">
-                                                <a href={`#${item.url}`}><Button.Text text={item.exhibition}/></a>
-                                            </Button.Wide>
-                                            {/* <motion.div
-                                key={`neon-`+index}
-                                className={`absolute bottom-0 left-0 h-full w-full rounded z-[9998]
-                                    ${getColor(item.theme)}
-                                `}>
-
-                                </motion.div> */}
-                                        </motion.div>
-                                    );
-                                })}
-                            </motion.div>
-
-                            <motion.div
-                                className={`absolute top-0 left-0  w-full transition-all h-full bg-purple`}
-                            ></motion.div>
-                        </AnimatePresence>
+                        <div className="relative h-full w-full z-[9997] flex flex-col justify-between pb-14">
+                            <AnimatePresence>
+                                <div className=" p-5 _text font-bold">
+                                    <ul className="flex flex-col gap-3" onClick={() => setDropdown(false)}>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => {window.location.href = "#showcases"}}>Sobre</li>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => window.location.href = "#assessments"}>Avaliações</li>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => window.location.href = "#explore"}>Contratar</li>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => window.location.href = "#contact"}>Contato</li>
+                                    </ul>
+                                </div>
+                            </AnimatePresence>
+                            <div className="p-5 flex flex-col gap-5 _display_text">
+                                <div className="flex gap-3 !font-thin">
+                                    <div className="border-b flex items-center gap-1 border-contrast_color_1  text-contrast_color_1" onClick={() => window.location.href = "mailto:joao.indicatti@outlook.com?subject=Contato"}>
+                                        <IconBrandGmail  /> e-mail
+                                    </div>
+                                    <div className="border-b flex items-center gap-1 border-contrast_color_1 text-contrast_color_1" onClick={() => window.location.href = "https://www.linkedin.com/in/joão-pedro-indicatti-07975b265/"}>
+                                        <IconBrandLinkedin  /> Linkedin
+                                    </div>
+                                    <div className="border-b flex items-center gap-1 border-contrast_color_1 text-contrast_color_1" onClick={() => window.location.href = "https://github.com/Indicattis"}>
+                                        <IconBrandGithub  /> Github
+                                    </div>
+                                </div>
+                                <div className=" _display_text flex items-center gap-3">
+                                    <div className="min-w-16 h-16 rounded-full border-2 border-contrast_color_3 relative overflow-hidden">
+                                        <Image alt="" src={Images.Profile_1} width={64} height={64}/>
+                                    </div>
+                                    <div className="w-full px-3 h-14 bg-contrast_color_3 rounded-t-full rounded-r-full  flex items-center gap-3 hover:bg-neon_blue">Obrigado pela visita!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <motion.div
+                            className={`absolute top-0 right-0  w-full transition-all h-full bg-white z-50`}
+                        ></motion.div>
+                        <motion.div
+                            className={`absolute top-0 right-0  w-full transition-all h-full bg-[#0000001a] z-10`}
+                        ></motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -234,9 +228,8 @@ export default function RootHeader() {
                 transition={{
                     x: { type: "spring", stiffness: 600, damping: 50 },
                 }}
-                className={`${
-                    !dropdown ? "hidden" : "flex"
-                } fixed top-0 left-0 bg-transparent h-full w-full z-[9000]`}
+                className={`${!dropdown ? "hidden" : "flex"
+                    } fixed top-0 left-0 bg-transparent h-full w-full z-50`}
                 onClick={() => setDropdown(false)}
             ></motion.div>
         </motion.header>
@@ -264,8 +257,7 @@ function HeaderItem({ itemName, isSelected, onMouseOver, url }: ItemProps) {
             ref={itemRef}
             onMouseOver={handleClick}
             onClick={() => window.location.href = url}
-            className={`cursor-pointer _text _small text-nowrap mr-3 max-lg:hidden ${
-                isSelected ? "text-white" : "text-zinc-300 hover:text-white"}`}
+            className={`cursor-pointer _text _small text-nowrap mr-3 max-lg:hidden ${isSelected ? "text-white" : "text-zinc-300 hover:text-white"}`}
         >
             {itemName}
         </div>
