@@ -10,6 +10,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Input } from "@/components/utils/Input"
 import { handleEmailChange, handlePhoneChange } from "@/functions/mask"
+import { toast } from "react-toastify"
 
 
 
@@ -26,10 +27,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
     const [userProfileName, setUserProfileName] = useState("")
     const [userProfileMail, setUserProfileMail] = useState("")
     const [userProfilePhone, setUserProfilePhone] = useState("")
-    const [errorMessage, setErrorMessage] = useState("")
     const [mailError, setMailError] = useState("")
-    const [phoneError, setPhoneError] = useState("")
-    const [isOAuth, setOAuth] = useState<boolean>(false)
 
     const oAuthSuccess = (response: any) => {
         const decodedToken: any = jwtDecode(response.credential);
@@ -37,15 +35,16 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
         setUserProfilePic(decodedToken.picture)
         setUserProfileMail(decodedToken.email)
         setUserProfileName(decodedToken.given_name + " " + decodedToken.family_name)
-        setOAuth(true)
     }
 
     const onSubmit = () => {
-        if (mailError != "") {
-            setMailError(mailError)
+        if (userProfilePhone == "" || userProfileName == "" || userProfileMail == "") {
+            toast.error("Insira todas as informações")
+        } else if (mailError != "") {
+            toast.error(mailError);
         } else if (userProfilePhone.length < 11) {
-            setPhoneError("Número para contato inválido")
-        }else {
+            toast.error('Número para contato inválido');
+        } else {
             const clientData: ClientDTO = {
                 profile_mail: userProfileMail,
                 profile_name: userProfileName,
@@ -58,16 +57,6 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
 
     }
 
-
-    useEffect(() => {
-        if (userProfilePhone == "" || userProfileName == "" || userProfileMail == "") {
-            setErrorMessage("Insira todas as informações")
-            setOAuth(false)
-        } else {
-            setOAuth(true)
-            setErrorMessage("")
-        }
-    }, [userProfilePhone, userProfileName, userProfileMail, mailError])
 
     return (
 
@@ -92,7 +81,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
 
                     <div className="flex flex-col gap-3 w-full items-center max-w-96">
                         <Input.Root>
-                            <Input.Icon icon={<IconUserFilled/>} />
+                            <Input.Icon icon={<IconUserFilled />} />
                             <Input.Box value={userProfileName} onChange={setUserProfileName} placehoder="Nome" />
                         </Input.Root>
                         <Input.Root>
@@ -110,15 +99,15 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                                 <span className="w-full bg-purple h-1"> </span>
                             </div>
                         </div>
-                        
+
                         <GoogleOAuthProvider clientId="138480048434-is4hhc6ml8ukdk5vao2qprojdl8p3r3o.apps.googleusercontent.com">
-                                <GoogleLogin
-                                    width={384}
-                                    size="large"
-                                    text="continue_with"
-                                    theme="filled_black"
-                                    onSuccess={oAuthSuccess} />
-                            </GoogleOAuthProvider>
+                            <GoogleLogin
+                                width={384}
+                                size="large"
+                                text="continue_with"
+                                theme="filled_black"
+                                onSuccess={oAuthSuccess} />
+                        </GoogleOAuthProvider>
                     </div>
 
 
@@ -128,62 +117,7 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                             <Button.Icon icon={<IconCaretLeftFilled />} />
                             <Button.Text text="Anterior" />
                         </Button.Wide>
-                        <div className="flex gap-1">
-                        {phoneError && (
-                            
-                            <AnimatePresence>
-                                <motion.div
-                                    key={`error-box-1`}
-                                    initial={{ y: 100, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    exit={{ y: 100, opacity: 0 }}
-                                    className="_text _small items-center  bg-purple rounded overflow-hidden flex gap-1">
-                                        <div className="bg-contrast_color_2 p-3 text-white">
-                                            <IconExclamationMark width={20} className=""/>
-                                        </div>
-                                        <div className="px-3">
-                                            {phoneError}
-                                        </div>
-                                </motion.div>
-                            </AnimatePresence>
-                        )}
-                        {mailError && (
-                            <AnimatePresence>
-                                <motion.div
-                                    key={`error-box-2`}
-                                    initial={{ y: 100, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    exit={{ y: 100, opacity: 0 }}
-                                    className="_text _small items-center  bg-purple rounded overflow-hidden flex gap-1">
-                                        <div className="bg-contrast_color_2 p-3 text-white">
-                                            <IconExclamationMark width={20} className=""/>
-                                        </div>
-                                        <div className="px-3">
-                                            {mailError}
-                                        </div>
-                                </motion.div>
-                            </AnimatePresence>
-                        )}
-                        {errorMessage && (
-                        <AnimatePresence>
-                            <motion.div
-                                key={`error-box-3`}
-                                initial={{ y: 100, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                exit={{ y: 100, opacity: 0 }}
-                                className="_text _small items-center  bg-purple rounded overflow-hidden flex gap-1">
-                                
-                                        <div className="bg-contrast_color_2 p-3 text-white">
-                                            <IconExclamationMark width={20} className=""/>
-                                        </div>
-                                        <div className="px-3">
-                                        {errorMessage}
-                                        </div>
-                            </motion.div>
-                        </AnimatePresence>
-                        )}
-                        </div>
-                        <Button.Wide type="submit" rounded="full" variant="default" wide="lg" onClick={onSubmit} disabled={!isOAuth}>
+                        <Button.Wide type="submit" rounded="full" variant="default" wide="lg" onClick={onSubmit}>
                             <Button.Text text="Próximo" />
                             <Button.Icon icon={<IconCaretRightFilled />} />
                         </Button.Wide>

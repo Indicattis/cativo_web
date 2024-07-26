@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata: Metadata = {
   title: "Developer Indicatti",
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-figtree bg-palette_dark`}>{children}</body>
+      <body className={`font-figtree bg-palette_dark _text`}>{children}</body>
     </html>
   );
 }

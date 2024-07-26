@@ -28,7 +28,6 @@ export default function RootHeader() {
     const navRef = useRef<HTMLDivElement>(null);
     const [dropdown, setDropdown] = useState<boolean>(false);
     const [pathArray, setPathArray] = useState<string[]>([]);
-    const [displayContent, changeDisplayContent] = useState<boolean>(false)
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -71,15 +70,6 @@ export default function RootHeader() {
     }, []);
 
 
-    useEffect(() => {
-        // Configura um intervalo que alterna o estado a cada 5 segundos
-        const interval = setInterval(() => {
-            changeDisplayContent((prev) => !prev);
-        }, 5000);
-
-        // Limpa o intervalo quando o componente é desmontado
-        return () => clearInterval(interval);
-    }, []);
     return (
         <motion.header
             className={`fixed left-0  h-14 text-white z-[9999] w-full flex justify-center transition-all duration-300  ${isScrolled || dropdown ? "bg-neon_purple shadow-lg top-0" : "top-5 "
@@ -90,10 +80,12 @@ export default function RootHeader() {
                 className="relative flex gap-5 overflow-hidden w-full max-w-[1080px] items-center justify-between max-lg:w-[95%] z-[9999]"
             >
                 {/* <HeaderSearch /> */}
-                <div className="flex items-center">
+                    <div className="flex items-center">
                     <HeaderLogo />
-                    <DisplayText isActive={!displayContent} text="Web Developer" />
-                    <BreadCrumbs itens={pathArray} isActive={displayContent} />
+                    <div className="flex flex-col justify-center">
+                        <DisplayText isActive={true} text="Web Developer" />
+                        <BreadCrumbs itens={pathArray} isActive={isScrolled} />
+                    </div>
                 </div>
                 <div className="flex items-center justify-center gap-5 max-lg:hidden ">
                     {PageControllers.map((item, index) => {

@@ -4,32 +4,32 @@
 
 export const SlideToUp = {
     start: { 
-        y: 200,
+        y: 50,
         opacity: 0,
         transition: {
-            delay: .5,
             type: "spring",
             ease: "easeInOut",
-            damping: 30
+            stiffness: 120,
+            damping: 17
         }, },
     middle: { 
         y: 0,
         opacity: 1,
         transition: {
-            delay: .5,
             type: "spring",
             ease: "easeInOut",
-            damping: 30
+            stiffness: 170,
+            damping: 19
         },
      },
     end: {
-        y: -200,
+        y: -50,
         opacity: 0,
         transition: {
-            delay: .5,
             type: "spring",
             ease: "easeInOut",
-            damping: 30
+            stiffness: 120,
+            damping: 17
         },
     },
 };

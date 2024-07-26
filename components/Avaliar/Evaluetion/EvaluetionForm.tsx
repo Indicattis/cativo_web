@@ -7,6 +7,7 @@ import { AssessmentDTO } from "@/data/types/assessment"
 import { IconBlockquote, IconStar, IconStarFilled, IconStarHalfFilled } from "@tabler/icons-react"
 import Image from "next/image"
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 interface AssessmentFormProps {
     changeStage: (stage: number) => void
@@ -50,11 +51,11 @@ export default function EvaluetionForm({ changeStage, isActive, userData }: Asse
                 console.log(response)
                 changeStage(3)
             } catch (err: any) {
-                setErrorMessage(err.message)
+                toast.error(err.message);
             }
 
         } else {
-            setErrorMessage("Preencha todas as informações!")
+            toast.info("Preencha todas as informações!");
         }
 
     }
@@ -106,11 +107,6 @@ export default function EvaluetionForm({ changeStage, isActive, userData }: Asse
                     <Button.Text text="Voltar" />
                 </Button.Wide>
 
-                {errorMessage != "" && (
-                    <div className="w-full text-center text-neon_red _text">
-                        {errorMessage}
-                    </div>
-                )}
 
             </form>
         )

@@ -25,11 +25,11 @@ export default function BreadCrumbs({ itens, isActive }: BreadCrumbsProps) {
 
                 <motion.div
                     key={`breadcrumbs-content`}
-                    variants={Slide.ToDown}
+                    variants={Slide.ToUp}
                     initial={"start"}
                     animate={"middle"}
                     exit={"end"} 
-                    className="cursor-pointer _text px-3">
+                    className="cursor-pointer _text _small">
                     <ul className=" flex text-palette_gray items-center gap-2">
                         <div className=" flex gap-2 items-center">
                             <p className={`

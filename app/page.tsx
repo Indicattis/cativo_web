@@ -5,6 +5,7 @@ import ExploreComponent from "@/components/Home/ExploreComponent";
 import ShowcaseComponent from "@/components/Home/Showcases";
 import { Layout } from "@/components/Layouts";
 import { Root } from "@/components/Root";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   return (
@@ -21,6 +22,12 @@ export default function Home() {
         <Layout.Separator />
       </Root.Content>
       <Root.Footer />
+      <ToastContainer
+        draggable 
+        position="top-center"
+        closeOnClick
+        hideProgressBar
+        theme="dark"/>
     </Root.Body>
   );
 }

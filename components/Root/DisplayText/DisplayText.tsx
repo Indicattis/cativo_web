@@ -1,4 +1,4 @@
-import { Slide } from "@/static/animations"
+import { Fade, Slide } from "@/static/animations"
 import { AnimatePresence, motion } from "framer-motion"
 
 
@@ -15,7 +15,7 @@ export default function DisplayText({ isActive, text }: DisplayTextProps) {
             <AnimatePresence>
                 <motion.h1
                     key={`display-text`}
-                    variants={Slide.ToDown}
+                    variants={Fade.In}
                     initial={"start"}
                     animate={"middle"}
                     exit={"end"}
