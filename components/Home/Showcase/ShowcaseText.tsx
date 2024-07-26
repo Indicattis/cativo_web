@@ -1,5 +1,8 @@
 "use client"
 
+import { Modal } from "@/components/utils/Modal";
+import { useEffect, useState } from "react";
+
 
 interface ShowcaseTextProps {
     p?: string,
@@ -7,20 +10,41 @@ interface ShowcaseTextProps {
     isPoused: boolean
 }
 
-export default function ShowcaseText({ p, className }: ShowcaseTextProps) {
+export default function ShowcaseText({ p, className }: ShowcaseTextProps) { 
+    const [isMobile, setIsMobile] = useState(false);
+    const [modalActive, setModalActive] = useState(false);
+    
+    const handleResize = () => {
+    if (window.innerWidth <= 768) { // ou qualquer valor de largura que você considere como limite para mobile/tablet
+        setIsMobile(true);
+    } else {
+        setIsMobile(false);
+    }
+};
+
+useEffect(() => {
+    handleResize(); // Verifique o tamanho da tela na primeira renderização
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+}, []);
+
+    const truncatedText = isMobile && p ? (p.length > 128 ? `${p.slice(0, 128)}...` : p) : p;
     return (
         <div className={`w-full flex flex-col ${className}`}>
-            
-                {/* <span className="bg-neon_purple cursor-pointer flex rounded-full w-8 justify-center items-center h-8 text-black">
-                    {itemActive && !isPoused ? (
-                        <IconPlayerStopFilled width={20} />
-                    ) : (
-                        <IconPlayerPlayFilled width={20} />
-                    )}
-                </span> */}
-                {/* Barra de progresso */}
-                
-            <p className="_text text-white">{p}</p>
+            <p className="_text text-white">{truncatedText}
+                {isMobile && <span className="text-neon_blue font-bold" onClick={() => setModalActive(true)}> ver mais</span>}
+            </p>
+            {modalActive && (
+                <Modal.Root>
+                    <Modal.Box>
+                        <Modal.Message message={`Informações`} />
+                        <Modal.Content className="flex flex-col gap-3">
+                            {p}
+                        </Modal.Content>
+                        <Modal.Button onClick={() => setModalActive(false)} />
+                    </Modal.Box>
+                </Modal.Root>
+            )}
         </div>
     )
 }

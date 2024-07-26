@@ -5,11 +5,9 @@ import React from 'react'
 import { ContentProps } from './types'
 
 
-function ContentKnowledge({isActive}: ContentProps) {
+function ContentKnowledge() {
   return (
-    isActive && (
       <div>ContentKnowledge</div>
-    )
   )
 }
 

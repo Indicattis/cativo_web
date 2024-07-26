@@ -35,47 +35,30 @@ export default function EvaluetionSign({changeStage, isActive, setUserData}: Eva
         setUserProfileName(decodedToken.given_name + " " + decodedToken.family_name)
         setOAuthStatus(true)
         setUserData(userData)
+        changeStage(2)
     }
     return (
         isActive && (
-                <div className="flex flex-col gap-5 min-w-96">
-                    <div>
+                <div className="flex flex-col min-w-96">
+                    <div className="flex flex-col gap-1">
                         <h1 className="_display_text">E ai! O que achou?</h1>
-                        <p className="_text text-palette_gray">Mande seu feedback!</p>
+                        <p className="_text text-palette_gray">Manda seu feedback</p>
                     </div>
-                    {oAuthStatus ? (
-                        <div className="flex flex-col gap-3">
-                            <div className="flex gap-3 relative rounded bg-purple p-3 items-center">
-                                <div className="max-w-14 max-h-14 rounded-full overflow-hidden">
-                                    <Image width={200} height={200} src={userProfilePic} alt="" />
-                                </div>
-                                <div className="flex flex-col  justify-center">
-                                    <p className=" _text">{userProfileName}</p>
-                                    <p className=" _text _small">{userProfileMail}</p>
-                                </div>
-                                <div className="absolute right-5">
-                                    <Button.Wide rounded="md" variant="disabled" wide="md" type="button" onClick={() => setOAuthStatus(false)}>
-                                        <Button.Icon icon={<IconRepeat />} />
-                                    </Button.Wide>
-                                </div>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="flex items-center justify-center w-full py-5">
+                    <div className="flex flex-col gap-2  justify-center w-full py-5">
+                        <b className="_text _small">Para continuar é necessário conectar</b>
 
-                            <GoogleOAuthProvider clientId="138480048434-is4hhc6ml8ukdk5vao2qprojdl8p3r3o.apps.googleusercontent.com">
-                                <GoogleLogin
-                                    width={384}
-                                    size="large"
-                                    text="continue_with"
-                                    theme="filled_black"
-                                    onSuccess={oAuthSuccess} />
-                            </GoogleOAuthProvider>
-                        </div>
-                    )}
-                    <Button.Wide variant="default" rounded="sm" wide="lg" type="button" disabled={!oAuthStatus} onClick={() => changeStage(2)}>
-                        <Button.Text text="Continuar" />
-                    </Button.Wide>
+                        <GoogleOAuthProvider clientId="138480048434-is4hhc6ml8ukdk5vao2qprojdl8p3r3o.apps.googleusercontent.com">
+                            <GoogleLogin
+                                width={384}
+                                size="large"
+                                text="continue_with"
+                                theme="filled_black"
+                                onSuccess={oAuthSuccess} />
+                        </GoogleOAuthProvider>
+                    </div>
+                        <Button.Wide wide="lg" rounded="sm" variant="disabled" onClick={() => window.location.href = "/"}>
+                            <Button.Text text="Cancelar"/>
+                        </Button.Wide>
                 </div>
         )
                 

@@ -3,11 +3,9 @@ import { ContentProps } from './types'
 
 
 
-function ContentCareer({isActive}: ContentProps) {
+function ContentCareer() {
   return (
-    isActive && (
       <div>ContentCareer</div>
-    )
   )
 }
 

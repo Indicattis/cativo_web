@@ -4,30 +4,23 @@ import { useEffect, useState } from "react";
 import { Showcase } from "./Showcase";
 import { Showcases } from "@/data/json/showcases";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { Layout } from "../Layouts";
 import { Fade } from "@/static/animations";
-import { Content } from "./Showcase/Contents";
 import LoaderComponent from "../utils/Loader";
 
 export default function ShowcaseComponent() {
     const [activeId, setActiveId] = useState<number>(1);
-    const [currentPage, setCurrentPage] = useState<number>(0);
     const [hover, setHover] = useState<boolean>(false)
     const [progress, setProgress] = useState<number>(0);
 
     const itemsPerPage = 1;
-    const totalPages = Math.ceil(Showcases.length / itemsPerPage);
 
     const setItemActive = (id: number) => {
         if (id > Showcases.length) {
             setActiveId(1);
-            setCurrentPage(0)
         } else if (id < 1) {
             setActiveId(Showcases.length);
-            setCurrentPage(Showcases.length -1)
         } else {
-            setCurrentPage(id - 1)
             setActiveId(id);
         }
 
@@ -59,15 +52,16 @@ export default function ShowcaseComponent() {
         onMouseLeave={() => setHover(false)}
         onMouseEnter={() => setHover(true)}
         id="showcases" className="relative  h-screen">
+                <Layout.Main className="h-full">
+
                 <Layout.Div className="">
                     <Showcase.Root className="max-md:flex-col-reverse max-md:justify-center">
-                        <Showcase.Content>
-                            <Content.Career isActive={activeId == 1}/>
-                            <Content.Knowledge isActive={activeId == 2}/>
-                            <Content.ProgrammingLanguages isActive={activeId == 3}/>
-                            <Content.Motivation isActive={activeId == 4}/>
-                            <Content.Skills isActive={activeId == 5}/>
-                            {Showcases.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map((item, index) => {
+                        <Showcase.Content
+                        setSelectedItem={setActiveId} 
+                        numOfSliders={Showcases.length} 
+                        selectedItem={activeId}
+                        data={
+                            Showcases.map((item, index) => {
                                 return (
                                     <AnimatePresence
                                         key={`showcase-text-`+index}>
@@ -77,7 +71,7 @@ export default function ShowcaseComponent() {
                                             animate={"middle"}
                                             exit={"end"}
                                             key={`showcase-item-text-`+index}
-                                            className="flex relative flex-col gap-5 !z-[8888]"
+                                            className="flex relative flex-col gap-5 !z-[8888] h-full justify-center"
                                         >
                                             <Showcase.Legend legend={item.title}/>
                                             <div className="flex gap-3 h-10 items-center">
@@ -89,27 +83,30 @@ export default function ShowcaseComponent() {
                                                 isPoused={hover}
                                                 className="gap-3 text-start"
                                             />
+                                            {item.content}
                                         </motion.div>
                                         {/* <Showcase.Image url={item.url}/> */}
                                     </AnimatePresence>
                                 );
-                            })}
-                            <Showcase.Controllers length={totalPages} activePage={currentPage} />
+                            })
+                        }>
                         </Showcase.Content>
+                        <Showcase.Controllers length={Showcases.length} activePage={activeId} />
 
                     </Showcase.Root>
 
                     <div className="absolute left-0 top-0 w-full h-96 bg-gradient-to-b from-neon_purple to-transparent z-0 opacity-30"></div>
                     <div className="absolute  left-0 h-full w-[50%] bg-gradient-to-r from-black to-transparent z-0 "></div>
                     <div className="absolute  right-0 h-full w-[50%] bg-gradient-to-l from-black to-transparent z-0 "></div>
-                    <div className="absolute top-0 z-50 bg-[#0000001a]  w-full h-full flex items-center justify-center">
+                    {/* <div className="absolute top-0 z-50 bg-[#0000001a]  w-full h-full flex items-center justify-center">
                         <Showcase.Arrows 
                         isActive={hover}
                         toLeft={() => setItemActive(activeId - 1)}
                         toRight={() => setItemActive(activeId + 1)}
                         />
-                    </div>
+                    </div> */}
                 </Layout.Div>
+                </Layout.Main>
             {/* Otimize aqui */}
         </Layout.Section>
     );
