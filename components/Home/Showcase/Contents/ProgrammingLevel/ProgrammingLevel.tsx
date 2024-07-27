@@ -1,6 +1,5 @@
-import { IconStar, IconStarFilled, IconStarHalfFilled } from '@tabler/icons-react';
 import React from 'react'
-
+import { motion } from 'framer-motion'
 
 
 interface ProgrammingLevelProps {
@@ -16,11 +15,11 @@ export default function ProgrammingLevel({icon, legend, level, time}: Programmin
         const stars = [];
         for (let i = 1; i <= 10; i++) {
           if (i <= rating) {
-            stars.push(<div key={i} className="rounded-full w-full h-1 bg-gradient-to-tr from-neon_purple to-contrast_color_1"></div>);
+            stars.push(<motion.div initial={{width:0}} animate={{width:40}} transition={{delay: i*0.2}} key={i} className="rounded-full h-1 bg-gradient-to-tr from-neon_purple to-contrast_color_1"></motion.div>);
           } else if (i - rating < 1) {
-            stars.push(<div key={i} className="rounded-full w-full h-1 bg-purple"></div>);
+            stars.push(<motion.div initial={{width:0}} animate={{width:40}} transition={{delay: i*0.2}} key={i} className="rounded-full h-1 bg-purple"></motion.div>);
           } else {
-            stars.push(<div key={i} className="rounded-full w-full h-1 bg-contrast_color_2"></div>);
+            stars.push(<motion.div initial={{width:0}} animate={{width:40}} transition={{delay: i*0.2}} key={i} className="rounded-full h-1 bg-contrast_color_2"></motion.div>);
           }
         }
         return stars;
