@@ -7,6 +7,7 @@ import ShowcaseImage from "./ShowcaseImage"
 import ShowcaseLegend from "./ShowcaseLegend"
 import ShowcaseProgress from "./ShowcaseProgress"
 import ShowcaseRoot from "./ShowcaseRoot"
+import ShowcaseTag from "./ShowcaseTag"
 import ShowcaseText from "./ShowcaseText"
 
 
@@ -22,5 +23,6 @@ export const Showcase = {
     Arrows: ShowcaseArrows,
     Legend: ShowcaseLegend,
     Progress: ShowcaseProgress,
-    Button: ShowcaseButton
+    Button: ShowcaseButton,
+    Tag: ShowcaseTag
 }

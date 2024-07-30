@@ -41,8 +41,8 @@ export default function EvaluetionSign({changeStage, isActive, setUserData}: Eva
         isActive && (
                 <div className="flex flex-col min-w-96">
                     <div className="flex flex-col gap-1">
-                        <h1 className="_display_text">E ai! O que achou?</h1>
-                        <p className="_text text-palette_gray">Manda seu feedback</p>
+                        <h1 className="_display_text">E ai, o que achou?</h1>
+                        <p className="_text text-palette_gray">Mande o seu feedback!</p>
                     </div>
                     <div className="flex flex-col gap-2  justify-center w-full py-5">
                         <b className="_text _small">Para continuar é necessário conectar</b>

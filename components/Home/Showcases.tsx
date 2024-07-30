@@ -84,6 +84,14 @@ export default function ShowcaseComponent() {
                                                     isPoused={hover}
                                                     className="gap-3 text-start"
                                                 />
+                                                <div className="flex flex-wrap gap-3">
+
+                                                {item.tags.map((item, index) => {
+                                                    return (
+                                                        <Showcase.Tag key={`showcase-tag-`+index} string={item}/>
+                                                    )
+                                                })}
+                                                </div>
                                                 <div className="w-full flex items-center justify-center">
 
                                                     {item.content}
