@@ -99,7 +99,7 @@ export default function Slider_1() {
                                         <Button.Icon icon={<IconStarFilled/>}/>
                                     </Button.Wide>
                                     <Button.Wide wide="lg" rounded="full" variant="purple" onClick={() => scrollToSection("explore")}>
-                                        <Button.Text text="Contratar" />
+                                        <Button.Text text="Quero um site" />
                                         <Button.Icon icon={<IconBriefcase2Filled/>}/>
                                     </Button.Wide>
                                 </motion.div>

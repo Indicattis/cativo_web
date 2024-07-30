@@ -188,7 +188,7 @@ export default function RootHeader() {
                                     <ul className="flex flex-col gap-3" onClick={() => setDropdown(false)}>
                                         <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("showcases")}>Sobre</li>
                                         <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("assessments")}>Avaliações</li>
-                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("explore")}>Contratar</li>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("explore")}>Quero um site</li>
                                         <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("contact")}>Contato</li>
                                     </ul>
                                 </div>

@@ -13,12 +13,12 @@ function ContentProgrammingLanguages() {
   const [isMobile, setIsMobile] = useState(false);
 
   const languages: ReactNode[] = [
-    <ProgrammingLevel key={`language-item-1`} icon={<IconBrandPhp width={30} height={30} stroke={1}/>} legend='PHP' level={7} time='3 anos'/>,
-    <ProgrammingLevel key={`language-item-2`} icon={<IconBrandJavascript width={30} height={30} stroke={1}/>} legend='Javascript' level={8} time='3 anos'/>,
-    <ProgrammingLevel key={`language-item-3`} icon={<IconBrandPython width={30} height={30} stroke={1}/>} legend='Python' level={5} time='6 meses'/>,
-    <ProgrammingLevel key={`language-item-4`} icon={<IconBrandReact width={30} height={30} stroke={1}/>} legend='Reactjs' level={10} time='1 ano'/>,
-    <ProgrammingLevel key={`language-item-5`} icon={<IconBrandTypescript width={30} height={30} stroke={1}/>} legend='Typescript' level={9} time='1 ano'/>,
-    <ProgrammingLevel key={`language-item-6`} icon={<IconPlus width={30} height={30} stroke={1}/>} legend='Outras' level={6}/>
+    <ProgrammingLevel key={`language-item-1`} icon={<IconBrandPhp width={30} height={30} stroke={1}/>} legend='PHP' level={3} time='2 anos de experiência e 1 anos de prática'/>,
+    <ProgrammingLevel key={`language-item-2`} icon={<IconBrandJavascript width={30} height={30} stroke={1}/>} legend='Javascript' level={4} time='1 ano de experiência e 3 anos de prática'/>,
+    <ProgrammingLevel key={`language-item-3`} icon={<IconBrandPython width={30} height={30} stroke={1}/>} legend='Python' level={1} time='6 meses de experiência'/>,
+    <ProgrammingLevel key={`language-item-4`} icon={<IconBrandReact width={30} height={30} stroke={1}/>} legend='Reactjs' level={1} time='1 ano de prática'/>,
+    <ProgrammingLevel key={`language-item-5`} icon={<IconBrandTypescript width={30} height={30} stroke={1}/>} legend='Typescript' level={1} time='1 ano de prática'/>,
+    <ProgrammingLevel key={`language-item-6`} icon={<IconPlus width={30} height={30} stroke={1}/>} legend='Outras' level={1}/>
   ];
 
   const handleResize = () => {
