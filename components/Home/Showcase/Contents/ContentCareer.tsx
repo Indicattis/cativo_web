@@ -6,8 +6,10 @@ import { motion } from 'framer-motion'
 
 function ContentCareer() {
   return (
-      <div className='relative h-96  flex flex-col justify-center bg-black p-10 rounded-[50px] items-start max-md:w-[367px] max-md:p-0'>
-        <div className=' flex justify-start items-center gap-[44.7px] px-1 max-md:scale-50 max-md:-ml-28'>
+      <div className='relative h-96  flex flex-col justify-center bg-black p-10 rounded-[20px] items-start max-md:w-[367px] max-md:p-0'>
+        <div className='w-full flex items-center justify-center'>
+
+        <div className=' flex justify-start items-center gap-[44.7px] px-1 max-md:scale-50 max-md:-ml-14'>
 
         <div className='absolute flex items-center gap-[44.7px] px-1'>
           
@@ -106,6 +108,7 @@ function ContentCareer() {
         transition={{duration: 10}}
         className='absolute right-0 h-full w-full rounded-[50px] bg-black z-20'>
         </motion.div>
+        </div>
         </div>
       </div>
   )

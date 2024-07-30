@@ -11,7 +11,7 @@ interface RootBodyProps {
 
 export default function RootBody({children, className}: RootBodyProps) {
     return (
-        <main className={className}>
+        <main id="top" className={className}>
             {children}
         </main>
     )

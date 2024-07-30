@@ -26,7 +26,7 @@ const Showcases: ShowcaseDTO[] = [
     {
         id: 4,
         title: "Conhecimentos",
-        text: `Eu me propus a ser o melhor que eu conheço, então acumulei conhecimentos de um Web developer (e algumas outras áreas), tenho conhecimento de construção de interfaces, hidratação de cores e animações, organização de layout, construção e integração de API's com chamadas RESTFUL, e construção e administração de banco de dados relacionais. Entendo conceitos de CI/CD papelines, DevOps, Repos e pair programming. De tempo em tempo me desafiei a aprender, o que se tornou habito. `,
+        text: `Tenho conhecimento de construção de interfaces, hidratação de cores e animações, organização de layout, construção e integração de API's com chamadas RESTFUL, e construção e administração de banco de dados relacionais. Entendo conceitos de CI/CD papelines, DevOps, Repos e pair programming. De tempo em tempo me desafiei a aprender, o que se tornou habito. `,
         url: "/img/showcase/mobile.jpg",
         content: <Content.Knowledge/>
     },

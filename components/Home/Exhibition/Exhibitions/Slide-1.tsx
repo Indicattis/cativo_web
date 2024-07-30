@@ -9,6 +9,7 @@ import { Images } from "@/static/imgs";
 import { IconBraces, IconBrandAws, IconBrandJavascript, IconBrandNodejs, IconBrandPhp, IconBrandReact, IconBrandSass, IconBrandTailwind, IconBrandTypescript, IconBriefcase2Filled, IconCloud, IconDatabase, IconFileTypeSql, IconStarFilled } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { scroller } from "react-scroll";
 
 export default function Slider_1() {
 
@@ -21,6 +22,14 @@ export default function Slider_1() {
         y: [680, -680],
         opacity: [0, 1],
     }
+
+    const scrollToSection = (sectionId: string) => {
+        scroller.scrollTo(sectionId, {
+          duration: 800,
+          delay: 0,
+          smooth: 'easeInOutQuart',
+        });
+      };
     return (
         <LayoutSection className="h-full w-full bg-black">
             <LayoutMain className="h-full w-full !px-0">
@@ -81,15 +90,15 @@ export default function Slider_1() {
                                     className="w-full flex justify-start items-center max-md:justify-center gap-3  z-20 max-md:flex-col"
                                 >
 
-                                    <Button.Wide wide="lg" rounded="full" variant="disabled" onClick={() => window.location.href = "#showcases"}>
+                                    <Button.Wide wide="lg" rounded="full" variant="disabled"  onClick={() => scrollToSection("showcases")}>
                                         <Button.Text text="Saber mais" />
                                         <Button.Icon icon={<IconBraces/>}/>
                                     </Button.Wide>
-                                    <Button.Wide wide="lg" rounded="full" variant="disabled" onClick={() => window.location.href = "#assessments"}>
+                                    <Button.Wide wide="lg" rounded="full" variant="disabled" onClick={() => scrollToSection("assessments")}>
                                         <Button.Text text="Avaliações" />
                                         <Button.Icon icon={<IconStarFilled/>}/>
                                     </Button.Wide>
-                                    <Button.Wide wide="lg" rounded="full" variant="purple" onClick={() => window.location.href = "#captation"}>
+                                    <Button.Wide wide="lg" rounded="full" variant="purple" onClick={() => scrollToSection("explore")}>
                                         <Button.Text text="Contratar" />
                                         <Button.Icon icon={<IconBriefcase2Filled/>}/>
                                     </Button.Wide>

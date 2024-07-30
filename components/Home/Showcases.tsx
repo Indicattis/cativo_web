@@ -48,48 +48,52 @@ export default function ShowcaseComponent() {
     }, [hover, activeId, progress]);
 
     return (
-        <Layout.Section 
-        onMouseLeave={() => setHover(false)}
-        onMouseEnter={() => setHover(true)}
-        id="showcases" className="relative  h-screen">
-                <Layout.Main className="h-full">
+        <Layout.Section
+            onMouseLeave={() => setHover(false)}
+            onMouseEnter={() => setHover(true)}
+            id="showcases" className="relative  h-screen">
+            <Layout.Main className="h-full">
 
                 <Layout.Div className="">
                     <Showcase.Root className="max-md:flex-col-reverse max-md:justify-center">
                         <Showcase.Content
-                        setSelectedItem={setActiveId} 
-                        numOfSliders={Showcases.length} 
-                        selectedItem={activeId}
-                        data={
-                            Showcases.map((item, index) => {
-                                return (
-                                    <AnimatePresence
-                                        key={`showcase-text-`+index}>
-                                        <motion.div
-                                            variants={Fade.In}
-                                            initial={"start"}
-                                            animate={"middle"}
-                                            exit={"end"}
-                                            key={`showcase-item-text-`+index}
-                                            className="flex relative flex-col gap-5 !z-[8888] h-full justify-center"
-                                        >
-                                            <Showcase.Legend legend={item.title}/>
-                                            <div className="flex gap-3 h-10 items-center">
-                                                <LoaderComponent/>
-                                                <Showcase.Progress  progress={progress}/>
-                                            </div>
-                                            <Showcase.Text
-                                                p={item.text}
-                                                isPoused={hover}
-                                                className="gap-3 text-start"
-                                            />
-                                            {item.content}
-                                        </motion.div>
-                                        {/* <Showcase.Image url={item.url}/> */}
-                                    </AnimatePresence>
-                                );
-                            })
-                        }>
+                            setSelectedItem={setActiveId}
+                            numOfSliders={Showcases.length}
+                            selectedItem={activeId}
+                            data={
+                                Showcases.map((item, index) => {
+                                    return (
+                                        <AnimatePresence
+                                            key={`showcase-text-` + index}>
+                                            <motion.div
+                                                variants={Fade.In}
+                                                initial={"start"}
+                                                animate={"middle"}
+                                                exit={"end"}
+                                                key={`showcase-item-text-` + index}
+                                                className="flex relative flex-col gap-10 !z-[8888] h-full justify-around"
+                                            >
+                                                <div className="h-10 flex items-center gap-3">
+                                                    <LoaderComponent isPaused={hover} />
+                                                    <h1 className=" _display_text text-palette_gray">Sobre</h1>
+                                                    <Showcase.Progress progress={progress} />
+                                                </div>
+                                                <Showcase.Legend legend={item.title} />
+                                                <Showcase.Text
+                                                    p={item.text}
+                                                    isPoused={hover}
+                                                    className="gap-3 text-start"
+                                                />
+                                                <div className="w-full flex items-center justify-center">
+
+                                                    {item.content}
+                                                </div>
+                                            </motion.div>
+                                            {/* <Showcase.Image url={item.url}/> */}
+                                        </AnimatePresence>
+                                    );
+                                })
+                            }>
                         </Showcase.Content>
                         <Showcase.Controllers length={Showcases.length} activePage={activeId} />
 
@@ -106,7 +110,7 @@ export default function ShowcaseComponent() {
                         />
                     </div> */}
                 </Layout.Div>
-                </Layout.Main>
+            </Layout.Main>
             {/* Otimize aqui */}
         </Layout.Section>
     );

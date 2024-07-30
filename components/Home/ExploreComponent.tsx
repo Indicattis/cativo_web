@@ -24,18 +24,18 @@ export default function ExploreComponent() {
                             
                             <Card.Root>
                                 {/* <Card.Image url="/img/profile/foto_2.jpeg"/> */}
-                                <Card.Icon icon={<IconInputSearch width={50} height={50} stroke={1}/>}/>
-                                <Card.Text text={`Explore`} sub_text="Descubra novas possibilidades e soluções inovadoras para o seu site."/>
+                                <Card.Icon icon={<IconBulb width={50} height={50} stroke={1}/>}/>
+                                <Card.Text text={`Explore`} sub_text="Adquira referências que atendam aos seus requisitos e entre em contato para descrever sua ideia."/>
                             </Card.Root>
                             <Card.Root>
                                 {/* <Card.Image url="/img/profile/foto_2.jpeg"/> */}
-                                <Card.Icon icon={<IconBulb width={50} height={50} stroke={1}/>}/>
-                                <Card.Text text={`Imagine`} sub_text="Transforme suas ideias em visões claras e impactantes."/>
+                                <Card.Icon icon={<IconInputSearch width={50} height={50} stroke={1}/>}/>
+                                <Card.Text text={`Visualize`} sub_text="Veja como seu projeto pode ser em mockups e pré-visualizações profissionais."/>
                             </Card.Root>
                             <Card.Root>
                                 {/* <Card.Image url="/img/profile/foto_2.jpeg"/> */}
                                 <Card.Icon icon={<IconCode width={50} height={50} stroke={1}/>}/>
-                                <Card.Text text={`Crie`} sub_text="Coloque sua visão em prática com design e funcionalidade excepcionais."/>
+                                <Card.Text text={`Crie`} sub_text="Projeção em prática! Seu aplicativo será construído e entregue com prazos bem definidos."/>
                             </Card.Root>
                         </Explore.Cards>
                         <Explore.Button/>

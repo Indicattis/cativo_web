@@ -31,7 +31,7 @@ useEffect(() => {
     const truncatedText = isMobile && p ? (p.length > 128 ? `${p.slice(0, 128)}...` : p) : p;
     return (
         <div className={`w-full flex flex-col ${className}`}>
-            <p className="_text text-white">{truncatedText}
+            <p className="_text text-palette_gray">{truncatedText}
                 {isMobile && <span className="text-neon_blue font-bold" onClick={() => setModalActive(true)}> ver mais</span>}
             </p>
             {modalActive && (

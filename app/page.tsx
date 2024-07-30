@@ -21,6 +21,7 @@ export default function Home() {
         <ContactComponent />
         <Layout.Separator />
       </Root.Content>
+      <Root.Controller/>
       <Root.Footer />
       <ToastContainer
         draggable 

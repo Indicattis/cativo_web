@@ -1,5 +1,6 @@
 
 import ShowcaseArrows from "./ShowcaseArrows"
+import ShowcaseButton from "./ShowcaseButton"
 import ShowcaseContent from "./ShowcaseContent"
 import ShowcaseControllers from "./ShowcaseControllers"
 import ShowcaseImage from "./ShowcaseImage"
@@ -20,5 +21,6 @@ export const Showcase = {
     Controllers: ShowcaseControllers,
     Arrows: ShowcaseArrows,
     Legend: ShowcaseLegend,
-    Progress: ShowcaseProgress
+    Progress: ShowcaseProgress,
+    Button: ShowcaseButton
 }

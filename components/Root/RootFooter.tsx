@@ -7,6 +7,7 @@ import { Layout } from "../Layouts";
 import { Modal } from "../utils/Modal";
 import { useState } from "react";
 import { Images } from "@/static/imgs";
+import { scroller } from "react-scroll";
 
 export default function RootFooter() {
     const [modalActive, setModalActive] = useState<boolean>(false);
@@ -16,6 +17,14 @@ export default function RootFooter() {
         setModalContent(content);
         setModalActive(true);
     };
+
+    const scrollToSection = (sectionId: string) => {
+        scroller.scrollTo(sectionId, {
+          duration: 800,
+          delay: 0,
+          smooth: 'easeInOutQuart',
+        });
+      };
 
     return (
         <footer className="bg-black w-full">
@@ -36,10 +45,10 @@ export default function RootFooter() {
                         <div className="flex flex-col gap-3">
                             <h1 className="_text">Links</h1>
                             <div className="flex gap-3">
-                                <Button.Wide rounded="sm" variant="blue" wide="md" onClick={() => window.location.href = "https://www.linkedin.com/in/joão-pedro-criador desta pagina-07975b265/"}>
+                                <Button.Wide rounded="sm" variant="black" wide="md" onClick={() => window.location.href = "https://www.linkedin.com/in/joão-pedro-indicatti-07975b265/"}>
                                     <Button.Icon icon={<IconBrandLinkedin />} />
                                 </Button.Wide>
-                                <Button.Wide rounded="sm" variant="disabled" wide="md" onClick={() => window.location.href = "https://github.com/criador desta paginas"}>
+                                <Button.Wide rounded="sm" variant="black" wide="md" onClick={() => window.location.href = "https://github.com/Indicattis"}>
                                     <Button.Icon icon={<IconBrandGithub />} />
                                 </Button.Wide>
                             </div>
@@ -55,11 +64,6 @@ export default function RootFooter() {
                                 <h1>João Pedro Staehler criador desta pagina</h1>
                                 <p className="_text _small text-palette_gray">2024, inc</p>
                             </div>
-                        </div>
-                        <div className="flex items-center gap-5 _text">
-                            <Button.Wide rounded="sm" variant="default" wide="md" onClick={() => window.location.href = "#exhibition"}>
-                                <Button.Icon icon={<IconCaretUpFilled />} />
-                            </Button.Wide>
                         </div>
                     </Layout.Div>
                     
@@ -138,8 +142,8 @@ export default function RootFooter() {
                             {modalContent === 'contact' && (
                                 <div className="_text">
                                     <div className="_text  flex flex-col gap-3">
-                                        <div className="font-bold">Email: <a href="mailto:joao.criador desta pagina@outlook.com?subject=Contato" className="font-normal text-neon_blue">joao.criador desta pagina@outlook.com</a></div>
-                                        <div className="font-bold">Linkedin: <a href="https://www.linkedin.com/in/joão-pedro-criador desta pagina-07975b265/" className="font-normal text-neon_blue">Linkedin</a></div>
+                                        <div className="font-bold">Email: <a href="mailto:joao.indicatti@outlook.com?subject=Contato" className="font-normal text-neon_blue">joao.indicatti@outlook.com</a></div>
+                                        <div className="font-bold">Linkedin: <a href="https://www.linkedin.com/in/joão-pedro-indicatti-07975b265/" className="font-normal text-neon_blue">Linkedin</a></div>
                                     </div>
                                 </div>
                             )}
