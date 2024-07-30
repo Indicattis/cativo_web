@@ -17,7 +17,7 @@ import { PageControllers } from "@/data/json/pageControllers";
 import BreadCrumbs from "./Breadcrumb/BreadCrumb";
 import DisplayText from "./DisplayText/DisplayText";
 import { Images } from "@/static/imgs";
-import SmoothScroll from "@/functions/scroll";
+import { scroller } from "react-scroll";
 
 export default function RootHeader() {
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -69,6 +69,14 @@ export default function RootHeader() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    const scrollToSection = (sectionId: string) => {
+        scroller.scrollTo(sectionId, {
+          duration: 800,
+          delay: 0,
+          smooth: 'easeInOutQuart',
+        });
+      };
 
 
     return (
@@ -178,10 +186,10 @@ export default function RootHeader() {
                             <AnimatePresence>
                                 <div className=" p-5 _text font-bold">
                                     <ul className="flex flex-col gap-3" onClick={() => setDropdown(false)}>
-                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => <SmoothScroll targetId="showcases"/>}>Sobre</li>
-                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => window.location.href = "#assessments"}>Avaliações</li>
-                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => window.location.href = "#explore"}>Contratar</li>
-                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => window.location.href = "#contact"}>Contato</li>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("showcases")}>Sobre</li>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("assessments")}>Avaliações</li>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("explore")}>Contratar</li>
+                                        <li className="w-full px-3 h-14 bg-neon_purple rounded  flex items-center gap-3 hover:bg-neon_blue" onClick={() => scrollToSection("contact")}>Contato</li>
                                     </ul>
                                 </div>
                             </AnimatePresence>
