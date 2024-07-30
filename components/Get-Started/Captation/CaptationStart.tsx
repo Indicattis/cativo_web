@@ -32,7 +32,7 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                         damping: 50
                     }} className="flex flex-col justify-between items-start gap-5 h-full top-0">
 
-                    <div className="flex flex-col gap-2 w-full items-center">
+                    <div className="flex flex-col gap-2 w-full">
                         <h1 className="_display_text">Vamos la!</h1>
                         <p className="_text text-palette_gray">Selecione a categoria que mais se encaixa na sua ideia!</p>
                     </div>
@@ -47,7 +47,7 @@ export default function CaptationStart({ setStage, setPlan, isActive }: Captatio
                             onClick={() => setModalActive(true)}
                             className="cursor-pointer _text _small text-contrast_color_3 border-b border-contrast_color_3">Como funcionam os planos?</div>
                         <Button.Wide rounded="full" variant="default" wide="lg" onClick={() => { setPlan(planChoice), setStage(1) }}>
-                            <Button.Text text="Começar!" />
+                            <Button.Text text="Próximo!" />
                             <Button.Icon icon={<IconCaretRightFilled />} />
                         </Button.Wide>
                     </div>

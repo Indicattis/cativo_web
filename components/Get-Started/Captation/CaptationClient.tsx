@@ -74,12 +74,12 @@ export default function CaptationClient({ isActive, setClient, setStage }: Capta
                         damping: 50
                     }} className="relative flex flex-col justify-between items-center gap-5  h-full top-0">
 
-                    <div className="flex flex-col gap-2 text-center">
+                    <div className="flex flex-col gap-2 w-full">
                         <h1 className="_display_text">Agora sobre você!</h1>
                         <p className="_text text-palette_gray">Informe seus dados para contato!</p>
                     </div>
 
-                    <div className="flex flex-col gap-3 w-full items-center max-w-96">
+                    <div className="flex flex-col gap-3 w-full max-w-96">
                         <Input.Root>
                             <Input.Icon icon={<IconUserFilled />} />
                             <Input.Box value={userProfileName} onChange={setUserProfileName} placehoder="Nome" />

@@ -5,7 +5,7 @@ const Showcases: ShowcaseDTO[] = [
     {
         id: 1,
         title: "Carreira",
-        text: `Meus estudos iniciaram em 2014 quando ganhei meu primeiro computador, o que me abriu portas para conhecer o mundo da tecnologia e informação. Logo me matriculei no curso técnico e me especializei profissionalmente na área, isso me possibilitou conseguir minha primeira oportunidade profissional. Faço Bacharel em Ciências da Computação e sigo meus estudos no dia-a-dia para evoluir cada vez mais na área do desenvolvimento.`,
+        text: `Meus estudos iniciaram em 2014 quando ganhei meu primeiro computador, o que me abriu portas para conhecer o mundo da tecnologia da informação. Logo me matriculei no curso técnico e me especializei profissionalmente na área, isso me possibilitou conseguir minha primeira oportunidade profissional. Faço Bacharel em Ciências da Computação e sigo meus estudos no dia-a-dia para evoluir cada vez mais na área do desenvolvimento.`,
         tags: ["evolução", "adacêmico", "estudos", "formação"],
         url: "/img/showcase/habilidades.png",
         content: <Content.Career/> 

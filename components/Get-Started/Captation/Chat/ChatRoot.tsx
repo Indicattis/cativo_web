@@ -12,7 +12,7 @@ interface ChatRootProps {
 export default function ChatRoot ({children}: ChatRootProps) {
     return (
         
-        <div className="flex flex-col gap-6 w-full justify-end h-full">
+        <div className="relative flex flex-col gap-6 w-[367px] min-h-[420px] bg-contrast_color_2 p-3 rounded-lg justify-end h-full pt-20">
             {children}
         </div>
     )

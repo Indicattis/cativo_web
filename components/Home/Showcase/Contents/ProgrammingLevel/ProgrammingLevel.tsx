@@ -15,7 +15,7 @@ export default function ProgrammingLevel({icon, legend, level, time}: Programmin
         const stars = [];
         for (let i = 1; i <= 10; i++) {
           if (i <= rating) {
-            stars.push(<motion.div initial={{width:0}} animate={{width:40}} transition={{delay: i*0.2}} key={i} className="rounded-full h-1 bg-gradient-to-tr from-neon_purple to-contrast_color_1"></motion.div>);
+            stars.push(<motion.div initial={{width:0}} animate={{width:40}} transition={{delay: i*0.2}} key={i} className="rounded-full h-1 bg-neon_purple"></motion.div>);
           } else if (i - rating < 1) {
             stars.push(<motion.div initial={{width:0}} animate={{width:40}} transition={{delay: i*0.2}} key={i} className="rounded-full h-1 bg-purple"></motion.div>);
           } else {

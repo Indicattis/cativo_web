@@ -11,7 +11,7 @@ interface ShowcaseRootProps {
 
 export default function ShowcaseRoot({children, className}: ShowcaseRootProps) {
     return (
-        <div className={"h-full w-full flex relative justify-center items-center gap-5 "+ className}>
+        <div className={"h-full w-full flex relative "+ className}>
             {children}
         </div>
     )

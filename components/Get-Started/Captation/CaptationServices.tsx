@@ -38,7 +38,7 @@ export default function CaptationServices({ setProjectServices, isActive, setSta
                         damping: 50
                     }} className="flex flex-col gap-5 w-full justify-between h-full">
                     <div>
-                        <div className="flex flex-col gap-2 w-full items-center">
+                        <div className="flex flex-col gap-2 w-full">
                             <h1 className="_display_text">Qual o intuito do seu projeto?</h1>
                             <p className="_text text-palette_gray">Selecione as categorias que melhor representam a sua finalidade.</p>
                         </div>

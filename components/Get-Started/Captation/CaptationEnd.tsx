@@ -20,8 +20,7 @@ export default function CaptationEnd({ isActive, setStage, data, client }: Capta
 
     const startChatWhatsapp = () => {
         const services = data?.projectServices.map(str => str.toLowerCase());
-        const description = (data?.projectDescription)?.toLowerCase
-        window.location.href = `https://wa.me/5554996598024?text=Olá!%20quero%20saber%20mais%20sobre%20o%20desenvolvimento%20de%20um%20projeto!%20Quero%20algo%20que%20tenha%20${services}.%20Minha%20ideia%20é%20${description}.`
+        window.location.href = `https://wa.me/5554996598024?text=Olá!%20quero%20saber%20mais%20sobre%20o%20desenvolvimento%20de%20um%20projeto!%20Quero%20algo%20que%20tenha%20${services}.`
     }
 
     return (
@@ -37,8 +36,8 @@ export default function CaptationEnd({ isActive, setStage, data, client }: Capta
                         type: "spring",
                         stiffness: 400,
                         damping: 50
-                    }} className="flex flex-col justify-between items-start gap-5 h-full top-0">
-                    <div className="flex flex-col gap-2 w-full items-center">
+                    }} className="flex flex-col justify-between items-center gap-5 h-full top-0">
+                    <div className="flex flex-col gap-2 w-full">
                         <h1 className="_display_text">Quase lá!</h1>
                         <p className="_text text-palette_gray">Confira se todas as informações estão corretas</p>
                     </div>
@@ -55,6 +54,7 @@ export default function CaptationEnd({ isActive, setStage, data, client }: Capta
                     </div> */}
 
                     <Chat.Root>
+                        <Chat.Header/>
                         <Chat.Message delay={2} side="right" text={`Olá! Eu gostaria de saber mais sobre o desenvolvimento de um projeto! `} />
                         <Chat.Message delay={6} side="right" text={
                             <span>

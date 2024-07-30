@@ -1,3 +1,4 @@
+import ChatHeader from "./ChatHeader";
 import ChatMessage from "./ChatMessage";
 import ChatRoot from "./ChatRoot";
 
@@ -8,5 +9,6 @@ import ChatRoot from "./ChatRoot";
 
 export const Chat = {
 Root: ChatRoot,
-Message: ChatMessage
+Message: ChatMessage,
+Header: ChatHeader
 }
