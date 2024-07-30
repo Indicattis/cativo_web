@@ -89,7 +89,7 @@ export default function ShowcaseContent({ data, selectedItem, setSelectedItem, n
                                 dragControls={dragControls}
                                 dragConstraints={{ left: 0, right: 0 }}
                                 onDragEnd={handleDragEnd}
-                                className={`absolute top-0 left-0 w-full h-full flex items-center justify-center`}
+                                className={`absolute top-0 left-0 w-full h-screen flex items-center justify-center`}
                             >
                                 {/* <Image className="w-full h-full object-cover" priority draggable={false} alt="" src={item.url} width={3000} height={3000}/> */}
 
